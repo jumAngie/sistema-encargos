@@ -1,1 +1,6 @@
 -- BD ARTÍCULOS Y ENCARGOS
+CREATE DATABASE BD_Articulos
+GO
+USE BD_Articulos
+GO
+
