@@ -49,6 +49,7 @@ CREATE TABLE tbUsuarios(
 
 
 
+
 CREATE TABLE tbDepartamentos(
 	depto_ID			INT IDENTITY(1,1) NOT NULL,
 	depto_Descripcion	NVARCHAR(255) NOT NULL,
