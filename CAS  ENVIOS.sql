@@ -35,14 +35,14 @@ CREATE TABLE tbUsuarios(
 	usu_ID				INT IDENTITY(1,1) PRIMARY KEY,
 	usu_Usuario			NVARCHAR(200) NOT NULL, 
 	emp_Id				INT,
-	rol_ID				INT NOT NULL,
+	rol_ID				INT,
 	usu_Clave			NVARCHAR(MAX) NOT NULL,
 	usu_UsuarioCreador	INT,
 	usu_FechaCreacion	DATE NOT NULL,
 	usu_UsuarioMod		INT,
 	usu_FechaMod		DATE,
 	usu_Estado			BIT NOT NULL,
-	usu_EsAdmin			BIT NOT NULL,
+	usu_EsAdmin			BIT NOT  NULL,
 
 	CONSTRAINT FK_tbUsuarios_tbRoles FOREIGN KEY (rol_ID) REFERENCES  tblRoles (rol_ID)
 );
