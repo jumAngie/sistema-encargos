@@ -33,7 +33,6 @@ CREATE TABLE tblRolPantallas
 
 CREATE TABLE tbUsuarios(
 	usu_ID				INT IDENTITY(1,1) PRIMARY KEY,
-	usu_Nombre			NVARCHAR(250) NOT NULL,
 	usu_Usuario			NVARCHAR(200) NOT NULL,
 	emp_Id				INT,
 	rol_ID				INT NOT NULL,
