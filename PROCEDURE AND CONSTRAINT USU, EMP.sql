@@ -653,3 +653,64 @@ ADD CONSTRAINT FK_tbEmpleados_UsuModif FOREIGN KEY (emp_UsuModif) REFERENCES tbU
 
 
 
+---------------------------------------------------------------------------------
+
+INSERT INTO [dbo].[tblPantallas]
+VALUES ('Usuarios');
+INSERT INTO [dbo].[tblPantallas]
+VALUES ('Articulos');
+INSERT INTO [dbo].[tblPantallas]
+VALUES ('Cargos');
+INSERT INTO [dbo].[tblPantallas]
+VALUES ('Ciudades');
+INSERT INTO [dbo].[tblPantallas]
+VALUES ('Departamentos');
+INSERT INTO [dbo].[tblPantallas]
+VALUES ('Clientes');
+INSERT INTO [dbo].[tblPantallas]
+VALUES ('Direcciones');
+INSERT INTO [dbo].[tblPantallas]
+VALUES ('Empleados');
+INSERT INTO [dbo].[tblPantallas]
+VALUES ('EstadosCiviles');
+INSERT INTO [dbo].[tblPantallas]
+VALUES ('Fabricas');
+INSERT INTO [dbo].[tblPantallas]
+VALUES ('Pedidos');
+INSERT INTO [dbo].[tblPantallas]
+VALUES ('PedidosDetalles');
+INSERT INTO [dbo].[tblPantallas]
+VALUES ('Principal');
+
+
+
+
+
+INSERT INTO [dbo].[tblRolPantallas]
+VALUES (1,1);
+INSERT INTO [dbo].[tblRolPantallas]
+VALUES (1,2);
+INSERT INTO [dbo].[tblRolPantallas]
+VALUES (1,3);
+INSERT INTO [dbo].[tblRolPantallas]
+VALUES (1,4);
+INSERT INTO [dbo].[tblRolPantallas]
+VALUES (1,5);
+INSERT INTO [dbo].[tblRolPantallas]
+VALUES (1,6);
+INSERT INTO [dbo].[tblRolPantallas]
+VALUES (1,7);
+INSERT INTO [dbo].[tblRolPantallas]
+VALUES (1,8);
+INSERT INTO [dbo].[tblRolPantallas]
+VALUES (1,9);
+INSERT INTO [dbo].[tblRolPantallas]
+VALUES (1,10);
+INSERT INTO [dbo].[tblRolPantallas]
+VALUES (1,11);
+INSERT INTO [dbo].[tblRolPantallas]
+VALUES (1,12);
+INSERT INTO [dbo].[tblRolPantallas]
+VALUES (2,13);
+
+
