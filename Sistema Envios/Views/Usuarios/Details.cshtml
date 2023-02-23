@@ -1,0 +1,99 @@
+﻿@model Sistema_Envios.Models.tbUsuarios
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbUsuarios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.usu_Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usu_Usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emp_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emp_Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usu_Clave)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usu_Clave)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usu_UsuarioCreador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usu_UsuarioCreador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usu_FechaCreacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usu_FechaCreacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usu_UsuarioMod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usu_UsuarioMod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usu_FechaMod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usu_FechaMod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usu_Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usu_Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usu_EsAdmin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usu_EsAdmin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblRoles.rol_Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblRoles.rol_Descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.usu_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
