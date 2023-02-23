@@ -111,3 +111,53 @@ VALUES	(@art_Descripcion,
 		 NULL,
 		 1)
 END
+
+---------------------------------------- CLIENTES ----------------------------------------------
+go
+CREATE OR ALTER PROCEDURE UDP_InsertClientes
+	@client_Nombre			NVARCHAR (250), 
+	@client_Identidad		NVARCHAR(30), 
+	@client_EstadoCivil		CHAR(1), 
+	@client_Sexo			CHAR(1), 
+	@client_Telefono		NVARCHAR(50), 
+	@client_Saldo			NVARCHAR(100), 
+	@client_LimiteCredito	NVARCHAR(100), 
+	@client_Descuento		NVARCHAR(100), 
+	@client_UsuarioCreador	INT
+AS
+BEGIN
+	INSERT INTO tbClientes (client_Nombre, 
+							client_Identidad, 
+							client_EstadoCivil, 
+							client_Sexo, 
+							client_Telefono, 
+							client_Saldo, 
+							client_LimiteCredito, 
+							client_Descuento, 
+							client_UsuarioCreador, 
+							client_FechaCreacion, 
+							client_UsuarioMod, 
+							client_FechaMod, 
+							client_Estado)
+	VALUES					(@client_Nombre, 
+							 @client_Identidad, 
+							 @client_EstadoCivil, 
+							 @client_Sexo, 
+							 @client_Telefono, 
+							 @client_Saldo, 
+							 @client_LimiteCredito, 
+							 @client_Descuento, 
+							 @client_UsuarioCreador, 
+							 GETDATE(), 
+							 NULL, 
+							 NULL, 
+							 1)
+END
+
+--- inserts de clientes
+EXEC UDP_InsertClientes 'Josefina Bustillo', '0902-2002-002892','S','F','33456790','120000.90', '10000', '0.5', 1
+EXEC UDP_InsertClientes 'Lola Hernandez',	 '0902-2003-002892','S','F','33456790','120000.90', '10000', '0.5', 1
+EXEC UDP_InsertClientes 'Melissa Melgar',	 '0902-2006-002892','C','F','33456790','120000.90', '10000', '0.5', 1
+EXEC UDP_InsertClientes 'Joel Dominguez',	 '0902-1998-002892','S','M','33456790','120000.90', '10000', '0.5', 1
+EXEC UDP_InsertClientes 'Luis Hernandez',	 '0902-2001-001892','C','M','33456790','120000.90', '10000', '0.5', 1
+EXEC UDP_InsertClientes 'Kevin Valladares',	 '0902-1989-002892','C','M','33456790','120000.90', '10000', '0.5', 1
