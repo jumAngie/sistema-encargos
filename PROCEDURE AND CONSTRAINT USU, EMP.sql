@@ -77,6 +77,17 @@ EXEC UDP_USUARIOS_INSERT 'Emil', 7,null,'JsJs',1,1
 EXEC UDP_USUARIOS_INSERT 'XXX', 8,null,'XxXxX',1,1
 
 
+UPDATE [dbo].[tbUsuarios] SET [usu_EsAdmin] = 0,[rol_ID] = 2 WHERE [usu_ID] = 4
+UPDATE [dbo].[tbUsuarios] SET [usu_EsAdmin] = 0,[rol_ID] = 2 WHERE [usu_ID] = 5
+UPDATE [dbo].[tbUsuarios] SET [usu_EsAdmin] = 0,[rol_ID] = 2 WHERE [usu_ID] = 6
+UPDATE [dbo].[tbUsuarios] SET [usu_EsAdmin] = 0,[rol_ID] = 2 WHERE [usu_ID] = 7
+
+UPDATE [dbo].[tbUsuarios] SET [rol_ID] = 1 WHERE [usu_ID] = 1
+UPDATE [dbo].[tbUsuarios] SET [rol_ID] = 1 WHERE [usu_ID] = 2
+UPDATE [dbo].[tbUsuarios] SET [rol_ID] = 1 WHERE [usu_ID] = 3
+UPDATE [dbo].[tbUsuarios] SET [rol_ID] = 1 WHERE [usu_ID] = 8
+
+
 
 GO
 
