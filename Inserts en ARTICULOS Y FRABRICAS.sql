@@ -1,3 +1,5 @@
+---------------------------------------- FABRICA----------------------------------------------
+
 INSERT INTO tbFabricas	(fab_Descripcion, fab_Telefono, fab_UsuarioCreador, fab_FechaCreacion, fab_UsuarioMod, fab_FechaMod, fab_Estado)
 VALUES					('Planta manufacturera',		'80902090', 1, '02-02-2023', NULL, NULL, 1 ),
 						('Industria mundial',			'99789045', 1, '02-02-2023', NULL, NULL, 1 ),
@@ -11,6 +13,32 @@ VALUES					('Planta manufacturera',		'80902090', 1, '02-02-2023', NULL, NULL, 1 
 						('Electronic Bike Co.',			'33433380', 1, '02-02-2023', NULL, NULL, 1 ),
 						('Business Equipment Center',	'88488383', 1, '02-02-2023', NULL, NULL, 1 ),
 						('Touring Equipment Center',	'33488384', 1, '02-02-2023', NULL, NULL, 1 )
+---------------------------------------- UDP_DE FABRICA (INSERT) ----------------------------------------
+GO
+CREATE OR ALTER PROCEDURE UDP_InsertFabrica
+		@fab_Descripcion		NVARCHAR(200), 
+		@fab_Telefono			NVARCHAR(250), 
+		@fab_UsuarioCreador		INT
+AS
+BEGIN
+		INSERT INTO tbFabricas
+								(fab_Descripcion, 
+								fab_Telefono, 
+								fab_UsuarioCreador, 
+								fab_FechaCreacion, 
+								fab_UsuarioMod, 
+								fab_FechaMod, 
+								fab_Estado)
+VALUES							(@fab_Descripcion,
+								 @fab_Telefono,
+								 @fab_UsuarioCreador,
+								GETDATE(),
+								NULL,
+								NULL,
+								1)
+END
+
+---------------------------------------- ARTICULOS ----------------------------------------------
 
 INSERT INTO tbArticulos (art_Descripcion, fab_ID, art_Stock, art_UsuarioCreador, art_FechaCreacion, art_UsuarioMod, art_FechaMod, art_Estado)
 VALUES				('Guantes',						'1',	150, 1, '02-02-20230', NULL, NULL, 1),
@@ -54,4 +82,32 @@ VALUES				('Guantes',						'1',	150, 1, '02-02-20230', NULL, NULL, 1),
 					('Botellas',					'11',	150, 1, '02-02-20230', NULL, NULL, 1),
 					('Bolsones',					'11',	150, 1, '02-02-20230', NULL, NULL, 1),
 					('Sneakers',					'12',	150, 1, '02-02-20230', NULL, NULL, 1),
-					('Abrigos',						'12',	150, 1, '02-02-20230', NULL, NULL, 1),
+					('Abrigos',						'12',	150, 1, '02-02-20230', NULL, NULL, 1)
+
+---------------------------------------- UDP_DE ARTICULO (INSERT) ----------------------------------------
+GO
+CREATE OR ALTER PROCEDURE UDP_InsertArticulos
+		@art_Descripcion		NVARCHAR(200), 
+		@fab_ID					INT, 
+		@art_Stock				INT, 
+		@art_UsuarioCreador		INT	
+AS	
+BEGIN
+		INSERT INTO tbArticulos 
+		(art_Descripcion, 
+		fab_ID, 
+		art_Stock, 
+		art_UsuarioCreador, 
+		art_FechaCreacion, 
+		art_UsuarioMod, 
+		art_FechaMod, 
+		art_Estado)
+VALUES	(@art_Descripcion,
+		 @fab_ID,
+		 @art_Stock,
+		 @art_UsuarioCreador,
+		 GETDATE(),
+		 NULL,
+		 NULL,
+		 1)
+END
