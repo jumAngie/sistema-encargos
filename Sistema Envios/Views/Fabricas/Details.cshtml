@@ -1,0 +1,75 @@
+﻿@model Sistema_Envios.Models.tbFabricas
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbFabricas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fab_Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fab_Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fab_Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fab_Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fab_FechaCreacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fab_FechaCreacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fab_FechaMod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fab_FechaMod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fab_Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fab_Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbUsuarios.usu_Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbUsuarios.usu_Usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbUsuarios1.usu_Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbUsuarios1.usu_Usuario)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.fab_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

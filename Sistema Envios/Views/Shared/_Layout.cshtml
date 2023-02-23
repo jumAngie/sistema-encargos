@@ -23,7 +23,6 @@
     <!-- Demo purpose CSS [ DEMO ] -->
     <link rel="stylesheet" href="~/Content/assets/css/demo-purpose/demo-settings.min.css">
     <link rel="stylesheet" href="~/Content/plugins/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="~/Content/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css">
 </head>
 <body>
@@ -522,6 +521,9 @@
                                     <li>@Html.ActionLink("Clientes", "Index", "Clientes", new { @class = "nav-link" })</li>
                                     <li>@Html.ActionLink("Departamentos", "Index", "Departamentos", new { @class = "nav-link" })</li>
                                     <li>@Html.ActionLink("Direcciones", "Index", "Direcciones", new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Estado del Envío", "Index", "EstadoEnvios", new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Estados Civiles", "Index", "EstadoEnvios", new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Pedido Detalles", "Index", "PedidoDetalles", new { @class = "nav-link" })</li>
 
                                 </ul>
                                 <!-- END : Dashboard submenu list -->
@@ -2053,9 +2055,7 @@
     <!-- Nifty Settings [ DEMO ] -->
     <script src="~/Content/assets/js/demo-purpose-only.js" defer></script>
     <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-    
-    <script>
-        var table = $('#DataTable').DataTable({
+    <script>var table = $('#DataTable').DataTable({
             language: {
                 "decimal": "",
                 "emptyTable": "No hay información",
@@ -2076,8 +2076,9 @@
                     "previous": "Anterior"
                 }
             },
-        });
-
+});
+    </script>
+    <script>
         $(document).ready(function () {
             $('#DataTable').DataTable();
         });

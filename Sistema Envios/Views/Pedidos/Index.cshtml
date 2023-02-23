@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Sistema_Envios.Models.tbPedidos>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="float-e-margins">
+                <div class="ibox-title">
+                    <div class="ibox-tools">
+                       @Html.ActionLink("Nuevo", "Create", null, new { @class = "btn btn-primary"})
+                    </div>
+                </div>
+                  <br />
+                <div class="ibox-content">
+                  <table class="table table-responsive" id="DataTable">
+                    <thead>
+                        <tr role="row">
+                            <th>@Html.DisplayNameFor(model => model.pedi_Code)</th>
+                            <th>@Html.DisplayNameFor(model => model.pedi_CostoEnvio)</th>
+                            <th>@Html.DisplayNameFor(model => model.emp_Id)</th>
+                            <th>@Html.DisplayNameFor(model => model.pedi_Fecha)</th>
+                            <th>@Html.DisplayNameFor(model => model.pedi_FechaCreacion)</th>
+                            <th>@Html.DisplayNameFor(model => model.pedi_FechaMod)</th>
+                            <th>@Html.DisplayNameFor(model => model.pedi_Estado)</th>
+                            <th>@Html.DisplayNameFor(model => model.tbDirecciones.direc_DireccionExacta)</th>
+                            <th>@Html.DisplayNameFor(model => model.tbEstadoEnvios.estv_Description)</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      @foreach (var item in Model) {
+                        <tr class="gradeA odd" role="row" data-id="@item.pedi_ID">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.pedi_Code)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.pedi_CostoEnvio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.emp_Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.pedi_Fecha)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.pedi_FechaCreacion)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.pedi_FechaMod)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.pedi_Estado)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tbDirecciones.direc_DireccionExacta)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tbEstadoEnvios.estv_Description)
+                            </td>
+                            <td>
+                              @Html.ActionLink("Detalles", "Details", new { id=item.pedi_ID },  new {@class = "btn btn-default btn-xs" })
+                              @Html.ActionLink("Editar", "Edit", new { id=item.pedi_ID }, new {@class = "btn btn-primary btn-xs" })
+                              @Html.ActionLink("Delete", "Delete", new { id=item.pedi_ID }, new {@class = "btn btn-secondary btn-xs" })
+                            </td>
+                        </tr>
+                      }
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+    

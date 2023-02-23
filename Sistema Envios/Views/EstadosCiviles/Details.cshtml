@@ -1,0 +1,59 @@
+﻿@model Sistema_Envios.Models.tbEstadosCiviles
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbEstadosCiviles</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.est_Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.est_Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.est_FechaCrea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.est_FechaCrea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.est_FechaMod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.est_FechaMod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbUsuarios.usu_Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbUsuarios.usu_Usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbUsuarios1.usu_Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbUsuarios1.usu_Usuario)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.est_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -135,6 +135,11 @@
     <Compile Include="Controllers\DepartamentosController.cs" />
     <Compile Include="Controllers\DireccionesController.cs" />
     <Compile Include="Controllers\EmpleadosController.cs" />
+    <Compile Include="Controllers\EstadoEnviosController.cs" />
+    <Compile Include="Controllers\EstadosCivilesController.cs" />
+    <Compile Include="Controllers\FabricasController.cs" />
+    <Compile Include="Controllers\PedidoDetallesController.cs" />
+    <Compile Include="Controllers\PedidosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2855,6 +2860,31 @@
     <Content Include="Views\Direcciones\Details.cshtml" />
     <Content Include="Views\Direcciones\Edit.cshtml" />
     <Content Include="Views\Direcciones\Index.cshtml" />
+    <Content Include="Views\EstadoEnvios\Create.cshtml" />
+    <Content Include="Views\EstadoEnvios\Delete.cshtml" />
+    <Content Include="Views\EstadoEnvios\Details.cshtml" />
+    <Content Include="Views\EstadoEnvios\Edit.cshtml" />
+    <Content Include="Views\EstadoEnvios\Index.cshtml" />
+    <Content Include="Views\EstadosCiviles\Create.cshtml" />
+    <Content Include="Views\EstadosCiviles\Delete.cshtml" />
+    <Content Include="Views\EstadosCiviles\Details.cshtml" />
+    <Content Include="Views\EstadosCiviles\Edit.cshtml" />
+    <Content Include="Views\EstadosCiviles\Index.cshtml" />
+    <Content Include="Views\Fabricas\Create.cshtml" />
+    <Content Include="Views\Fabricas\Delete.cshtml" />
+    <Content Include="Views\Fabricas\Details.cshtml" />
+    <Content Include="Views\Fabricas\Edit.cshtml" />
+    <Content Include="Views\Fabricas\Index.cshtml" />
+    <Content Include="Views\PedidoDetalles\Create.cshtml" />
+    <Content Include="Views\PedidoDetalles\Delete.cshtml" />
+    <Content Include="Views\PedidoDetalles\Details.cshtml" />
+    <Content Include="Views\PedidoDetalles\Edit.cshtml" />
+    <Content Include="Views\PedidoDetalles\Index.cshtml" />
+    <Content Include="Views\Pedidos\Create.cshtml" />
+    <Content Include="Views\Pedidos\Delete.cshtml" />
+    <Content Include="Views\Pedidos\Details.cshtml" />
+    <Content Include="Views\Pedidos\Edit.cshtml" />
+    <Content Include="Views\Pedidos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

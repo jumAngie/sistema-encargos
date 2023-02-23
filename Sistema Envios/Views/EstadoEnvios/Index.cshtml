@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Sistema_Envios.Models.tbEstadoEnvios>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="float-e-margins">
+                <div class="ibox-title">
+                    <div class="ibox-tools">
+                       @Html.ActionLink("Nuevo", "Create", null, new { @class = "btn btn-primary"})
+                    </div>
+                </div>
+                  <br />
+                <div class="ibox-content">
+                  <table class="table table-responsive" id="DataTable">
+                    <thead>
+                        <tr role="row">
+                            <th>@Html.DisplayNameFor(model => model.estv_Description)</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      @foreach (var item in Model) {
+                        <tr class="gradeA odd" role="row" data-id="@item.estv_Id">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.estv_Description)
+                            </td>
+                            <td>
+                              @Html.ActionLink("Detalles", "Details", new { id=item.estv_Id },  new {@class = "btn btn-default btn-xs" })
+                              @Html.ActionLink("Editar", "Edit", new { id=item.estv_Id }, new {@class = "btn btn-primary btn-xs" })
+                              @Html.ActionLink("Delete", "Delete", new { id=item.estv_Id }, new { @class = "btn btn-secondary btn-xs"})
+                            </td>
+                        </tr>
+                      }
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+    
