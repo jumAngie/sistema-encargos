@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="53fb56eb8b384815b7a583b9a2e3aa6d" Name="Diagram1" ZoomLevel="66">
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbArticulos" Width="1.5" PointX="7.5" PointY="29.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbCargos" Width="1.5" PointX="5.25" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbCiudades" Width="1.5" PointX="7.5" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbClientes" Width="1.5" PointX="10.5" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbDepartamentos" Width="1.5" PointX="5.25" PointY="33.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbDirecciones" Width="1.5" PointX="12.75" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbEmpleados" Width="1.5" PointX="9.75" PointY="33.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbEstadoEnvios" Width="1.5" PointX="12.75" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbEstadosCiviles" Width="1.5" PointX="5.25" PointY="36.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbFabricas" Width="1.5" PointX="5.25" PointY="40.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tblPantallas" Width="1.5" PointX="0.75" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tblRoles" Width="1.5" PointX="0.75" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tblRolPantallas" Width="1.5" PointX="3" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbPedidoDetalles" Width="1.5" PointX="17.25" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbPedidos" Width="1.5" PointX="15" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbUsuarios" Width="1.5" PointX="3" PointY="19.625" IsExpanded="true" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbArticulos_tbFabrica" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbArticulos_UsuarioCrea" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbArticulos_UsuarioModif" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbCargos_UsuarioCrea" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbCargos_UsuarioModif" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_dbo_tbCiudades_dbo_tbDepartamentos_depto_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_dbo_tbDirecciones_tbCiudades_ciu_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_Empleados_Ciudad" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbCiudades_UsuarioCrea" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbCiudades_UsuarioModif" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_dbo_tbClientes_dbo_tbEstadosCiviles_est_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_dbo_tbDirecciones_tbClientes_client_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbClientes_UsuarioCrea" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbClientes_UsuarioModif" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbDepartamentos_UsuarioCrea" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbDepartamentos_UsuarioModif" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_dbo_tbPedidos_dbo_tbDirecciones_direc_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbDirecciones_UsuarioCrea" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbDirecciones_UsuarioModif" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_Empleados_EstadoCivil" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbPedidos_tbEstadoEnvio" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbEstados_Civ_UsuarioCrea" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbEstados_Civ_UsuarioModif" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbFabricas_UsuarioCrea" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbFabricas_UsuarioModif" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tblRolPantallas_rp_PantallasID_tblPantallas_p_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tblRolPantallas_rp_RolID_tblRoles_rol_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbUsuarios_tbRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbPedidos_Detalles_Pedidos" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbPedidosDetalles_UsuarioCrea" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbPedidosDetalles_UsuarioModif" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbPedidos_UsuarioCrea" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbPedidos_UsuarioModif" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

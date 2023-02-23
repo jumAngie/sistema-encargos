@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBArticulosEncargosModelStoreContainer" CdmEntityContainer="DBArticulosEncargosEntities">
+    <EntitySetMapping Name="tbArticulos">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.tbArticulos">
+        <MappingFragment StoreEntitySet="tbArticulos">
+          <ScalarProperty Name="art_ID" ColumnName="art_ID" />
+          <ScalarProperty Name="art_Descripcion" ColumnName="art_Descripcion" />
+          <ScalarProperty Name="fab_ID" ColumnName="fab_ID" />
+          <ScalarProperty Name="art_Stock" ColumnName="art_Stock" />
+          <ScalarProperty Name="art_UsuarioCreador" ColumnName="art_UsuarioCreador" />
+          <ScalarProperty Name="art_FechaCreacion" ColumnName="art_FechaCreacion" />
+          <ScalarProperty Name="art_UsuarioMod" ColumnName="art_UsuarioMod" />
+          <ScalarProperty Name="art_FechaMod" ColumnName="art_FechaMod" />
+          <ScalarProperty Name="art_Estado" ColumnName="art_Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbCargos">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.tbCargos">
+        <MappingFragment StoreEntitySet="tbCargos">
+          <ScalarProperty Name="carg_Id" ColumnName="carg_Id" />
+          <ScalarProperty Name="carg_Description" ColumnName="carg_Description" />
+          <ScalarProperty Name="rep_UsuarioCreador" ColumnName="rep_UsuarioCreador" />
+          <ScalarProperty Name="rep_FechaCreacion" ColumnName="rep_FechaCreacion" />
+          <ScalarProperty Name="rep_UsuarioMod" ColumnName="rep_UsuarioMod" />
+          <ScalarProperty Name="rep_FechaMod" ColumnName="rep_FechaMod" />
+          <ScalarProperty Name="rep_Estado" ColumnName="rep_Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbCiudades">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.tbCiudades">
+        <MappingFragment StoreEntitySet="tbCiudades">
+          <ScalarProperty Name="ciu_ID" ColumnName="ciu_ID" />
+          <ScalarProperty Name="ciu_Descripcion" ColumnName="ciu_Descripcion" />
+          <ScalarProperty Name="ciu_DeptoID" ColumnName="ciu_DeptoID" />
+          <ScalarProperty Name="ciu_UsuarioCreador" ColumnName="ciu_UsuarioCreador" />
+          <ScalarProperty Name="ciu_FechaCreacion" ColumnName="ciu_FechaCreacion" />
+          <ScalarProperty Name="ciu_UsuarioMod" ColumnName="ciu_UsuarioMod" />
+          <ScalarProperty Name="ciu_FechaMod" ColumnName="ciu_FechaMod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbClientes">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.tbClientes">
+        <MappingFragment StoreEntitySet="tbClientes">
+          <ScalarProperty Name="client_ID" ColumnName="client_ID" />
+          <ScalarProperty Name="client_Nombre" ColumnName="client_Nombre" />
+          <ScalarProperty Name="client_Identidad" ColumnName="client_Identidad" />
+          <ScalarProperty Name="client_EstadoCivil" ColumnName="client_EstadoCivil" />
+          <ScalarProperty Name="client_Sexo" ColumnName="client_Sexo" />
+          <ScalarProperty Name="client_Telefono" ColumnName="client_Telefono" />
+          <ScalarProperty Name="client_Saldo" ColumnName="client_Saldo" />
+          <ScalarProperty Name="client_LimiteCredito" ColumnName="client_LimiteCredito" />
+          <ScalarProperty Name="client_Descuento" ColumnName="client_Descuento" />
+          <ScalarProperty Name="client_UsuarioCreador" ColumnName="client_UsuarioCreador" />
+          <ScalarProperty Name="client_FechaCreacion" ColumnName="client_FechaCreacion" />
+          <ScalarProperty Name="client_UsuarioMod" ColumnName="client_UsuarioMod" />
+          <ScalarProperty Name="client_FechaMod" ColumnName="client_FechaMod" />
+          <ScalarProperty Name="client_Estado" ColumnName="client_Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbDepartamentos">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.tbDepartamentos">
+        <MappingFragment StoreEntitySet="tbDepartamentos">
+          <ScalarProperty Name="depto_ID" ColumnName="depto_ID" />
+          <ScalarProperty Name="depto_Descripcion" ColumnName="depto_Descripcion" />
+          <ScalarProperty Name="usu_UsuarioCreador" ColumnName="usu_UsuarioCreador" />
+          <ScalarProperty Name="usu_FechaCreacion" ColumnName="usu_FechaCreacion" />
+          <ScalarProperty Name="usu_UsuarioMod" ColumnName="usu_UsuarioMod" />
+          <ScalarProperty Name="depto_FechaMod" ColumnName="depto_FechaMod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbDirecciones">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.tbDirecciones">
+        <MappingFragment StoreEntitySet="tbDirecciones">
+          <ScalarProperty Name="direc_ID" ColumnName="direc_ID" />
+          <ScalarProperty Name="direc_ClienteID" ColumnName="direc_ClienteID" />
+          <ScalarProperty Name="direc_DireccionExacta" ColumnName="direc_DireccionExacta" />
+          <ScalarProperty Name="direc_CiudadID" ColumnName="direc_CiudadID" />
+          <ScalarProperty Name="direc_UsuarioCreador" ColumnName="direc_UsuarioCreador" />
+          <ScalarProperty Name="direc_FechaCreacion" ColumnName="direc_FechaCreacion" />
+          <ScalarProperty Name="direc_UsuarioMod" ColumnName="direc_UsuarioMod" />
+          <ScalarProperty Name="direc_FechaMod" ColumnName="direc_FechaMod" />
+          <ScalarProperty Name="direc_Estado" ColumnName="direc_Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbEmpleados">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.tbEmpleados">
+        <MappingFragment StoreEntitySet="tbEmpleados">
+          <ScalarProperty Name="emp_Id" ColumnName="emp_Id" />
+          <ScalarProperty Name="emp_Name" ColumnName="emp_Name" />
+          <ScalarProperty Name="emp_Apellido" ColumnName="emp_Apellido" />
+          <ScalarProperty Name="emp_DNI" ColumnName="emp_DNI" />
+          <ScalarProperty Name="emp_FechaNac" ColumnName="emp_FechaNac" />
+          <ScalarProperty Name="ciu_ID" ColumnName="ciu_ID" />
+          <ScalarProperty Name="est_ID" ColumnName="est_ID" />
+          <ScalarProperty Name="emp_Sexo" ColumnName="emp_Sexo" />
+          <ScalarProperty Name="carg_Id" ColumnName="carg_Id" />
+          <ScalarProperty Name="emp_UsuarioCrea" ColumnName="emp_UsuarioCrea" />
+          <ScalarProperty Name="emp_FechaCrea" ColumnName="emp_FechaCrea" />
+          <ScalarProperty Name="emp_UsuModif" ColumnName="emp_UsuModif" />
+          <ScalarProperty Name="emp_FechaModif" ColumnName="emp_FechaModif" />
+          <ScalarProperty Name="emp_Estado" ColumnName="emp_Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbEstadoEnvios">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.tbEstadoEnvios">
+        <MappingFragment StoreEntitySet="tbEstadoEnvios">
+          <ScalarProperty Name="estv_Id" ColumnName="estv_Id" />
+          <ScalarProperty Name="estv_Description" ColumnName="estv_Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbEstadosCiviles">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.tbEstadosCiviles">
+        <MappingFragment StoreEntitySet="tbEstadosCiviles">
+          <ScalarProperty Name="est_ID" ColumnName="est_ID" />
+          <ScalarProperty Name="est_Descripcion" ColumnName="est_Descripcion" />
+          <ScalarProperty Name="est_UsuCrea" ColumnName="est_UsuCrea" />
+          <ScalarProperty Name="est_FechaCrea" ColumnName="est_FechaCrea" />
+          <ScalarProperty Name="est_UsuMod" ColumnName="est_UsuMod" />
+          <ScalarProperty Name="est_FechaMod" ColumnName="est_FechaMod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbFabricas">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.tbFabricas">
+        <MappingFragment StoreEntitySet="tbFabricas">
+          <ScalarProperty Name="fab_ID" ColumnName="fab_ID" />
+          <ScalarProperty Name="fab_Descripcion" ColumnName="fab_Descripcion" />
+          <ScalarProperty Name="fab_Telefono" ColumnName="fab_Telefono" />
+          <ScalarProperty Name="fab_UsuarioCreador" ColumnName="fab_UsuarioCreador" />
+          <ScalarProperty Name="fab_FechaCreacion" ColumnName="fab_FechaCreacion" />
+          <ScalarProperty Name="fab_UsuarioMod" ColumnName="fab_UsuarioMod" />
+          <ScalarProperty Name="fab_FechaMod" ColumnName="fab_FechaMod" />
+          <ScalarProperty Name="fab_Estado" ColumnName="fab_Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPantallas">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.tblPantallas">
+        <MappingFragment StoreEntitySet="tblPantallas">
+          <ScalarProperty Name="p_ID" ColumnName="p_ID" />
+          <ScalarProperty Name="p_Descripción" ColumnName="p_Descripción" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRoles">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.tblRoles">
+        <MappingFragment StoreEntitySet="tblRoles">
+          <ScalarProperty Name="rol_ID" ColumnName="rol_ID" />
+          <ScalarProperty Name="rol_Descripcion" ColumnName="rol_Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRolPantallas">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.tblRolPantallas">
+        <MappingFragment StoreEntitySet="tblRolPantallas">
+          <ScalarProperty Name="rp_ID" ColumnName="rp_ID" />
+          <ScalarProperty Name="rp_RolID" ColumnName="rp_RolID" />
+          <ScalarProperty Name="rp_PantallasID" ColumnName="rp_PantallasID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbPedidoDetalles">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.tbPedidoDetalles">
+        <MappingFragment StoreEntitySet="tbPedidoDetalles">
+          <ScalarProperty Name="det_Id" ColumnName="det_Id" />
+          <ScalarProperty Name="pedi_ID" ColumnName="pedi_ID" />
+          <ScalarProperty Name="art_ID" ColumnName="art_ID" />
+          <ScalarProperty Name="det_Cantidad" ColumnName="det_Cantidad" />
+          <ScalarProperty Name="det_UsuarioCrea" ColumnName="det_UsuarioCrea" />
+          <ScalarProperty Name="det_FechaCrea" ColumnName="det_FechaCrea" />
+          <ScalarProperty Name="det_UsuModif" ColumnName="det_UsuModif" />
+          <ScalarProperty Name="det_FechaModif" ColumnName="det_FechaModif" />
+          <ScalarProperty Name="det_Estado" ColumnName="det_Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbPedidos">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.tbPedidos">
+        <MappingFragment StoreEntitySet="tbPedidos">
+          <ScalarProperty Name="pedi_ID" ColumnName="pedi_ID" />
+          <ScalarProperty Name="pedi_Code" ColumnName="pedi_Code" />
+          <ScalarProperty Name="pedi_DireccionID" ColumnName="pedi_DireccionID" />
+          <ScalarProperty Name="pedi_CostoEnvio" ColumnName="pedi_CostoEnvio" />
+          <ScalarProperty Name="estv_Id" ColumnName="estv_Id" />
+          <ScalarProperty Name="emp_Id" ColumnName="emp_Id" />
+          <ScalarProperty Name="pedi_Fecha" ColumnName="pedi_Fecha" />
+          <ScalarProperty Name="pedi_UsuarioCreador" ColumnName="pedi_UsuarioCreador" />
+          <ScalarProperty Name="pedi_FechaCreacion" ColumnName="pedi_FechaCreacion" />
+          <ScalarProperty Name="pedi_UsuarioMod" ColumnName="pedi_UsuarioMod" />
+          <ScalarProperty Name="pedi_FechaMod" ColumnName="pedi_FechaMod" />
+          <ScalarProperty Name="pedi_Estado" ColumnName="pedi_Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbUsuarios">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.tbUsuarios">
+        <MappingFragment StoreEntitySet="tbUsuarios">
+          <ScalarProperty Name="usu_ID" ColumnName="usu_ID" />
+          <ScalarProperty Name="usu_Usuario" ColumnName="usu_Usuario" />
+          <ScalarProperty Name="emp_Id" ColumnName="emp_Id" />
+          <ScalarProperty Name="rol_ID" ColumnName="rol_ID" />
+          <ScalarProperty Name="usu_Clave" ColumnName="usu_Clave" />
+          <ScalarProperty Name="usu_UsuarioCreador" ColumnName="usu_UsuarioCreador" />
+          <ScalarProperty Name="usu_FechaCreacion" ColumnName="usu_FechaCreacion" />
+          <ScalarProperty Name="usu_UsuarioMod" ColumnName="usu_UsuarioMod" />
+          <ScalarProperty Name="usu_FechaMod" ColumnName="usu_FechaMod" />
+          <ScalarProperty Name="usu_Estado" ColumnName="usu_Estado" />
+          <ScalarProperty Name="usu_EsAdmin" ColumnName="usu_EsAdmin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

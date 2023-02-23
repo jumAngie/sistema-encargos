@@ -1,0 +1,123 @@
+﻿@model Sistema_Envios.Models.tbEmpleados
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbEmpleados</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.emp_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emp_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emp_Apellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emp_Apellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emp_DNI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emp_DNI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emp_FechaNac)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emp_FechaNac)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emp_Sexo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emp_Sexo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.carg_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.carg_Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emp_UsuarioCrea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emp_UsuarioCrea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emp_FechaCrea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emp_FechaCrea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emp_UsuModif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emp_UsuModif)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emp_FechaModif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emp_FechaModif)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emp_Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emp_Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbCiudades.ciu_Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbCiudades.ciu_Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbEstadosCiviles.est_Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbEstadosCiviles.est_Descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.emp_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
