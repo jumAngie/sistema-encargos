@@ -648,6 +648,21 @@ EXEC UDP_EMPLEADOS_INSERT 'Daniel','Perdomo','05011999369125','12-15-1999',203,'
 EXEC UDP_EMPLEADOS_INSERT 'Oscar','Gutierrez','05012001789102','07-21-2001',204,'D','M',1,1
 EXEC UDP_EMPLEADOS_INSERT 'Marvin','Amaya','05031998562471','11-18-2000',205,'D','M',1,1
 
+
+
+
+UPDATE [dbo].[tbEmpleados] SET [carg_Id] = 2 WHERE [emp_Id] = 2
+UPDATE [dbo].[tbEmpleados] SET [carg_Id] = 3 WHERE [emp_Id] = 3
+UPDATE [dbo].[tbEmpleados] SET [carg_Id] = 4 WHERE [emp_Id] = 4
+UPDATE [dbo].[tbEmpleados] SET [carg_Id] = 5 WHERE [emp_Id] = 5
+UPDATE [dbo].[tbEmpleados] SET [carg_Id] = 6 WHERE [emp_Id] = 6
+UPDATE [dbo].[tbEmpleados] SET [carg_Id] = 7 WHERE [emp_Id] = 7
+UPDATE [dbo].[tbEmpleados] SET [carg_Id] = 8 WHERE [emp_Id] = 8
+UPDATE [dbo].[tbEmpleados] SET [carg_Id] = 9 WHERE [emp_Id] = 9
+UPDATE [dbo].[tbEmpleados] SET [carg_Id] = 10 WHERE [emp_Id] = 10
+UPDATE [dbo].[tbEmpleados] SET [carg_Id] = 17 WHERE [emp_Id] = 11
+
+
 ---luego de haber agregado estos insert's ... ir a usuarios y crear los contarint de fkempelados
 
 
