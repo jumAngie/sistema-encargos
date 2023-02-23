@@ -28,12 +28,7 @@
                             <th>@Html.DisplayNameFor(model => model.client_Saldo)</th>
                             <th>@Html.DisplayNameFor(model => model.client_LimiteCredito)</th>
                             <th>@Html.DisplayNameFor(model => model.client_Descuento)</th>
-                            <th>@Html.DisplayNameFor(model => model.client_FechaCreacion)</th>
-                            <th>@Html.DisplayNameFor(model => model.client_FechaMod)</th>
-                            <th>@Html.DisplayNameFor(model => model.client_Estado)</th>
                             <th>@Html.DisplayNameFor(model => model.tbEstadosCiviles.est_Descripcion)</th>
-                            <th>@Html.DisplayNameFor(model => model.tbUsuarios.usu_Usuario)</th>
-                            <th>@Html.DisplayNameFor(model => model.tbUsuarios1.usu_Usuario)</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -62,27 +57,12 @@
                                 @Html.DisplayFor(modelItem => item.client_Descuento)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.client_FechaCreacion)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.client_FechaMod)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.client_Estado)
-                            </td>
-                            <td>
                                 @Html.DisplayFor(modelItem => item.tbEstadosCiviles.est_Descripcion)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.tbUsuarios.usu_Usuario)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.tbUsuarios1.usu_Usuario)
                             </td>
                             <td>
                               @Html.ActionLink("Detalles", "Details", new { id=item.client_ID },  new {@class = "btn btn-default btn-xs" })
                               @Html.ActionLink("Editar", "Edit", new { id=item.client_ID }, new {@class = "btn btn-primary btn-xs" })
-                              @Html.ActionLink("Delete", "Delete", new { id=item.client_ID })
+                              @Html.ActionLink("Delete", "Delete", new { id=item.client_ID }, new { @class = "btn btn-secondary btn-xs" })
                             </td>
                         </tr>
                       }

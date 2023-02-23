@@ -515,10 +515,13 @@
                                 <!-- Dashboard submenu list -->
                                 <ul class="mininav-content nav collapse">
 
-                                    <li>@Html.ActionLink("Empleados", "Index", "Empleados")</li>
-                                    <li>@Html.ActionLink("Artículos", "Index", "Articulos")</li>
-                                    <li>@Html.ActionLink("Cargos", "Index", "Cargos")</li>
-
+                                    <li>@Html.ActionLink("Empleados", "Index", "Empleados", new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Artículos", "Index", "Articulos", new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Cargos", "Index", "Cargos", new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Ciudades", "Index", "Ciudades", new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Clientes", "Index", "Clientes", new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Departamentos", "Index", "Departamentos", new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Direcciones", "Index", "Direcciones", new { @class = "nav-link" })</li>
 
                                 </ul>
                                 <!-- END : Dashboard submenu list -->
