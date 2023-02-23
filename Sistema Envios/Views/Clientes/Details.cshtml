@@ -1,0 +1,123 @@
+﻿@model Sistema_Envios.Models.tbClientes
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbClientes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.client_Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.client_Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.client_Identidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.client_Identidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.client_Sexo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.client_Sexo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.client_Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.client_Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.client_Saldo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.client_Saldo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.client_LimiteCredito)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.client_LimiteCredito)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.client_Descuento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.client_Descuento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.client_FechaCreacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.client_FechaCreacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.client_FechaMod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.client_FechaMod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.client_Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.client_Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbEstadosCiviles.est_Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbEstadosCiviles.est_Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbUsuarios.usu_Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbUsuarios.usu_Usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbUsuarios1.usu_Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbUsuarios1.usu_Usuario)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.client_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

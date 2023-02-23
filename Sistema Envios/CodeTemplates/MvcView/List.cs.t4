@@ -114,7 +114,7 @@ else {
                             <td>
                               @Html.ActionLink("Detalles", "Details", new { /id=item.pkName/ },  new {@class = "btn btn-default btn-xs" }) |
                               @Html.ActionLink("Editar", "Edit", new { /id=item.pkName/ }, new {@class = "btn btn-primary btn-xs" })
-                              @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                              @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ },  new {@class = "btn btn-secondary btn-xs" })
                             </td>
 <#
 }

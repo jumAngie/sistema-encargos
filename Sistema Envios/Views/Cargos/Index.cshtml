@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Sistema_Envios.Models.tbCargos>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="float-e-margins">
+                <div class="ibox-title">
+                    <div class="ibox-tools">
+                       @Html.ActionLink("Nuevo", "Create", null, new { @class = "btn btn-primary"})
+                    </div>
+                </div>
+                  <br />
+                <div class="ibox-content">
+                  <table class="table table-responsive" id="DataTable">
+                    <thead>
+                        <tr role="row">
+                            <th>@Html.DisplayNameFor(model => model.carg_Description)</th>
+                            <th>@Html.DisplayNameFor(model => model.rep_FechaCreacion)</th>
+                            <th>@Html.DisplayNameFor(model => model.tbUsuarios.usu_Usuario)</th>
+                            <th>@Html.DisplayNameFor(model => model.tbUsuarios1.usu_Usuario)</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      @foreach (var item in Model) {
+                        <tr class="gradeA odd" role="row" data-id="@item.carg_Id">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.carg_Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.rep_FechaCreacion)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tbUsuarios.usu_Usuario)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tbUsuarios1.usu_Usuario)
+                            </td>
+                            <td>
+                              @Html.ActionLink("Detalles", "Details", new { id=item.carg_Id },  new {@class = "btn btn-default btn-xs" })
+                              @Html.ActionLink("Editar", "Edit", new { id=item.carg_Id }, new {@class = "btn btn-primary btn-xs" })
+                              @Html.ActionLink("Delete", "Delete", new { id=item.carg_Id }, new { @class = "btn btn-secondary btn-xs" })
+                            </td>
+                        </tr>
+                      }
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+    

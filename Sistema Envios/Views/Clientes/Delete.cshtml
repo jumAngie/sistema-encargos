@@ -1,0 +1,129 @@
+﻿@model Sistema_Envios.Models.tbClientes
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>tbClientes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.client_Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.client_Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.client_Identidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.client_Identidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.client_Sexo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.client_Sexo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.client_Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.client_Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.client_Saldo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.client_Saldo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.client_LimiteCredito)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.client_LimiteCredito)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.client_Descuento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.client_Descuento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.client_FechaCreacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.client_FechaCreacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.client_FechaMod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.client_FechaMod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.client_Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.client_Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbEstadosCiviles.est_Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbEstadosCiviles.est_Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbUsuarios.usu_Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbUsuarios.usu_Usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbUsuarios1.usu_Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbUsuarios1.usu_Usuario)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
