@@ -216,3 +216,34 @@ BEGIN
 		SET		[fab_Estado] = 0, [fab_UsuarioMod] = @UsuMod, fab_FechaCreacion = GETDATE()
 		WHERE	[fab_ID] = @ID
 END
+
+go
+---------------------------------------- TABLA PEDIDOS  ------------------------------------------
+
+CREATE OR ALTER PROCEDURE UDP_Editar_Pedidos
+		@pedi_ID				INT, 
+		@pedi_Code				VARCHAR(6), 
+		@pedi_DireccionID		INT, 
+		@pedi_CostoEnvio		DECIMAL (18,2), 
+		@estv_Id				INT, 
+		@emp_Id					INT, 
+		@pedi_Fecha				DATE, 
+		@pedi_UsuarioMod		NVARCHAR(50)
+AS
+BEGIN
+		UPDATE	tbPedidos
+		SET		[pedi_Code] = @pedi_Code , [pedi_DireccionID] = @pedi_DireccionID , [pedi_CostoEnvio] = @pedi_CostoEnvio,
+				[estv_Id] = @estv_Id, [emp_Id] = @emp_Id, [pedi_Fecha] = @pedi_Fecha, [pedi_UsuarioMod] = @pedi_UsuarioMod
+		WHERE	[pedi_ID] = @pedi_ID
+END
+
+go
+CREATE OR ALTER PROCEDURE UDP_Eliminar_Pedidos
+		@ID			INT,
+		@UsuMod		NVARCHAR(50)
+AS
+BEGIN
+		UPDATE	tbPedidos
+		SET		[pedi_Estado] = 0, [pedi_UsuarioMod] = @UsuMod, [pedi_FechaMod] = GETDATE()
+		WHERE	[pedi_ID] = @ID
+END
