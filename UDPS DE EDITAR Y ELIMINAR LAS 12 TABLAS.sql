@@ -1,6 +1,6 @@
 -------------------------------------------- TABLA ARTICULOS ----------------------------------------------
 
-CREATE OR ALTER PROCEDURE UDP_Editar_Articulos
+CREATE OR ALTER   PROCEDURE [dbo].[UDP_Editar_Articulos]
 		@art_ID				INT, 
 		@art_Descripcion	NVARCHAR(200), 
 		@fab_ID				INT, 
@@ -10,7 +10,7 @@ AS
 BEGIN
 		UPDATE	tbArticulos
 		SET		[art_Descripcion] = @art_Descripcion , [fab_ID] = @fab_ID, [art_Stock] = @art_Stock,
-				[art_UsuarioCreador] = @art_UsuarioMod
+				[art_UsuarioMod] = @art_UsuarioMod, art_FechaMod = GETDATE()
 		WHERE	[art_ID] = @art_ID
 END
 GO
