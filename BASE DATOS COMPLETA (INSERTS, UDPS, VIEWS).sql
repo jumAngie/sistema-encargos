@@ -1416,7 +1416,7 @@ GO
 --------------------------------------------------------------------------------------------------------------
 -------------------------------------------- TABLA ARTICULOS ----------------------------------------------
 
-CREATE OR ALTER PROCEDURE UDP_Editar_Articulos
+CREATE OR ALTER   PROCEDURE [dbo].[UDP_Editar_Articulos]
 		@art_ID				INT, 
 		@art_Descripcion	NVARCHAR(200), 
 		@fab_ID				INT, 
@@ -1426,7 +1426,7 @@ AS
 BEGIN
 		UPDATE	tbArticulos
 		SET		[art_Descripcion] = @art_Descripcion , [fab_ID] = @fab_ID, [art_Stock] = @art_Stock,
-				[art_UsuarioCreador] = @art_UsuarioMod
+				[art_UsuarioMod] = @art_UsuarioMod, art_FechaMod = GETDATE()
 		WHERE	[art_ID] = @art_ID
 END
 GO
@@ -1496,7 +1496,7 @@ BEGIN
 				[client_EstadoCivil] = @client_EstadoCivil,		[client_Sexo] = @client_Sexo,
 				[client_Telefono] = @client_Telefono,			[client_Saldo] = @client_Saldo,
 				[client_LimiteCredito] = @client_LimiteCredito, [client_Descuento] = @client_Descuento,
-				[client_UsuarioMod] = @client_UsuarioMod
+				[client_UsuarioMod] = @client_UsuarioMod,		client_FechaMod = GETDATE()
 END
 GO
 CREATE OR ALTER PROCEDURE UDP_Eliminar_Cliente
@@ -1629,7 +1629,7 @@ CREATE OR ALTER PROCEDURE UDP_Eliminar_Fabricas
 AS
 BEGIN
 		UPDATE	tbFabricas
-		SET		[fab_Estado] = 0, [fab_UsuarioMod] = @UsuMod, fab_FechaCreacion = GETDATE()
+		SET		[fab_Estado] = 0, [fab_UsuarioMod] = @UsuMod, fab_FechaMod = GETDATE()
 		WHERE	[fab_ID] = @ID
 END
 
@@ -1649,7 +1649,8 @@ AS
 BEGIN
 		UPDATE	tbPedidos
 		SET		[pedi_Code] = @pedi_Code , [pedi_DireccionID] = @pedi_DireccionID , [pedi_CostoEnvio] = @pedi_CostoEnvio,
-				[estv_Id] = @estv_Id, [emp_Id] = @emp_Id, [pedi_Fecha] = @pedi_Fecha, [pedi_UsuarioMod] = @pedi_UsuarioMod
+				[estv_Id] = @estv_Id, [emp_Id] = @emp_Id, [pedi_Fecha] = @pedi_Fecha, [pedi_UsuarioMod] = @pedi_UsuarioMod,
+				pedi_FechaMod = GETDATE()
 		WHERE	[pedi_ID] = @pedi_ID
 END
 
@@ -1662,4 +1663,56 @@ BEGIN
 		UPDATE	tbPedidos
 		SET		[pedi_Estado] = 0, [pedi_UsuarioMod] = @UsuMod, [pedi_FechaMod] = GETDATE()
 		WHERE	[pedi_ID] = @ID
+END
+
+go
+---------------------------------------- TABLA USUARIOS  ------------------------------------------
+CREATE OR ALTER PROCEDURE UDP_Editar_Usuarios
+		@usu_ID			INT, 
+		@usu_Usuario	NVARCHAR(200), 
+		@rol_ID			INT, 
+		@usu_EsAdmin	BIT,
+		@usu_UsuarioMod	NVARCHAR(50)
+AS
+BEGIN
+		UPDATE  tbUsuarios
+		SET		[usu_Usuario] = @usu_Usuario, [rol_ID] = @rol_ID,
+				[usu_UsuarioMod] = @usu_UsuarioMod, [usu_FechaMod] = GETDATE(), [usu_EsAdmin] = @usu_EsAdmin
+		WHERE	[usu_ID] = @usu_ID
+END
+go
+CREATE OR ALTER PROCEDURE UDP_Eliminar_Usuarios
+		@usu_ID				INT,
+		@usu_UsuarioMod		NVARCHAR(50)
+AS
+BEGIN
+		UPDATE tbUsuarios
+		SET		[usu_Estado] = 0, [usu_UsuarioMod] = @usu_UsuarioMod, [usu_FechaMod] = GETDATE()
+		WHERE	[usu_ID] = @usu_ID
+END
+
+---------------------------------------- TABLA PEDIDOS DETALLES  ------------------------------------------
+GO
+CREATE OR ALTER PROCEDURE UDP_Editar_PedidosDetalles
+		@det_Id			INT, 
+		@pedi_ID		INT, 
+		@art_ID			INT, 
+		@det_Cantidad	INT, 
+		@det_UsuModif	NVARCHAR(50)
+AS
+BEGIN
+		UPDATE tbPedidoDetalles
+		SET		[pedi_ID] = @pedi_ID, [art_ID] = @art_ID , [det_Cantidad] = @det_Cantidad,
+				[det_UsuModif] = @det_UsuModif, [det_FechaModif] = GETDATE()
+		WHERE	[det_Id] = @det_Id
+END
+GO
+CREATE OR ALTER PROCEDURE UDP_Eliminar_PedidosDetalles
+		@ID			INT,
+		@UsuModi	NVARCHAR(30)
+AS
+BEGIN
+		UPDATE tbPedidoDetalles
+		SET		[det_Estado] = 0, [det_UsuModif] = @UsuModi, [det_FechaModif] = GETDATE()
+		WHERE	[det_Id] = @ID
 END
