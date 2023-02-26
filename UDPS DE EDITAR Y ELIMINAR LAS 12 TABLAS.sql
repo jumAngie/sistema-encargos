@@ -80,7 +80,7 @@ BEGIN
 				[client_EstadoCivil] = @client_EstadoCivil,		[client_Sexo] = @client_Sexo,
 				[client_Telefono] = @client_Telefono,			[client_Saldo] = @client_Saldo,
 				[client_LimiteCredito] = @client_LimiteCredito, [client_Descuento] = @client_Descuento,
-				[client_UsuarioMod] = @client_UsuarioMod
+				[client_UsuarioMod] = @client_UsuarioMod,		client_FechaMod = GETDATE()
 END
 GO
 CREATE OR ALTER PROCEDURE UDP_Eliminar_Cliente
@@ -213,7 +213,7 @@ CREATE OR ALTER PROCEDURE UDP_Eliminar_Fabricas
 AS
 BEGIN
 		UPDATE	tbFabricas
-		SET		[fab_Estado] = 0, [fab_UsuarioMod] = @UsuMod, fab_FechaCreacion = GETDATE()
+		SET		[fab_Estado] = 0, [fab_UsuarioMod] = @UsuMod, fab_FechaMod = GETDATE()
 		WHERE	[fab_ID] = @ID
 END
 
@@ -233,7 +233,8 @@ AS
 BEGIN
 		UPDATE	tbPedidos
 		SET		[pedi_Code] = @pedi_Code , [pedi_DireccionID] = @pedi_DireccionID , [pedi_CostoEnvio] = @pedi_CostoEnvio,
-				[estv_Id] = @estv_Id, [emp_Id] = @emp_Id, [pedi_Fecha] = @pedi_Fecha, [pedi_UsuarioMod] = @pedi_UsuarioMod
+				[estv_Id] = @estv_Id, [emp_Id] = @emp_Id, [pedi_Fecha] = @pedi_Fecha, [pedi_UsuarioMod] = @pedi_UsuarioMod,
+				pedi_FechaMod = GETDATE()
 		WHERE	[pedi_ID] = @pedi_ID
 END
 
