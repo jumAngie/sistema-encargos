@@ -1,0 +1,9 @@
+............................. Actividades Pendientes ..................................
+
+- Colocar los UDPs en el proyecto.
+- Colocar las Vistas en el proyecto.
+- Crear una pantalla de Restablecer contraseña.
+- Crear una pantalla de ¿Olvidaste tu contraseña?
+- Colocar la base de datos en un solo query.
+- Colocar los procedimientos y vistas en un solo query, dividiendo los udps del Login para 
+  mejor organización.
