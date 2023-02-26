@@ -54,6 +54,21 @@
         <AssociationConnector Association="DBArticulosEncargosModel.FK_tbPedidosDetalles_UsuarioModif" ManuallyRouted="false" />
         <AssociationConnector Association="DBArticulosEncargosModel.FK_tbPedidos_UsuarioCrea" ManuallyRouted="false" />
         <AssociationConnector Association="DBArticulosEncargosModel.FK_tbPedidos_UsuarioModif" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_ARTICULOS" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_CARGOS" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_CIUDADES" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_CLIENTES" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_DEPARTAMENTOS" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_DIRECCIONES" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_EMPLEADOS" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_ESTADOS_CIVILES" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_FABRICAS" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_PEDIDOS" Width="1.5" PointX="6.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_PEDIDOS_DETALLES" Width="1.5" PointX="4.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_USUARIOS" Width="1.5" PointX="6.75" PointY="6.75" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbEmpleados_UsuCrea" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbEmpleados_UsuModif" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbUsuarios_tbEmpleados" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

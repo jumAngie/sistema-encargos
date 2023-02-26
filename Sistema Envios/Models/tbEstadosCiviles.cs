@@ -27,6 +27,7 @@ namespace Sistema_Envios.Models
         public System.DateTime est_FechaCrea { get; set; }
         public Nullable<int> est_UsuMod { get; set; }
         public Nullable<System.DateTime> est_FechaMod { get; set; }
+        public bool est_Estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbClientes> tbClientes { get; set; }

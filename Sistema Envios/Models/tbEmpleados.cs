@@ -14,6 +14,12 @@ namespace Sistema_Envios.Models
     
     public partial class tbEmpleados
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tbEmpleados()
+        {
+            this.tbUsuarios2 = new HashSet<tbUsuarios>();
+        }
+    
         public int emp_Id { get; set; }
         public string emp_Name { get; set; }
         public string emp_Apellido { get; set; }
@@ -31,5 +37,9 @@ namespace Sistema_Envios.Models
     
         public virtual tbCiudades tbCiudades { get; set; }
         public virtual tbEstadosCiviles tbEstadosCiviles { get; set; }
+        public virtual tbUsuarios tbUsuarios { get; set; }
+        public virtual tbUsuarios tbUsuarios1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbUsuarios> tbUsuarios2 { get; set; }
     }
 }

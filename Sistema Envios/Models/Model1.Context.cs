@@ -12,6 +12,8 @@ namespace Sistema_Envios.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class DBArticulosEncargosEntities : DbContext
     {
@@ -41,5 +43,760 @@ namespace Sistema_Envios.Models
         public virtual DbSet<tbPedidoDetalles> tbPedidoDetalles { get; set; }
         public virtual DbSet<tbPedidos> tbPedidos { get; set; }
         public virtual DbSet<tbUsuarios> tbUsuarios { get; set; }
+        public virtual DbSet<V_INDEX_ARTICULOS> V_INDEX_ARTICULOS { get; set; }
+        public virtual DbSet<V_INDEX_CARGOS> V_INDEX_CARGOS { get; set; }
+        public virtual DbSet<V_INDEX_CIUDADES> V_INDEX_CIUDADES { get; set; }
+        public virtual DbSet<V_INDEX_CLIENTES> V_INDEX_CLIENTES { get; set; }
+        public virtual DbSet<V_INDEX_DEPARTAMENTOS> V_INDEX_DEPARTAMENTOS { get; set; }
+        public virtual DbSet<V_INDEX_DIRECCIONES> V_INDEX_DIRECCIONES { get; set; }
+        public virtual DbSet<V_INDEX_EMPLEADOS> V_INDEX_EMPLEADOS { get; set; }
+        public virtual DbSet<V_INDEX_ESTADOS_CIVILES> V_INDEX_ESTADOS_CIVILES { get; set; }
+        public virtual DbSet<V_INDEX_FABRICAS> V_INDEX_FABRICAS { get; set; }
+        public virtual DbSet<V_INDEX_PEDIDOS> V_INDEX_PEDIDOS { get; set; }
+        public virtual DbSet<V_INDEX_PEDIDOS_DETALLES> V_INDEX_PEDIDOS_DETALLES { get; set; }
+        public virtual DbSet<V_INDEX_USUARIOS> V_INDEX_USUARIOS { get; set; }
+    
+        public virtual int UDP_CARGOS_INSERT(string carg_Description, Nullable<int> rep_UsuarioCreador)
+        {
+            var carg_DescriptionParameter = carg_Description != null ?
+                new ObjectParameter("carg_Description", carg_Description) :
+                new ObjectParameter("carg_Description", typeof(string));
+    
+            var rep_UsuarioCreadorParameter = rep_UsuarioCreador.HasValue ?
+                new ObjectParameter("rep_UsuarioCreador", rep_UsuarioCreador) :
+                new ObjectParameter("rep_UsuarioCreador", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_CARGOS_INSERT", carg_DescriptionParameter, rep_UsuarioCreadorParameter);
+        }
+    
+        public virtual int UDP_CIUDADES_INSERT(Nullable<int> ciu_ID, string ciu_Decription, Nullable<int> ciu_IdDepto, Nullable<int> usuCrea)
+        {
+            var ciu_IDParameter = ciu_ID.HasValue ?
+                new ObjectParameter("ciu_ID", ciu_ID) :
+                new ObjectParameter("ciu_ID", typeof(int));
+    
+            var ciu_DecriptionParameter = ciu_Decription != null ?
+                new ObjectParameter("ciu_Decription", ciu_Decription) :
+                new ObjectParameter("ciu_Decription", typeof(string));
+    
+            var ciu_IdDeptoParameter = ciu_IdDepto.HasValue ?
+                new ObjectParameter("ciu_IdDepto", ciu_IdDepto) :
+                new ObjectParameter("ciu_IdDepto", typeof(int));
+    
+            var usuCreaParameter = usuCrea.HasValue ?
+                new ObjectParameter("UsuCrea", usuCrea) :
+                new ObjectParameter("UsuCrea", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_CIUDADES_INSERT", ciu_IDParameter, ciu_DecriptionParameter, ciu_IdDeptoParameter, usuCreaParameter);
+        }
+    
+        public virtual int UDP_DEPARTAMENTOS_INSERT(string depto_Description, Nullable<int> depto_Usucrea)
+        {
+            var depto_DescriptionParameter = depto_Description != null ?
+                new ObjectParameter("depto_Description", depto_Description) :
+                new ObjectParameter("depto_Description", typeof(string));
+    
+            var depto_UsucreaParameter = depto_Usucrea.HasValue ?
+                new ObjectParameter("depto_Usucrea", depto_Usucrea) :
+                new ObjectParameter("depto_Usucrea", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_DEPARTAMENTOS_INSERT", depto_DescriptionParameter, depto_UsucreaParameter);
+        }
+    
+        public virtual int UDP_DIRECCIONES_INSERT(Nullable<int> direc_ClienteID, string direc_DireccionExacta, Nullable<int> direc_CiudadID, Nullable<int> direc_UsuarioCreador)
+        {
+            var direc_ClienteIDParameter = direc_ClienteID.HasValue ?
+                new ObjectParameter("direc_ClienteID", direc_ClienteID) :
+                new ObjectParameter("direc_ClienteID", typeof(int));
+    
+            var direc_DireccionExactaParameter = direc_DireccionExacta != null ?
+                new ObjectParameter("direc_DireccionExacta", direc_DireccionExacta) :
+                new ObjectParameter("direc_DireccionExacta", typeof(string));
+    
+            var direc_CiudadIDParameter = direc_CiudadID.HasValue ?
+                new ObjectParameter("direc_CiudadID", direc_CiudadID) :
+                new ObjectParameter("direc_CiudadID", typeof(int));
+    
+            var direc_UsuarioCreadorParameter = direc_UsuarioCreador.HasValue ?
+                new ObjectParameter("direc_UsuarioCreador", direc_UsuarioCreador) :
+                new ObjectParameter("direc_UsuarioCreador", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_DIRECCIONES_INSERT", direc_ClienteIDParameter, direc_DireccionExactaParameter, direc_CiudadIDParameter, direc_UsuarioCreadorParameter);
+        }
+    
+        public virtual int UDP_Editar_Articulos(Nullable<int> art_ID, string art_Descripcion, Nullable<int> fab_ID, Nullable<int> art_Stock, string art_UsuarioMod)
+        {
+            var art_IDParameter = art_ID.HasValue ?
+                new ObjectParameter("art_ID", art_ID) :
+                new ObjectParameter("art_ID", typeof(int));
+    
+            var art_DescripcionParameter = art_Descripcion != null ?
+                new ObjectParameter("art_Descripcion", art_Descripcion) :
+                new ObjectParameter("art_Descripcion", typeof(string));
+    
+            var fab_IDParameter = fab_ID.HasValue ?
+                new ObjectParameter("fab_ID", fab_ID) :
+                new ObjectParameter("fab_ID", typeof(int));
+    
+            var art_StockParameter = art_Stock.HasValue ?
+                new ObjectParameter("art_Stock", art_Stock) :
+                new ObjectParameter("art_Stock", typeof(int));
+    
+            var art_UsuarioModParameter = art_UsuarioMod != null ?
+                new ObjectParameter("art_UsuarioMod", art_UsuarioMod) :
+                new ObjectParameter("art_UsuarioMod", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Editar_Articulos", art_IDParameter, art_DescripcionParameter, fab_IDParameter, art_StockParameter, art_UsuarioModParameter);
+        }
+    
+        public virtual int UDP_Editar_Cargos(Nullable<int> carg_Id, string carg_Description, string rep_UsuarioMod)
+        {
+            var carg_IdParameter = carg_Id.HasValue ?
+                new ObjectParameter("carg_Id", carg_Id) :
+                new ObjectParameter("carg_Id", typeof(int));
+    
+            var carg_DescriptionParameter = carg_Description != null ?
+                new ObjectParameter("carg_Description", carg_Description) :
+                new ObjectParameter("carg_Description", typeof(string));
+    
+            var rep_UsuarioModParameter = rep_UsuarioMod != null ?
+                new ObjectParameter("rep_UsuarioMod", rep_UsuarioMod) :
+                new ObjectParameter("rep_UsuarioMod", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Editar_Cargos", carg_IdParameter, carg_DescriptionParameter, rep_UsuarioModParameter);
+        }
+    
+        public virtual int UDP_Editar_Ciudades(Nullable<int> ciu_ID, string ciu_Descripcion, string ciu_UsuarioMod)
+        {
+            var ciu_IDParameter = ciu_ID.HasValue ?
+                new ObjectParameter("ciu_ID", ciu_ID) :
+                new ObjectParameter("ciu_ID", typeof(int));
+    
+            var ciu_DescripcionParameter = ciu_Descripcion != null ?
+                new ObjectParameter("ciu_Descripcion", ciu_Descripcion) :
+                new ObjectParameter("ciu_Descripcion", typeof(string));
+    
+            var ciu_UsuarioModParameter = ciu_UsuarioMod != null ?
+                new ObjectParameter("ciu_UsuarioMod", ciu_UsuarioMod) :
+                new ObjectParameter("ciu_UsuarioMod", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Editar_Ciudades", ciu_IDParameter, ciu_DescripcionParameter, ciu_UsuarioModParameter);
+        }
+    
+        public virtual int UDP_Editar_Clientes(Nullable<int> client_ID, string client_Nombre, string client_Identidad, string client_EstadoCivil, string client_Sexo, string client_Telefono, string client_Saldo, string client_LimiteCredito, string client_Descuento, string client_UsuarioMod)
+        {
+            var client_IDParameter = client_ID.HasValue ?
+                new ObjectParameter("client_ID", client_ID) :
+                new ObjectParameter("client_ID", typeof(int));
+    
+            var client_NombreParameter = client_Nombre != null ?
+                new ObjectParameter("client_Nombre", client_Nombre) :
+                new ObjectParameter("client_Nombre", typeof(string));
+    
+            var client_IdentidadParameter = client_Identidad != null ?
+                new ObjectParameter("client_Identidad", client_Identidad) :
+                new ObjectParameter("client_Identidad", typeof(string));
+    
+            var client_EstadoCivilParameter = client_EstadoCivil != null ?
+                new ObjectParameter("client_EstadoCivil", client_EstadoCivil) :
+                new ObjectParameter("client_EstadoCivil", typeof(string));
+    
+            var client_SexoParameter = client_Sexo != null ?
+                new ObjectParameter("client_Sexo", client_Sexo) :
+                new ObjectParameter("client_Sexo", typeof(string));
+    
+            var client_TelefonoParameter = client_Telefono != null ?
+                new ObjectParameter("client_Telefono", client_Telefono) :
+                new ObjectParameter("client_Telefono", typeof(string));
+    
+            var client_SaldoParameter = client_Saldo != null ?
+                new ObjectParameter("client_Saldo", client_Saldo) :
+                new ObjectParameter("client_Saldo", typeof(string));
+    
+            var client_LimiteCreditoParameter = client_LimiteCredito != null ?
+                new ObjectParameter("client_LimiteCredito", client_LimiteCredito) :
+                new ObjectParameter("client_LimiteCredito", typeof(string));
+    
+            var client_DescuentoParameter = client_Descuento != null ?
+                new ObjectParameter("client_Descuento", client_Descuento) :
+                new ObjectParameter("client_Descuento", typeof(string));
+    
+            var client_UsuarioModParameter = client_UsuarioMod != null ?
+                new ObjectParameter("client_UsuarioMod", client_UsuarioMod) :
+                new ObjectParameter("client_UsuarioMod", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Editar_Clientes", client_IDParameter, client_NombreParameter, client_IdentidadParameter, client_EstadoCivilParameter, client_SexoParameter, client_TelefonoParameter, client_SaldoParameter, client_LimiteCreditoParameter, client_DescuentoParameter, client_UsuarioModParameter);
+        }
+    
+        public virtual int UDP_Editar_Departamentos(Nullable<int> depto_ID, string depto_Descripcion, string usu_UsuarioMod)
+        {
+            var depto_IDParameter = depto_ID.HasValue ?
+                new ObjectParameter("depto_ID", depto_ID) :
+                new ObjectParameter("depto_ID", typeof(int));
+    
+            var depto_DescripcionParameter = depto_Descripcion != null ?
+                new ObjectParameter("depto_Descripcion", depto_Descripcion) :
+                new ObjectParameter("depto_Descripcion", typeof(string));
+    
+            var usu_UsuarioModParameter = usu_UsuarioMod != null ?
+                new ObjectParameter("usu_UsuarioMod", usu_UsuarioMod) :
+                new ObjectParameter("usu_UsuarioMod", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Editar_Departamentos", depto_IDParameter, depto_DescripcionParameter, usu_UsuarioModParameter);
+        }
+    
+        public virtual int UDP_Editar_Direcciones(Nullable<int> direc_ID, Nullable<int> direc_ClienteID, string direc_DireccionExacta, Nullable<int> direc_CiudadID, string direc_UsuarioMod)
+        {
+            var direc_IDParameter = direc_ID.HasValue ?
+                new ObjectParameter("direc_ID", direc_ID) :
+                new ObjectParameter("direc_ID", typeof(int));
+    
+            var direc_ClienteIDParameter = direc_ClienteID.HasValue ?
+                new ObjectParameter("direc_ClienteID", direc_ClienteID) :
+                new ObjectParameter("direc_ClienteID", typeof(int));
+    
+            var direc_DireccionExactaParameter = direc_DireccionExacta != null ?
+                new ObjectParameter("direc_DireccionExacta", direc_DireccionExacta) :
+                new ObjectParameter("direc_DireccionExacta", typeof(string));
+    
+            var direc_CiudadIDParameter = direc_CiudadID.HasValue ?
+                new ObjectParameter("direc_CiudadID", direc_CiudadID) :
+                new ObjectParameter("direc_CiudadID", typeof(int));
+    
+            var direc_UsuarioModParameter = direc_UsuarioMod != null ?
+                new ObjectParameter("direc_UsuarioMod", direc_UsuarioMod) :
+                new ObjectParameter("direc_UsuarioMod", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Editar_Direcciones", direc_IDParameter, direc_ClienteIDParameter, direc_DireccionExactaParameter, direc_CiudadIDParameter, direc_UsuarioModParameter);
+        }
+    
+        public virtual int UDP_Editar_Empleados(Nullable<int> emp_Id, string emp_Name, string emp_Apellido, Nullable<int> emp_DNI, Nullable<System.DateTime> emp_FechaNac, Nullable<int> ciu_ID, string est_ID, string emp_Sexo, Nullable<int> carg_Id, string emp_UsuModif)
+        {
+            var emp_IdParameter = emp_Id.HasValue ?
+                new ObjectParameter("emp_Id", emp_Id) :
+                new ObjectParameter("emp_Id", typeof(int));
+    
+            var emp_NameParameter = emp_Name != null ?
+                new ObjectParameter("emp_Name", emp_Name) :
+                new ObjectParameter("emp_Name", typeof(string));
+    
+            var emp_ApellidoParameter = emp_Apellido != null ?
+                new ObjectParameter("emp_Apellido", emp_Apellido) :
+                new ObjectParameter("emp_Apellido", typeof(string));
+    
+            var emp_DNIParameter = emp_DNI.HasValue ?
+                new ObjectParameter("emp_DNI", emp_DNI) :
+                new ObjectParameter("emp_DNI", typeof(int));
+    
+            var emp_FechaNacParameter = emp_FechaNac.HasValue ?
+                new ObjectParameter("emp_FechaNac", emp_FechaNac) :
+                new ObjectParameter("emp_FechaNac", typeof(System.DateTime));
+    
+            var ciu_IDParameter = ciu_ID.HasValue ?
+                new ObjectParameter("ciu_ID", ciu_ID) :
+                new ObjectParameter("ciu_ID", typeof(int));
+    
+            var est_IDParameter = est_ID != null ?
+                new ObjectParameter("est_ID", est_ID) :
+                new ObjectParameter("est_ID", typeof(string));
+    
+            var emp_SexoParameter = emp_Sexo != null ?
+                new ObjectParameter("emp_Sexo", emp_Sexo) :
+                new ObjectParameter("emp_Sexo", typeof(string));
+    
+            var carg_IdParameter = carg_Id.HasValue ?
+                new ObjectParameter("carg_Id", carg_Id) :
+                new ObjectParameter("carg_Id", typeof(int));
+    
+            var emp_UsuModifParameter = emp_UsuModif != null ?
+                new ObjectParameter("emp_UsuModif", emp_UsuModif) :
+                new ObjectParameter("emp_UsuModif", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Editar_Empleados", emp_IdParameter, emp_NameParameter, emp_ApellidoParameter, emp_DNIParameter, emp_FechaNacParameter, ciu_IDParameter, est_IDParameter, emp_SexoParameter, carg_IdParameter, emp_UsuModifParameter);
+        }
+    
+        public virtual int UDP_Editar_EstadosCiviles(string est_ID, string est_Descripcion, string est_UsuMod)
+        {
+            var est_IDParameter = est_ID != null ?
+                new ObjectParameter("est_ID", est_ID) :
+                new ObjectParameter("est_ID", typeof(string));
+    
+            var est_DescripcionParameter = est_Descripcion != null ?
+                new ObjectParameter("est_Descripcion", est_Descripcion) :
+                new ObjectParameter("est_Descripcion", typeof(string));
+    
+            var est_UsuModParameter = est_UsuMod != null ?
+                new ObjectParameter("est_UsuMod", est_UsuMod) :
+                new ObjectParameter("est_UsuMod", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Editar_EstadosCiviles", est_IDParameter, est_DescripcionParameter, est_UsuModParameter);
+        }
+    
+        public virtual int UDP_Editar_Fabricas(Nullable<int> fab_ID, string fab_Descripcion, string fab_Telefono, string fab_UsuarioMod)
+        {
+            var fab_IDParameter = fab_ID.HasValue ?
+                new ObjectParameter("fab_ID", fab_ID) :
+                new ObjectParameter("fab_ID", typeof(int));
+    
+            var fab_DescripcionParameter = fab_Descripcion != null ?
+                new ObjectParameter("fab_Descripcion", fab_Descripcion) :
+                new ObjectParameter("fab_Descripcion", typeof(string));
+    
+            var fab_TelefonoParameter = fab_Telefono != null ?
+                new ObjectParameter("fab_Telefono", fab_Telefono) :
+                new ObjectParameter("fab_Telefono", typeof(string));
+    
+            var fab_UsuarioModParameter = fab_UsuarioMod != null ?
+                new ObjectParameter("fab_UsuarioMod", fab_UsuarioMod) :
+                new ObjectParameter("fab_UsuarioMod", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Editar_Fabricas", fab_IDParameter, fab_DescripcionParameter, fab_TelefonoParameter, fab_UsuarioModParameter);
+        }
+    
+        public virtual int UDP_Editar_Pedidos(Nullable<int> pedi_ID, string pedi_Code, Nullable<int> pedi_DireccionID, Nullable<decimal> pedi_CostoEnvio, Nullable<int> estv_Id, Nullable<int> emp_Id, Nullable<System.DateTime> pedi_Fecha, string pedi_UsuarioMod)
+        {
+            var pedi_IDParameter = pedi_ID.HasValue ?
+                new ObjectParameter("pedi_ID", pedi_ID) :
+                new ObjectParameter("pedi_ID", typeof(int));
+    
+            var pedi_CodeParameter = pedi_Code != null ?
+                new ObjectParameter("pedi_Code", pedi_Code) :
+                new ObjectParameter("pedi_Code", typeof(string));
+    
+            var pedi_DireccionIDParameter = pedi_DireccionID.HasValue ?
+                new ObjectParameter("pedi_DireccionID", pedi_DireccionID) :
+                new ObjectParameter("pedi_DireccionID", typeof(int));
+    
+            var pedi_CostoEnvioParameter = pedi_CostoEnvio.HasValue ?
+                new ObjectParameter("pedi_CostoEnvio", pedi_CostoEnvio) :
+                new ObjectParameter("pedi_CostoEnvio", typeof(decimal));
+    
+            var estv_IdParameter = estv_Id.HasValue ?
+                new ObjectParameter("estv_Id", estv_Id) :
+                new ObjectParameter("estv_Id", typeof(int));
+    
+            var emp_IdParameter = emp_Id.HasValue ?
+                new ObjectParameter("emp_Id", emp_Id) :
+                new ObjectParameter("emp_Id", typeof(int));
+    
+            var pedi_FechaParameter = pedi_Fecha.HasValue ?
+                new ObjectParameter("pedi_Fecha", pedi_Fecha) :
+                new ObjectParameter("pedi_Fecha", typeof(System.DateTime));
+    
+            var pedi_UsuarioModParameter = pedi_UsuarioMod != null ?
+                new ObjectParameter("pedi_UsuarioMod", pedi_UsuarioMod) :
+                new ObjectParameter("pedi_UsuarioMod", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Editar_Pedidos", pedi_IDParameter, pedi_CodeParameter, pedi_DireccionIDParameter, pedi_CostoEnvioParameter, estv_IdParameter, emp_IdParameter, pedi_FechaParameter, pedi_UsuarioModParameter);
+        }
+    
+        public virtual int UDP_Editar_PedidosDetalles(Nullable<int> det_Id, Nullable<int> pedi_ID, Nullable<int> art_ID, Nullable<int> det_Cantidad, string det_UsuModif)
+        {
+            var det_IdParameter = det_Id.HasValue ?
+                new ObjectParameter("det_Id", det_Id) :
+                new ObjectParameter("det_Id", typeof(int));
+    
+            var pedi_IDParameter = pedi_ID.HasValue ?
+                new ObjectParameter("pedi_ID", pedi_ID) :
+                new ObjectParameter("pedi_ID", typeof(int));
+    
+            var art_IDParameter = art_ID.HasValue ?
+                new ObjectParameter("art_ID", art_ID) :
+                new ObjectParameter("art_ID", typeof(int));
+    
+            var det_CantidadParameter = det_Cantidad.HasValue ?
+                new ObjectParameter("det_Cantidad", det_Cantidad) :
+                new ObjectParameter("det_Cantidad", typeof(int));
+    
+            var det_UsuModifParameter = det_UsuModif != null ?
+                new ObjectParameter("det_UsuModif", det_UsuModif) :
+                new ObjectParameter("det_UsuModif", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Editar_PedidosDetalles", det_IdParameter, pedi_IDParameter, art_IDParameter, det_CantidadParameter, det_UsuModifParameter);
+        }
+    
+        public virtual int UDP_Editar_Usuarios(Nullable<int> usu_ID, string usu_Usuario, Nullable<int> rol_ID, Nullable<bool> usu_EsAdmin, string usu_UsuarioMod)
+        {
+            var usu_IDParameter = usu_ID.HasValue ?
+                new ObjectParameter("usu_ID", usu_ID) :
+                new ObjectParameter("usu_ID", typeof(int));
+    
+            var usu_UsuarioParameter = usu_Usuario != null ?
+                new ObjectParameter("usu_Usuario", usu_Usuario) :
+                new ObjectParameter("usu_Usuario", typeof(string));
+    
+            var rol_IDParameter = rol_ID.HasValue ?
+                new ObjectParameter("rol_ID", rol_ID) :
+                new ObjectParameter("rol_ID", typeof(int));
+    
+            var usu_EsAdminParameter = usu_EsAdmin.HasValue ?
+                new ObjectParameter("usu_EsAdmin", usu_EsAdmin) :
+                new ObjectParameter("usu_EsAdmin", typeof(bool));
+    
+            var usu_UsuarioModParameter = usu_UsuarioMod != null ?
+                new ObjectParameter("usu_UsuarioMod", usu_UsuarioMod) :
+                new ObjectParameter("usu_UsuarioMod", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Editar_Usuarios", usu_IDParameter, usu_UsuarioParameter, rol_IDParameter, usu_EsAdminParameter, usu_UsuarioModParameter);
+        }
+    
+        public virtual int UDP_Eliminar_Articulos(Nullable<int> iD, string usuarioMod)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var usuarioModParameter = usuarioMod != null ?
+                new ObjectParameter("UsuarioMod", usuarioMod) :
+                new ObjectParameter("UsuarioMod", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Eliminar_Articulos", iDParameter, usuarioModParameter);
+        }
+    
+        public virtual int UDP_Eliminar_Cargos(Nullable<int> iD, string usuarioMod)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var usuarioModParameter = usuarioMod != null ?
+                new ObjectParameter("UsuarioMod", usuarioMod) :
+                new ObjectParameter("UsuarioMod", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Eliminar_Cargos", iDParameter, usuarioModParameter);
+        }
+    
+        public virtual int UDP_Eliminar_Cliente(Nullable<int> iD, string usuarioMod)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var usuarioModParameter = usuarioMod != null ?
+                new ObjectParameter("UsuarioMod", usuarioMod) :
+                new ObjectParameter("UsuarioMod", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Eliminar_Cliente", iDParameter, usuarioModParameter);
+        }
+    
+        public virtual int UDP_Eliminar_Direcciones(Nullable<int> iD, string usuarioModi)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var usuarioModiParameter = usuarioModi != null ?
+                new ObjectParameter("UsuarioModi", usuarioModi) :
+                new ObjectParameter("UsuarioModi", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Eliminar_Direcciones", iDParameter, usuarioModiParameter);
+        }
+    
+        public virtual int UDP_Eliminar_Empleados(Nullable<int> iD, string usuModi)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var usuModiParameter = usuModi != null ?
+                new ObjectParameter("UsuModi", usuModi) :
+                new ObjectParameter("UsuModi", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Eliminar_Empleados", iDParameter, usuModiParameter);
+        }
+    
+        public virtual int UDP_Eliminar_EstadosCiviles(string iD, string usuMod)
+        {
+            var iDParameter = iD != null ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(string));
+    
+            var usuModParameter = usuMod != null ?
+                new ObjectParameter("UsuMod", usuMod) :
+                new ObjectParameter("UsuMod", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Eliminar_EstadosCiviles", iDParameter, usuModParameter);
+        }
+    
+        public virtual int UDP_Eliminar_Fabricas(Nullable<int> iD, string usuMod)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var usuModParameter = usuMod != null ?
+                new ObjectParameter("UsuMod", usuMod) :
+                new ObjectParameter("UsuMod", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Eliminar_Fabricas", iDParameter, usuModParameter);
+        }
+    
+        public virtual int UDP_Eliminar_Pedidos(Nullable<int> iD, string usuMod)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var usuModParameter = usuMod != null ?
+                new ObjectParameter("UsuMod", usuMod) :
+                new ObjectParameter("UsuMod", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Eliminar_Pedidos", iDParameter, usuModParameter);
+        }
+    
+        public virtual int UDP_Eliminar_PedidosDetalles(Nullable<int> iD, string usuModi)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var usuModiParameter = usuModi != null ?
+                new ObjectParameter("UsuModi", usuModi) :
+                new ObjectParameter("UsuModi", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Eliminar_PedidosDetalles", iDParameter, usuModiParameter);
+        }
+    
+        public virtual int UDP_Eliminar_Usuarios(Nullable<int> usu_ID, string usu_UsuarioMod)
+        {
+            var usu_IDParameter = usu_ID.HasValue ?
+                new ObjectParameter("usu_ID", usu_ID) :
+                new ObjectParameter("usu_ID", typeof(int));
+    
+            var usu_UsuarioModParameter = usu_UsuarioMod != null ?
+                new ObjectParameter("usu_UsuarioMod", usu_UsuarioMod) :
+                new ObjectParameter("usu_UsuarioMod", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Eliminar_Usuarios", usu_IDParameter, usu_UsuarioModParameter);
+        }
+    
+        public virtual int UDP_EMPLEADOS_INSERT(string emp_Name, string emp_Apellido, string emp_DNI, Nullable<System.DateTime> emp_FechaNac, Nullable<int> ciu_ID, string est_ID, string emp_Sexo, Nullable<int> carg_Id, Nullable<int> emp_UsuarioCrea)
+        {
+            var emp_NameParameter = emp_Name != null ?
+                new ObjectParameter("emp_Name", emp_Name) :
+                new ObjectParameter("emp_Name", typeof(string));
+    
+            var emp_ApellidoParameter = emp_Apellido != null ?
+                new ObjectParameter("emp_Apellido", emp_Apellido) :
+                new ObjectParameter("emp_Apellido", typeof(string));
+    
+            var emp_DNIParameter = emp_DNI != null ?
+                new ObjectParameter("emp_DNI", emp_DNI) :
+                new ObjectParameter("emp_DNI", typeof(string));
+    
+            var emp_FechaNacParameter = emp_FechaNac.HasValue ?
+                new ObjectParameter("emp_FechaNac", emp_FechaNac) :
+                new ObjectParameter("emp_FechaNac", typeof(System.DateTime));
+    
+            var ciu_IDParameter = ciu_ID.HasValue ?
+                new ObjectParameter("ciu_ID", ciu_ID) :
+                new ObjectParameter("ciu_ID", typeof(int));
+    
+            var est_IDParameter = est_ID != null ?
+                new ObjectParameter("est_ID", est_ID) :
+                new ObjectParameter("est_ID", typeof(string));
+    
+            var emp_SexoParameter = emp_Sexo != null ?
+                new ObjectParameter("emp_Sexo", emp_Sexo) :
+                new ObjectParameter("emp_Sexo", typeof(string));
+    
+            var carg_IdParameter = carg_Id.HasValue ?
+                new ObjectParameter("carg_Id", carg_Id) :
+                new ObjectParameter("carg_Id", typeof(int));
+    
+            var emp_UsuarioCreaParameter = emp_UsuarioCrea.HasValue ?
+                new ObjectParameter("emp_UsuarioCrea", emp_UsuarioCrea) :
+                new ObjectParameter("emp_UsuarioCrea", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_EMPLEADOS_INSERT", emp_NameParameter, emp_ApellidoParameter, emp_DNIParameter, emp_FechaNacParameter, ciu_IDParameter, est_IDParameter, emp_SexoParameter, carg_IdParameter, emp_UsuarioCreaParameter);
+        }
+    
+        public virtual int UDP_EstadosCiviles_INSERT(string est_ID, string est_Description, Nullable<int> est_UsuCrea)
+        {
+            var est_IDParameter = est_ID != null ?
+                new ObjectParameter("est_ID", est_ID) :
+                new ObjectParameter("est_ID", typeof(string));
+    
+            var est_DescriptionParameter = est_Description != null ?
+                new ObjectParameter("est_Description", est_Description) :
+                new ObjectParameter("est_Description", typeof(string));
+    
+            var est_UsuCreaParameter = est_UsuCrea.HasValue ?
+                new ObjectParameter("est_UsuCrea", est_UsuCrea) :
+                new ObjectParameter("est_UsuCrea", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_EstadosCiviles_INSERT", est_IDParameter, est_DescriptionParameter, est_UsuCreaParameter);
+        }
+    
+        public virtual int UDP_InsertArticulos(string art_Descripcion, Nullable<int> fab_ID, Nullable<int> art_Stock, Nullable<int> art_UsuarioCreador)
+        {
+            var art_DescripcionParameter = art_Descripcion != null ?
+                new ObjectParameter("art_Descripcion", art_Descripcion) :
+                new ObjectParameter("art_Descripcion", typeof(string));
+    
+            var fab_IDParameter = fab_ID.HasValue ?
+                new ObjectParameter("fab_ID", fab_ID) :
+                new ObjectParameter("fab_ID", typeof(int));
+    
+            var art_StockParameter = art_Stock.HasValue ?
+                new ObjectParameter("art_Stock", art_Stock) :
+                new ObjectParameter("art_Stock", typeof(int));
+    
+            var art_UsuarioCreadorParameter = art_UsuarioCreador.HasValue ?
+                new ObjectParameter("art_UsuarioCreador", art_UsuarioCreador) :
+                new ObjectParameter("art_UsuarioCreador", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_InsertArticulos", art_DescripcionParameter, fab_IDParameter, art_StockParameter, art_UsuarioCreadorParameter);
+        }
+    
+        public virtual int UDP_InsertClientes(string client_Nombre, string client_Identidad, string client_EstadoCivil, string client_Sexo, string client_Telefono, string client_Saldo, string client_LimiteCredito, string client_Descuento, Nullable<int> client_UsuarioCreador)
+        {
+            var client_NombreParameter = client_Nombre != null ?
+                new ObjectParameter("client_Nombre", client_Nombre) :
+                new ObjectParameter("client_Nombre", typeof(string));
+    
+            var client_IdentidadParameter = client_Identidad != null ?
+                new ObjectParameter("client_Identidad", client_Identidad) :
+                new ObjectParameter("client_Identidad", typeof(string));
+    
+            var client_EstadoCivilParameter = client_EstadoCivil != null ?
+                new ObjectParameter("client_EstadoCivil", client_EstadoCivil) :
+                new ObjectParameter("client_EstadoCivil", typeof(string));
+    
+            var client_SexoParameter = client_Sexo != null ?
+                new ObjectParameter("client_Sexo", client_Sexo) :
+                new ObjectParameter("client_Sexo", typeof(string));
+    
+            var client_TelefonoParameter = client_Telefono != null ?
+                new ObjectParameter("client_Telefono", client_Telefono) :
+                new ObjectParameter("client_Telefono", typeof(string));
+    
+            var client_SaldoParameter = client_Saldo != null ?
+                new ObjectParameter("client_Saldo", client_Saldo) :
+                new ObjectParameter("client_Saldo", typeof(string));
+    
+            var client_LimiteCreditoParameter = client_LimiteCredito != null ?
+                new ObjectParameter("client_LimiteCredito", client_LimiteCredito) :
+                new ObjectParameter("client_LimiteCredito", typeof(string));
+    
+            var client_DescuentoParameter = client_Descuento != null ?
+                new ObjectParameter("client_Descuento", client_Descuento) :
+                new ObjectParameter("client_Descuento", typeof(string));
+    
+            var client_UsuarioCreadorParameter = client_UsuarioCreador.HasValue ?
+                new ObjectParameter("client_UsuarioCreador", client_UsuarioCreador) :
+                new ObjectParameter("client_UsuarioCreador", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_InsertClientes", client_NombreParameter, client_IdentidadParameter, client_EstadoCivilParameter, client_SexoParameter, client_TelefonoParameter, client_SaldoParameter, client_LimiteCreditoParameter, client_DescuentoParameter, client_UsuarioCreadorParameter);
+        }
+    
+        public virtual int UDP_InsertFabrica(string fab_Descripcion, string fab_Telefono, Nullable<int> fab_UsuarioCreador)
+        {
+            var fab_DescripcionParameter = fab_Descripcion != null ?
+                new ObjectParameter("fab_Descripcion", fab_Descripcion) :
+                new ObjectParameter("fab_Descripcion", typeof(string));
+    
+            var fab_TelefonoParameter = fab_Telefono != null ?
+                new ObjectParameter("fab_Telefono", fab_Telefono) :
+                new ObjectParameter("fab_Telefono", typeof(string));
+    
+            var fab_UsuarioCreadorParameter = fab_UsuarioCreador.HasValue ?
+                new ObjectParameter("fab_UsuarioCreador", fab_UsuarioCreador) :
+                new ObjectParameter("fab_UsuarioCreador", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_InsertFabrica", fab_DescripcionParameter, fab_TelefonoParameter, fab_UsuarioCreadorParameter);
+        }
+    
+        public virtual int UDP_PEDIDO_DETALLE(Nullable<int> pedi_ID, Nullable<int> art_ID, Nullable<int> det_Cantidad, Nullable<int> det_UsuarioCrea)
+        {
+            var pedi_IDParameter = pedi_ID.HasValue ?
+                new ObjectParameter("pedi_ID", pedi_ID) :
+                new ObjectParameter("pedi_ID", typeof(int));
+    
+            var art_IDParameter = art_ID.HasValue ?
+                new ObjectParameter("art_ID", art_ID) :
+                new ObjectParameter("art_ID", typeof(int));
+    
+            var det_CantidadParameter = det_Cantidad.HasValue ?
+                new ObjectParameter("det_Cantidad", det_Cantidad) :
+                new ObjectParameter("det_Cantidad", typeof(int));
+    
+            var det_UsuarioCreaParameter = det_UsuarioCrea.HasValue ?
+                new ObjectParameter("det_UsuarioCrea", det_UsuarioCrea) :
+                new ObjectParameter("det_UsuarioCrea", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_PEDIDO_DETALLE", pedi_IDParameter, art_IDParameter, det_CantidadParameter, det_UsuarioCreaParameter);
+        }
+    
+        public virtual int UDP_PEDIDOS_INSERT(string pedi_Code, Nullable<int> pedi_DireccionID, Nullable<decimal> pedi_CostoEnvio, Nullable<int> estv_Id, Nullable<int> emp_Id, Nullable<System.DateTime> pedi_Fecha, Nullable<int> pedi_UsuarioCreador)
+        {
+            var pedi_CodeParameter = pedi_Code != null ?
+                new ObjectParameter("pedi_Code", pedi_Code) :
+                new ObjectParameter("pedi_Code", typeof(string));
+    
+            var pedi_DireccionIDParameter = pedi_DireccionID.HasValue ?
+                new ObjectParameter("pedi_DireccionID", pedi_DireccionID) :
+                new ObjectParameter("pedi_DireccionID", typeof(int));
+    
+            var pedi_CostoEnvioParameter = pedi_CostoEnvio.HasValue ?
+                new ObjectParameter("pedi_CostoEnvio", pedi_CostoEnvio) :
+                new ObjectParameter("pedi_CostoEnvio", typeof(decimal));
+    
+            var estv_IdParameter = estv_Id.HasValue ?
+                new ObjectParameter("estv_Id", estv_Id) :
+                new ObjectParameter("estv_Id", typeof(int));
+    
+            var emp_IdParameter = emp_Id.HasValue ?
+                new ObjectParameter("emp_Id", emp_Id) :
+                new ObjectParameter("emp_Id", typeof(int));
+    
+            var pedi_FechaParameter = pedi_Fecha.HasValue ?
+                new ObjectParameter("pedi_Fecha", pedi_Fecha) :
+                new ObjectParameter("pedi_Fecha", typeof(System.DateTime));
+    
+            var pedi_UsuarioCreadorParameter = pedi_UsuarioCreador.HasValue ?
+                new ObjectParameter("pedi_UsuarioCreador", pedi_UsuarioCreador) :
+                new ObjectParameter("pedi_UsuarioCreador", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_PEDIDOS_INSERT", pedi_CodeParameter, pedi_DireccionIDParameter, pedi_CostoEnvioParameter, estv_IdParameter, emp_IdParameter, pedi_FechaParameter, pedi_UsuarioCreadorParameter);
+        }
+    
+        public virtual int UDP_ROLES_INSERT(string rol_Descripcion)
+        {
+            var rol_DescripcionParameter = rol_Descripcion != null ?
+                new ObjectParameter("rol_Descripcion", rol_Descripcion) :
+                new ObjectParameter("rol_Descripcion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_ROLES_INSERT", rol_DescripcionParameter);
+        }
+    
+        public virtual int UDP_USUARIOS_INSERT(string usu_Usuario, Nullable<int> emp_Id, Nullable<int> rol_ID, string usu_Clave, Nullable<bool> usu_EsAdmin, Nullable<int> usu_UsuarioCreador)
+        {
+            var usu_UsuarioParameter = usu_Usuario != null ?
+                new ObjectParameter("usu_Usuario", usu_Usuario) :
+                new ObjectParameter("usu_Usuario", typeof(string));
+    
+            var emp_IdParameter = emp_Id.HasValue ?
+                new ObjectParameter("emp_Id", emp_Id) :
+                new ObjectParameter("emp_Id", typeof(int));
+    
+            var rol_IDParameter = rol_ID.HasValue ?
+                new ObjectParameter("rol_ID", rol_ID) :
+                new ObjectParameter("rol_ID", typeof(int));
+    
+            var usu_ClaveParameter = usu_Clave != null ?
+                new ObjectParameter("usu_Clave", usu_Clave) :
+                new ObjectParameter("usu_Clave", typeof(string));
+    
+            var usu_EsAdminParameter = usu_EsAdmin.HasValue ?
+                new ObjectParameter("usu_EsAdmin", usu_EsAdmin) :
+                new ObjectParameter("usu_EsAdmin", typeof(bool));
+    
+            var usu_UsuarioCreadorParameter = usu_UsuarioCreador.HasValue ?
+                new ObjectParameter("usu_UsuarioCreador", usu_UsuarioCreador) :
+                new ObjectParameter("usu_UsuarioCreador", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_USUARIOS_INSERT", usu_UsuarioParameter, emp_IdParameter, rol_IDParameter, usu_ClaveParameter, usu_EsAdminParameter, usu_UsuarioCreadorParameter);
+        }
     }
 }

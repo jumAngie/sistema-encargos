@@ -37,6 +37,8 @@ namespace Sistema_Envios.Models
             this.tbPedidoDetalles1 = new HashSet<tbPedidoDetalles>();
             this.tbPedidos = new HashSet<tbPedidos>();
             this.tbPedidos1 = new HashSet<tbPedidos>();
+            this.tbEmpleados = new HashSet<tbEmpleados>();
+            this.tbEmpleados1 = new HashSet<tbEmpleados>();
         }
     
         public int usu_ID { get; set; }
@@ -92,5 +94,10 @@ namespace Sistema_Envios.Models
         public virtual ICollection<tbPedidos> tbPedidos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbPedidos> tbPedidos1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbEmpleados> tbEmpleados { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbEmpleados> tbEmpleados1 { get; set; }
+        public virtual tbEmpleados tbEmpleados2 { get; set; }
     }
 }

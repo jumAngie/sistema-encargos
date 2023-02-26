@@ -13,6 +13,7 @@ namespace Sistema_Envios.Controllers
     public class ArticulosController : Controller
     {
         private DBArticulosEncargosEntities db = new DBArticulosEncargosEntities();
+        public string UsuarioModi = "1";
 
         // GET: Articulos
         public ActionResult Index()
@@ -52,6 +53,9 @@ namespace Sistema_Envios.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "art_ID,art_Descripcion,fab_ID,art_Stock,art_UsuarioCreador,art_FechaCreacion,art_UsuarioMod,art_FechaMod,art_Estado")] tbArticulos tbArticulos)
         {
+            
+
+            
             if (ModelState.IsValid)
             {
                 db.tbArticulos.Add(tbArticulos);
@@ -90,10 +94,15 @@ namespace Sistema_Envios.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "art_ID,art_Descripcion,fab_ID,art_Stock,art_UsuarioCreador,art_FechaCreacion,art_UsuarioMod,art_FechaMod,art_Estado")] tbArticulos tbArticulos)
         {
+            
+            ModelState.Remove("art_UsuarioCreador");
+            ModelState.Remove("art_FechaCreacion");
+            ModelState.Remove("art_FechaMod");
+            ModelState.Remove("art_Estado");
+
             if (ModelState.IsValid)
             {
-                db.Entry(tbArticulos).State = EntityState.Modified;
-                db.SaveChanges();
+                db.UDP_Editar_Articulos(tbArticulos.art_ID, tbArticulos.art_Descripcion, tbArticulos.fab_ID, tbArticulos.art_Stock, UsuarioModi).ToString();
                 return RedirectToAction("Index");
             }
             ViewBag.fab_ID = new SelectList(db.tbFabricas, "fab_ID", "fab_Descripcion", tbArticulos.fab_ID);
@@ -123,8 +132,7 @@ namespace Sistema_Envios.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             tbArticulos tbArticulos = db.tbArticulos.Find(id);
-            db.tbArticulos.Remove(tbArticulos);
-            db.SaveChanges();
+            db.UDP_Eliminar_Articulos(tbArticulos.art_ID, UsuarioModi).ToString();
             return RedirectToAction("Index");
         }
 

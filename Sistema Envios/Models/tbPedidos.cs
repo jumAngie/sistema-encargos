@@ -30,7 +30,7 @@ namespace Sistema_Envios.Models
         public int pedi_UsuarioCreador { get; set; }
         public System.DateTime pedi_FechaCreacion { get; set; }
         public Nullable<int> pedi_UsuarioMod { get; set; }
-        public Nullable<System.DateTime> pedi_FechaMod { get; set; }
+        public System.DateTime pedi_FechaMod { get; set; }
         public bool pedi_Estado { get; set; }
     
         public virtual tbDirecciones tbDirecciones { get; set; }

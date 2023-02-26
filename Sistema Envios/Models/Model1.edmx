@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBArticulosEncargosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DBArticulosEncargosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tbArticulos">
           <Key>
             <PropertyRef Name="art_ID" />
@@ -82,9 +82,9 @@
           <Property Name="direc_DireccionExacta" Type="nvarchar(max)" Nullable="false" />
           <Property Name="direc_CiudadID" Type="int" Nullable="false" />
           <Property Name="direc_UsuarioCreador" Type="int" Nullable="false" />
-          <Property Name="direc_FechaCreacion" Type="date" Nullable="false" />
+          <Property Name="direc_FechaCreacion" Type="datetime" Nullable="false" />
           <Property Name="direc_UsuarioMod" Type="int" />
-          <Property Name="direc_FechaMod" Type="date" />
+          <Property Name="direc_FechaMod" Type="datetime" />
           <Property Name="direc_Estado" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="tbEmpleados">
@@ -123,6 +123,7 @@
           <Property Name="est_FechaCrea" Type="date" Nullable="false" />
           <Property Name="est_UsuMod" Type="int" />
           <Property Name="est_FechaMod" Type="date" />
+          <Property Name="est_Estado" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="tbFabricas">
           <Key>
@@ -185,9 +186,9 @@
           <Property Name="emp_Id" Type="int" Nullable="false" />
           <Property Name="pedi_Fecha" Type="date" Nullable="false" />
           <Property Name="pedi_UsuarioCreador" Type="int" Nullable="false" />
-          <Property Name="pedi_FechaCreacion" Type="date" Nullable="false" />
+          <Property Name="pedi_FechaCreacion" Type="datetime" Nullable="false" />
           <Property Name="pedi_UsuarioMod" Type="int" />
-          <Property Name="pedi_FechaMod" Type="date" />
+          <Property Name="pedi_FechaMod" Type="datetime" Nullable="false" />
           <Property Name="pedi_Estado" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="tbUsuarios">
@@ -205,6 +206,158 @@
           <Property Name="usu_FechaMod" Type="date" />
           <Property Name="usu_Estado" Type="bit" Nullable="false" />
           <Property Name="usu_EsAdmin" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_ARTICULOS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="V_INDEX_ARTICULOS">
+          <Key>
+            <PropertyRef Name="ID ARTICULO" />
+            <PropertyRef Name="DESCRIPCION" />
+          </Key>
+          <Property Name="ID ARTICULO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_CARGOS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="V_INDEX_CARGOS">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="DESCRIPCION" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_CIUDADES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="V_INDEX_CIUDADES">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="NOMBRE CIUDAD" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NOMBRE CIUDAD" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_CLIENTES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="V_INDEX_CLIENTES">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="NOMBRE" />
+            <PropertyRef Name="IDENTIDAD" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NOMBRE" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="IDENTIDAD" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="SALDO" Type="nvarchar" MaxLength="100" />
+          <Property Name="LIMITE CREDITO" Type="nvarchar" MaxLength="100" />
+          <Property Name="DESCUENTO" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_DEPARTAMENTOS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="V_INDEX_DEPARTAMENTOS">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="NOMBRE" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_DIRECCIONES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="V_INDEX_DIRECCIONES">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="CLIENTE" />
+            <PropertyRef Name="REFERENCIA" />
+            <PropertyRef Name="CIUDAD" />
+            <PropertyRef Name="DEPARTAMENTO" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="CLIENTE" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="REFERENCIA" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CIUDAD" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DEPARTAMENTO" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_EMPLEADOS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="V_INDEX_EMPLEADOS">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="NOMBRE" />
+            <PropertyRef Name="APELLIDO" />
+            <PropertyRef Name="IDENTIDAD" />
+            <PropertyRef Name="SEXO" />
+            <PropertyRef Name="CARGO" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NOMBRE" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="APELLIDO" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="IDENTIDAD" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="SEXO" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="CARGO" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_ESTADOS_CIVILES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="V_INDEX_ESTADOS_CIVILES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_FABRICAS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="V_INDEX_FABRICAS">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="NOMBRE" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_PEDIDOS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="V_INDEX_PEDIDOS">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="ESTADO" />
+            <PropertyRef Name="CODIGO" />
+            <PropertyRef Name="DIRECCION" />
+            <PropertyRef Name="CLIENTE" />
+            <PropertyRef Name="ENCARGADO" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ESTADO" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="CODIGO" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="DIRECCION" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CLIENTE" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="ENCARGADO" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_PEDIDOS_DETALLES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="V_INDEX_PEDIDOS_DETALLES">
+          <Key>
+            <PropertyRef Name="ID PEDIDO" />
+            <PropertyRef Name="ARTICULO" />
+            <PropertyRef Name="CANTIDAD" />
+          </Key>
+          <Property Name="ID PEDIDO" Type="int" Nullable="false" />
+          <Property Name="ARTICULO" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="CANTIDAD" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="V_INDEX_USUARIOS">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="USUARIO" />
+            <PropertyRef Name="NOMBRE" />
+            <PropertyRef Name="ROL" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="USUARIO" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="NOMBRE" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ROL" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <Association Name="FK_dbo_tbCiudades_dbo_tbDepartamentos_depto_ID">
           <End Role="tbDepartamentos" Type="Self.tbDepartamentos" Multiplicity="1" />
@@ -446,6 +599,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_tbEmpleados_UsuCrea">
+          <End Role="tbUsuarios" Type="Self.tbUsuarios" Multiplicity="1" />
+          <End Role="tbEmpleados" Type="Self.tbEmpleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbUsuarios">
+              <PropertyRef Name="usu_ID" />
+            </Principal>
+            <Dependent Role="tbEmpleados">
+              <PropertyRef Name="emp_UsuarioCrea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbEmpleados_UsuModif">
+          <End Role="tbUsuarios" Type="Self.tbUsuarios" Multiplicity="0..1" />
+          <End Role="tbEmpleados" Type="Self.tbEmpleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbUsuarios">
+              <PropertyRef Name="usu_ID" />
+            </Principal>
+            <Dependent Role="tbEmpleados">
+              <PropertyRef Name="emp_UsuModif" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_tbEstados_Civ_UsuarioCrea">
           <End Role="tbUsuarios" Type="Self.tbUsuarios" Multiplicity="1" />
           <End Role="tbEstadosCiviles" Type="Self.tbEstadosCiviles" Multiplicity="*" />
@@ -590,6 +767,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_tbUsuarios_tbEmpleados">
+          <End Role="tbEmpleados" Type="Self.tbEmpleados" Multiplicity="0..1" />
+          <End Role="tbUsuarios" Type="Self.tbUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbEmpleados">
+              <PropertyRef Name="emp_Id" />
+            </Principal>
+            <Dependent Role="tbUsuarios">
+              <PropertyRef Name="emp_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_tbUsuarios_tbRoles">
           <End Role="tblRoles" Type="Self.tblRoles" Multiplicity="0..1" />
           <End Role="tbUsuarios" Type="Self.tbUsuarios" Multiplicity="*" />
@@ -602,6 +791,218 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="UDP_CARGOS_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="carg_Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="rep_UsuarioCreador" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_CIUDADES_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ciu_ID" Type="int" Mode="In" />
+          <Parameter Name="ciu_Decription" Type="nvarchar" Mode="In" />
+          <Parameter Name="ciu_IdDepto" Type="int" Mode="In" />
+          <Parameter Name="UsuCrea" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_DEPARTAMENTOS_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="depto_Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="depto_Usucrea" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_DIRECCIONES_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="direc_ClienteID" Type="int" Mode="In" />
+          <Parameter Name="direc_DireccionExacta" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="direc_CiudadID" Type="int" Mode="In" />
+          <Parameter Name="direc_UsuarioCreador" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_Editar_Articulos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="art_ID" Type="int" Mode="In" />
+          <Parameter Name="art_Descripcion" Type="nvarchar" Mode="In" />
+          <Parameter Name="fab_ID" Type="int" Mode="In" />
+          <Parameter Name="art_Stock" Type="int" Mode="In" />
+          <Parameter Name="art_UsuarioMod" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_Editar_Cargos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="carg_Id" Type="int" Mode="In" />
+          <Parameter Name="carg_Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="rep_UsuarioMod" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_Editar_Ciudades" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ciu_ID" Type="int" Mode="In" />
+          <Parameter Name="ciu_Descripcion" Type="nvarchar" Mode="In" />
+          <Parameter Name="ciu_UsuarioMod" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_Editar_Clientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="client_ID" Type="int" Mode="In" />
+          <Parameter Name="client_Nombre" Type="nvarchar" Mode="In" />
+          <Parameter Name="client_Identidad" Type="nvarchar" Mode="In" />
+          <Parameter Name="client_EstadoCivil" Type="char" Mode="In" />
+          <Parameter Name="client_Sexo" Type="char" Mode="In" />
+          <Parameter Name="client_Telefono" Type="nvarchar" Mode="In" />
+          <Parameter Name="client_Saldo" Type="nvarchar" Mode="In" />
+          <Parameter Name="client_LimiteCredito" Type="nvarchar" Mode="In" />
+          <Parameter Name="client_Descuento" Type="nvarchar" Mode="In" />
+          <Parameter Name="client_UsuarioMod" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_Editar_Departamentos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="depto_ID" Type="int" Mode="In" />
+          <Parameter Name="depto_Descripcion" Type="nvarchar" Mode="In" />
+          <Parameter Name="usu_UsuarioMod" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_Editar_Direcciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="direc_ID" Type="int" Mode="In" />
+          <Parameter Name="direc_ClienteID" Type="int" Mode="In" />
+          <Parameter Name="direc_DireccionExacta" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="direc_CiudadID" Type="int" Mode="In" />
+          <Parameter Name="direc_UsuarioMod" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_Editar_Empleados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="emp_Id" Type="int" Mode="In" />
+          <Parameter Name="emp_Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="emp_Apellido" Type="nvarchar" Mode="In" />
+          <Parameter Name="emp_DNI" Type="int" Mode="In" />
+          <Parameter Name="emp_FechaNac" Type="date" Mode="In" />
+          <Parameter Name="ciu_ID" Type="int" Mode="In" />
+          <Parameter Name="est_ID" Type="char" Mode="In" />
+          <Parameter Name="emp_Sexo" Type="char" Mode="In" />
+          <Parameter Name="carg_Id" Type="int" Mode="In" />
+          <Parameter Name="emp_UsuModif" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_Editar_EstadosCiviles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="est_ID" Type="char" Mode="In" />
+          <Parameter Name="est_Descripcion" Type="nvarchar" Mode="In" />
+          <Parameter Name="est_UsuMod" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_Editar_Fabricas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fab_ID" Type="int" Mode="In" />
+          <Parameter Name="fab_Descripcion" Type="nvarchar" Mode="In" />
+          <Parameter Name="fab_Telefono" Type="nvarchar" Mode="In" />
+          <Parameter Name="fab_UsuarioMod" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_Editar_Pedidos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pedi_ID" Type="int" Mode="In" />
+          <Parameter Name="pedi_Code" Type="varchar" Mode="In" />
+          <Parameter Name="pedi_DireccionID" Type="int" Mode="In" />
+          <Parameter Name="pedi_CostoEnvio" Type="decimal" Mode="In" />
+          <Parameter Name="estv_Id" Type="int" Mode="In" />
+          <Parameter Name="emp_Id" Type="int" Mode="In" />
+          <Parameter Name="pedi_Fecha" Type="date" Mode="In" />
+          <Parameter Name="pedi_UsuarioMod" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_Editar_PedidosDetalles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="det_Id" Type="int" Mode="In" />
+          <Parameter Name="pedi_ID" Type="int" Mode="In" />
+          <Parameter Name="art_ID" Type="int" Mode="In" />
+          <Parameter Name="det_Cantidad" Type="int" Mode="In" />
+          <Parameter Name="det_UsuModif" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_Editar_Usuarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="usu_ID" Type="int" Mode="In" />
+          <Parameter Name="usu_Usuario" Type="nvarchar" Mode="In" />
+          <Parameter Name="rol_ID" Type="int" Mode="In" />
+          <Parameter Name="usu_EsAdmin" Type="bit" Mode="In" />
+          <Parameter Name="usu_UsuarioMod" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_Eliminar_Articulos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="UsuarioMod" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_Eliminar_Cargos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="UsuarioMod" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_Eliminar_Cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="UsuarioMod" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_Eliminar_Direcciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="UsuarioModi" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_Eliminar_Empleados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="UsuModi" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_Eliminar_EstadosCiviles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="char" Mode="In" />
+          <Parameter Name="UsuMod" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_Eliminar_Fabricas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="UsuMod" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_Eliminar_Pedidos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="UsuMod" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_Eliminar_PedidosDetalles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="UsuModi" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_Eliminar_Usuarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="usu_ID" Type="int" Mode="In" />
+          <Parameter Name="usu_UsuarioMod" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_EMPLEADOS_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="emp_Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="emp_Apellido" Type="nvarchar" Mode="In" />
+          <Parameter Name="emp_DNI" Type="varchar" Mode="In" />
+          <Parameter Name="emp_FechaNac" Type="date" Mode="In" />
+          <Parameter Name="ciu_ID" Type="int" Mode="In" />
+          <Parameter Name="est_ID" Type="char" Mode="In" />
+          <Parameter Name="emp_Sexo" Type="char" Mode="In" />
+          <Parameter Name="carg_Id" Type="int" Mode="In" />
+          <Parameter Name="emp_UsuarioCrea" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_EstadosCiviles_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="est_ID" Type="char" Mode="In" />
+          <Parameter Name="est_Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="est_UsuCrea" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_InsertArticulos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="art_Descripcion" Type="nvarchar" Mode="In" />
+          <Parameter Name="fab_ID" Type="int" Mode="In" />
+          <Parameter Name="art_Stock" Type="int" Mode="In" />
+          <Parameter Name="art_UsuarioCreador" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_InsertClientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="client_Nombre" Type="nvarchar" Mode="In" />
+          <Parameter Name="client_Identidad" Type="nvarchar" Mode="In" />
+          <Parameter Name="client_EstadoCivil" Type="char" Mode="In" />
+          <Parameter Name="client_Sexo" Type="char" Mode="In" />
+          <Parameter Name="client_Telefono" Type="nvarchar" Mode="In" />
+          <Parameter Name="client_Saldo" Type="nvarchar" Mode="In" />
+          <Parameter Name="client_LimiteCredito" Type="nvarchar" Mode="In" />
+          <Parameter Name="client_Descuento" Type="nvarchar" Mode="In" />
+          <Parameter Name="client_UsuarioCreador" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_InsertFabrica" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fab_Descripcion" Type="nvarchar" Mode="In" />
+          <Parameter Name="fab_Telefono" Type="nvarchar" Mode="In" />
+          <Parameter Name="fab_UsuarioCreador" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_PEDIDO_DETALLE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pedi_ID" Type="int" Mode="In" />
+          <Parameter Name="art_ID" Type="int" Mode="In" />
+          <Parameter Name="det_Cantidad" Type="int" Mode="In" />
+          <Parameter Name="det_UsuarioCrea" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_PEDIDOS_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pedi_Code" Type="varchar" Mode="In" />
+          <Parameter Name="pedi_DireccionID" Type="int" Mode="In" />
+          <Parameter Name="pedi_CostoEnvio" Type="decimal" Mode="In" />
+          <Parameter Name="estv_Id" Type="int" Mode="In" />
+          <Parameter Name="emp_Id" Type="int" Mode="In" />
+          <Parameter Name="pedi_Fecha" Type="date" Mode="In" />
+          <Parameter Name="pedi_UsuarioCreador" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_ROLES_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rol_Descripcion" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_USUARIOS_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="usu_Usuario" Type="nvarchar" Mode="In" />
+          <Parameter Name="emp_Id" Type="int" Mode="In" />
+          <Parameter Name="rol_ID" Type="int" Mode="In" />
+          <Parameter Name="usu_Clave" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="usu_EsAdmin" Type="bit" Mode="In" />
+          <Parameter Name="usu_UsuarioCreador" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="DBArticulosEncargosModelStoreContainer">
           <EntitySet Name="tbArticulos" EntityType="Self.tbArticulos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbCargos" EntityType="Self.tbCargos" Schema="dbo" store:Type="Tables" />
@@ -619,6 +1020,96 @@
           <EntitySet Name="tbPedidoDetalles" EntityType="Self.tbPedidoDetalles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbPedidos" EntityType="Self.tbPedidos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbUsuarios" EntityType="Self.tbUsuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="V_INDEX_ARTICULOS" EntityType="Self.V_INDEX_ARTICULOS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_INDEX_ARTICULOS].[ID ARTICULO] AS [ID ARTICULO], 
+    [V_INDEX_ARTICULOS].[DESCRIPCION] AS [DESCRIPCION]
+    FROM [dbo].[V_INDEX_ARTICULOS] AS [V_INDEX_ARTICULOS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_INDEX_CARGOS" EntityType="Self.V_INDEX_CARGOS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_INDEX_CARGOS].[ID] AS [ID], 
+    [V_INDEX_CARGOS].[DESCRIPCION] AS [DESCRIPCION]
+    FROM [dbo].[V_INDEX_CARGOS] AS [V_INDEX_CARGOS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_INDEX_CIUDADES" EntityType="Self.V_INDEX_CIUDADES" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_INDEX_CIUDADES].[ID] AS [ID], 
+    [V_INDEX_CIUDADES].[NOMBRE CIUDAD] AS [NOMBRE CIUDAD]
+    FROM [dbo].[V_INDEX_CIUDADES] AS [V_INDEX_CIUDADES]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_INDEX_CLIENTES" EntityType="Self.V_INDEX_CLIENTES" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_INDEX_CLIENTES].[ID] AS [ID], 
+    [V_INDEX_CLIENTES].[NOMBRE] AS [NOMBRE], 
+    [V_INDEX_CLIENTES].[IDENTIDAD] AS [IDENTIDAD], 
+    [V_INDEX_CLIENTES].[SALDO] AS [SALDO], 
+    [V_INDEX_CLIENTES].[LIMITE CREDITO] AS [LIMITE CREDITO], 
+    [V_INDEX_CLIENTES].[DESCUENTO] AS [DESCUENTO]
+    FROM [dbo].[V_INDEX_CLIENTES] AS [V_INDEX_CLIENTES]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_INDEX_DEPARTAMENTOS" EntityType="Self.V_INDEX_DEPARTAMENTOS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_INDEX_DEPARTAMENTOS].[ID] AS [ID], 
+    [V_INDEX_DEPARTAMENTOS].[NOMBRE] AS [NOMBRE]
+    FROM [dbo].[V_INDEX_DEPARTAMENTOS] AS [V_INDEX_DEPARTAMENTOS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_INDEX_DIRECCIONES" EntityType="Self.V_INDEX_DIRECCIONES" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_INDEX_DIRECCIONES].[ID] AS [ID], 
+    [V_INDEX_DIRECCIONES].[CLIENTE] AS [CLIENTE], 
+    [V_INDEX_DIRECCIONES].[REFERENCIA] AS [REFERENCIA], 
+    [V_INDEX_DIRECCIONES].[CIUDAD] AS [CIUDAD], 
+    [V_INDEX_DIRECCIONES].[DEPARTAMENTO] AS [DEPARTAMENTO]
+    FROM [dbo].[V_INDEX_DIRECCIONES] AS [V_INDEX_DIRECCIONES]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_INDEX_EMPLEADOS" EntityType="Self.V_INDEX_EMPLEADOS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_INDEX_EMPLEADOS].[ID] AS [ID], 
+    [V_INDEX_EMPLEADOS].[NOMBRE] AS [NOMBRE], 
+    [V_INDEX_EMPLEADOS].[APELLIDO] AS [APELLIDO], 
+    [V_INDEX_EMPLEADOS].[IDENTIDAD] AS [IDENTIDAD], 
+    [V_INDEX_EMPLEADOS].[SEXO] AS [SEXO], 
+    [V_INDEX_EMPLEADOS].[CARGO] AS [CARGO]
+    FROM [dbo].[V_INDEX_EMPLEADOS] AS [V_INDEX_EMPLEADOS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_INDEX_ESTADOS_CIVILES" EntityType="Self.V_INDEX_ESTADOS_CIVILES" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_INDEX_ESTADOS_CIVILES].[ID] AS [ID], 
+    [V_INDEX_ESTADOS_CIVILES].[DESCRIPCION] AS [DESCRIPCION]
+    FROM [dbo].[V_INDEX_ESTADOS_CIVILES] AS [V_INDEX_ESTADOS_CIVILES]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_INDEX_FABRICAS" EntityType="Self.V_INDEX_FABRICAS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_INDEX_FABRICAS].[ID] AS [ID], 
+    [V_INDEX_FABRICAS].[NOMBRE] AS [NOMBRE]
+    FROM [dbo].[V_INDEX_FABRICAS] AS [V_INDEX_FABRICAS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_INDEX_PEDIDOS" EntityType="Self.V_INDEX_PEDIDOS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_INDEX_PEDIDOS].[ID] AS [ID], 
+    [V_INDEX_PEDIDOS].[ESTADO] AS [ESTADO], 
+    [V_INDEX_PEDIDOS].[CODIGO] AS [CODIGO], 
+    [V_INDEX_PEDIDOS].[DIRECCION] AS [DIRECCION], 
+    [V_INDEX_PEDIDOS].[CLIENTE] AS [CLIENTE], 
+    [V_INDEX_PEDIDOS].[ENCARGADO] AS [ENCARGADO]
+    FROM [dbo].[V_INDEX_PEDIDOS] AS [V_INDEX_PEDIDOS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_INDEX_PEDIDOS_DETALLES" EntityType="Self.V_INDEX_PEDIDOS_DETALLES" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_INDEX_PEDIDOS_DETALLES].[ID PEDIDO] AS [ID PEDIDO], 
+    [V_INDEX_PEDIDOS_DETALLES].[ARTICULO] AS [ARTICULO], 
+    [V_INDEX_PEDIDOS_DETALLES].[CANTIDAD] AS [CANTIDAD]
+    FROM [dbo].[V_INDEX_PEDIDOS_DETALLES] AS [V_INDEX_PEDIDOS_DETALLES]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_INDEX_USUARIOS" EntityType="Self.V_INDEX_USUARIOS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_INDEX_USUARIOS].[ID] AS [ID], 
+    [V_INDEX_USUARIOS].[USUARIO] AS [USUARIO], 
+    [V_INDEX_USUARIOS].[NOMBRE] AS [NOMBRE], 
+    [V_INDEX_USUARIOS].[ROL] AS [ROL]
+    FROM [dbo].[V_INDEX_USUARIOS] AS [V_INDEX_USUARIOS]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_dbo_tbCiudades_dbo_tbDepartamentos_depto_ID" Association="Self.FK_dbo_tbCiudades_dbo_tbDepartamentos_depto_ID">
             <End Role="tbDepartamentos" EntitySet="tbDepartamentos" />
             <End Role="tbCiudades" EntitySet="tbCiudades" />
@@ -699,6 +1190,14 @@
             <End Role="tbUsuarios" EntitySet="tbUsuarios" />
             <End Role="tbDirecciones" EntitySet="tbDirecciones" />
           </AssociationSet>
+          <AssociationSet Name="FK_tbEmpleados_UsuCrea" Association="Self.FK_tbEmpleados_UsuCrea">
+            <End Role="tbUsuarios" EntitySet="tbUsuarios" />
+            <End Role="tbEmpleados" EntitySet="tbEmpleados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbEmpleados_UsuModif" Association="Self.FK_tbEmpleados_UsuModif">
+            <End Role="tbUsuarios" EntitySet="tbUsuarios" />
+            <End Role="tbEmpleados" EntitySet="tbEmpleados" />
+          </AssociationSet>
           <AssociationSet Name="FK_tbEstados_Civ_UsuarioCrea" Association="Self.FK_tbEstados_Civ_UsuarioCrea">
             <End Role="tbUsuarios" EntitySet="tbUsuarios" />
             <End Role="tbEstadosCiviles" EntitySet="tbEstadosCiviles" />
@@ -747,13 +1246,16 @@
             <End Role="tbUsuarios" EntitySet="tbUsuarios" />
             <End Role="tbPedidoDetalles" EntitySet="tbPedidoDetalles" />
           </AssociationSet>
+          <AssociationSet Name="FK_tbUsuarios_tbEmpleados" Association="Self.FK_tbUsuarios_tbEmpleados">
+            <End Role="tbEmpleados" EntitySet="tbEmpleados" />
+            <End Role="tbUsuarios" EntitySet="tbUsuarios" />
+          </AssociationSet>
           <AssociationSet Name="FK_tbUsuarios_tbRoles" Association="Self.FK_tbUsuarios_tbRoles">
             <End Role="tblRoles" EntitySet="tblRoles" />
             <End Role="tbUsuarios" EntitySet="tbUsuarios" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBArticulosEncargosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -851,9 +1353,9 @@
           <Property Name="direc_DireccionExacta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="direc_CiudadID" Type="Int32" Nullable="false" />
           <Property Name="direc_UsuarioCreador" Type="Int32" Nullable="false" />
-          <Property Name="direc_FechaCreacion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="direc_FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="direc_UsuarioMod" Type="Int32" />
-          <Property Name="direc_FechaMod" Type="DateTime" Precision="0" />
+          <Property Name="direc_FechaMod" Type="DateTime" Precision="3" />
           <Property Name="direc_Estado" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="tbCiudades" Relationship="Self.FK_dbo_tbDirecciones_tbCiudades_ciu_ID" FromRole="tbDirecciones" ToRole="tbCiudades" />
           <NavigationProperty Name="tbClientes" Relationship="Self.FK_dbo_tbDirecciones_tbClientes_client_ID" FromRole="tbDirecciones" ToRole="tbClientes" />
@@ -881,6 +1383,9 @@
           <Property Name="emp_Estado" Type="Boolean" />
           <NavigationProperty Name="tbCiudades" Relationship="Self.FK_Empleados_Ciudad" FromRole="tbEmpleados" ToRole="tbCiudades" />
           <NavigationProperty Name="tbEstadosCiviles" Relationship="Self.FK_Empleados_EstadoCivil" FromRole="tbEmpleados" ToRole="tbEstadosCiviles" />
+          <NavigationProperty Name="tbUsuarios" Relationship="DBArticulosEncargosModel.FK_tbEmpleados_UsuCrea" FromRole="tbEmpleados" ToRole="tbUsuarios" />
+          <NavigationProperty Name="tbUsuarios1" Relationship="DBArticulosEncargosModel.FK_tbEmpleados_UsuModif" FromRole="tbEmpleados" ToRole="tbUsuarios" />
+          <NavigationProperty Name="tbUsuarios2" Relationship="DBArticulosEncargosModel.FK_tbUsuarios_tbEmpleados" FromRole="tbEmpleados" ToRole="tbUsuarios" />
         </EntityType>
         <EntityType Name="tbEstadoEnvios">
           <Key>
@@ -904,6 +1409,7 @@
           <NavigationProperty Name="tbEmpleados" Relationship="Self.FK_Empleados_EstadoCivil" FromRole="tbEstadosCiviles" ToRole="tbEmpleados" />
           <NavigationProperty Name="tbUsuarios" Relationship="Self.FK_tbEstados_Civ_UsuarioCrea" FromRole="tbEstadosCiviles" ToRole="tbUsuarios" />
           <NavigationProperty Name="tbUsuarios1" Relationship="Self.FK_tbEstados_Civ_UsuarioModif" FromRole="tbEstadosCiviles" ToRole="tbUsuarios" />
+          <Property Name="est_Estado" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="tbFabricas">
           <Key>
@@ -977,9 +1483,9 @@
           <Property Name="emp_Id" Type="Int32" Nullable="false" />
           <Property Name="pedi_Fecha" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="pedi_UsuarioCreador" Type="Int32" Nullable="false" />
-          <Property Name="pedi_FechaCreacion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="pedi_FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="pedi_UsuarioMod" Type="Int32" />
-          <Property Name="pedi_FechaMod" Type="DateTime" Precision="0" />
+          <Property Name="pedi_FechaMod" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="pedi_Estado" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="tbDirecciones" Relationship="Self.FK_dbo_tbPedidos_dbo_tbDirecciones_direc_ID" FromRole="tbPedidos" ToRole="tbDirecciones" />
           <NavigationProperty Name="tbEstadoEnvios" Relationship="Self.FK_tbPedidos_tbEstadoEnvio" FromRole="tbPedidos" ToRole="tbEstadoEnvios" />
@@ -1023,6 +1529,9 @@
           <NavigationProperty Name="tbPedidoDetalles1" Relationship="Self.FK_tbPedidosDetalles_UsuarioModif" FromRole="tbUsuarios" ToRole="tbPedidoDetalles" />
           <NavigationProperty Name="tbPedidos" Relationship="Self.FK_tbPedidos_UsuarioCrea" FromRole="tbUsuarios" ToRole="tbPedidos" />
           <NavigationProperty Name="tbPedidos1" Relationship="Self.FK_tbPedidos_UsuarioModif" FromRole="tbUsuarios" ToRole="tbPedidos" />
+          <NavigationProperty Name="tbEmpleados" Relationship="DBArticulosEncargosModel.FK_tbEmpleados_UsuCrea" FromRole="tbUsuarios" ToRole="tbEmpleados" />
+          <NavigationProperty Name="tbEmpleados1" Relationship="DBArticulosEncargosModel.FK_tbEmpleados_UsuModif" FromRole="tbUsuarios" ToRole="tbEmpleados" />
+          <NavigationProperty Name="tbEmpleados2" Relationship="DBArticulosEncargosModel.FK_tbUsuarios_tbEmpleados" FromRole="tbUsuarios" ToRole="tbEmpleados" />
         </EntityType>
         <Association Name="FK_tbArticulos_tbFabrica">
           <End Role="tbFabricas" Type="Self.tbFabricas" Multiplicity="1" />
@@ -1569,7 +2078,407 @@
             <End Role="tbUsuarios" EntitySet="tbUsuarios" />
             <End Role="tbPedidos" EntitySet="tbPedidos" />
           </AssociationSet>
+          <EntitySet Name="V_INDEX_ARTICULOS" EntityType="DBArticulosEncargosModel.V_INDEX_ARTICULOS" />
+          <EntitySet Name="V_INDEX_CARGOS" EntityType="DBArticulosEncargosModel.V_INDEX_CARGOS" />
+          <EntitySet Name="V_INDEX_CIUDADES" EntityType="DBArticulosEncargosModel.V_INDEX_CIUDADES" />
+          <EntitySet Name="V_INDEX_CLIENTES" EntityType="DBArticulosEncargosModel.V_INDEX_CLIENTES" />
+          <EntitySet Name="V_INDEX_DEPARTAMENTOS" EntityType="DBArticulosEncargosModel.V_INDEX_DEPARTAMENTOS" />
+          <EntitySet Name="V_INDEX_DIRECCIONES" EntityType="DBArticulosEncargosModel.V_INDEX_DIRECCIONES" />
+          <EntitySet Name="V_INDEX_EMPLEADOS" EntityType="DBArticulosEncargosModel.V_INDEX_EMPLEADOS" />
+          <EntitySet Name="V_INDEX_ESTADOS_CIVILES" EntityType="DBArticulosEncargosModel.V_INDEX_ESTADOS_CIVILES" />
+          <EntitySet Name="V_INDEX_FABRICAS" EntityType="DBArticulosEncargosModel.V_INDEX_FABRICAS" />
+          <EntitySet Name="V_INDEX_PEDIDOS" EntityType="DBArticulosEncargosModel.V_INDEX_PEDIDOS" />
+          <EntitySet Name="V_INDEX_PEDIDOS_DETALLES" EntityType="DBArticulosEncargosModel.V_INDEX_PEDIDOS_DETALLES" />
+          <EntitySet Name="V_INDEX_USUARIOS" EntityType="DBArticulosEncargosModel.V_INDEX_USUARIOS" />
+          <AssociationSet Name="FK_tbEmpleados_UsuCrea" Association="DBArticulosEncargosModel.FK_tbEmpleados_UsuCrea">
+            <End Role="tbUsuarios" EntitySet="tbUsuarios" />
+            <End Role="tbEmpleados" EntitySet="tbEmpleados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbEmpleados_UsuModif" Association="DBArticulosEncargosModel.FK_tbEmpleados_UsuModif">
+            <End Role="tbUsuarios" EntitySet="tbUsuarios" />
+            <End Role="tbEmpleados" EntitySet="tbEmpleados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbUsuarios_tbEmpleados" Association="DBArticulosEncargosModel.FK_tbUsuarios_tbEmpleados">
+            <End Role="tbEmpleados" EntitySet="tbEmpleados" />
+            <End Role="tbUsuarios" EntitySet="tbUsuarios" />
+          </AssociationSet>
+          <FunctionImport Name="UDP_CARGOS_INSERT">
+            <Parameter Name="carg_Description" Mode="In" Type="String" />
+            <Parameter Name="rep_UsuarioCreador" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_CIUDADES_INSERT">
+            <Parameter Name="ciu_ID" Mode="In" Type="Int32" />
+            <Parameter Name="ciu_Decription" Mode="In" Type="String" />
+            <Parameter Name="ciu_IdDepto" Mode="In" Type="Int32" />
+            <Parameter Name="UsuCrea" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_DEPARTAMENTOS_INSERT">
+            <Parameter Name="depto_Description" Mode="In" Type="String" />
+            <Parameter Name="depto_Usucrea" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_DIRECCIONES_INSERT">
+            <Parameter Name="direc_ClienteID" Mode="In" Type="Int32" />
+            <Parameter Name="direc_DireccionExacta" Mode="In" Type="String" />
+            <Parameter Name="direc_CiudadID" Mode="In" Type="Int32" />
+            <Parameter Name="direc_UsuarioCreador" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_Editar_Articulos">
+            <Parameter Name="art_ID" Mode="In" Type="Int32" />
+            <Parameter Name="art_Descripcion" Mode="In" Type="String" />
+            <Parameter Name="fab_ID" Mode="In" Type="Int32" />
+            <Parameter Name="art_Stock" Mode="In" Type="Int32" />
+            <Parameter Name="art_UsuarioMod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_Editar_Cargos">
+            <Parameter Name="carg_Id" Mode="In" Type="Int32" />
+            <Parameter Name="carg_Description" Mode="In" Type="String" />
+            <Parameter Name="rep_UsuarioMod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_Editar_Ciudades">
+            <Parameter Name="ciu_ID" Mode="In" Type="Int32" />
+            <Parameter Name="ciu_Descripcion" Mode="In" Type="String" />
+            <Parameter Name="ciu_UsuarioMod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_Editar_Clientes">
+            <Parameter Name="client_ID" Mode="In" Type="Int32" />
+            <Parameter Name="client_Nombre" Mode="In" Type="String" />
+            <Parameter Name="client_Identidad" Mode="In" Type="String" />
+            <Parameter Name="client_EstadoCivil" Mode="In" Type="String" />
+            <Parameter Name="client_Sexo" Mode="In" Type="String" />
+            <Parameter Name="client_Telefono" Mode="In" Type="String" />
+            <Parameter Name="client_Saldo" Mode="In" Type="String" />
+            <Parameter Name="client_LimiteCredito" Mode="In" Type="String" />
+            <Parameter Name="client_Descuento" Mode="In" Type="String" />
+            <Parameter Name="client_UsuarioMod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_Editar_Departamentos">
+            <Parameter Name="depto_ID" Mode="In" Type="Int32" />
+            <Parameter Name="depto_Descripcion" Mode="In" Type="String" />
+            <Parameter Name="usu_UsuarioMod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_Editar_Direcciones">
+            <Parameter Name="direc_ID" Mode="In" Type="Int32" />
+            <Parameter Name="direc_ClienteID" Mode="In" Type="Int32" />
+            <Parameter Name="direc_DireccionExacta" Mode="In" Type="String" />
+            <Parameter Name="direc_CiudadID" Mode="In" Type="Int32" />
+            <Parameter Name="direc_UsuarioMod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_Editar_Empleados">
+            <Parameter Name="emp_Id" Mode="In" Type="Int32" />
+            <Parameter Name="emp_Name" Mode="In" Type="String" />
+            <Parameter Name="emp_Apellido" Mode="In" Type="String" />
+            <Parameter Name="emp_DNI" Mode="In" Type="Int32" />
+            <Parameter Name="emp_FechaNac" Mode="In" Type="DateTime" />
+            <Parameter Name="ciu_ID" Mode="In" Type="Int32" />
+            <Parameter Name="est_ID" Mode="In" Type="String" />
+            <Parameter Name="emp_Sexo" Mode="In" Type="String" />
+            <Parameter Name="carg_Id" Mode="In" Type="Int32" />
+            <Parameter Name="emp_UsuModif" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_Editar_EstadosCiviles">
+            <Parameter Name="est_ID" Mode="In" Type="String" />
+            <Parameter Name="est_Descripcion" Mode="In" Type="String" />
+            <Parameter Name="est_UsuMod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_Editar_Fabricas">
+            <Parameter Name="fab_ID" Mode="In" Type="Int32" />
+            <Parameter Name="fab_Descripcion" Mode="In" Type="String" />
+            <Parameter Name="fab_Telefono" Mode="In" Type="String" />
+            <Parameter Name="fab_UsuarioMod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_Editar_Pedidos">
+            <Parameter Name="pedi_ID" Mode="In" Type="Int32" />
+            <Parameter Name="pedi_Code" Mode="In" Type="String" />
+            <Parameter Name="pedi_DireccionID" Mode="In" Type="Int32" />
+            <Parameter Name="pedi_CostoEnvio" Mode="In" Type="Decimal" />
+            <Parameter Name="estv_Id" Mode="In" Type="Int32" />
+            <Parameter Name="emp_Id" Mode="In" Type="Int32" />
+            <Parameter Name="pedi_Fecha" Mode="In" Type="DateTime" />
+            <Parameter Name="pedi_UsuarioMod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_Editar_PedidosDetalles">
+            <Parameter Name="det_Id" Mode="In" Type="Int32" />
+            <Parameter Name="pedi_ID" Mode="In" Type="Int32" />
+            <Parameter Name="art_ID" Mode="In" Type="Int32" />
+            <Parameter Name="det_Cantidad" Mode="In" Type="Int32" />
+            <Parameter Name="det_UsuModif" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_Editar_Usuarios">
+            <Parameter Name="usu_ID" Mode="In" Type="Int32" />
+            <Parameter Name="usu_Usuario" Mode="In" Type="String" />
+            <Parameter Name="rol_ID" Mode="In" Type="Int32" />
+            <Parameter Name="usu_EsAdmin" Mode="In" Type="Boolean" />
+            <Parameter Name="usu_UsuarioMod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_Eliminar_Articulos">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="UsuarioMod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_Eliminar_Cargos">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="UsuarioMod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_Eliminar_Cliente">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="UsuarioMod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_Eliminar_Direcciones">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="UsuarioModi" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_Eliminar_Empleados">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="UsuModi" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_Eliminar_EstadosCiviles">
+            <Parameter Name="ID" Mode="In" Type="String" />
+            <Parameter Name="UsuMod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_Eliminar_Fabricas">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="UsuMod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_Eliminar_Pedidos">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="UsuMod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_Eliminar_PedidosDetalles">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="UsuModi" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_Eliminar_Usuarios">
+            <Parameter Name="usu_ID" Mode="In" Type="Int32" />
+            <Parameter Name="usu_UsuarioMod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_EMPLEADOS_INSERT">
+            <Parameter Name="emp_Name" Mode="In" Type="String" />
+            <Parameter Name="emp_Apellido" Mode="In" Type="String" />
+            <Parameter Name="emp_DNI" Mode="In" Type="String" />
+            <Parameter Name="emp_FechaNac" Mode="In" Type="DateTime" />
+            <Parameter Name="ciu_ID" Mode="In" Type="Int32" />
+            <Parameter Name="est_ID" Mode="In" Type="String" />
+            <Parameter Name="emp_Sexo" Mode="In" Type="String" />
+            <Parameter Name="carg_Id" Mode="In" Type="Int32" />
+            <Parameter Name="emp_UsuarioCrea" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_EstadosCiviles_INSERT">
+            <Parameter Name="est_ID" Mode="In" Type="String" />
+            <Parameter Name="est_Description" Mode="In" Type="String" />
+            <Parameter Name="est_UsuCrea" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_InsertArticulos">
+            <Parameter Name="art_Descripcion" Mode="In" Type="String" />
+            <Parameter Name="fab_ID" Mode="In" Type="Int32" />
+            <Parameter Name="art_Stock" Mode="In" Type="Int32" />
+            <Parameter Name="art_UsuarioCreador" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_InsertClientes">
+            <Parameter Name="client_Nombre" Mode="In" Type="String" />
+            <Parameter Name="client_Identidad" Mode="In" Type="String" />
+            <Parameter Name="client_EstadoCivil" Mode="In" Type="String" />
+            <Parameter Name="client_Sexo" Mode="In" Type="String" />
+            <Parameter Name="client_Telefono" Mode="In" Type="String" />
+            <Parameter Name="client_Saldo" Mode="In" Type="String" />
+            <Parameter Name="client_LimiteCredito" Mode="In" Type="String" />
+            <Parameter Name="client_Descuento" Mode="In" Type="String" />
+            <Parameter Name="client_UsuarioCreador" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_InsertFabrica">
+            <Parameter Name="fab_Descripcion" Mode="In" Type="String" />
+            <Parameter Name="fab_Telefono" Mode="In" Type="String" />
+            <Parameter Name="fab_UsuarioCreador" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_PEDIDO_DETALLE">
+            <Parameter Name="pedi_ID" Mode="In" Type="Int32" />
+            <Parameter Name="art_ID" Mode="In" Type="Int32" />
+            <Parameter Name="det_Cantidad" Mode="In" Type="Int32" />
+            <Parameter Name="det_UsuarioCrea" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_PEDIDOS_INSERT">
+            <Parameter Name="pedi_Code" Mode="In" Type="String" />
+            <Parameter Name="pedi_DireccionID" Mode="In" Type="Int32" />
+            <Parameter Name="pedi_CostoEnvio" Mode="In" Type="Decimal" />
+            <Parameter Name="estv_Id" Mode="In" Type="Int32" />
+            <Parameter Name="emp_Id" Mode="In" Type="Int32" />
+            <Parameter Name="pedi_Fecha" Mode="In" Type="DateTime" />
+            <Parameter Name="pedi_UsuarioCreador" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_ROLES_INSERT">
+          <Parameter Name="rol_Descripcion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_USUARIOS_INSERT">
+            <Parameter Name="usu_Usuario" Mode="In" Type="String" />
+            <Parameter Name="emp_Id" Mode="In" Type="Int32" />
+            <Parameter Name="rol_ID" Mode="In" Type="Int32" />
+            <Parameter Name="usu_Clave" Mode="In" Type="String" />
+            <Parameter Name="usu_EsAdmin" Mode="In" Type="Boolean" />
+            <Parameter Name="usu_UsuarioCreador" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
+        <EntityType Name="V_INDEX_ARTICULOS">
+          <Key>
+            <PropertyRef Name="ID_ARTICULO" />
+            <PropertyRef Name="DESCRIPCION" />
+          </Key>
+          <Property Name="ID_ARTICULO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="V_INDEX_CARGOS">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="DESCRIPCION" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="V_INDEX_CIUDADES">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="NOMBRE_CIUDAD" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE_CIUDAD" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="V_INDEX_CLIENTES">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="NOMBRE" />
+            <PropertyRef Name="IDENTIDAD" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IDENTIDAD" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="SALDO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LIMITE_CREDITO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DESCUENTO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="V_INDEX_DEPARTAMENTOS">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="NOMBRE" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="V_INDEX_DIRECCIONES">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="CLIENTE" />
+            <PropertyRef Name="REFERENCIA" />
+            <PropertyRef Name="CIUDAD" />
+            <PropertyRef Name="DEPARTAMENTO" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="CLIENTE" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="REFERENCIA" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CIUDAD" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DEPARTAMENTO" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="V_INDEX_EMPLEADOS">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="NOMBRE" />
+            <PropertyRef Name="APELLIDO" />
+            <PropertyRef Name="IDENTIDAD" />
+            <PropertyRef Name="SEXO" />
+            <PropertyRef Name="CARGO" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="APELLIDO" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IDENTIDAD" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="SEXO" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="CARGO" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="V_INDEX_ESTADOS_CIVILES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="V_INDEX_FABRICAS">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="NOMBRE" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="V_INDEX_PEDIDOS">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="ESTADO" />
+            <PropertyRef Name="CODIGO" />
+            <PropertyRef Name="DIRECCION" />
+            <PropertyRef Name="CLIENTE" />
+            <PropertyRef Name="ENCARGADO" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CODIGO" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CLIENTE" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ENCARGADO" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="V_INDEX_PEDIDOS_DETALLES">
+          <Key>
+            <PropertyRef Name="ID_PEDIDO" />
+            <PropertyRef Name="ARTICULO" />
+            <PropertyRef Name="CANTIDAD" />
+          </Key>
+          <Property Name="ID_PEDIDO" Type="Int32" Nullable="false" />
+          <Property Name="ARTICULO" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CANTIDAD" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="V_INDEX_USUARIOS">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="USUARIO" />
+            <PropertyRef Name="NOMBRE" />
+            <PropertyRef Name="ROL" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="USUARIO" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ROL" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_tbEmpleados_UsuCrea">
+          <End Type="DBArticulosEncargosModel.tbUsuarios" Role="tbUsuarios" Multiplicity="1" />
+          <End Type="DBArticulosEncargosModel.tbEmpleados" Role="tbEmpleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbUsuarios">
+              <PropertyRef Name="usu_ID" />
+            </Principal>
+            <Dependent Role="tbEmpleados">
+              <PropertyRef Name="emp_UsuarioCrea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbEmpleados_UsuModif">
+          <End Type="DBArticulosEncargosModel.tbUsuarios" Role="tbUsuarios" Multiplicity="0..1" />
+          <End Type="DBArticulosEncargosModel.tbEmpleados" Role="tbEmpleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbUsuarios">
+              <PropertyRef Name="usu_ID" />
+            </Principal>
+            <Dependent Role="tbEmpleados">
+              <PropertyRef Name="emp_UsuModif" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbUsuarios_tbEmpleados">
+          <End Type="DBArticulosEncargosModel.tbEmpleados" Role="tbEmpleados" Multiplicity="0..1" />
+          <End Type="DBArticulosEncargosModel.tbUsuarios" Role="tbUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbEmpleados">
+              <PropertyRef Name="emp_Id" />
+            </Principal>
+            <Dependent Role="tbUsuarios">
+              <PropertyRef Name="emp_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1695,6 +2604,7 @@
           <EntitySetMapping Name="tbEstadosCiviles">
             <EntityTypeMapping TypeName="DBArticulosEncargosModel.tbEstadosCiviles">
               <MappingFragment StoreEntitySet="tbEstadosCiviles">
+                <ScalarProperty Name="est_Estado" ColumnName="est_Estado" />
                 <ScalarProperty Name="est_ID" ColumnName="est_ID" />
                 <ScalarProperty Name="est_Descripcion" ColumnName="est_Descripcion" />
                 <ScalarProperty Name="est_UsuCrea" ColumnName="est_UsuCrea" />
@@ -1793,6 +2703,155 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="V_INDEX_ARTICULOS">
+            <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_ARTICULOS">
+              <MappingFragment StoreEntitySet="V_INDEX_ARTICULOS">
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="ID_ARTICULO" ColumnName="ID ARTICULO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_INDEX_CARGOS">
+            <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_CARGOS">
+              <MappingFragment StoreEntitySet="V_INDEX_CARGOS">
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_INDEX_CIUDADES">
+            <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_CIUDADES">
+              <MappingFragment StoreEntitySet="V_INDEX_CIUDADES">
+                <ScalarProperty Name="NOMBRE_CIUDAD" ColumnName="NOMBRE CIUDAD" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_INDEX_CLIENTES">
+            <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_CLIENTES">
+              <MappingFragment StoreEntitySet="V_INDEX_CLIENTES">
+                <ScalarProperty Name="DESCUENTO" ColumnName="DESCUENTO" />
+                <ScalarProperty Name="LIMITE_CREDITO" ColumnName="LIMITE CREDITO" />
+                <ScalarProperty Name="SALDO" ColumnName="SALDO" />
+                <ScalarProperty Name="IDENTIDAD" ColumnName="IDENTIDAD" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_INDEX_DEPARTAMENTOS">
+            <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_DEPARTAMENTOS">
+              <MappingFragment StoreEntitySet="V_INDEX_DEPARTAMENTOS">
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_INDEX_DIRECCIONES">
+            <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_DIRECCIONES">
+              <MappingFragment StoreEntitySet="V_INDEX_DIRECCIONES">
+                <ScalarProperty Name="DEPARTAMENTO" ColumnName="DEPARTAMENTO" />
+                <ScalarProperty Name="CIUDAD" ColumnName="CIUDAD" />
+                <ScalarProperty Name="REFERENCIA" ColumnName="REFERENCIA" />
+                <ScalarProperty Name="CLIENTE" ColumnName="CLIENTE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_INDEX_EMPLEADOS">
+            <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_EMPLEADOS">
+              <MappingFragment StoreEntitySet="V_INDEX_EMPLEADOS">
+                <ScalarProperty Name="CARGO" ColumnName="CARGO" />
+                <ScalarProperty Name="SEXO" ColumnName="SEXO" />
+                <ScalarProperty Name="IDENTIDAD" ColumnName="IDENTIDAD" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_INDEX_ESTADOS_CIVILES">
+            <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_ESTADOS_CIVILES">
+              <MappingFragment StoreEntitySet="V_INDEX_ESTADOS_CIVILES">
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_INDEX_FABRICAS">
+            <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_FABRICAS">
+              <MappingFragment StoreEntitySet="V_INDEX_FABRICAS">
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_INDEX_PEDIDOS">
+            <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_PEDIDOS">
+              <MappingFragment StoreEntitySet="V_INDEX_PEDIDOS">
+                <ScalarProperty Name="ENCARGADO" ColumnName="ENCARGADO" />
+                <ScalarProperty Name="CLIENTE" ColumnName="CLIENTE" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_INDEX_PEDIDOS_DETALLES">
+            <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_PEDIDOS_DETALLES">
+              <MappingFragment StoreEntitySet="V_INDEX_PEDIDOS_DETALLES">
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="ARTICULO" ColumnName="ARTICULO" />
+                <ScalarProperty Name="ID_PEDIDO" ColumnName="ID PEDIDO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_INDEX_USUARIOS">
+            <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_USUARIOS">
+              <MappingFragment StoreEntitySet="V_INDEX_USUARIOS">
+                <ScalarProperty Name="ROL" ColumnName="ROL" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="UDP_CARGOS_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_CARGOS_INSERT" />
+          <FunctionImportMapping FunctionImportName="UDP_CIUDADES_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_CIUDADES_INSERT" />
+          <FunctionImportMapping FunctionImportName="UDP_DEPARTAMENTOS_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_DEPARTAMENTOS_INSERT" />
+          <FunctionImportMapping FunctionImportName="UDP_DIRECCIONES_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_DIRECCIONES_INSERT" />
+          <FunctionImportMapping FunctionImportName="UDP_Editar_Articulos" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Articulos" />
+          <FunctionImportMapping FunctionImportName="UDP_Editar_Cargos" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Cargos" />
+          <FunctionImportMapping FunctionImportName="UDP_Editar_Ciudades" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Ciudades" />
+          <FunctionImportMapping FunctionImportName="UDP_Editar_Clientes" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Clientes" />
+          <FunctionImportMapping FunctionImportName="UDP_Editar_Departamentos" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Departamentos" />
+          <FunctionImportMapping FunctionImportName="UDP_Editar_Direcciones" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Direcciones" />
+          <FunctionImportMapping FunctionImportName="UDP_Editar_Empleados" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Empleados" />
+          <FunctionImportMapping FunctionImportName="UDP_Editar_EstadosCiviles" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_EstadosCiviles" />
+          <FunctionImportMapping FunctionImportName="UDP_Editar_Fabricas" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Fabricas" />
+          <FunctionImportMapping FunctionImportName="UDP_Editar_Pedidos" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Pedidos" />
+          <FunctionImportMapping FunctionImportName="UDP_Editar_PedidosDetalles" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_PedidosDetalles" />
+          <FunctionImportMapping FunctionImportName="UDP_Editar_Usuarios" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Usuarios" />
+          <FunctionImportMapping FunctionImportName="UDP_Eliminar_Articulos" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Articulos" />
+          <FunctionImportMapping FunctionImportName="UDP_Eliminar_Cargos" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Cargos" />
+          <FunctionImportMapping FunctionImportName="UDP_Eliminar_Cliente" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Cliente" />
+          <FunctionImportMapping FunctionImportName="UDP_Eliminar_Direcciones" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Direcciones" />
+          <FunctionImportMapping FunctionImportName="UDP_Eliminar_Empleados" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Empleados" />
+          <FunctionImportMapping FunctionImportName="UDP_Eliminar_EstadosCiviles" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_EstadosCiviles" />
+          <FunctionImportMapping FunctionImportName="UDP_Eliminar_Fabricas" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Fabricas" />
+          <FunctionImportMapping FunctionImportName="UDP_Eliminar_Pedidos" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Pedidos" />
+          <FunctionImportMapping FunctionImportName="UDP_Eliminar_PedidosDetalles" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_PedidosDetalles" />
+          <FunctionImportMapping FunctionImportName="UDP_Eliminar_Usuarios" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Usuarios" />
+          <FunctionImportMapping FunctionImportName="UDP_EMPLEADOS_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_EMPLEADOS_INSERT" />
+          <FunctionImportMapping FunctionImportName="UDP_EstadosCiviles_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_EstadosCiviles_INSERT" />
+          <FunctionImportMapping FunctionImportName="UDP_InsertArticulos" FunctionName="DBArticulosEncargosModel.Store.UDP_InsertArticulos" />
+          <FunctionImportMapping FunctionImportName="UDP_InsertClientes" FunctionName="DBArticulosEncargosModel.Store.UDP_InsertClientes" />
+          <FunctionImportMapping FunctionImportName="UDP_InsertFabrica" FunctionName="DBArticulosEncargosModel.Store.UDP_InsertFabrica" />
+          <FunctionImportMapping FunctionImportName="UDP_PEDIDO_DETALLE" FunctionName="DBArticulosEncargosModel.Store.UDP_PEDIDO_DETALLE" />
+          <FunctionImportMapping FunctionImportName="UDP_PEDIDOS_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_PEDIDOS_INSERT" />
+          <FunctionImportMapping FunctionImportName="UDP_ROLES_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_ROLES_INSERT" />
+          <FunctionImportMapping FunctionImportName="UDP_USUARIOS_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_USUARIOS_INSERT" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
