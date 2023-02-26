@@ -17,8 +17,8 @@ namespace Sistema_Envios.Controllers
         // GET: EstadosCiviles
         public ActionResult Index()
         {
-            var tbEstadosCiviles = db.tbEstadosCiviles.Include(t => t.tbUsuarios).Include(t => t.tbUsuarios1);
-            return View(tbEstadosCiviles.ToList());
+            var tbEstadosCivilesIndex = db.V_INDEX_ESTADOS_CIVILES;
+            return View(tbEstadosCivilesIndex.ToList());
         }
 
         // GET: EstadosCiviles/Details/5

@@ -17,8 +17,8 @@ namespace Sistema_Envios.Controllers
         // GET: Departamentos
         public ActionResult Index()
         {
-            var tbDepartamentos = db.tbDepartamentos.Include(t => t.tbUsuarios).Include(t => t.tbUsuarios1);
-            return View(tbDepartamentos.ToList());
+            var tbDepartamentosIndex = db.V_INDEX_DEPARTAMENTOS;
+            return View(tbDepartamentosIndex.ToList());
         }
 
         // GET: Departamentos/Details/5

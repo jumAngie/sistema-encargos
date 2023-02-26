@@ -17,7 +17,7 @@ namespace Sistema_Envios.Controllers
         // GET: Usuarios
         public ActionResult Index()
         {
-            var tbUsuarios = db.tbUsuarios.Include(t => t.tblRoles);
+            var tbUsuarios = db.V_INDEX_USUARIOS;
             return View(tbUsuarios.ToList());
         }
 

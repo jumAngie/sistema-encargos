@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Sistema_Envios.Models.tbPedidos>
+﻿@model IEnumerable<Sistema_Envios.Models.V_INDEX_PEDIDOS>
 
 @{
     ViewBag.Title = "Index";
@@ -21,52 +21,42 @@
                   <table class="table table-responsive" id="DataTable">
                     <thead>
                         <tr role="row">
-                            <th>@Html.DisplayNameFor(model => model.pedi_Code)</th>
-                            <th>@Html.DisplayNameFor(model => model.pedi_CostoEnvio)</th>
-                            <th>@Html.DisplayNameFor(model => model.emp_Id)</th>
-                            <th>@Html.DisplayNameFor(model => model.pedi_Fecha)</th>
-                            <th>@Html.DisplayNameFor(model => model.pedi_FechaCreacion)</th>
-                            <th>@Html.DisplayNameFor(model => model.pedi_FechaMod)</th>
-                            <th>@Html.DisplayNameFor(model => model.pedi_Estado)</th>
-                            <th>@Html.DisplayNameFor(model => model.tbDirecciones.direc_DireccionExacta)</th>
-                            <th>@Html.DisplayNameFor(model => model.tbEstadoEnvios.estv_Description)</th>
+                            <th>@Html.DisplayNameFor(model => model.ID)</th>
+                            <th>@Html.DisplayNameFor(model => model.ESTADO)</th>
+                            <th>@Html.DisplayNameFor(model => model.CODIGO)</th>
+                            <th>@Html.DisplayNameFor(model => model.DIRECCION)</th>
+                            <th>@Html.DisplayNameFor(model => model.CLIENTE)</th>
+                            <th>@Html.DisplayNameFor(model => model.ENCARGADO)</th>
+                         
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                       @foreach (var item in Model) {
-                        <tr class="gradeA odd" role="row" data-id="@item.pedi_ID">
+                        <tr class="gradeA odd" role="row" data-id="@item.ID">
                             <td>
-                                @Html.DisplayFor(modelItem => item.pedi_Code)
+                                @Html.DisplayFor(modelItem => item.ID)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.pedi_CostoEnvio)
+                                @Html.DisplayFor(modelItem => item.ESTADO)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.emp_Id)
+                                @Html.DisplayFor(modelItem => item.CODIGO)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.pedi_Fecha)
+                                @Html.DisplayFor(modelItem => item.DIRECCION)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.pedi_FechaCreacion)
+                                @Html.DisplayFor(modelItem => item.CLIENTE)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.pedi_FechaMod)
+                                @Html.DisplayFor(modelItem => item.ENCARGADO)
                             </td>
+                       
                             <td>
-                                @Html.DisplayFor(modelItem => item.pedi_Estado)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.tbDirecciones.direc_DireccionExacta)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.tbEstadoEnvios.estv_Description)
-                            </td>
-                            <td>
-                              @Html.ActionLink("Detalles", "Details", new { id=item.pedi_ID },  new {@class = "btn btn-default btn-xs" })
-                              @Html.ActionLink("Editar", "Edit", new { id=item.pedi_ID }, new {@class = "btn btn-primary btn-xs" })
-                              @Html.ActionLink("Delete", "Delete", new { id=item.pedi_ID }, new {@class = "btn btn-secondary btn-xs" })
+                              @Html.ActionLink("Detalles", "Details", new { id=item.ID },  new {@class = "btn btn-default btn-xs" })
+                              @Html.ActionLink("Editar", "Edit", new { id=item.ID }, new {@class = "btn btn-primary btn-xs" })
+                              @Html.ActionLink("Delete", "Delete", new { id=item.ID }, new { @class = "btn btn-secondary btn-xs" })
                             </td>
                         </tr>
                       }

@@ -41,47 +41,9 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.art_UsuarioCreador, "art_UsuarioCreador", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("art_UsuarioCreador", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.art_UsuarioCreador, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.art_FechaCreacion, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.art_FechaCreacion, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.art_FechaCreacion, "", new { @class = "text-danger" })
-            </div>
-        </div>
+      
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.art_UsuarioMod, "art_UsuarioMod", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("art_UsuarioMod", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.art_UsuarioMod, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.art_FechaMod, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.art_FechaMod, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.art_FechaMod, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.art_Estado, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.art_Estado)
-                    @Html.ValidationMessageFor(model => model.art_Estado, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

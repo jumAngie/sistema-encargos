@@ -30,7 +30,6 @@ namespace Sistema_Envios.Models
         public virtual DbSet<tbArticulos> tbArticulos { get; set; }
         public virtual DbSet<tbCargos> tbCargos { get; set; }
         public virtual DbSet<tbCiudades> tbCiudades { get; set; }
-        public virtual DbSet<tbClientes> tbClientes { get; set; }
         public virtual DbSet<tbDepartamentos> tbDepartamentos { get; set; }
         public virtual DbSet<tbDirecciones> tbDirecciones { get; set; }
         public virtual DbSet<tbEmpleados> tbEmpleados { get; set; }
@@ -46,15 +45,16 @@ namespace Sistema_Envios.Models
         public virtual DbSet<V_INDEX_ARTICULOS> V_INDEX_ARTICULOS { get; set; }
         public virtual DbSet<V_INDEX_CARGOS> V_INDEX_CARGOS { get; set; }
         public virtual DbSet<V_INDEX_CIUDADES> V_INDEX_CIUDADES { get; set; }
-        public virtual DbSet<V_INDEX_CLIENTES> V_INDEX_CLIENTES { get; set; }
         public virtual DbSet<V_INDEX_DEPARTAMENTOS> V_INDEX_DEPARTAMENTOS { get; set; }
         public virtual DbSet<V_INDEX_DIRECCIONES> V_INDEX_DIRECCIONES { get; set; }
         public virtual DbSet<V_INDEX_EMPLEADOS> V_INDEX_EMPLEADOS { get; set; }
         public virtual DbSet<V_INDEX_ESTADOS_CIVILES> V_INDEX_ESTADOS_CIVILES { get; set; }
         public virtual DbSet<V_INDEX_FABRICAS> V_INDEX_FABRICAS { get; set; }
         public virtual DbSet<V_INDEX_PEDIDOS> V_INDEX_PEDIDOS { get; set; }
-        public virtual DbSet<V_INDEX_PEDIDOS_DETALLES> V_INDEX_PEDIDOS_DETALLES { get; set; }
         public virtual DbSet<V_INDEX_USUARIOS> V_INDEX_USUARIOS { get; set; }
+        public virtual DbSet<V_INDEX_CLIENTES> V_INDEX_CLIENTES { get; set; }
+        public virtual DbSet<tbClientes> tbClientes { get; set; }
+        public virtual DbSet<V_INDEX_PEDIDOS_DETALLES> V_INDEX_PEDIDOS_DETALLES { get; set; }
     
         public virtual int UDP_CARGOS_INSERT(string carg_Description, Nullable<int> rep_UsuarioCreador)
         {
@@ -69,12 +69,8 @@ namespace Sistema_Envios.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_CARGOS_INSERT", carg_DescriptionParameter, rep_UsuarioCreadorParameter);
         }
     
-        public virtual int UDP_CIUDADES_INSERT(Nullable<int> ciu_ID, string ciu_Decription, Nullable<int> ciu_IdDepto, Nullable<int> usuCrea)
+        public virtual int UDP_CIUDADES_INSERT(string ciu_Decription, Nullable<int> ciu_IdDepto, Nullable<int> usuCrea)
         {
-            var ciu_IDParameter = ciu_ID.HasValue ?
-                new ObjectParameter("ciu_ID", ciu_ID) :
-                new ObjectParameter("ciu_ID", typeof(int));
-    
             var ciu_DecriptionParameter = ciu_Decription != null ?
                 new ObjectParameter("ciu_Decription", ciu_Decription) :
                 new ObjectParameter("ciu_Decription", typeof(string));
@@ -87,7 +83,7 @@ namespace Sistema_Envios.Models
                 new ObjectParameter("UsuCrea", usuCrea) :
                 new ObjectParameter("UsuCrea", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_CIUDADES_INSERT", ciu_IDParameter, ciu_DecriptionParameter, ciu_IdDeptoParameter, usuCreaParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_CIUDADES_INSERT", ciu_DecriptionParameter, ciu_IdDeptoParameter, usuCreaParameter);
         }
     
         public virtual int UDP_DEPARTAMENTOS_INSERT(string depto_Description, Nullable<int> depto_Usucrea)
@@ -649,7 +645,7 @@ namespace Sistema_Envios.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_InsertArticulos", art_DescripcionParameter, fab_IDParameter, art_StockParameter, art_UsuarioCreadorParameter);
         }
     
-        public virtual int UDP_InsertClientes(string client_Nombre, string client_Identidad, string client_EstadoCivil, string client_Sexo, string client_Telefono, string client_Saldo, string client_LimiteCredito, string client_Descuento, Nullable<int> client_UsuarioCreador)
+        public virtual int UDP_InsertClientes(string client_Nombre, string client_Identidad, string client_EstadoCivil, string client_Sexo, string client_Telefono, string client_Saldo, Nullable<decimal> client_LimiteCredito, string client_Descuento, Nullable<int> client_UsuarioCreador)
         {
             var client_NombreParameter = client_Nombre != null ?
                 new ObjectParameter("client_Nombre", client_Nombre) :
@@ -675,9 +671,9 @@ namespace Sistema_Envios.Models
                 new ObjectParameter("client_Saldo", client_Saldo) :
                 new ObjectParameter("client_Saldo", typeof(string));
     
-            var client_LimiteCreditoParameter = client_LimiteCredito != null ?
+            var client_LimiteCreditoParameter = client_LimiteCredito.HasValue ?
                 new ObjectParameter("client_LimiteCredito", client_LimiteCredito) :
-                new ObjectParameter("client_LimiteCredito", typeof(string));
+                new ObjectParameter("client_LimiteCredito", typeof(decimal));
     
             var client_DescuentoParameter = client_Descuento != null ?
                 new ObjectParameter("client_Descuento", client_Descuento) :

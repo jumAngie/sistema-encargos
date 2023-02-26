@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Sistema_Envios.Models.tbPedidoDetalles>
+﻿@model IEnumerable<Sistema_Envios.Models.V_INDEX_PEDIDOS_DETALLES>
 
 @{
     ViewBag.Title = "Index";
@@ -21,48 +21,30 @@
                   <table class="table table-responsive" id="DataTable">
                     <thead>
                         <tr role="row">
-                            <th>@Html.DisplayNameFor(model => model.art_ID)</th>
-                            <th>@Html.DisplayNameFor(model => model.det_Cantidad)</th>
-                            <th>@Html.DisplayNameFor(model => model.det_FechaCrea)</th>
-                            <th>@Html.DisplayNameFor(model => model.det_FechaModif)</th>
-                            <th>@Html.DisplayNameFor(model => model.det_Estado)</th>
-                            <th>@Html.DisplayNameFor(model => model.tbPedidos.pedi_Code)</th>
-                            <th>@Html.DisplayNameFor(model => model.tbUsuarios.usu_Usuario)</th>
-                            <th>@Html.DisplayNameFor(model => model.tbUsuarios1.usu_Usuario)</th>
+                            <th>@Html.DisplayNameFor(model => model.CODIGO_PEDIDO)</th>
+                            <th>@Html.DisplayNameFor(model => model.ARTICULO)</th>
+                            <th>@Html.DisplayNameFor(model => model.CANTIDAD)</th>
+                           
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                       @foreach (var item in Model) {
-                        <tr class="gradeA odd" role="row" data-id="@item.det_Id">
+                        <tr class="gradeA odd" role="row" data-id="@item.ID_DETALLE">
                             <td>
-                                @Html.DisplayFor(modelItem => item.art_ID)
+                                @Html.DisplayFor(modelItem => item.CODIGO_PEDIDO)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.det_Cantidad)
+                                @Html.DisplayFor(modelItem => item.ARTICULO)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.det_FechaCrea)
+                                @Html.DisplayFor(modelItem => item.CANTIDAD)
                             </td>
+                         
                             <td>
-                                @Html.DisplayFor(modelItem => item.det_FechaModif)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.det_Estado)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.tbPedidos.pedi_Code)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.tbUsuarios.usu_Usuario)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.tbUsuarios1.usu_Usuario)
-                            </td>
-                            <td>
-                              @Html.ActionLink("Detalles", "Details", new { id=item.det_Id },  new {@class = "btn btn-default btn-xs" })
-                              @Html.ActionLink("Editar", "Edit", new { id=item.det_Id }, new {@class = "btn btn-primary btn-xs" })
-                              @Html.ActionLink("Delete", "Delete", new { id=item.det_Id }, new { @class = "btn btn-secondary btn-xs"})
+                              @Html.ActionLink("Detalles", "Details", new { id=item.ID_DETALLE },  new {@class = "btn btn-default btn-xs" })
+                              @Html.ActionLink("Editar", "Edit", new { id=item.ID_DETALLE }, new {@class = "btn btn-primary btn-xs" })
+                              @Html.ActionLink("Delete", "Delete", new { id=item.ID_DETALLE }, new { @class = "btn btn-secondary btn-xs" })
                             </td>
                         </tr>
                       }

@@ -17,8 +17,8 @@ namespace Sistema_Envios.Controllers
         // GET: Empleados
         public ActionResult Index()
         {
-            var tbEmpleados = db.tbEmpleados.Include(t => t.tbCiudades).Include(t => t.tbEstadosCiviles);
-            return View(tbEmpleados.ToList());
+            var tbEmpleadosIndex = db.V_INDEX_EMPLEADOS;
+            return View(tbEmpleadosIndex.ToList());
         }
 
         // GET: Empleados/Details/5

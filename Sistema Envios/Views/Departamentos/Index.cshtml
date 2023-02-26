@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Sistema_Envios.Models.tbDepartamentos>
+﻿@model IEnumerable<Sistema_Envios.Models.V_INDEX_DEPARTAMENTOS>
 
 @{
     ViewBag.Title = "Index";
@@ -21,28 +21,26 @@
                   <table class="table table-responsive" id="DataTable">
                     <thead>
                         <tr role="row">
-                            <th>@Html.DisplayNameFor(model => model.depto_Descripcion)</th>
-                            <th>@Html.DisplayNameFor(model => model.usu_FechaCreacion)</th>
-                            <th>@Html.DisplayNameFor(model => model.depto_FechaMod)</th>
+                            <th>@Html.DisplayNameFor(model => model.ID)</th>
+                            <th>@Html.DisplayNameFor(model => model.NOMBRE)</th>
+                         
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                       @foreach (var item in Model) {
-                        <tr class="gradeA odd" role="row" data-id="@item.depto_ID">
+                        <tr class="gradeA odd" role="row" data-id="@item.ID">
                             <td>
-                                @Html.DisplayFor(modelItem => item.depto_Descripcion)
+                                @Html.DisplayFor(modelItem => item.ID)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.usu_FechaCreacion)
+                                @Html.DisplayFor(modelItem => item.NOMBRE)
                             </td>
+                          
                             <td>
-                                @Html.DisplayFor(modelItem => item.depto_FechaMod)
-                            </td>
-                            <td>
-                              @Html.ActionLink("Detalles", "Details", new { id=item.depto_ID },  new {@class = "btn btn-default btn-xs" })
-                              @Html.ActionLink("Editar", "Edit", new { id=item.depto_ID }, new {@class = "btn btn-primary btn-xs" })
-                              @Html.ActionLink("Delete", "Delete", new { id=item.depto_ID }, new { @class = "btn btn-secondary btn-xs" })
+                              @Html.ActionLink("Detalles", "Details", new { id=item.ID },  new {@class = "btn btn-default btn-xs" })
+                              @Html.ActionLink("Editar", "Edit", new { id=item.ID }, new {@class = "btn btn-primary btn-xs" })
+                              @Html.ActionLink("Delete", "Delete", new { id=item.ID }, new { @class = "btn btn-secondary btn-xs" })
                             </td>
                         </tr>
                       }

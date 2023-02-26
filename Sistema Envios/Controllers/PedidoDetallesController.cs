@@ -17,8 +17,8 @@ namespace Sistema_Envios.Controllers
         // GET: PedidoDetalles
         public ActionResult Index()
         {
-            var tbPedidoDetalles = db.tbPedidoDetalles.Include(t => t.tbPedidos).Include(t => t.tbUsuarios).Include(t => t.tbUsuarios1);
-            return View(tbPedidoDetalles.ToList());
+            var tbPedidoDetallesIndex = db.V_INDEX_PEDIDOS_DETALLES;
+            return View(tbPedidoDetallesIndex.ToList());
         }
 
         // GET: PedidoDetalles/Details/5

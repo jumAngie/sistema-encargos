@@ -17,7 +17,7 @@ namespace Sistema_Envios.Controllers
         // GET: Pedidos
         public ActionResult Index()
         {
-            var tbPedidos = db.tbPedidos.Include(t => t.tbDirecciones).Include(t => t.tbEstadoEnvios).Include(t => t.tbUsuarios).Include(t => t.tbUsuarios1);
+            var tbPedidos = db.V_INDEX_PEDIDOS;
             return View(tbPedidos.ToList());
         }
 

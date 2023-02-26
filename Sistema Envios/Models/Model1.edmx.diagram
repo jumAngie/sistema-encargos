@@ -8,7 +8,6 @@
         <EntityTypeShape EntityType="DBArticulosEncargosModel.tbArticulos" Width="1.5" PointX="7.5" PointY="29.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.tbCargos" Width="1.5" PointX="5.25" PointY="20.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.tbCiudades" Width="1.5" PointX="7.5" PointY="25.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbClientes" Width="1.5" PointX="10.5" PointY="27.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.tbDepartamentos" Width="1.5" PointX="5.25" PointY="33.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.tbDirecciones" Width="1.5" PointX="12.75" PointY="23.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.tbEmpleados" Width="1.5" PointX="9.75" PointY="33.375" IsExpanded="true" />
@@ -31,10 +30,6 @@
         <AssociationConnector Association="DBArticulosEncargosModel.FK_Empleados_Ciudad" ManuallyRouted="false" />
         <AssociationConnector Association="DBArticulosEncargosModel.FK_tbCiudades_UsuarioCrea" ManuallyRouted="false" />
         <AssociationConnector Association="DBArticulosEncargosModel.FK_tbCiudades_UsuarioModif" ManuallyRouted="false" />
-        <AssociationConnector Association="DBArticulosEncargosModel.FK_dbo_tbClientes_dbo_tbEstadosCiviles_est_ID" ManuallyRouted="false" />
-        <AssociationConnector Association="DBArticulosEncargosModel.FK_dbo_tbDirecciones_tbClientes_client_ID" ManuallyRouted="false" />
-        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbClientes_UsuarioCrea" ManuallyRouted="false" />
-        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbClientes_UsuarioModif" ManuallyRouted="false" />
         <AssociationConnector Association="DBArticulosEncargosModel.FK_tbDepartamentos_UsuarioCrea" ManuallyRouted="false" />
         <AssociationConnector Association="DBArticulosEncargosModel.FK_tbDepartamentos_UsuarioModif" ManuallyRouted="false" />
         <AssociationConnector Association="DBArticulosEncargosModel.FK_dbo_tbPedidos_dbo_tbDirecciones_direc_ID" ManuallyRouted="false" />
@@ -57,18 +52,23 @@
         <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_ARTICULOS" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_CARGOS" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_CIUDADES" Width="1.5" PointX="0.75" PointY="3.75" />
-        <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_CLIENTES" Width="1.5" PointX="2.75" PointY="3.75" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_DEPARTAMENTOS" Width="1.5" PointX="4.75" PointY="0.75" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_DIRECCIONES" Width="1.5" PointX="4.75" PointY="3.75" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_EMPLEADOS" Width="1.5" PointX="6.75" PointY="0.75" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_ESTADOS_CIVILES" Width="1.5" PointX="0.75" PointY="6.75" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_FABRICAS" Width="1.5" PointX="2.75" PointY="6.75" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_PEDIDOS" Width="1.5" PointX="6.75" PointY="3.75" />
-        <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_PEDIDOS_DETALLES" Width="1.5" PointX="4.75" PointY="6.75" />
-        <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_USUARIOS" Width="1.5" PointX="6.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_USUARIOS" Width="1.5" PointX="8.875" PointY="6.625" />
         <AssociationConnector Association="DBArticulosEncargosModel.FK_tbEmpleados_UsuCrea" />
         <AssociationConnector Association="DBArticulosEncargosModel.FK_tbEmpleados_UsuModif" />
         <AssociationConnector Association="DBArticulosEncargosModel.FK_tbUsuarios_tbEmpleados" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_CLIENTES" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbClientes" Width="1.5" PointX="10.5" PointY="27.5" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_dbo_tbClientes_dbo_tbEstadosCiviles_est_ID" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_dbo_tbDirecciones_tbClientes_client_ID" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbClientes_UsuarioCrea" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_tbClientes_UsuarioModif" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_PEDIDOS_DETALLES" Width="1.5" PointX="5.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Sistema_Envios.Models.tbEmpleados>
+﻿@model IEnumerable<Sistema_Envios.Models.V_INDEX_EMPLEADOS>
 
 @{
     ViewBag.Title = "Index";
@@ -21,48 +21,42 @@
                   <table class="table table-responsive" id="DataTable">
                     <thead>
                         <tr role="row">
-                            <th>@Html.DisplayNameFor(model => model.emp_Name)</th>
-                            <th>@Html.DisplayNameFor(model => model.emp_Apellido)</th>
-                            <th>@Html.DisplayNameFor(model => model.emp_DNI)</th>
-                            <th>@Html.DisplayNameFor(model => model.emp_FechaNac)</th>
-                            <th>@Html.DisplayNameFor(model => model.emp_Sexo)</th>
-                            <th>@Html.DisplayNameFor(model => model.carg_Id)</th>
-                            <th>@Html.DisplayNameFor(model => model.tbCiudades.ciu_Descripcion)</th>
-                            <th>@Html.DisplayNameFor(model => model.tbEstadosCiviles.est_Descripcion)</th>
+                            <th>@Html.DisplayNameFor(model => model.ID)</th>
+                            <th>@Html.DisplayNameFor(model => model.NOMBRE)</th>
+                            <th>@Html.DisplayNameFor(model => model.APELLIDO)</th>
+                            <th>@Html.DisplayNameFor(model => model.IDENTIDAD)</th>
+                            <th>@Html.DisplayNameFor(model => model.SEXO)</th>
+                            <th>@Html.DisplayNameFor(model => model.CARGO)</th>
+                           
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                       @foreach (var item in Model) {
-                        <tr class="gradeA odd" role="row" data-id="@item.emp_Id">
+                        <tr class="gradeA odd" role="row" data-id="@item.ID">
                             <td>
-                                @Html.DisplayFor(modelItem => item.emp_Name)
+                                @Html.DisplayFor(modelItem => item.ID)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.emp_Apellido)
+                                @Html.DisplayFor(modelItem => item.NOMBRE)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.emp_DNI)
+                                @Html.DisplayFor(modelItem => item.APELLIDO)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.emp_FechaNac)
+                                @Html.DisplayFor(modelItem => item.IDENTIDAD)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.emp_Sexo)
+                                @Html.DisplayFor(modelItem => item.SEXO)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.carg_Id)
+                                @Html.DisplayFor(modelItem => item.CARGO)
                             </td>
+                            
                             <td>
-                                @Html.DisplayFor(modelItem => item.tbCiudades.ciu_Descripcion)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.tbEstadosCiviles.est_Descripcion)
-                            </td>
-                            <td>
-                              @Html.ActionLink("Detalles", "Details", new { id=item.emp_Id },  new {@class = "btn btn-default btn-xs" })
-                              @Html.ActionLink("Editar", "Edit", new { id=item.emp_Id }, new {@class = "btn btn-primary btn-xs" })
-                              @Html.ActionLink("Delete", "Delete", new { id=item.emp_Id }, new { @class = "btn btn-secondary btn-xs" })
+                              @Html.ActionLink("Detalles", "Details", new { id=item.ID },  new {@class = "btn btn-default btn-xs" })
+                              @Html.ActionLink("Editar", "Edit", new { id=item.ID }, new {@class = "btn btn-primary btn-xs" })
+                              @Html.ActionLink("Delete", "Delete", new { id=item.ID }, new { @class = "btn btn-secondary btn-xs" })
                             </td>
                         </tr>
                       }

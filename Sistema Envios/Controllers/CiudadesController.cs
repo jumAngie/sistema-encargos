@@ -17,8 +17,8 @@ namespace Sistema_Envios.Controllers
         // GET: Ciudades
         public ActionResult Index()
         {
-            var tbCiudades = db.tbCiudades.Include(t => t.tbDepartamentos).Include(t => t.tbUsuarios).Include(t => t.tbUsuarios1);
-            return View(tbCiudades.ToList());
+            var tbCiudadesIndex = db.V_INDEX_CIUDADES;
+            return View(tbCiudadesIndex.ToList());
         }
 
         // GET: Ciudades/Details/5

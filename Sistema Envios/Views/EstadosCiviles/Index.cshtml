@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Sistema_Envios.Models.tbEstadosCiviles>
+﻿@model IEnumerable<Sistema_Envios.Models.V_INDEX_ESTADOS_CIVILES>
 
 @{
     ViewBag.Title = "Index";
@@ -21,36 +21,26 @@
                   <table class="table table-responsive" id="DataTable">
                     <thead>
                         <tr role="row">
-                            <th>@Html.DisplayNameFor(model => model.est_Descripcion)</th>
-                            <th>@Html.DisplayNameFor(model => model.est_FechaCrea)</th>
-                            <th>@Html.DisplayNameFor(model => model.est_FechaMod)</th>
-                            <th>@Html.DisplayNameFor(model => model.tbUsuarios.usu_Usuario)</th>
-                            <th>@Html.DisplayNameFor(model => model.tbUsuarios1.usu_Usuario)</th>
+                            <th>@Html.DisplayNameFor(model => model.ID)</th>
+                            <th>@Html.DisplayNameFor(model => model.DESCRIPCION)</th>
+                           
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                       @foreach (var item in Model) {
-                        <tr class="gradeA odd" role="row" data-id="@item.est_ID">
+                        <tr class="gradeA odd" role="row" data-id="@item.ID">
                             <td>
-                                @Html.DisplayFor(modelItem => item.est_Descripcion)
+                                @Html.DisplayFor(modelItem => item.ID)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.est_FechaCrea)
+                                @Html.DisplayFor(modelItem => item.DESCRIPCION)
                             </td>
+                           
                             <td>
-                                @Html.DisplayFor(modelItem => item.est_FechaMod)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.tbUsuarios.usu_Usuario)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.tbUsuarios1.usu_Usuario)
-                            </td>
-                            <td>
-                              @Html.ActionLink("Detalles", "Details", new { id=item.est_ID },  new {@class = "btn btn-default btn-xs" })
-                              @Html.ActionLink("Editar", "Edit", new { id=item.est_ID }, new {@class = "btn btn-primary btn-xs" })
-                              @Html.ActionLink("Delete", "Delete", new { id=item.est_ID }, new { @class = "btn btn-secondary btn-xs"})
+                              @Html.ActionLink("Detalles", "Details", new { id=item.ID },  new {@class = "btn btn-default btn-xs" })
+                              @Html.ActionLink("Editar", "Edit", new { id=item.ID }, new {@class = "btn btn-primary btn-xs" })
+                              @Html.ActionLink("Delete", "Delete", new { id=item.ID }, new { @class = "btn btn-secondary btn-xs" })
                             </td>
                         </tr>
                       }

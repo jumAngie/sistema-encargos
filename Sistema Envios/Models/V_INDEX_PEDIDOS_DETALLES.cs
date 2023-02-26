@@ -14,7 +14,8 @@ namespace Sistema_Envios.Models
     
     public partial class V_INDEX_PEDIDOS_DETALLES
     {
-        public int ID_PEDIDO { get; set; }
+        public int ID_DETALLE { get; set; }
+        public string CODIGO_PEDIDO { get; set; }
         public string ARTICULO { get; set; }
         public int CANTIDAD { get; set; }
     }

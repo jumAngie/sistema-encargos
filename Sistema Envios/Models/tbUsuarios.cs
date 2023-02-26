@@ -23,8 +23,6 @@ namespace Sistema_Envios.Models
             this.tbCargos1 = new HashSet<tbCargos>();
             this.tbCiudades = new HashSet<tbCiudades>();
             this.tbCiudades1 = new HashSet<tbCiudades>();
-            this.tbClientes = new HashSet<tbClientes>();
-            this.tbClientes1 = new HashSet<tbClientes>();
             this.tbDepartamentos = new HashSet<tbDepartamentos>();
             this.tbDepartamentos1 = new HashSet<tbDepartamentos>();
             this.tbDirecciones = new HashSet<tbDirecciones>();
@@ -39,6 +37,8 @@ namespace Sistema_Envios.Models
             this.tbPedidos1 = new HashSet<tbPedidos>();
             this.tbEmpleados = new HashSet<tbEmpleados>();
             this.tbEmpleados1 = new HashSet<tbEmpleados>();
+            this.tbClientes = new HashSet<tbClientes>();
+            this.tbClientes1 = new HashSet<tbClientes>();
         }
     
         public int usu_ID { get; set; }
@@ -65,10 +65,6 @@ namespace Sistema_Envios.Models
         public virtual ICollection<tbCiudades> tbCiudades { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbCiudades> tbCiudades1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbClientes> tbClientes { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbClientes> tbClientes1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbDepartamentos> tbDepartamentos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -99,5 +95,9 @@ namespace Sistema_Envios.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbEmpleados> tbEmpleados1 { get; set; }
         public virtual tbEmpleados tbEmpleados2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbClientes> tbClientes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbClientes> tbClientes1 { get; set; }
     }
 }

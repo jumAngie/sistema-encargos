@@ -17,8 +17,8 @@ namespace Sistema_Envios.Controllers
         // GET: Clientes
         public ActionResult Index()
         {
-            var tbClientes = db.tbClientes.Include(t => t.tbEstadosCiviles).Include(t => t.tbUsuarios).Include(t => t.tbUsuarios1);
-            return View(tbClientes.ToList());
+            var tbClientesIndex = db.V_INDEX_CLIENTES;
+            return View(tbClientesIndex.ToList());
         }
 
         // GET: Clientes/Details/5

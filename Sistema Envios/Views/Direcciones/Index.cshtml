@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Sistema_Envios.Models.tbDirecciones>
+﻿@model IEnumerable<Sistema_Envios.Models.V_INDEX_DIRECCIONES>
 
 @{
     ViewBag.Title = "Index";
@@ -21,28 +21,38 @@
                   <table class="table table-responsive" id="DataTable">
                     <thead>
                         <tr role="row">
-                            <th>@Html.DisplayNameFor(model => model.direc_DireccionExacta)</th>
-                            <th>@Html.DisplayNameFor(model => model.tbCiudades.ciu_Descripcion)</th>
-                            <th>@Html.DisplayNameFor(model => model.tbClientes.client_Nombre)</th>
+                            <th>@Html.DisplayNameFor(model => model.ID)</th>
+                            <th>@Html.DisplayNameFor(model => model.CLIENTE)</th>
+                            <th>@Html.DisplayNameFor(model => model.REFERENCIA)</th>
+                            <th>@Html.DisplayNameFor(model => model.CIUDAD)</th>
+                            <th>@Html.DisplayNameFor(model => model.DEPARTAMENTO)</th>
+                          
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                       @foreach (var item in Model) {
-                        <tr class="gradeA odd" role="row" data-id="@item.direc_ID">
+                        <tr class="gradeA odd" role="row" data-id="@item.ID">
                             <td>
-                                @Html.DisplayFor(modelItem => item.direc_DireccionExacta)
+                                @Html.DisplayFor(modelItem => item.ID)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.tbCiudades.ciu_Descripcion)
+                                @Html.DisplayFor(modelItem => item.CLIENTE)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.tbClientes.client_Nombre)
+                                @Html.DisplayFor(modelItem => item.REFERENCIA)
                             </td>
                             <td>
-                              @Html.ActionLink("Detalles", "Details", new { id=item.direc_ID },  new {@class = "btn btn-default btn-xs" })
-                              @Html.ActionLink("Editar", "Edit", new { id=item.direc_ID }, new {@class = "btn btn-primary btn-xs" })
-                              @Html.ActionLink("Delete", "Delete", new { id=item.direc_ID }, new { @class = "btn btn-secondary btn-xs" })
+                                @Html.DisplayFor(modelItem => item.CIUDAD)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DEPARTAMENTO)
+                            </td>
+                           
+                            <td>
+                              @Html.ActionLink("Detalles", "Details", new { id=item.ID },  new {@class = "btn btn-default btn-xs" })
+                              @Html.ActionLink("Editar", "Edit", new { id=item.ID }, new {@class = "btn btn-primary btn-xs" })
+                              @Html.ActionLink("Delete", "Delete", new { id=item.ID }, new { @class = "btn btn-secondary btn-xs" })
                             </td>
                         </tr>
                       }

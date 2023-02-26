@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Sistema_Envios.Models.tbArticulos>
+﻿@model IEnumerable<Sistema_Envios.Models.V_INDEX_ARTICULOS>
 
 @{
     ViewBag.Title = "Index";
@@ -21,40 +21,26 @@
                   <table class="table table-responsive" id="DataTable">
                     <thead>
                         <tr role="row">
-                            <th>@Html.DisplayNameFor(model => model.art_Descripcion)</th>
-                            <th>@Html.DisplayNameFor(model => model.art_Stock)</th>
-                            <th>@Html.DisplayNameFor(model => model.art_FechaCreacion)</th>
-                            <th>@Html.DisplayNameFor(model => model.art_FechaMod)</th>
-                            <th>@Html.DisplayNameFor(model => model.art_Estado)</th>
-                            <th>@Html.DisplayNameFor(model => model.tbFabricas.fab_Descripcion)</th>
+                            <th>@Html.DisplayNameFor(model => model.ID_ARTICULO)</th>
+                            <th>@Html.DisplayNameFor(model => model.DESCRIPCION)</th>
+                            
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                       @foreach (var item in Model) {
-                        <tr class="gradeA odd" role="row" data-id="@item.art_ID">
+                        <tr class="gradeA odd" role="row" data-id="@item.ID_ARTICULO">
                             <td>
-                                @Html.DisplayFor(modelItem => item.art_Descripcion)
+                                @Html.DisplayFor(modelItem => item.ID_ARTICULO)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.art_Stock)
+                                @Html.DisplayFor(modelItem => item.DESCRIPCION)
                             </td>
+                            
                             <td>
-                                @Html.DisplayFor(modelItem => item.art_FechaCreacion)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.art_FechaMod)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.art_Estado)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.tbFabricas.fab_Descripcion)
-                            </td>
-                            <td>
-                              @Html.ActionLink("Detalles", "Details", new { id=item.art_ID },  new {@class = "btn btn-default btn-xs" })
-                              @Html.ActionLink("Editar", "Edit", new { id=item.art_ID }, new {@class = "btn btn-primary btn-xs" })
-                              @Html.ActionLink("Delete", "Delete", new { id=item.art_ID }, new { @class = "btn btn-secondary btn-xs" })
+                              @Html.ActionLink("Detalles", "Details", new { id=item.ID_ARTICULO },  new {@class = "btn btn-default btn-xs" })
+                              @Html.ActionLink("Editar", "Edit", new { id=item.ID_ARTICULO }, new {@class = "btn btn-primary btn-xs" })
+                              @Html.ActionLink("Delete", "Delete", new { id=item.ID_ARTICULO }, new { @class = "btn btn-secondary btn-xs" })
                             </td>
                         </tr>
                       }

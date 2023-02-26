@@ -27,7 +27,7 @@ namespace Sistema_Envios.Models
         public string client_Sexo { get; set; }
         public string client_Telefono { get; set; }
         public string client_Saldo { get; set; }
-        public string client_LimiteCredito { get; set; }
+        public decimal client_LimiteCredito { get; set; }
         public string client_Descuento { get; set; }
         public int client_UsuarioCreador { get; set; }
         public System.DateTime client_FechaCreacion { get; set; }

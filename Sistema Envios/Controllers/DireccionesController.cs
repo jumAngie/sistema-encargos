@@ -17,8 +17,8 @@ namespace Sistema_Envios.Controllers
         // GET: Direcciones
         public ActionResult Index()
         {
-            var tbDirecciones = db.tbDirecciones.Include(t => t.tbCiudades).Include(t => t.tbClientes).Include(t => t.tbUsuarios).Include(t => t.tbUsuarios1);
-            return View(tbDirecciones.ToList());
+            var tbDireccionesIndex = db.V_INDEX_DIRECCIONES;
+            return View(tbDireccionesIndex.ToList());
         }
 
         // GET: Direcciones/Details/5

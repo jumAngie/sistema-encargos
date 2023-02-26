@@ -18,8 +18,8 @@ namespace Sistema_Envios.Controllers
         // GET: Articulos
         public ActionResult Index()
         {
-            var tbArticulos = db.tbArticulos.Include(t => t.tbFabricas).Include(t => t.tbUsuarios).Include(t => t.tbUsuarios1);
-            return View(tbArticulos.ToList());
+            var tbArticulosIndex = db.V_INDEX_ARTICULOS;
+            return View(tbArticulosIndex.ToList());
         }
 
         // GET: Articulos/Details/5
@@ -29,13 +29,14 @@ namespace Sistema_Envios.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tbArticulos tbArticulos = db.tbArticulos.Find(id);
-            if (tbArticulos == null)
+            tbArticulos tbArticulosDetails = db.tbArticulos.Find(id);
+            if (tbArticulosDetails == null)
             {
                 return HttpNotFound();
             }
-            return View(tbArticulos);
+            return View(tbArticulosDetails);
         }
+
 
         // GET: Articulos/Create
         public ActionResult Create()

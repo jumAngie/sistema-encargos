@@ -17,8 +17,8 @@ namespace Sistema_Envios.Controllers
         // GET: Fabricas
         public ActionResult Index()
         {
-            var tbFabricas = db.tbFabricas.Include(t => t.tbUsuarios).Include(t => t.tbUsuarios1);
-            return View(tbFabricas.ToList());
+            var tbFabricasIndex = db.V_INDEX_FABRICAS;
+            return View(tbFabricasIndex.ToList());
         }
 
         // GET: Fabricas/Details/5

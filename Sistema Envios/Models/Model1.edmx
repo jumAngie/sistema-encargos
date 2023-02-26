@@ -14,9 +14,9 @@
           <Property Name="fab_ID" Type="int" Nullable="false" />
           <Property Name="art_Stock" Type="int" Nullable="false" />
           <Property Name="art_UsuarioCreador" Type="int" Nullable="false" />
-          <Property Name="art_FechaCreacion" Type="date" Nullable="false" />
+          <Property Name="art_FechaCreacion" Type="datetime" Nullable="false" />
           <Property Name="art_UsuarioMod" Type="int" />
-          <Property Name="art_FechaMod" Type="date" />
+          <Property Name="art_FechaMod" Type="datetime" />
           <Property Name="art_Estado" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="tbCargos">
@@ -26,22 +26,22 @@
           <Property Name="carg_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="carg_Description" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="rep_UsuarioCreador" Type="int" Nullable="false" />
-          <Property Name="rep_FechaCreacion" Type="date" Nullable="false" />
+          <Property Name="rep_FechaCreacion" Type="datetime" Nullable="false" />
           <Property Name="rep_UsuarioMod" Type="int" />
-          <Property Name="rep_FechaMod" Type="date" />
+          <Property Name="rep_FechaMod" Type="datetime" />
           <Property Name="rep_Estado" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="tbCiudades">
           <Key>
             <PropertyRef Name="ciu_ID" />
           </Key>
-          <Property Name="ciu_ID" Type="int" Nullable="false" />
+          <Property Name="ciu_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ciu_Descripcion" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="ciu_DeptoID" Type="int" Nullable="false" />
           <Property Name="ciu_UsuarioCreador" Type="int" Nullable="false" />
-          <Property Name="ciu_FechaCreacion" Type="date" Nullable="false" />
+          <Property Name="ciu_FechaCreacion" Type="datetime" Nullable="false" />
           <Property Name="ciu_UsuarioMod" Type="int" />
-          <Property Name="ciu_FechaMod" Type="date" />
+          <Property Name="ciu_FechaMod" Type="datetime" />
         </EntityType>
         <EntityType Name="tbClientes">
           <Key>
@@ -54,12 +54,12 @@
           <Property Name="client_Sexo" Type="char" MaxLength="1" Nullable="false" />
           <Property Name="client_Telefono" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="client_Saldo" Type="nvarchar" MaxLength="100" />
-          <Property Name="client_LimiteCredito" Type="nvarchar" MaxLength="100" />
+          <Property Name="client_LimiteCredito" Type="decimal" Precision="20" Scale="2" Nullable="false" />
           <Property Name="client_Descuento" Type="nvarchar" MaxLength="100" />
           <Property Name="client_UsuarioCreador" Type="int" Nullable="false" />
-          <Property Name="client_FechaCreacion" Type="date" Nullable="false" />
+          <Property Name="client_FechaCreacion" Type="datetime" Nullable="false" />
           <Property Name="client_UsuarioMod" Type="int" />
-          <Property Name="client_FechaMod" Type="date" />
+          <Property Name="client_FechaMod" Type="datetime" />
           <Property Name="client_Estado" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="tbDepartamentos">
@@ -69,9 +69,9 @@
           <Property Name="depto_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="depto_Descripcion" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="usu_UsuarioCreador" Type="int" Nullable="false" />
-          <Property Name="usu_FechaCreacion" Type="date" Nullable="false" />
+          <Property Name="usu_FechaCreacion" Type="datetime" Nullable="false" />
           <Property Name="usu_UsuarioMod" Type="int" />
-          <Property Name="depto_FechaMod" Type="date" />
+          <Property Name="depto_FechaMod" Type="datetime" />
         </EntityType>
         <EntityType Name="tbDirecciones">
           <Key>
@@ -120,9 +120,9 @@
           <Property Name="est_ID" Type="char" MaxLength="1" Nullable="false" />
           <Property Name="est_Descripcion" Type="nvarchar" MaxLength="100" />
           <Property Name="est_UsuCrea" Type="int" Nullable="false" />
-          <Property Name="est_FechaCrea" Type="date" Nullable="false" />
+          <Property Name="est_FechaCrea" Type="datetime" Nullable="false" />
           <Property Name="est_UsuMod" Type="int" />
-          <Property Name="est_FechaMod" Type="date" />
+          <Property Name="est_FechaMod" Type="datetime" />
           <Property Name="est_Estado" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="tbFabricas">
@@ -130,12 +130,12 @@
             <PropertyRef Name="fab_ID" />
           </Key>
           <Property Name="fab_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="fab_Descripcion" Type="nvarchar" MaxLength="200" Nullable="false" />
-          <Property Name="fab_Telefono" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="fab_Descripcion" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="fab_Telefono" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="fab_UsuarioCreador" Type="int" Nullable="false" />
-          <Property Name="fab_FechaCreacion" Type="date" Nullable="false" />
+          <Property Name="fab_FechaCreacion" Type="datetime" Nullable="false" />
           <Property Name="fab_UsuarioMod" Type="int" />
-          <Property Name="fab_FechaMod" Type="date" />
+          <Property Name="fab_FechaMod" Type="datetime" />
           <Property Name="fab_Estado" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="tblPantallas">
@@ -188,7 +188,7 @@
           <Property Name="pedi_UsuarioCreador" Type="int" Nullable="false" />
           <Property Name="pedi_FechaCreacion" Type="datetime" Nullable="false" />
           <Property Name="pedi_UsuarioMod" Type="int" />
-          <Property Name="pedi_FechaMod" Type="datetime" Nullable="false" />
+          <Property Name="pedi_FechaMod" Type="datetime" />
           <Property Name="pedi_Estado" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="tbUsuarios">
@@ -234,7 +234,7 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_CIUDADES' no
             <PropertyRef Name="ID" />
             <PropertyRef Name="NOMBRE CIUDAD" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NOMBRE CIUDAD" Type="nvarchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
@@ -244,12 +244,13 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_CLIENTES' no
             <PropertyRef Name="ID" />
             <PropertyRef Name="NOMBRE" />
             <PropertyRef Name="IDENTIDAD" />
+            <PropertyRef Name="LIMITE CREDITO" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="NOMBRE" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="IDENTIDAD" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="SALDO" Type="nvarchar" MaxLength="100" />
-          <Property Name="LIMITE CREDITO" Type="nvarchar" MaxLength="100" />
+          <Property Name="LIMITE CREDITO" Type="decimal" Precision="20" Scale="2" Nullable="false" />
           <Property Name="DESCUENTO" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <!--Errores durante la generación:
@@ -313,7 +314,7 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_FABRICAS' no
             <PropertyRef Name="NOMBRE" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NOMBRE" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="NOMBRE" Type="nvarchar" MaxLength="250" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_PEDIDOS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -337,11 +338,13 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_PEDIDOS' no 
 advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_PEDIDOS_DETALLES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="V_INDEX_PEDIDOS_DETALLES">
           <Key>
-            <PropertyRef Name="ID PEDIDO" />
+            <PropertyRef Name="ID_DETALLE" />
+            <PropertyRef Name="CODIGO PEDIDO" />
             <PropertyRef Name="ARTICULO" />
             <PropertyRef Name="CANTIDAD" />
           </Key>
-          <Property Name="ID PEDIDO" Type="int" Nullable="false" />
+          <Property Name="ID_DETALLE" Type="int" Nullable="false" />
+          <Property Name="CODIGO PEDIDO" Type="varchar" MaxLength="6" Nullable="false" />
           <Property Name="ARTICULO" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="CANTIDAD" Type="int" Nullable="false" />
         </EntityType>
@@ -796,7 +799,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <Parameter Name="rep_UsuarioCreador" Type="int" Mode="In" />
         </Function>
         <Function Name="UDP_CIUDADES_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="ciu_ID" Type="int" Mode="In" />
           <Parameter Name="ciu_Decription" Type="nvarchar" Mode="In" />
           <Parameter Name="ciu_IdDepto" Type="int" Mode="In" />
           <Parameter Name="UsuCrea" Type="int" Mode="In" />
@@ -885,20 +887,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <Parameter Name="pedi_Fecha" Type="date" Mode="In" />
           <Parameter Name="pedi_UsuarioMod" Type="nvarchar" Mode="In" />
         </Function>
-        <Function Name="UDP_Editar_PedidosDetalles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="det_Id" Type="int" Mode="In" />
-          <Parameter Name="pedi_ID" Type="int" Mode="In" />
-          <Parameter Name="art_ID" Type="int" Mode="In" />
-          <Parameter Name="det_Cantidad" Type="int" Mode="In" />
-          <Parameter Name="det_UsuModif" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="UDP_Editar_Usuarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="usu_ID" Type="int" Mode="In" />
-          <Parameter Name="usu_Usuario" Type="nvarchar" Mode="In" />
-          <Parameter Name="rol_ID" Type="int" Mode="In" />
-          <Parameter Name="usu_EsAdmin" Type="bit" Mode="In" />
-          <Parameter Name="usu_UsuarioMod" Type="nvarchar" Mode="In" />
-        </Function>
         <Function Name="UDP_Eliminar_Articulos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
           <Parameter Name="UsuarioMod" Type="varchar" Mode="In" />
@@ -931,14 +919,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <Parameter Name="ID" Type="int" Mode="In" />
           <Parameter Name="UsuMod" Type="nvarchar" Mode="In" />
         </Function>
-        <Function Name="UDP_Eliminar_PedidosDetalles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="ID" Type="int" Mode="In" />
-          <Parameter Name="UsuModi" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="UDP_Eliminar_Usuarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="usu_ID" Type="int" Mode="In" />
-          <Parameter Name="usu_UsuarioMod" Type="nvarchar" Mode="In" />
-        </Function>
         <Function Name="UDP_EMPLEADOS_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="emp_Name" Type="nvarchar" Mode="In" />
           <Parameter Name="emp_Apellido" Type="nvarchar" Mode="In" />
@@ -968,7 +948,7 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <Parameter Name="client_Sexo" Type="char" Mode="In" />
           <Parameter Name="client_Telefono" Type="nvarchar" Mode="In" />
           <Parameter Name="client_Saldo" Type="nvarchar" Mode="In" />
-          <Parameter Name="client_LimiteCredito" Type="nvarchar" Mode="In" />
+          <Parameter Name="client_LimiteCredito" Type="decimal" Mode="In" />
           <Parameter Name="client_Descuento" Type="nvarchar" Mode="In" />
           <Parameter Name="client_UsuarioCreador" Type="int" Mode="In" />
         </Function>
@@ -1097,7 +1077,8 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           </EntitySet>
           <EntitySet Name="V_INDEX_PEDIDOS_DETALLES" EntityType="Self.V_INDEX_PEDIDOS_DETALLES" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [V_INDEX_PEDIDOS_DETALLES].[ID PEDIDO] AS [ID PEDIDO], 
+    [V_INDEX_PEDIDOS_DETALLES].[ID_DETALLE] AS [ID_DETALLE], 
+    [V_INDEX_PEDIDOS_DETALLES].[CODIGO PEDIDO] AS [CODIGO PEDIDO], 
     [V_INDEX_PEDIDOS_DETALLES].[ARTICULO] AS [ARTICULO], 
     [V_INDEX_PEDIDOS_DETALLES].[CANTIDAD] AS [CANTIDAD]
     FROM [dbo].[V_INDEX_PEDIDOS_DETALLES] AS [V_INDEX_PEDIDOS_DETALLES]</DefiningQuery>
@@ -1268,9 +1249,9 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <Property Name="fab_ID" Type="Int32" Nullable="false" />
           <Property Name="art_Stock" Type="Int32" Nullable="false" />
           <Property Name="art_UsuarioCreador" Type="Int32" Nullable="false" />
-          <Property Name="art_FechaCreacion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="art_FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="art_UsuarioMod" Type="Int32" />
-          <Property Name="art_FechaMod" Type="DateTime" Precision="0" />
+          <Property Name="art_FechaMod" Type="DateTime" Precision="3" />
           <Property Name="art_Estado" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="tbFabricas" Relationship="Self.FK_tbArticulos_tbFabrica" FromRole="tbArticulos" ToRole="tbFabricas" />
           <NavigationProperty Name="tbUsuarios" Relationship="Self.FK_tbArticulos_UsuarioCrea" FromRole="tbArticulos" ToRole="tbUsuarios" />
@@ -1283,9 +1264,9 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <Property Name="carg_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="carg_Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="rep_UsuarioCreador" Type="Int32" Nullable="false" />
-          <Property Name="rep_FechaCreacion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="rep_FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="rep_UsuarioMod" Type="Int32" />
-          <Property Name="rep_FechaMod" Type="DateTime" Precision="0" />
+          <Property Name="rep_FechaMod" Type="DateTime" Precision="3" />
           <Property Name="rep_Estado" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="tbUsuarios" Relationship="Self.FK_tbCargos_UsuarioCrea" FromRole="tbCargos" ToRole="tbUsuarios" />
           <NavigationProperty Name="tbUsuarios1" Relationship="Self.FK_tbCargos_UsuarioModif" FromRole="tbCargos" ToRole="tbUsuarios" />
@@ -1298,37 +1279,14 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <Property Name="ciu_Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ciu_DeptoID" Type="Int32" Nullable="false" />
           <Property Name="ciu_UsuarioCreador" Type="Int32" Nullable="false" />
-          <Property Name="ciu_FechaCreacion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ciu_FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ciu_UsuarioMod" Type="Int32" />
-          <Property Name="ciu_FechaMod" Type="DateTime" Precision="0" />
+          <Property Name="ciu_FechaMod" Type="DateTime" Precision="3" />
           <NavigationProperty Name="tbDepartamentos" Relationship="Self.FK_dbo_tbCiudades_dbo_tbDepartamentos_depto_ID" FromRole="tbCiudades" ToRole="tbDepartamentos" />
           <NavigationProperty Name="tbDirecciones" Relationship="Self.FK_dbo_tbDirecciones_tbCiudades_ciu_ID" FromRole="tbCiudades" ToRole="tbDirecciones" />
           <NavigationProperty Name="tbEmpleados" Relationship="Self.FK_Empleados_Ciudad" FromRole="tbCiudades" ToRole="tbEmpleados" />
           <NavigationProperty Name="tbUsuarios" Relationship="Self.FK_tbCiudades_UsuarioCrea" FromRole="tbCiudades" ToRole="tbUsuarios" />
           <NavigationProperty Name="tbUsuarios1" Relationship="Self.FK_tbCiudades_UsuarioModif" FromRole="tbCiudades" ToRole="tbUsuarios" />
-        </EntityType>
-        <EntityType Name="tbClientes">
-          <Key>
-            <PropertyRef Name="client_ID" />
-          </Key>
-          <Property Name="client_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="client_Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="client_Identidad" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="client_EstadoCivil" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="client_Sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="client_Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="client_Saldo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="client_LimiteCredito" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="client_Descuento" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="client_UsuarioCreador" Type="Int32" Nullable="false" />
-          <Property Name="client_FechaCreacion" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="client_UsuarioMod" Type="Int32" />
-          <Property Name="client_FechaMod" Type="DateTime" Precision="0" />
-          <Property Name="client_Estado" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="tbEstadosCiviles" Relationship="Self.FK_dbo_tbClientes_dbo_tbEstadosCiviles_est_ID" FromRole="tbClientes" ToRole="tbEstadosCiviles" />
-          <NavigationProperty Name="tbDirecciones" Relationship="Self.FK_dbo_tbDirecciones_tbClientes_client_ID" FromRole="tbClientes" ToRole="tbDirecciones" />
-          <NavigationProperty Name="tbUsuarios" Relationship="Self.FK_tbClientes_UsuarioCrea" FromRole="tbClientes" ToRole="tbUsuarios" />
-          <NavigationProperty Name="tbUsuarios1" Relationship="Self.FK_tbClientes_UsuarioModif" FromRole="tbClientes" ToRole="tbUsuarios" />
         </EntityType>
         <EntityType Name="tbDepartamentos">
           <Key>
@@ -1337,9 +1295,9 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <Property Name="depto_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="depto_Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="usu_UsuarioCreador" Type="Int32" Nullable="false" />
-          <Property Name="usu_FechaCreacion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="usu_FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="usu_UsuarioMod" Type="Int32" />
-          <Property Name="depto_FechaMod" Type="DateTime" Precision="0" />
+          <Property Name="depto_FechaMod" Type="DateTime" Precision="3" />
           <NavigationProperty Name="tbCiudades" Relationship="Self.FK_dbo_tbCiudades_dbo_tbDepartamentos_depto_ID" FromRole="tbDepartamentos" ToRole="tbCiudades" />
           <NavigationProperty Name="tbUsuarios" Relationship="Self.FK_tbDepartamentos_UsuarioCrea" FromRole="tbDepartamentos" ToRole="tbUsuarios" />
           <NavigationProperty Name="tbUsuarios1" Relationship="Self.FK_tbDepartamentos_UsuarioModif" FromRole="tbDepartamentos" ToRole="tbUsuarios" />
@@ -1358,10 +1316,10 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <Property Name="direc_FechaMod" Type="DateTime" Precision="3" />
           <Property Name="direc_Estado" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="tbCiudades" Relationship="Self.FK_dbo_tbDirecciones_tbCiudades_ciu_ID" FromRole="tbDirecciones" ToRole="tbCiudades" />
-          <NavigationProperty Name="tbClientes" Relationship="Self.FK_dbo_tbDirecciones_tbClientes_client_ID" FromRole="tbDirecciones" ToRole="tbClientes" />
           <NavigationProperty Name="tbPedidos" Relationship="Self.FK_dbo_tbPedidos_dbo_tbDirecciones_direc_ID" FromRole="tbDirecciones" ToRole="tbPedidos" />
           <NavigationProperty Name="tbUsuarios" Relationship="Self.FK_tbDirecciones_UsuarioCrea" FromRole="tbDirecciones" ToRole="tbUsuarios" />
           <NavigationProperty Name="tbUsuarios1" Relationship="Self.FK_tbDirecciones_UsuarioModif" FromRole="tbDirecciones" ToRole="tbUsuarios" />
+          <NavigationProperty Name="tbClientes" Relationship="DBArticulosEncargosModel.FK_dbo_tbDirecciones_tbClientes_client_ID" FromRole="tbDirecciones" ToRole="tbClientes" />
         </EntityType>
         <EntityType Name="tbEmpleados">
           <Key>
@@ -1402,26 +1360,26 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <Property Name="est_ID" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="est_Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="est_UsuCrea" Type="Int32" Nullable="false" />
-          <Property Name="est_FechaCrea" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="est_FechaCrea" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="est_UsuMod" Type="Int32" />
-          <Property Name="est_FechaMod" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="tbClientes" Relationship="Self.FK_dbo_tbClientes_dbo_tbEstadosCiviles_est_ID" FromRole="tbEstadosCiviles" ToRole="tbClientes" />
+          <Property Name="est_FechaMod" Type="DateTime" Precision="3" />
           <NavigationProperty Name="tbEmpleados" Relationship="Self.FK_Empleados_EstadoCivil" FromRole="tbEstadosCiviles" ToRole="tbEmpleados" />
           <NavigationProperty Name="tbUsuarios" Relationship="Self.FK_tbEstados_Civ_UsuarioCrea" FromRole="tbEstadosCiviles" ToRole="tbUsuarios" />
           <NavigationProperty Name="tbUsuarios1" Relationship="Self.FK_tbEstados_Civ_UsuarioModif" FromRole="tbEstadosCiviles" ToRole="tbUsuarios" />
           <Property Name="est_Estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tbClientes" Relationship="DBArticulosEncargosModel.FK_dbo_tbClientes_dbo_tbEstadosCiviles_est_ID" FromRole="tbEstadosCiviles" ToRole="tbClientes" />
         </EntityType>
         <EntityType Name="tbFabricas">
           <Key>
             <PropertyRef Name="fab_ID" />
           </Key>
           <Property Name="fab_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fab_Descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="fab_Telefono" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fab_Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fab_Telefono" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="fab_UsuarioCreador" Type="Int32" Nullable="false" />
-          <Property Name="fab_FechaCreacion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fab_FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="fab_UsuarioMod" Type="Int32" />
-          <Property Name="fab_FechaMod" Type="DateTime" Precision="0" />
+          <Property Name="fab_FechaMod" Type="DateTime" Precision="3" />
           <Property Name="fab_Estado" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="tbArticulos" Relationship="Self.FK_tbArticulos_tbFabrica" FromRole="tbFabricas" ToRole="tbArticulos" />
           <NavigationProperty Name="tbUsuarios" Relationship="Self.FK_tbFabricas_UsuarioCrea" FromRole="tbFabricas" ToRole="tbUsuarios" />
@@ -1485,7 +1443,7 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <Property Name="pedi_UsuarioCreador" Type="Int32" Nullable="false" />
           <Property Name="pedi_FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="pedi_UsuarioMod" Type="Int32" />
-          <Property Name="pedi_FechaMod" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="pedi_FechaMod" Type="DateTime" Precision="3" />
           <Property Name="pedi_Estado" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="tbDirecciones" Relationship="Self.FK_dbo_tbPedidos_dbo_tbDirecciones_direc_ID" FromRole="tbPedidos" ToRole="tbDirecciones" />
           <NavigationProperty Name="tbEstadoEnvios" Relationship="Self.FK_tbPedidos_tbEstadoEnvio" FromRole="tbPedidos" ToRole="tbEstadoEnvios" />
@@ -1514,8 +1472,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <NavigationProperty Name="tbCargos1" Relationship="Self.FK_tbCargos_UsuarioModif" FromRole="tbUsuarios" ToRole="tbCargos" />
           <NavigationProperty Name="tbCiudades" Relationship="Self.FK_tbCiudades_UsuarioCrea" FromRole="tbUsuarios" ToRole="tbCiudades" />
           <NavigationProperty Name="tbCiudades1" Relationship="Self.FK_tbCiudades_UsuarioModif" FromRole="tbUsuarios" ToRole="tbCiudades" />
-          <NavigationProperty Name="tbClientes" Relationship="Self.FK_tbClientes_UsuarioCrea" FromRole="tbUsuarios" ToRole="tbClientes" />
-          <NavigationProperty Name="tbClientes1" Relationship="Self.FK_tbClientes_UsuarioModif" FromRole="tbUsuarios" ToRole="tbClientes" />
           <NavigationProperty Name="tbDepartamentos" Relationship="Self.FK_tbDepartamentos_UsuarioCrea" FromRole="tbUsuarios" ToRole="tbDepartamentos" />
           <NavigationProperty Name="tbDepartamentos1" Relationship="Self.FK_tbDepartamentos_UsuarioModif" FromRole="tbUsuarios" ToRole="tbDepartamentos" />
           <NavigationProperty Name="tbDirecciones" Relationship="Self.FK_tbDirecciones_UsuarioCrea" FromRole="tbUsuarios" ToRole="tbDirecciones" />
@@ -1532,6 +1488,8 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <NavigationProperty Name="tbEmpleados" Relationship="DBArticulosEncargosModel.FK_tbEmpleados_UsuCrea" FromRole="tbUsuarios" ToRole="tbEmpleados" />
           <NavigationProperty Name="tbEmpleados1" Relationship="DBArticulosEncargosModel.FK_tbEmpleados_UsuModif" FromRole="tbUsuarios" ToRole="tbEmpleados" />
           <NavigationProperty Name="tbEmpleados2" Relationship="DBArticulosEncargosModel.FK_tbUsuarios_tbEmpleados" FromRole="tbUsuarios" ToRole="tbEmpleados" />
+          <NavigationProperty Name="tbClientes" Relationship="DBArticulosEncargosModel.FK_tbClientes_UsuarioCrea" FromRole="tbUsuarios" ToRole="tbClientes" />
+          <NavigationProperty Name="tbClientes1" Relationship="DBArticulosEncargosModel.FK_tbClientes_UsuarioModif" FromRole="tbUsuarios" ToRole="tbClientes" />
         </EntityType>
         <Association Name="FK_tbArticulos_tbFabrica">
           <End Role="tbFabricas" Type="Self.tbFabricas" Multiplicity="1" />
@@ -1650,54 +1608,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
             </Principal>
             <Dependent Role="tbCiudades">
               <PropertyRef Name="ciu_UsuarioMod" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_tbClientes_dbo_tbEstadosCiviles_est_ID">
-          <End Role="tbEstadosCiviles" Type="Self.tbEstadosCiviles" Multiplicity="1" />
-          <End Role="tbClientes" Type="Self.tbClientes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tbEstadosCiviles">
-              <PropertyRef Name="est_ID" />
-            </Principal>
-            <Dependent Role="tbClientes">
-              <PropertyRef Name="client_EstadoCivil" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_tbDirecciones_tbClientes_client_ID">
-          <End Role="tbClientes" Type="Self.tbClientes" Multiplicity="1" />
-          <End Role="tbDirecciones" Type="Self.tbDirecciones" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tbClientes">
-              <PropertyRef Name="client_ID" />
-            </Principal>
-            <Dependent Role="tbDirecciones">
-              <PropertyRef Name="direc_ClienteID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tbClientes_UsuarioCrea">
-          <End Role="tbUsuarios" Type="Self.tbUsuarios" Multiplicity="1" />
-          <End Role="tbClientes" Type="Self.tbClientes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tbUsuarios">
-              <PropertyRef Name="usu_ID" />
-            </Principal>
-            <Dependent Role="tbClientes">
-              <PropertyRef Name="client_UsuarioCreador" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tbClientes_UsuarioModif">
-          <End Role="tbUsuarios" Type="Self.tbUsuarios" Multiplicity="0..1" />
-          <End Role="tbClientes" Type="Self.tbClientes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tbUsuarios">
-              <PropertyRef Name="usu_ID" />
-            </Principal>
-            <Dependent Role="tbClientes">
-              <PropertyRef Name="client_UsuarioMod" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1933,7 +1843,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <EntitySet Name="tbArticulos" EntityType="Self.tbArticulos" />
           <EntitySet Name="tbCargos" EntityType="Self.tbCargos" />
           <EntitySet Name="tbCiudades" EntityType="Self.tbCiudades" />
-          <EntitySet Name="tbClientes" EntityType="Self.tbClientes" />
           <EntitySet Name="tbDepartamentos" EntityType="Self.tbDepartamentos" />
           <EntitySet Name="tbDirecciones" EntityType="Self.tbDirecciones" />
           <EntitySet Name="tbEmpleados" EntityType="Self.tbEmpleados" />
@@ -1985,22 +1894,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <AssociationSet Name="FK_tbCiudades_UsuarioModif" Association="Self.FK_tbCiudades_UsuarioModif">
             <End Role="tbUsuarios" EntitySet="tbUsuarios" />
             <End Role="tbCiudades" EntitySet="tbCiudades" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_tbClientes_dbo_tbEstadosCiviles_est_ID" Association="Self.FK_dbo_tbClientes_dbo_tbEstadosCiviles_est_ID">
-            <End Role="tbEstadosCiviles" EntitySet="tbEstadosCiviles" />
-            <End Role="tbClientes" EntitySet="tbClientes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_tbDirecciones_tbClientes_client_ID" Association="Self.FK_dbo_tbDirecciones_tbClientes_client_ID">
-            <End Role="tbClientes" EntitySet="tbClientes" />
-            <End Role="tbDirecciones" EntitySet="tbDirecciones" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tbClientes_UsuarioCrea" Association="Self.FK_tbClientes_UsuarioCrea">
-            <End Role="tbUsuarios" EntitySet="tbUsuarios" />
-            <End Role="tbClientes" EntitySet="tbClientes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tbClientes_UsuarioModif" Association="Self.FK_tbClientes_UsuarioModif">
-            <End Role="tbUsuarios" EntitySet="tbUsuarios" />
-            <End Role="tbClientes" EntitySet="tbClientes" />
           </AssociationSet>
           <AssociationSet Name="FK_tbDepartamentos_UsuarioCrea" Association="Self.FK_tbDepartamentos_UsuarioCrea">
             <End Role="tbUsuarios" EntitySet="tbUsuarios" />
@@ -2081,14 +1974,12 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <EntitySet Name="V_INDEX_ARTICULOS" EntityType="DBArticulosEncargosModel.V_INDEX_ARTICULOS" />
           <EntitySet Name="V_INDEX_CARGOS" EntityType="DBArticulosEncargosModel.V_INDEX_CARGOS" />
           <EntitySet Name="V_INDEX_CIUDADES" EntityType="DBArticulosEncargosModel.V_INDEX_CIUDADES" />
-          <EntitySet Name="V_INDEX_CLIENTES" EntityType="DBArticulosEncargosModel.V_INDEX_CLIENTES" />
           <EntitySet Name="V_INDEX_DEPARTAMENTOS" EntityType="DBArticulosEncargosModel.V_INDEX_DEPARTAMENTOS" />
           <EntitySet Name="V_INDEX_DIRECCIONES" EntityType="DBArticulosEncargosModel.V_INDEX_DIRECCIONES" />
           <EntitySet Name="V_INDEX_EMPLEADOS" EntityType="DBArticulosEncargosModel.V_INDEX_EMPLEADOS" />
           <EntitySet Name="V_INDEX_ESTADOS_CIVILES" EntityType="DBArticulosEncargosModel.V_INDEX_ESTADOS_CIVILES" />
           <EntitySet Name="V_INDEX_FABRICAS" EntityType="DBArticulosEncargosModel.V_INDEX_FABRICAS" />
           <EntitySet Name="V_INDEX_PEDIDOS" EntityType="DBArticulosEncargosModel.V_INDEX_PEDIDOS" />
-          <EntitySet Name="V_INDEX_PEDIDOS_DETALLES" EntityType="DBArticulosEncargosModel.V_INDEX_PEDIDOS_DETALLES" />
           <EntitySet Name="V_INDEX_USUARIOS" EntityType="DBArticulosEncargosModel.V_INDEX_USUARIOS" />
           <AssociationSet Name="FK_tbEmpleados_UsuCrea" Association="DBArticulosEncargosModel.FK_tbEmpleados_UsuCrea">
             <End Role="tbUsuarios" EntitySet="tbUsuarios" />
@@ -2107,7 +1998,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
             <Parameter Name="rep_UsuarioCreador" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="UDP_CIUDADES_INSERT">
-            <Parameter Name="ciu_ID" Mode="In" Type="Int32" />
             <Parameter Name="ciu_Decription" Mode="In" Type="String" />
             <Parameter Name="ciu_IdDepto" Mode="In" Type="Int32" />
             <Parameter Name="UsuCrea" Mode="In" Type="Int32" />
@@ -2279,7 +2169,7 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
             <Parameter Name="client_Sexo" Mode="In" Type="String" />
             <Parameter Name="client_Telefono" Mode="In" Type="String" />
             <Parameter Name="client_Saldo" Mode="In" Type="String" />
-            <Parameter Name="client_LimiteCredito" Mode="In" Type="String" />
+            <Parameter Name="client_LimiteCredito" Mode="In" Type="Decimal" />
             <Parameter Name="client_Descuento" Mode="In" Type="String" />
             <Parameter Name="client_UsuarioCreador" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -2314,6 +2204,25 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
             <Parameter Name="usu_EsAdmin" Mode="In" Type="Boolean" />
             <Parameter Name="usu_UsuarioCreador" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="V_INDEX_CLIENTES" EntityType="DBArticulosEncargosModel.V_INDEX_CLIENTES" />
+          <EntitySet Name="tbClientes" EntityType="DBArticulosEncargosModel.tbClientes" />
+          <AssociationSet Name="FK_dbo_tbClientes_dbo_tbEstadosCiviles_est_ID" Association="DBArticulosEncargosModel.FK_dbo_tbClientes_dbo_tbEstadosCiviles_est_ID">
+            <End Role="tbEstadosCiviles" EntitySet="tbEstadosCiviles" />
+            <End Role="tbClientes" EntitySet="tbClientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tbDirecciones_tbClientes_client_ID" Association="DBArticulosEncargosModel.FK_dbo_tbDirecciones_tbClientes_client_ID">
+            <End Role="tbClientes" EntitySet="tbClientes" />
+            <End Role="tbDirecciones" EntitySet="tbDirecciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbClientes_UsuarioCrea" Association="DBArticulosEncargosModel.FK_tbClientes_UsuarioCrea">
+            <End Role="tbUsuarios" EntitySet="tbUsuarios" />
+            <End Role="tbClientes" EntitySet="tbClientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbClientes_UsuarioModif" Association="DBArticulosEncargosModel.FK_tbClientes_UsuarioModif">
+            <End Role="tbUsuarios" EntitySet="tbUsuarios" />
+            <End Role="tbClientes" EntitySet="tbClientes" />
+          </AssociationSet>
+          <EntitySet Name="V_INDEX_PEDIDOS_DETALLES" EntityType="DBArticulosEncargosModel.V_INDEX_PEDIDOS_DETALLES" />
         </EntityContainer>
         <EntityType Name="V_INDEX_ARTICULOS">
           <Key>
@@ -2338,19 +2247,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="NOMBRE_CIUDAD" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="V_INDEX_CLIENTES">
-          <Key>
-            <PropertyRef Name="ID" />
-            <PropertyRef Name="NOMBRE" />
-            <PropertyRef Name="IDENTIDAD" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="IDENTIDAD" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="SALDO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="LIMITE_CREDITO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="DESCUENTO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="V_INDEX_DEPARTAMENTOS">
           <Key>
@@ -2403,7 +2299,7 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
             <PropertyRef Name="NOMBRE" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="V_INDEX_PEDIDOS">
           <Key>
@@ -2420,16 +2316,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CLIENTE" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="ENCARGADO" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="V_INDEX_PEDIDOS_DETALLES">
-          <Key>
-            <PropertyRef Name="ID_PEDIDO" />
-            <PropertyRef Name="ARTICULO" />
-            <PropertyRef Name="CANTIDAD" />
-          </Key>
-          <Property Name="ID_PEDIDO" Type="Int32" Nullable="false" />
-          <Property Name="ARTICULO" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="CANTIDAD" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="V_INDEX_USUARIOS">
           <Key>
@@ -2479,6 +2365,103 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="V_INDEX_CLIENTES">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="NOMBRE" />
+            <PropertyRef Name="IDENTIDAD" />
+            <PropertyRef Name="LIMITE_CREDITO" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IDENTIDAD" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="SALDO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LIMITE_CREDITO" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+          <Property Name="DESCUENTO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbClientes">
+          <Key>
+            <PropertyRef Name="client_ID" />
+          </Key>
+          <Property Name="client_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="client_Nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="client_Identidad" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="client_EstadoCivil" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="client_Sexo" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="client_Telefono" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="client_Saldo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="client_LimiteCredito" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+          <Property Name="client_Descuento" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="client_UsuarioCreador" Type="Int32" Nullable="false" />
+          <Property Name="client_FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="client_UsuarioMod" Type="Int32" />
+          <Property Name="client_FechaMod" Type="DateTime" Precision="3" />
+          <Property Name="client_Estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tbEstadosCiviles" Relationship="DBArticulosEncargosModel.FK_dbo_tbClientes_dbo_tbEstadosCiviles_est_ID" FromRole="tbClientes" ToRole="tbEstadosCiviles" />
+          <NavigationProperty Name="tbDirecciones" Relationship="DBArticulosEncargosModel.FK_dbo_tbDirecciones_tbClientes_client_ID" FromRole="tbClientes" ToRole="tbDirecciones" />
+          <NavigationProperty Name="tbUsuarios" Relationship="DBArticulosEncargosModel.FK_tbClientes_UsuarioCrea" FromRole="tbClientes" ToRole="tbUsuarios" />
+          <NavigationProperty Name="tbUsuarios1" Relationship="DBArticulosEncargosModel.FK_tbClientes_UsuarioModif" FromRole="tbClientes" ToRole="tbUsuarios" />
+        </EntityType>
+        <Association Name="FK_dbo_tbClientes_dbo_tbEstadosCiviles_est_ID">
+          <End Type="DBArticulosEncargosModel.tbEstadosCiviles" Role="tbEstadosCiviles" Multiplicity="1" />
+          <End Type="DBArticulosEncargosModel.tbClientes" Role="tbClientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbEstadosCiviles">
+              <PropertyRef Name="est_ID" />
+            </Principal>
+            <Dependent Role="tbClientes">
+              <PropertyRef Name="client_EstadoCivil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tbDirecciones_tbClientes_client_ID">
+          <End Type="DBArticulosEncargosModel.tbClientes" Role="tbClientes" Multiplicity="1" />
+          <End Type="DBArticulosEncargosModel.tbDirecciones" Role="tbDirecciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbClientes">
+              <PropertyRef Name="client_ID" />
+            </Principal>
+            <Dependent Role="tbDirecciones">
+              <PropertyRef Name="direc_ClienteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbClientes_UsuarioCrea">
+          <End Type="DBArticulosEncargosModel.tbUsuarios" Role="tbUsuarios" Multiplicity="1" />
+          <End Type="DBArticulosEncargosModel.tbClientes" Role="tbClientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbUsuarios">
+              <PropertyRef Name="usu_ID" />
+            </Principal>
+            <Dependent Role="tbClientes">
+              <PropertyRef Name="client_UsuarioCreador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbClientes_UsuarioModif">
+          <End Type="DBArticulosEncargosModel.tbUsuarios" Role="tbUsuarios" Multiplicity="0..1" />
+          <End Type="DBArticulosEncargosModel.tbClientes" Role="tbClientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbUsuarios">
+              <PropertyRef Name="usu_ID" />
+            </Principal>
+            <Dependent Role="tbClientes">
+              <PropertyRef Name="client_UsuarioMod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="V_INDEX_PEDIDOS_DETALLES">
+          <Key>
+            <PropertyRef Name="ID_DETALLE" />
+            <PropertyRef Name="CODIGO_PEDIDO" />
+            <PropertyRef Name="ARTICULO" />
+            <PropertyRef Name="CANTIDAD" />
+          </Key>
+          <Property Name="ID_DETALLE" Type="Int32" Nullable="false" />
+          <Property Name="CODIGO_PEDIDO" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="ARTICULO" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CANTIDAD" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2523,26 +2506,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
                 <ScalarProperty Name="ciu_FechaCreacion" ColumnName="ciu_FechaCreacion" />
                 <ScalarProperty Name="ciu_UsuarioMod" ColumnName="ciu_UsuarioMod" />
                 <ScalarProperty Name="ciu_FechaMod" ColumnName="ciu_FechaMod" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tbClientes">
-            <EntityTypeMapping TypeName="DBArticulosEncargosModel.tbClientes">
-              <MappingFragment StoreEntitySet="tbClientes">
-                <ScalarProperty Name="client_ID" ColumnName="client_ID" />
-                <ScalarProperty Name="client_Nombre" ColumnName="client_Nombre" />
-                <ScalarProperty Name="client_Identidad" ColumnName="client_Identidad" />
-                <ScalarProperty Name="client_EstadoCivil" ColumnName="client_EstadoCivil" />
-                <ScalarProperty Name="client_Sexo" ColumnName="client_Sexo" />
-                <ScalarProperty Name="client_Telefono" ColumnName="client_Telefono" />
-                <ScalarProperty Name="client_Saldo" ColumnName="client_Saldo" />
-                <ScalarProperty Name="client_LimiteCredito" ColumnName="client_LimiteCredito" />
-                <ScalarProperty Name="client_Descuento" ColumnName="client_Descuento" />
-                <ScalarProperty Name="client_UsuarioCreador" ColumnName="client_UsuarioCreador" />
-                <ScalarProperty Name="client_FechaCreacion" ColumnName="client_FechaCreacion" />
-                <ScalarProperty Name="client_UsuarioMod" ColumnName="client_UsuarioMod" />
-                <ScalarProperty Name="client_FechaMod" ColumnName="client_FechaMod" />
-                <ScalarProperty Name="client_Estado" ColumnName="client_Estado" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2727,18 +2690,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="V_INDEX_CLIENTES">
-            <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_CLIENTES">
-              <MappingFragment StoreEntitySet="V_INDEX_CLIENTES">
-                <ScalarProperty Name="DESCUENTO" ColumnName="DESCUENTO" />
-                <ScalarProperty Name="LIMITE_CREDITO" ColumnName="LIMITE CREDITO" />
-                <ScalarProperty Name="SALDO" ColumnName="SALDO" />
-                <ScalarProperty Name="IDENTIDAD" ColumnName="IDENTIDAD" />
-                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="V_INDEX_DEPARTAMENTOS">
             <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_DEPARTAMENTOS">
               <MappingFragment StoreEntitySet="V_INDEX_DEPARTAMENTOS">
@@ -2798,15 +2749,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="V_INDEX_PEDIDOS_DETALLES">
-            <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_PEDIDOS_DETALLES">
-              <MappingFragment StoreEntitySet="V_INDEX_PEDIDOS_DETALLES">
-                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
-                <ScalarProperty Name="ARTICULO" ColumnName="ARTICULO" />
-                <ScalarProperty Name="ID_PEDIDO" ColumnName="ID PEDIDO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="V_INDEX_USUARIOS">
             <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_USUARIOS">
               <MappingFragment StoreEntitySet="V_INDEX_USUARIOS">
@@ -2831,8 +2773,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <FunctionImportMapping FunctionImportName="UDP_Editar_EstadosCiviles" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_EstadosCiviles" />
           <FunctionImportMapping FunctionImportName="UDP_Editar_Fabricas" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Fabricas" />
           <FunctionImportMapping FunctionImportName="UDP_Editar_Pedidos" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Pedidos" />
-          <FunctionImportMapping FunctionImportName="UDP_Editar_PedidosDetalles" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_PedidosDetalles" />
-          <FunctionImportMapping FunctionImportName="UDP_Editar_Usuarios" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Usuarios" />
           <FunctionImportMapping FunctionImportName="UDP_Eliminar_Articulos" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Articulos" />
           <FunctionImportMapping FunctionImportName="UDP_Eliminar_Cargos" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Cargos" />
           <FunctionImportMapping FunctionImportName="UDP_Eliminar_Cliente" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Cliente" />
@@ -2841,8 +2781,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <FunctionImportMapping FunctionImportName="UDP_Eliminar_EstadosCiviles" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_EstadosCiviles" />
           <FunctionImportMapping FunctionImportName="UDP_Eliminar_Fabricas" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Fabricas" />
           <FunctionImportMapping FunctionImportName="UDP_Eliminar_Pedidos" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Pedidos" />
-          <FunctionImportMapping FunctionImportName="UDP_Eliminar_PedidosDetalles" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_PedidosDetalles" />
-          <FunctionImportMapping FunctionImportName="UDP_Eliminar_Usuarios" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Usuarios" />
           <FunctionImportMapping FunctionImportName="UDP_EMPLEADOS_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_EMPLEADOS_INSERT" />
           <FunctionImportMapping FunctionImportName="UDP_EstadosCiviles_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_EstadosCiviles_INSERT" />
           <FunctionImportMapping FunctionImportName="UDP_InsertArticulos" FunctionName="DBArticulosEncargosModel.Store.UDP_InsertArticulos" />
@@ -2852,6 +2790,48 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <FunctionImportMapping FunctionImportName="UDP_PEDIDOS_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_PEDIDOS_INSERT" />
           <FunctionImportMapping FunctionImportName="UDP_ROLES_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_ROLES_INSERT" />
           <FunctionImportMapping FunctionImportName="UDP_USUARIOS_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_USUARIOS_INSERT" />
+          <EntitySetMapping Name="V_INDEX_CLIENTES">
+            <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_CLIENTES">
+              <MappingFragment StoreEntitySet="V_INDEX_CLIENTES">
+                <ScalarProperty Name="DESCUENTO" ColumnName="DESCUENTO" />
+                <ScalarProperty Name="LIMITE_CREDITO" ColumnName="LIMITE CREDITO" />
+                <ScalarProperty Name="SALDO" ColumnName="SALDO" />
+                <ScalarProperty Name="IDENTIDAD" ColumnName="IDENTIDAD" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbClientes">
+            <EntityTypeMapping TypeName="DBArticulosEncargosModel.tbClientes">
+              <MappingFragment StoreEntitySet="tbClientes">
+                <ScalarProperty Name="client_Estado" ColumnName="client_Estado" />
+                <ScalarProperty Name="client_FechaMod" ColumnName="client_FechaMod" />
+                <ScalarProperty Name="client_UsuarioMod" ColumnName="client_UsuarioMod" />
+                <ScalarProperty Name="client_FechaCreacion" ColumnName="client_FechaCreacion" />
+                <ScalarProperty Name="client_UsuarioCreador" ColumnName="client_UsuarioCreador" />
+                <ScalarProperty Name="client_Descuento" ColumnName="client_Descuento" />
+                <ScalarProperty Name="client_LimiteCredito" ColumnName="client_LimiteCredito" />
+                <ScalarProperty Name="client_Saldo" ColumnName="client_Saldo" />
+                <ScalarProperty Name="client_Telefono" ColumnName="client_Telefono" />
+                <ScalarProperty Name="client_Sexo" ColumnName="client_Sexo" />
+                <ScalarProperty Name="client_EstadoCivil" ColumnName="client_EstadoCivil" />
+                <ScalarProperty Name="client_Identidad" ColumnName="client_Identidad" />
+                <ScalarProperty Name="client_Nombre" ColumnName="client_Nombre" />
+                <ScalarProperty Name="client_ID" ColumnName="client_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_INDEX_PEDIDOS_DETALLES">
+            <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_PEDIDOS_DETALLES">
+              <MappingFragment StoreEntitySet="V_INDEX_PEDIDOS_DETALLES">
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="ARTICULO" ColumnName="ARTICULO" />
+                <ScalarProperty Name="CODIGO_PEDIDO" ColumnName="CODIGO PEDIDO" />
+                <ScalarProperty Name="ID_DETALLE" ColumnName="ID_DETALLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

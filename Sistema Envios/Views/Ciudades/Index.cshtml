@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Sistema_Envios.Models.tbCiudades>
+﻿@model IEnumerable<Sistema_Envios.Models.V_INDEX_CIUDADES>
 
 @{
     ViewBag.Title = "Index";
@@ -21,32 +21,26 @@
                   <table class="table table-responsive" id="DataTable">
                     <thead>
                         <tr role="row">
-                            <th>@Html.DisplayNameFor(model => model.ciu_Descripcion)</th>
-                            <th>@Html.DisplayNameFor(model => model.ciu_FechaCreacion)</th>
-                            <th>@Html.DisplayNameFor(model => model.ciu_FechaMod)</th>
-                            <th>@Html.DisplayNameFor(model => model.tbDepartamentos.depto_Descripcion)</th>
+                            <th>@Html.DisplayNameFor(model => model.ID)</th>
+                            <th>@Html.DisplayNameFor(model => model.NOMBRE_CIUDAD)</th>
+                           
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                       @foreach (var item in Model) {
-                        <tr class="gradeA odd" role="row" data-id="@item.ciu_ID">
+                        <tr class="gradeA odd" role="row" data-id="@item.ID">
                             <td>
-                                @Html.DisplayFor(modelItem => item.ciu_Descripcion)
+                                @Html.DisplayFor(modelItem => item.ID)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.ciu_FechaCreacion)
+                                @Html.DisplayFor(modelItem => item.NOMBRE_CIUDAD)
                             </td>
+                           
                             <td>
-                                @Html.DisplayFor(modelItem => item.ciu_FechaMod)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.tbDepartamentos.depto_Descripcion)
-                            </td>
-                            <td>
-                              @Html.ActionLink("Detalles", "Details", new { id=item.ciu_ID },  new {@class = "btn btn-default btn-xs" })
-                              @Html.ActionLink("Editar", "Edit", new { id=item.ciu_ID }, new {@class = "btn btn-primary btn-xs" })
-                              @Html.ActionLink("Delete", "Delete", new { id=item.ciu_ID }, new { @class = "btn btn-secondary btn-xs" })
+                              @Html.ActionLink("Detalles", "Details", new { id=item.ID },  new {@class = "btn btn-default btn-xs" })
+                              @Html.ActionLink("Editar", "Edit", new { id=item.ID }, new {@class = "btn btn-primary btn-xs" })
+                              @Html.ActionLink("Delete", "Delete", new { id=item.ID }, new { @class = "btn btn-secondary btn-xs" })
                             </td>
                         </tr>
                       }

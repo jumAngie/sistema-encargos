@@ -17,8 +17,8 @@ namespace Sistema_Envios.Controllers
         // GET: Cargos
         public ActionResult Index()
         {
-            var tbCargos = db.tbCargos.Include(t => t.tbUsuarios).Include(t => t.tbUsuarios1);
-            return View(tbCargos.ToList());
+            var tbCargosIndex = db.V_INDEX_CARGOS;
+            return View(tbCargosIndex.ToList());
         }
 
         // GET: Cargos/Details/5

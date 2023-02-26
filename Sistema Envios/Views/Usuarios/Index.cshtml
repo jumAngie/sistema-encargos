@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Sistema_Envios.Models.tbUsuarios>
+﻿@model IEnumerable<Sistema_Envios.Models.V_INDEX_USUARIOS>
 
 @{
     ViewBag.Title = "Index";
@@ -21,36 +21,34 @@
                   <table class="table table-responsive" id="DataTable">
                     <thead>
                         <tr role="row">
-                            <th>@Html.DisplayNameFor(model => model.usu_Usuario)</th>
-                            <th>@Html.DisplayNameFor(model => model.emp_Id)</th>
-                            <th>@Html.DisplayNameFor(model => model.usu_Estado)</th>
-                            <th>@Html.DisplayNameFor(model => model.usu_EsAdmin)</th>
-                            <th>@Html.DisplayNameFor(model => model.tblRoles.rol_Descripcion)</th>
+                            <th>@Html.DisplayNameFor(model => model.ID)</th>
+                            <th>@Html.DisplayNameFor(model => model.USUARIO)</th>
+                            <th>@Html.DisplayNameFor(model => model.NOMBRE)</th>
+                            <th>@Html.DisplayNameFor(model => model.ROL)</th>
+                          
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                       @foreach (var item in Model) {
-                        <tr class="gradeA odd" role="row" data-id="@item.usu_ID">
+                        <tr class="gradeA odd" role="row" data-id="@item.ID">
                             <td>
-                                @Html.DisplayFor(modelItem => item.usu_Usuario)
+                                @Html.DisplayFor(modelItem => item.ID)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.emp_Id)
+                                @Html.DisplayFor(modelItem => item.USUARIO)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.usu_Estado)
+                                @Html.DisplayFor(modelItem => item.NOMBRE)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.usu_EsAdmin)
+                                @Html.DisplayFor(modelItem => item.ROL)
                             </td>
+                          
                             <td>
-                                @Html.DisplayFor(modelItem => item.tblRoles.rol_Descripcion)
-                            </td>
-                            <td>
-                              @Html.ActionLink("Detalles", "Details", new { id=item.usu_ID },  new {@class = "btn btn-default btn-xs" })
-                              @Html.ActionLink("Editar", "Edit", new { id=item.usu_ID }, new {@class = "btn btn-primary btn-xs" })
-                              @Html.ActionLink("Delete", "Delete", new { id=item.usu_ID }, new { @class="btn btn-secondary btn-xs"})
+                              @Html.ActionLink("Detalles", "Details", new { id=item.ID },  new {@class = "btn btn-default btn-xs" })
+                              @Html.ActionLink("Editar", "Edit", new { id=item.ID }, new {@class = "btn btn-primary btn-xs" })
+                              @Html.ActionLink("Delete", "Delete", new { id=item.ID }, new { @class = "btn btn-secondary btn-xs" })
                             </td>
                         </tr>
                       }

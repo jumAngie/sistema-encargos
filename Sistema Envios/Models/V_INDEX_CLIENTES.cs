@@ -18,7 +18,7 @@ namespace Sistema_Envios.Models
         public string NOMBRE { get; set; }
         public string IDENTIDAD { get; set; }
         public string SALDO { get; set; }
-        public string LIMITE_CREDITO { get; set; }
+        public decimal LIMITE_CREDITO { get; set; }
         public string DESCUENTO { get; set; }
     }
 }
