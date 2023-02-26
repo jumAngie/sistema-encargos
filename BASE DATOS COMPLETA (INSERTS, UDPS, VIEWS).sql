@@ -1370,13 +1370,13 @@ AS
 SELECT [fab_ID] ID,[fab_Descripcion] NOMBRE FROM [dbo].[tbFabricas]
 GO
 
-
-CREATE OR ALTER VIEW V_INDEX_PEDIDOS_DETALLES
+CREATE OR ALTER VIEW [dbo].[V_INDEX_PEDIDOS_DETALLES]
 AS
-SELECT pd.[pedi_ID] [ID PEDIDO], [art_Descripcion] [ARTICULO], [det_Cantidad] CANTIDAD FROM [dbo].[tbPedidoDetalles] pd
+SELECT [det_Id] ID_DETALLE,p.[pedi_Code] [CODIGO PEDIDO], [art_Descripcion] [ARTICULO], [det_Cantidad] CANTIDAD FROM [dbo].[tbPedidoDetalles] pd
 INNER JOIN [dbo].[tbArticulos] a ON a.art_ID = pd.art_ID
 INNER JOIN [dbo].[tbPedidos] p ON pd.pedi_ID = p.pedi_ID
 GO
+
 
 
 CREATE OR ALTER VIEW V_INDEX_PEDIDOS
