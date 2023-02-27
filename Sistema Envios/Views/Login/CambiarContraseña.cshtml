@@ -1,0 +1,87 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS [ REQUIRED ] -->
+    <link rel="stylesheet" href="Content/assets/css/bootstrap.min.css">
+
+    <!-- Nifty CSS [ REQUIRED ] -->
+    <link rel="stylesheet" href="Content/assets/css/nifty.min.css">
+
+    <!-- Nifty Demo Icons [ OPTIONAL ] -->
+    <link rel="stylesheet" href="Content/assets/css/demo-purpose/demo-icons.min.css">
+
+    <!-- Demo purpose CSS [ DEMO ] -->
+    <link rel="stylesheet" href="Content/assets/css/demo-purpose/demo-settings.min.css">
+</head>
+<body>
+    <br /><br /><br /><br /><br /><br />
+    <section>
+        <form action="@Url.Action("Index")" method="post" class="needs-validation" novalidate>
+            <div class="row">
+                <div class="col-sm-4">
+                </div>
+                <div class="col-sm-4">
+                    <div class="card mb-3">
+                        <div class="card-header bg-warning" style="color:azure">
+                            <div class="text-center"><h3 style="color:azure">Cambiar contraseña</h3></div>
+                        </div>
+                        <div class="card-body">
+                            <!-- Profile picture and short information -->
+                            <div class="text-center position-relative">
+                                <div class="pt-2 pb-3">
+                                    <img class="img-lg rounded-circle" src="Content/assets/img/profile-photos/5.png" alt="Profile Picture" loading="lazy">
+                                </div>
+                            </div>
+                            <!-- END : Profile picture and short information -->
+                            <div class="row">
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-10">
+                                    <label>Usuario</label>
+                                    <input type="text" name="txtUsuario" class="form-control" placeholder="Ingrese su usuario" /> <br />
+                                    <label>Contraseña</label>
+                                    <input type="password" name="txtPass" class="form-control" placeholder="Ingrese su contraseña" />
+                                    <label>Nueva contraseña</label>
+                                    <input type="password" name="txtNewPass" class="form-control" placeholder="Ingrese su contraseña" />
+                                    <label>Confirmar su nueva contraseña</label>
+                                    <input type="password" name="txtConfirmNewPass" class="form-control" placeholder="Ingrese su contraseña" />
+                                    <br />
+                                    <a>@Html.ActionLink("¿Olvidaste tu contraseña?", "OlvidarContraseña", "Login")</a>
+                                </div>
+                                <div class="col-sm-1"></div>
+                            </div>
+                            <br />
+                            <div class="d-flex justify-content-center gap-2">
+                                <button type="submit" class="btn btn-warning">Cambiar contraseña</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                </div>
+            </div>
+        </form>
+    </section>
+    <script src="Content/assets/vendors/popperjs/popper.min.js" defer></script>
+
+    <!-- Bootstrap JS [ OPTIONAL ] -->
+    <script src="Content/assets/vendors/bootstrap/bootstrap.min.js" defer></script>
+
+    <!-- Nifty JS [ OPTIONAL ] -->
+    <script src="Content/assets/js/nifty.js" defer></script>
+
+    <!-- Nifty Settings [ DEMO ] -->
+    <script src="Content/assets/js/demo-purpose-only.js" defer></script>
+</body>
+</html>
