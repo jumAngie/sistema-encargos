@@ -207,6 +207,12 @@
     <Compile Include="Models\tbUsuarios.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UDP_USUARIO_VALIDAR_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UDP_VALIDAR_LOGIN_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\V_INDEX_ARTICULOS.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

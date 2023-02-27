@@ -1497,6 +1497,8 @@ BEGIN
 				[client_Telefono] = @client_Telefono,			[client_Saldo] = @client_Saldo,
 				[client_LimiteCredito] = @client_LimiteCredito, [client_Descuento] = @client_Descuento,
 				[client_UsuarioMod] = @client_UsuarioMod,		client_FechaMod = GETDATE()
+		WHERE	client_ID = @client_ID
+
 END
 GO
 CREATE OR ALTER PROCEDURE UDP_Eliminar_Cliente

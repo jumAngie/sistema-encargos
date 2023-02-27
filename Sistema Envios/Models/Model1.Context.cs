@@ -794,5 +794,133 @@ namespace Sistema_Envios.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_USUARIOS_INSERT", usu_UsuarioParameter, emp_IdParameter, rol_IDParameter, usu_ClaveParameter, usu_EsAdminParameter, usu_UsuarioCreadorParameter);
         }
+    
+        public virtual int UDP_Editar_PedidosDetalles1(Nullable<int> det_Id, Nullable<int> pedi_ID, Nullable<int> art_ID, Nullable<int> det_Cantidad, string det_UsuModif)
+        {
+            var det_IdParameter = det_Id.HasValue ?
+                new ObjectParameter("det_Id", det_Id) :
+                new ObjectParameter("det_Id", typeof(int));
+    
+            var pedi_IDParameter = pedi_ID.HasValue ?
+                new ObjectParameter("pedi_ID", pedi_ID) :
+                new ObjectParameter("pedi_ID", typeof(int));
+    
+            var art_IDParameter = art_ID.HasValue ?
+                new ObjectParameter("art_ID", art_ID) :
+                new ObjectParameter("art_ID", typeof(int));
+    
+            var det_CantidadParameter = det_Cantidad.HasValue ?
+                new ObjectParameter("det_Cantidad", det_Cantidad) :
+                new ObjectParameter("det_Cantidad", typeof(int));
+    
+            var det_UsuModifParameter = det_UsuModif != null ?
+                new ObjectParameter("det_UsuModif", det_UsuModif) :
+                new ObjectParameter("det_UsuModif", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Editar_PedidosDetalles1", det_IdParameter, pedi_IDParameter, art_IDParameter, det_CantidadParameter, det_UsuModifParameter);
+        }
+    
+        public virtual int UDP_Eliminar_PedidosDetalles1(Nullable<int> iD, string usuModi)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var usuModiParameter = usuModi != null ?
+                new ObjectParameter("UsuModi", usuModi) :
+                new ObjectParameter("UsuModi", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Eliminar_PedidosDetalles1", iDParameter, usuModiParameter);
+        }
+    
+        public virtual int UDP_CambiarContraOlvidada(string usu_Usuario, string usu_NewClave)
+        {
+            var usu_UsuarioParameter = usu_Usuario != null ?
+                new ObjectParameter("usu_Usuario", usu_Usuario) :
+                new ObjectParameter("usu_Usuario", typeof(string));
+    
+            var usu_NewClaveParameter = usu_NewClave != null ?
+                new ObjectParameter("usu_NewClave", usu_NewClave) :
+                new ObjectParameter("usu_NewClave", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_CambiarContraOlvidada", usu_UsuarioParameter, usu_NewClaveParameter);
+        }
+    
+        public virtual int UDP_Editar_Usuarios1(Nullable<int> usu_ID, string usu_Usuario, Nullable<int> rol_ID, Nullable<bool> usu_EsAdmin, string usu_UsuarioMod)
+        {
+            var usu_IDParameter = usu_ID.HasValue ?
+                new ObjectParameter("usu_ID", usu_ID) :
+                new ObjectParameter("usu_ID", typeof(int));
+    
+            var usu_UsuarioParameter = usu_Usuario != null ?
+                new ObjectParameter("usu_Usuario", usu_Usuario) :
+                new ObjectParameter("usu_Usuario", typeof(string));
+    
+            var rol_IDParameter = rol_ID.HasValue ?
+                new ObjectParameter("rol_ID", rol_ID) :
+                new ObjectParameter("rol_ID", typeof(int));
+    
+            var usu_EsAdminParameter = usu_EsAdmin.HasValue ?
+                new ObjectParameter("usu_EsAdmin", usu_EsAdmin) :
+                new ObjectParameter("usu_EsAdmin", typeof(bool));
+    
+            var usu_UsuarioModParameter = usu_UsuarioMod != null ?
+                new ObjectParameter("usu_UsuarioMod", usu_UsuarioMod) :
+                new ObjectParameter("usu_UsuarioMod", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Editar_Usuarios1", usu_IDParameter, usu_UsuarioParameter, rol_IDParameter, usu_EsAdminParameter, usu_UsuarioModParameter);
+        }
+    
+        public virtual int UDP_Eliminar_Usuarios1(Nullable<int> usu_ID, string usu_UsuarioMod)
+        {
+            var usu_IDParameter = usu_ID.HasValue ?
+                new ObjectParameter("usu_ID", usu_ID) :
+                new ObjectParameter("usu_ID", typeof(int));
+    
+            var usu_UsuarioModParameter = usu_UsuarioMod != null ?
+                new ObjectParameter("usu_UsuarioMod", usu_UsuarioMod) :
+                new ObjectParameter("usu_UsuarioMod", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Eliminar_Usuarios1", usu_IDParameter, usu_UsuarioModParameter);
+        }
+    
+        public virtual int UDP_PASSWORD_CAMBIAR(string usu_Usuario, string usu_Clave, string usu_NewClave)
+        {
+            var usu_UsuarioParameter = usu_Usuario != null ?
+                new ObjectParameter("usu_Usuario", usu_Usuario) :
+                new ObjectParameter("usu_Usuario", typeof(string));
+    
+            var usu_ClaveParameter = usu_Clave != null ?
+                new ObjectParameter("usu_Clave", usu_Clave) :
+                new ObjectParameter("usu_Clave", typeof(string));
+    
+            var usu_NewClaveParameter = usu_NewClave != null ?
+                new ObjectParameter("usu_NewClave", usu_NewClave) :
+                new ObjectParameter("usu_NewClave", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_PASSWORD_CAMBIAR", usu_UsuarioParameter, usu_ClaveParameter, usu_NewClaveParameter);
+        }
+    
+        public virtual ObjectResult<UDP_USUARIO_VALIDAR_Result> UDP_USUARIO_VALIDAR(string usu_Usuario)
+        {
+            var usu_UsuarioParameter = usu_Usuario != null ?
+                new ObjectParameter("usu_Usuario", usu_Usuario) :
+                new ObjectParameter("usu_Usuario", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_USUARIO_VALIDAR_Result>("UDP_USUARIO_VALIDAR", usu_UsuarioParameter);
+        }
+    
+        public virtual ObjectResult<UDP_VALIDAR_LOGIN_Result> UDP_VALIDAR_LOGIN(string usu_Usuario, string usu_Clave)
+        {
+            var usu_UsuarioParameter = usu_Usuario != null ?
+                new ObjectParameter("usu_Usuario", usu_Usuario) :
+                new ObjectParameter("usu_Usuario", typeof(string));
+    
+            var usu_ClaveParameter = usu_Clave != null ?
+                new ObjectParameter("usu_Clave", usu_Clave) :
+                new ObjectParameter("usu_Clave", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_VALIDAR_LOGIN_Result>("UDP_VALIDAR_LOGIN", usu_UsuarioParameter, usu_ClaveParameter);
+        }
     }
 }

@@ -99,7 +99,7 @@ namespace Sistema_Envios.Controllers
 
             if (ModelState.IsValid)
             {
-                db.UDP_Editar_PedidosDetalles(tbPedidoDetalles.det_Id, tbPedidoDetalles.pedi_ID, tbPedidoDetalles.art_ID, tbPedidoDetalles.det_Cantidad, Usu).ToString();
+                db.UDP_Editar_PedidosDetalles1(tbPedidoDetalles.det_Id, tbPedidoDetalles.pedi_ID, tbPedidoDetalles.art_ID, tbPedidoDetalles.det_Cantidad, Usu).ToString();
                 return RedirectToAction("Index");
             }
             ViewBag.pedi_ID = new SelectList(db.tbPedidos, "pedi_ID", "pedi_Code", tbPedidoDetalles.pedi_ID);
@@ -129,7 +129,7 @@ namespace Sistema_Envios.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             tbPedidoDetalles tbPedidoDetalles = db.tbPedidoDetalles.Find(id);
-            db.UDP_Eliminar_PedidosDetalles(id, Usu);
+            db.UDP_Eliminar_PedidosDetalles1(id, Usu);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
