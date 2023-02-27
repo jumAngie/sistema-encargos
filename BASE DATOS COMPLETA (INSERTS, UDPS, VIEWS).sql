@@ -275,7 +275,7 @@ VALUES (@rol_Descripcion)
 
 END
 
-
+GO
 
 EXEC UDP_ROLES_INSERT 'Digitador'
 EXEC UDP_ROLES_INSERT 'Visualizador'
@@ -882,7 +882,7 @@ EXEC UDP_EMPLEADOS_INSERT 'Oscar','Gutierrez','05012001789102','07-21-2001',20,'
 EXEC UDP_EMPLEADOS_INSERT 'Marvin','Amaya','05031998562471','11-18-2000',35,'D','M',17,1
 
 
----luego de haber agregado estos insert's ... ir a usuarios y crear los contarint de fkempelados
+---luego de haber ag e fkempelados
 
 
 
@@ -1794,3 +1794,10 @@ END
   END
    
    GO
+
+   CREATE OR ALTER PROCEDURE UDP_CargarCiudades
+	@ciu_DeptoID		INT
+   AS
+   BEGIN
+	SELECT ciu_ID, ciu_Descripcion FROM tbCiudades WHERE ciu_DeptoID = @ciu_DeptoID
+   END
