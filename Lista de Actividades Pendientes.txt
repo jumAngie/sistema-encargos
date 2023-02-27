@@ -2,3 +2,12 @@
 
 - Crear una pantalla de Restablecer contraseña.
 - Crear una pantalla de ¿Olvidaste tu contraseña?
+------------------------------------------------------------------------------------------
+
+-- Colocar los DataAnnotations
+-- Colocar los Modales
+-- Conectar el Login
+-- Agregar los udps de Insertar
+-- Editar los Create y Edit.
+-- Hacer los Tickets de Pedidos mostrando los detalles en un DataTable.
+-- Hacer las Validaciones de los Roles
