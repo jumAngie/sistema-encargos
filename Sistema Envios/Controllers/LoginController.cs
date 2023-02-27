@@ -9,7 +9,7 @@ namespace Sistema_Envios.Controllers
 {
     public class LoginController : Controller
     {
-        private DBArticulosEncargosEntities db = new DBArticulosEncargosEntities();
+        private DBArticulosEncargosEntities1 db = new DBArticulosEncargosEntities1();
         // GET: Login
         public ActionResult Index()
         {
