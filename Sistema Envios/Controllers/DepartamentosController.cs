@@ -12,13 +12,13 @@ namespace Sistema_Envios.Controllers
 {
     public class DepartamentosController : Controller
     {
-        private DBArticulosEncargosEntities db = new DBArticulosEncargosEntities();
+        private DBArticulosEncargosEntities1 db = new DBArticulosEncargosEntities1();
         public string Usu = "1";
 
         // GET: Departamentos
         public ActionResult Index()
         {
-            var tbDepartamentosIndex = db.V_INDEX_DEPARTAMENTOS;
+            var tbDepartamentosIndex = db.V_INDEX_DIRECCIONES;
             return View(tbDepartamentosIndex.ToList());
         }
 

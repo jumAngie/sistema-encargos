@@ -31,10 +31,10 @@ namespace Sistema_Envios.Models
         public bool direc_Estado { get; set; }
     
         public virtual tbCiudades tbCiudades { get; set; }
+        public virtual tbClientes tbClientes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbPedidos> tbPedidos { get; set; }
         public virtual tbUsuarios tbUsuarios { get; set; }
         public virtual tbUsuarios tbUsuarios1 { get; set; }
-        public virtual tbClientes tbClientes { get; set; }
     }
 }

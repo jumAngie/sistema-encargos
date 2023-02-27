@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DBArticulosEncargosModelStoreContainer" CdmEntityContainer="DBArticulosEncargosEntities">
+  <EntityContainerMapping StorageEntityContainer="DBArticulosEncargosModelStoreContainer" CdmEntityContainer="DBArticulosEncargosEntities1">
     <EntitySetMapping Name="tbArticulos">
       <EntityTypeMapping TypeName="DBArticulosEncargosModel.tbArticulos">
         <MappingFragment StoreEntitySet="tbArticulos">
@@ -39,6 +39,26 @@
           <ScalarProperty Name="ciu_FechaCreacion" ColumnName="ciu_FechaCreacion" />
           <ScalarProperty Name="ciu_UsuarioMod" ColumnName="ciu_UsuarioMod" />
           <ScalarProperty Name="ciu_FechaMod" ColumnName="ciu_FechaMod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbClientes">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.tbClientes">
+        <MappingFragment StoreEntitySet="tbClientes">
+          <ScalarProperty Name="client_ID" ColumnName="client_ID" />
+          <ScalarProperty Name="client_Nombre" ColumnName="client_Nombre" />
+          <ScalarProperty Name="client_Identidad" ColumnName="client_Identidad" />
+          <ScalarProperty Name="client_EstadoCivil" ColumnName="client_EstadoCivil" />
+          <ScalarProperty Name="client_Sexo" ColumnName="client_Sexo" />
+          <ScalarProperty Name="client_Telefono" ColumnName="client_Telefono" />
+          <ScalarProperty Name="client_Saldo" ColumnName="client_Saldo" />
+          <ScalarProperty Name="client_LimiteCredito" ColumnName="client_LimiteCredito" />
+          <ScalarProperty Name="client_Descuento" ColumnName="client_Descuento" />
+          <ScalarProperty Name="client_UsuarioCreador" ColumnName="client_UsuarioCreador" />
+          <ScalarProperty Name="client_FechaCreacion" ColumnName="client_FechaCreacion" />
+          <ScalarProperty Name="client_UsuarioMod" ColumnName="client_UsuarioMod" />
+          <ScalarProperty Name="client_FechaMod" ColumnName="client_FechaMod" />
+          <ScalarProperty Name="client_Estado" ColumnName="client_Estado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -100,13 +120,13 @@
     <EntitySetMapping Name="tbEstadosCiviles">
       <EntityTypeMapping TypeName="DBArticulosEncargosModel.tbEstadosCiviles">
         <MappingFragment StoreEntitySet="tbEstadosCiviles">
-          <ScalarProperty Name="est_Estado" ColumnName="est_Estado" />
           <ScalarProperty Name="est_ID" ColumnName="est_ID" />
           <ScalarProperty Name="est_Descripcion" ColumnName="est_Descripcion" />
           <ScalarProperty Name="est_UsuCrea" ColumnName="est_UsuCrea" />
           <ScalarProperty Name="est_FechaCrea" ColumnName="est_FechaCrea" />
           <ScalarProperty Name="est_UsuMod" ColumnName="est_UsuMod" />
           <ScalarProperty Name="est_FechaMod" ColumnName="est_FechaMod" />
+          <ScalarProperty Name="est_Estado" ColumnName="est_Estado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -199,33 +219,122 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="UDP_CARGOS_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_CARGOS_INSERT" />
-    <FunctionImportMapping FunctionImportName="UDP_CIUDADES_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_CIUDADES_INSERT" />
-    <FunctionImportMapping FunctionImportName="UDP_DEPARTAMENTOS_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_DEPARTAMENTOS_INSERT" />
-    <FunctionImportMapping FunctionImportName="UDP_EMPLEADOS_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_EMPLEADOS_INSERT" />
-    <FunctionImportMapping FunctionImportName="UDP_EstadosCiviles_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_EstadosCiviles_INSERT" />
-    <FunctionImportMapping FunctionImportName="UDP_ROLES_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_ROLES_INSERT" />
-    <FunctionImportMapping FunctionImportName="UDP_USUARIOS_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_USUARIOS_INSERT" />
-    <EntitySetMapping Name="tbClientes">
-      <EntityTypeMapping TypeName="DBArticulosEncargosModel.tbClientes">
-        <MappingFragment StoreEntitySet="tbClientes">
-          <ScalarProperty Name="client_Estado" ColumnName="client_Estado" />
-          <ScalarProperty Name="client_FechaMod" ColumnName="client_FechaMod" />
-          <ScalarProperty Name="client_UsuarioMod" ColumnName="client_UsuarioMod" />
-          <ScalarProperty Name="client_FechaCreacion" ColumnName="client_FechaCreacion" />
-          <ScalarProperty Name="client_UsuarioCreador" ColumnName="client_UsuarioCreador" />
-          <ScalarProperty Name="client_Descuento" ColumnName="client_Descuento" />
-          <ScalarProperty Name="client_LimiteCredito" ColumnName="client_LimiteCredito" />
-          <ScalarProperty Name="client_Saldo" ColumnName="client_Saldo" />
-          <ScalarProperty Name="client_Telefono" ColumnName="client_Telefono" />
-          <ScalarProperty Name="client_Sexo" ColumnName="client_Sexo" />
-          <ScalarProperty Name="client_EstadoCivil" ColumnName="client_EstadoCivil" />
-          <ScalarProperty Name="client_Identidad" ColumnName="client_Identidad" />
-          <ScalarProperty Name="client_Nombre" ColumnName="client_Nombre" />
-          <ScalarProperty Name="client_ID" ColumnName="client_ID" />
+    <EntitySetMapping Name="V_INDEX_ARTICULOS">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_ARTICULOS">
+        <MappingFragment StoreEntitySet="V_INDEX_ARTICULOS">
+          <ScalarProperty Name="ID_ARTICULO" ColumnName="ID ARTICULO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="V_INDEX_CARGOS">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_CARGOS">
+        <MappingFragment StoreEntitySet="V_INDEX_CARGOS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_INDEX_CIUDADES">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_CIUDADES">
+        <MappingFragment StoreEntitySet="V_INDEX_CIUDADES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOMBRE_CIUDAD" ColumnName="NOMBRE CIUDAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_INDEX_CLIENTES">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_CLIENTES">
+        <MappingFragment StoreEntitySet="V_INDEX_CLIENTES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="IDENTIDAD" ColumnName="IDENTIDAD" />
+          <ScalarProperty Name="SALDO" ColumnName="SALDO" />
+          <ScalarProperty Name="LIMITE_CREDITO" ColumnName="LIMITE CREDITO" />
+          <ScalarProperty Name="DESCUENTO" ColumnName="DESCUENTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_INDEX_DEPARTAMENTOS">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_DEPARTAMENTOS">
+        <MappingFragment StoreEntitySet="V_INDEX_DEPARTAMENTOS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_INDEX_DIRECCIONES">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_DIRECCIONES">
+        <MappingFragment StoreEntitySet="V_INDEX_DIRECCIONES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CLIENTE" ColumnName="CLIENTE" />
+          <ScalarProperty Name="REFERENCIA" ColumnName="REFERENCIA" />
+          <ScalarProperty Name="CIUDAD" ColumnName="CIUDAD" />
+          <ScalarProperty Name="DEPARTAMENTO" ColumnName="DEPARTAMENTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_INDEX_EMPLEADOS">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_EMPLEADOS">
+        <MappingFragment StoreEntitySet="V_INDEX_EMPLEADOS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+          <ScalarProperty Name="IDENTIDAD" ColumnName="IDENTIDAD" />
+          <ScalarProperty Name="SEXO" ColumnName="SEXO" />
+          <ScalarProperty Name="CARGO" ColumnName="CARGO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_INDEX_ESTADOS_CIVILES">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_ESTADOS_CIVILES">
+        <MappingFragment StoreEntitySet="V_INDEX_ESTADOS_CIVILES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_INDEX_FABRICAS">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_FABRICAS">
+        <MappingFragment StoreEntitySet="V_INDEX_FABRICAS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_INDEX_PEDIDOS">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_PEDIDOS">
+        <MappingFragment StoreEntitySet="V_INDEX_PEDIDOS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="CLIENTE" ColumnName="CLIENTE" />
+          <ScalarProperty Name="ENCARGADO" ColumnName="ENCARGADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_INDEX_PEDIDOS_DETALLES">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_PEDIDOS_DETALLES">
+        <MappingFragment StoreEntitySet="V_INDEX_PEDIDOS_DETALLES">
+          <ScalarProperty Name="ID_DETALLE" ColumnName="ID_DETALLE" />
+          <ScalarProperty Name="CODIGO_PEDIDO" ColumnName="CODIGO PEDIDO" />
+          <ScalarProperty Name="ARTICULO" ColumnName="ARTICULO" />
+          <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_INDEX_USUARIOS">
+      <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_USUARIOS">
+        <MappingFragment StoreEntitySet="V_INDEX_USUARIOS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ROL" ColumnName="ROL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="UDP_CambiarContraOlvidada" FunctionName="DBArticulosEncargosModel.Store.UDP_CambiarContraOlvidada" />
     <FunctionImportMapping FunctionImportName="UDP_CargarCiudades" FunctionName="DBArticulosEncargosModel.Store.UDP_CargarCiudades">
       <ResultMapping>
         <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CargarCiudades_Result">
@@ -234,174 +343,65 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <EntitySetMapping Name="V_INDEX_ARTICULOS1Set">
-      <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_ARTICULOS1">
-        <MappingFragment StoreEntitySet="V_INDEX_ARTICULOS">
-          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
-          <ScalarProperty Name="ID_ARTICULO" ColumnName="ID ARTICULO" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="V_INDEX_CARGOS1Set">
-      <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_CARGOS1">
-        <MappingFragment StoreEntitySet="V_INDEX_CARGOS">
-          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="V_INDEX_CIUDADES1Set">
-      <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_CIUDADES1">
-        <MappingFragment StoreEntitySet="V_INDEX_CIUDADES">
-          <ScalarProperty Name="NOMBRE_CIUDAD" ColumnName="NOMBRE CIUDAD" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="V_INDEX_CLIENTES1Set">
-      <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_CLIENTES1">
-        <MappingFragment StoreEntitySet="V_INDEX_CLIENTES">
-          <ScalarProperty Name="DESCUENTO" ColumnName="DESCUENTO" />
-          <ScalarProperty Name="LIMITE_CREDITO" ColumnName="LIMITE CREDITO" />
-          <ScalarProperty Name="SALDO" ColumnName="SALDO" />
-          <ScalarProperty Name="IDENTIDAD" ColumnName="IDENTIDAD" />
-          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="V_INDEX_DEPARTAMENTOS1Set">
-      <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_DEPARTAMENTOS1">
-        <MappingFragment StoreEntitySet="V_INDEX_DEPARTAMENTOS">
-          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="V_INDEX_DIRECCIONES1Set">
-      <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_DIRECCIONES1">
-        <MappingFragment StoreEntitySet="V_INDEX_DIRECCIONES">
-          <ScalarProperty Name="DEPARTAMENTO" ColumnName="DEPARTAMENTO" />
-          <ScalarProperty Name="CIUDAD" ColumnName="CIUDAD" />
-          <ScalarProperty Name="REFERENCIA" ColumnName="REFERENCIA" />
-          <ScalarProperty Name="CLIENTE" ColumnName="CLIENTE" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="V_INDEX_EMPLEADOS1Set">
-      <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_EMPLEADOS1">
-        <MappingFragment StoreEntitySet="V_INDEX_EMPLEADOS">
-          <ScalarProperty Name="CARGO" ColumnName="CARGO" />
-          <ScalarProperty Name="SEXO" ColumnName="SEXO" />
-          <ScalarProperty Name="IDENTIDAD" ColumnName="IDENTIDAD" />
-          <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
-          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="V_INDEX_ESTADOS_CIVILES1Set">
-      <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_ESTADOS_CIVILES1">
-        <MappingFragment StoreEntitySet="V_INDEX_ESTADOS_CIVILES">
-          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="V_INDEX_FABRICAS1Set">
-      <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_FABRICAS1">
-        <MappingFragment StoreEntitySet="V_INDEX_FABRICAS">
-          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="V_INDEX_PEDIDOS1Set">
-      <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_PEDIDOS1">
-        <MappingFragment StoreEntitySet="V_INDEX_PEDIDOS">
-          <ScalarProperty Name="ENCARGADO" ColumnName="ENCARGADO" />
-          <ScalarProperty Name="CLIENTE" ColumnName="CLIENTE" />
-          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
-          <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
-          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="V_INDEX_PEDIDOS_DETALLES1Set">
-      <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_PEDIDOS_DETALLES1">
-        <MappingFragment StoreEntitySet="V_INDEX_PEDIDOS_DETALLES">
-          <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
-          <ScalarProperty Name="ARTICULO" ColumnName="ARTICULO" />
-          <ScalarProperty Name="CODIGO_PEDIDO" ColumnName="CODIGO PEDIDO" />
-          <ScalarProperty Name="ID_DETALLE" ColumnName="ID_DETALLE" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="V_INDEX_USUARIOS1Set">
-      <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_USUARIOS1">
-        <MappingFragment StoreEntitySet="V_INDEX_USUARIOS">
-          <ScalarProperty Name="ROL" ColumnName="ROL" />
-          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-          <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="UDP_CambiarContraOlvidada1" FunctionName="DBArticulosEncargosModel.Store.UDP_CambiarContraOlvidada" />
-    <FunctionImportMapping FunctionImportName="UDP_DIRECCIONES_INSERT1" FunctionName="DBArticulosEncargosModel.Store.UDP_DIRECCIONES_INSERT" />
-    <FunctionImportMapping FunctionImportName="UDP_Editar_Articulos1" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Articulos" />
-    <FunctionImportMapping FunctionImportName="UDP_Editar_Cargos1" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Cargos" />
-    <FunctionImportMapping FunctionImportName="UDP_Editar_Ciudades1" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Ciudades" />
-    <FunctionImportMapping FunctionImportName="UDP_Editar_Clientes1" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Clientes" />
-    <FunctionImportMapping FunctionImportName="UDP_Editar_Departamentos1" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Departamentos" />
-    <FunctionImportMapping FunctionImportName="UDP_Editar_Direcciones1" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Direcciones" />
-    <FunctionImportMapping FunctionImportName="UDP_Editar_Empleados1" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Empleados" />
-    <FunctionImportMapping FunctionImportName="UDP_Editar_EstadosCiviles1" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_EstadosCiviles" />
-    <FunctionImportMapping FunctionImportName="UDP_Editar_Fabricas1" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Fabricas" />
-    <FunctionImportMapping FunctionImportName="UDP_Editar_Pedidos1" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Pedidos" />
-    <FunctionImportMapping FunctionImportName="UDP_Editar_PedidosDetalles2" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_PedidosDetalles" />
-    <FunctionImportMapping FunctionImportName="UDP_Editar_Usuarios2" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Usuarios" />
-    <FunctionImportMapping FunctionImportName="UDP_Eliminar_Articulos1" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Articulos" />
-    <FunctionImportMapping FunctionImportName="UDP_Eliminar_Cargos1" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Cargos" />
-    <FunctionImportMapping FunctionImportName="UDP_Eliminar_Cliente1" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Cliente" />
-    <FunctionImportMapping FunctionImportName="UDP_Eliminar_Direcciones1" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Direcciones" />
-    <FunctionImportMapping FunctionImportName="UDP_Eliminar_Empleados1" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Empleados" />
-    <FunctionImportMapping FunctionImportName="UDP_Eliminar_EstadosCiviles1" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_EstadosCiviles" />
-    <FunctionImportMapping FunctionImportName="UDP_Eliminar_Fabricas1" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Fabricas" />
-    <FunctionImportMapping FunctionImportName="UDP_Eliminar_Pedidos1" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Pedidos" />
-    <FunctionImportMapping FunctionImportName="UDP_Eliminar_PedidosDetalles2" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_PedidosDetalles" />
-    <FunctionImportMapping FunctionImportName="UDP_Eliminar_Usuarios2" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Usuarios" />
-    <FunctionImportMapping FunctionImportName="UDP_InsertArticulos1" FunctionName="DBArticulosEncargosModel.Store.UDP_InsertArticulos" />
-    <FunctionImportMapping FunctionImportName="UDP_InsertClientes1" FunctionName="DBArticulosEncargosModel.Store.UDP_InsertClientes" />
-    <FunctionImportMapping FunctionImportName="UDP_InsertFabrica1" FunctionName="DBArticulosEncargosModel.Store.UDP_InsertFabrica" />
-    <FunctionImportMapping FunctionImportName="UDP_PASSWORD_CAMBIAR1" FunctionName="DBArticulosEncargosModel.Store.UDP_PASSWORD_CAMBIAR" />
-    <FunctionImportMapping FunctionImportName="UDP_PEDIDO_DETALLE1" FunctionName="DBArticulosEncargosModel.Store.UDP_PEDIDO_DETALLE" />
-    <FunctionImportMapping FunctionImportName="UDP_PEDIDOS_INSERT1" FunctionName="DBArticulosEncargosModel.Store.UDP_PEDIDOS_INSERT" />
-    <FunctionImportMapping FunctionImportName="UDP_USUARIO_VALIDAR1" FunctionName="DBArticulosEncargosModel.Store.UDP_USUARIO_VALIDAR">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_USUARIO_VALIDAR1_Result">
-          <ScalarProperty Name="usu_ID" ColumnName="usu_ID" />
-          <ScalarProperty Name="usu_Usuario" ColumnName="usu_Usuario" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="UDP_VALIDAR_LOGIN1" FunctionName="DBArticulosEncargosModel.Store.UDP_VALIDAR_LOGIN">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_VALIDAR_LOGIN1_Result">
-          <ScalarProperty Name="usu_ID" ColumnName="usu_ID" />
-          <ScalarProperty Name="usu_Usuario" ColumnName="usu_Usuario" />
-          <ScalarProperty Name="usu_Clave" ColumnName="usu_Clave" />
-          <ScalarProperty Name="emp_Name" ColumnName="emp_Name" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="UDP_CargarDepartamentos" FunctionName="DBArticulosEncargosModel.Store.UDP_CargarDepartamentos">
       <ResultMapping>
         <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CargarDepartamentos_Result">
           <ScalarProperty Name="depto_ID" ColumnName="depto_ID" />
           <ScalarProperty Name="depto_Descripcion" ColumnName="depto_Descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_CARGOS_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_CARGOS_INSERT" />
+    <FunctionImportMapping FunctionImportName="UDP_CIUDADES_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_CIUDADES_INSERT" />
+    <FunctionImportMapping FunctionImportName="UDP_DEPARTAMENTOS_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_DEPARTAMENTOS_INSERT" />
+    <FunctionImportMapping FunctionImportName="UDP_DIRECCIONES_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_DIRECCIONES_INSERT" />
+    <FunctionImportMapping FunctionImportName="UDP_Editar_Articulos" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Articulos" />
+    <FunctionImportMapping FunctionImportName="UDP_Editar_Cargos" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Cargos" />
+    <FunctionImportMapping FunctionImportName="UDP_Editar_Ciudades" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Ciudades" />
+    <FunctionImportMapping FunctionImportName="UDP_Editar_Clientes" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Clientes" />
+    <FunctionImportMapping FunctionImportName="UDP_Editar_Departamentos" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Departamentos" />
+    <FunctionImportMapping FunctionImportName="UDP_Editar_Direcciones" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Direcciones" />
+    <FunctionImportMapping FunctionImportName="UDP_Editar_Empleados" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Empleados" />
+    <FunctionImportMapping FunctionImportName="UDP_Editar_EstadosCiviles" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_EstadosCiviles" />
+    <FunctionImportMapping FunctionImportName="UDP_Editar_Fabricas" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Fabricas" />
+    <FunctionImportMapping FunctionImportName="UDP_Editar_Pedidos" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Pedidos" />
+    <FunctionImportMapping FunctionImportName="UDP_Editar_PedidosDetalles" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_PedidosDetalles" />
+    <FunctionImportMapping FunctionImportName="UDP_Editar_Usuarios" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Usuarios" />
+    <FunctionImportMapping FunctionImportName="UDP_Eliminar_Articulos" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Articulos" />
+    <FunctionImportMapping FunctionImportName="UDP_Eliminar_Cargos" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Cargos" />
+    <FunctionImportMapping FunctionImportName="UDP_Eliminar_Cliente" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Cliente" />
+    <FunctionImportMapping FunctionImportName="UDP_Eliminar_Direcciones" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Direcciones" />
+    <FunctionImportMapping FunctionImportName="UDP_Eliminar_Empleados" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Empleados" />
+    <FunctionImportMapping FunctionImportName="UDP_Eliminar_EstadosCiviles" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_EstadosCiviles" />
+    <FunctionImportMapping FunctionImportName="UDP_Eliminar_Fabricas" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Fabricas" />
+    <FunctionImportMapping FunctionImportName="UDP_Eliminar_Pedidos" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Pedidos" />
+    <FunctionImportMapping FunctionImportName="UDP_Eliminar_PedidosDetalles" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_PedidosDetalles" />
+    <FunctionImportMapping FunctionImportName="UDP_Eliminar_Usuarios" FunctionName="DBArticulosEncargosModel.Store.UDP_Eliminar_Usuarios" />
+    <FunctionImportMapping FunctionImportName="UDP_EMPLEADOS_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_EMPLEADOS_INSERT" />
+    <FunctionImportMapping FunctionImportName="UDP_EstadosCiviles_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_EstadosCiviles_INSERT" />
+    <FunctionImportMapping FunctionImportName="UDP_InsertArticulos" FunctionName="DBArticulosEncargosModel.Store.UDP_InsertArticulos" />
+    <FunctionImportMapping FunctionImportName="UDP_InsertClientes" FunctionName="DBArticulosEncargosModel.Store.UDP_InsertClientes" />
+    <FunctionImportMapping FunctionImportName="UDP_InsertFabrica" FunctionName="DBArticulosEncargosModel.Store.UDP_InsertFabrica" />
+    <FunctionImportMapping FunctionImportName="UDP_PASSWORD_CAMBIAR" FunctionName="DBArticulosEncargosModel.Store.UDP_PASSWORD_CAMBIAR" />
+    <FunctionImportMapping FunctionImportName="UDP_PEDIDO_DETALLE" FunctionName="DBArticulosEncargosModel.Store.UDP_PEDIDO_DETALLE" />
+    <FunctionImportMapping FunctionImportName="UDP_PEDIDOS_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_PEDIDOS_INSERT" />
+    <FunctionImportMapping FunctionImportName="UDP_ROLES_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_ROLES_INSERT" />
+    <FunctionImportMapping FunctionImportName="UDP_USUARIO_VALIDAR" FunctionName="DBArticulosEncargosModel.Store.UDP_USUARIO_VALIDAR">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_USUARIO_VALIDAR_Result">
+          <ScalarProperty Name="usu_ID" ColumnName="usu_ID" />
+          <ScalarProperty Name="usu_Usuario" ColumnName="usu_Usuario" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_USUARIOS_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_USUARIOS_INSERT" />
+    <FunctionImportMapping FunctionImportName="UDP_VALIDAR_LOGIN" FunctionName="DBArticulosEncargosModel.Store.UDP_VALIDAR_LOGIN">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_VALIDAR_LOGIN_Result">
+          <ScalarProperty Name="usu_ID" ColumnName="usu_ID" />
+          <ScalarProperty Name="usu_Usuario" ColumnName="usu_Usuario" />
+          <ScalarProperty Name="usu_Clave" ColumnName="usu_Clave" />
+          <ScalarProperty Name="emp_Name" ColumnName="emp_Name" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

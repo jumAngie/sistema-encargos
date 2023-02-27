@@ -12,7 +12,7 @@ namespace Sistema_Envios.Controllers
 {
     public class ClientesController : Controller
     {
-        private DBArticulosEncargosEntities db = new DBArticulosEncargosEntities();
+        private DBArticulosEncargosEntities1 db = new DBArticulosEncargosEntities1();
         public string Usu = "1";
 
         // GET: Clientes

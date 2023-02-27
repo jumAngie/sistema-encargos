@@ -7,10 +7,10 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>tbEmpleados</h4>
         <hr />
@@ -48,9 +48,18 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ciu_ID, "ciu_ID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <label>Departamentos</label>
             <div class="col-md-10">
-                @Html.DropDownList("ciu_ID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("depto_ID", null, htmlAttributes: new { @class = "form-control" })
+                
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ciu_ID, "Municipio", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select id="ciu_ID" name="ciu_ID" class="form-control">
+                </select>
                 @Html.ValidationMessageFor(model => model.ciu_ID, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -123,12 +132,11 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-primary" />
+                
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+<script src="~/Scripts/EmpleadosScript/CargarCiudades.js"></script>

@@ -12,7 +12,7 @@ namespace Sistema_Envios.Controllers
 {
     public class UsuariosController : Controller
     {
-        private DBArticulosEncargosEntities db = new DBArticulosEncargosEntities();
+        private DBArticulosEncargosEntities1 db = new DBArticulosEncargosEntities1();
         public string Usu = "1";
 
         // GET: Usuarios
@@ -95,7 +95,7 @@ namespace Sistema_Envios.Controllers
 
             if (ModelState.IsValid)
             {
-                db.UDP_Editar_Usuarios1(tbUsuarios.usu_ID, tbUsuarios.usu_Usuario, tbUsuarios.rol_ID, tbUsuarios.usu_EsAdmin, Usu).ToString();
+                db.UDP_Editar_Usuarios(tbUsuarios.usu_ID, tbUsuarios.usu_Usuario, tbUsuarios.rol_ID, tbUsuarios.usu_EsAdmin, Usu).ToString();
                 return RedirectToAction("Index");
             }
             ViewBag.rol_ID = new SelectList(db.tblRoles, "rol_ID", "rol_Descripcion", tbUsuarios.rol_ID);
@@ -123,7 +123,7 @@ namespace Sistema_Envios.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             tbUsuarios tbUsuarios = db.tbUsuarios.Find(id);
-            db.UDP_Eliminar_Usuarios1(id, Usu);
+            db.UDP_Eliminar_Usuarios(id, Usu);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

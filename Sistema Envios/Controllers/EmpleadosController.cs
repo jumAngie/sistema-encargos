@@ -12,7 +12,7 @@ namespace Sistema_Envios.Controllers
 {
     public class EmpleadosController : Controller
     {
-        private DBArticulosEncargosEntities db = new DBArticulosEncargosEntities();
+        private DBArticulosEncargosEntities1 db = new DBArticulosEncargosEntities1();
         public string Usu = "1";
 
         // GET: Empleados
@@ -40,7 +40,7 @@ namespace Sistema_Envios.Controllers
         // GET: Empleados/Create
         public ActionResult Create()
         {
-            ViewBag.ciu_ID = new SelectList(db.tbCiudades, "ciu_ID", "ciu_Descripcion");
+            ViewBag.depto_ID = new SelectList(db.UDP_CargarDepartamentos(), "depto_ID", "depto_Descripcion");
             ViewBag.est_ID = new SelectList(db.tbEstadosCiviles, "est_ID", "est_Descripcion");
             return View();
         }
@@ -128,6 +128,14 @@ namespace Sistema_Envios.Controllers
             db.UDP_Eliminar_Empleados(id, Usu);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public JsonResult CargarMunicipios (string depto_ID)
+        {
+            var ddl = db.UDP_CargarCiudades(depto_ID).ToList();
+
+            return Json(ddl, JsonRequestBehavior.AllowGet);
+
         }
 
         protected override void Dispose(bool disposing)

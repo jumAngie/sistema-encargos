@@ -12,7 +12,7 @@ namespace Sistema_Envios.Controllers
 {
     public class CargosController : Controller
     {
-        private DBArticulosEncargosEntities db = new DBArticulosEncargosEntities();
+        private DBArticulosEncargosEntities1 db = new DBArticulosEncargosEntities1();
         public string UsuarioModi = "1";
 
         // GET: Cargos
