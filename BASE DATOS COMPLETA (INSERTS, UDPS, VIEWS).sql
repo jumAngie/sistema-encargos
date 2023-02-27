@@ -1478,7 +1478,7 @@ BEGIN
 END
 GO
 -------------------------------------------- TABLA CLIENTES ----------------------------------------------
-CREATE OR ALTER PROCEDURE UDP_Editar_Clientes
+CREATE OR ALTER   PROCEDURE [dbo].[UDP_Editar_Clientes]
 		@client_ID				INT, 
 		@client_Nombre			NVARCHAR(250), 
 		@client_Identidad		NVARCHAR(30), 
@@ -1486,7 +1486,7 @@ CREATE OR ALTER PROCEDURE UDP_Editar_Clientes
 		@client_Sexo			CHAR(1), 
 		@client_Telefono		NVARCHAR(50), 
 		@client_Saldo			NVARCHAR(100), 
-		@client_LimiteCredito	NVARCHAR(100), 
+		@client_LimiteCredito	DECIMAL(20,2), 
 		@client_Descuento		NVARCHAR(100),  
 		@client_UsuarioMod		NVARCHAR(50)
 AS
@@ -1550,11 +1550,11 @@ BEGIN
 END
 go
 -------------------------------------------- TABLA EMPLEADOS  -------------------------------------------
-CREATE OR ALTER PROCEDURE UDP_Editar_Empleados
+CREATE OR ALTER   PROCEDURE [dbo].[UDP_Editar_Empleados]
 		@emp_Id			INT, 
 		@emp_Name		NVARCHAR(150), 
 		@emp_Apellido	NVARCHAR(150), 
-		@emp_DNI		INT, 
+		@emp_DNI		VARCHAR(13), 
 		@emp_FechaNac	DATE, 
 		@ciu_ID			INT, 
 		@est_ID			CHAR(1), 

@@ -13,6 +13,7 @@ namespace Sistema_Envios.Controllers
     public class DepartamentosController : Controller
     {
         private DBArticulosEncargosEntities db = new DBArticulosEncargosEntities();
+        public string Usu = "1";
 
         // GET: Departamentos
         public ActionResult Index()
@@ -87,10 +88,14 @@ namespace Sistema_Envios.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "depto_ID,depto_Descripcion,usu_UsuarioCreador,usu_FechaCreacion,usu_UsuarioMod,depto_FechaMod")] tbDepartamentos tbDepartamentos)
         {
+            // ,,usu_UsuarioMod,
+            ModelState.Remove("usu_UsuarioCreador");
+            ModelState.Remove("usu_FechaCreacion");
+            ModelState.Remove("depto_FechaMod");
+
             if (ModelState.IsValid)
             {
-                db.Entry(tbDepartamentos).State = EntityState.Modified;
-                db.SaveChanges();
+                db.UDP_Editar_Departamentos(tbDepartamentos.depto_ID, tbDepartamentos.depto_Descripcion, Usu).ToString();
                 return RedirectToAction("Index");
             }
             ViewBag.usu_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbDepartamentos.usu_UsuarioCreador);
@@ -99,30 +104,30 @@ namespace Sistema_Envios.Controllers
         }
 
         // GET: Departamentos/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            tbDepartamentos tbDepartamentos = db.tbDepartamentos.Find(id);
-            if (tbDepartamentos == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tbDepartamentos);
-        }
+        //public ActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    tbDepartamentos tbDepartamentos = db.tbDepartamentos.Find(id);
+        //    if (tbDepartamentos == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(tbDepartamentos);
+        //}
 
-        // POST: Departamentos/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            tbDepartamentos tbDepartamentos = db.tbDepartamentos.Find(id);
-            db.tbDepartamentos.Remove(tbDepartamentos);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //// POST: Departamentos/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(int id)
+        //{
+        //    tbDepartamentos tbDepartamentos = db.tbDepartamentos.Find(id);
+        //    db.tbDepartamentos.Remove(tbDepartamentos);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
         protected override void Dispose(bool disposing)
         {

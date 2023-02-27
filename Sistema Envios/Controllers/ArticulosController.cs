@@ -54,9 +54,6 @@ namespace Sistema_Envios.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "art_ID,art_Descripcion,fab_ID,art_Stock,art_UsuarioCreador,art_FechaCreacion,art_UsuarioMod,art_FechaMod,art_Estado")] tbArticulos tbArticulos)
         {
-            
-
-            
             if (ModelState.IsValid)
             {
                 db.tbArticulos.Add(tbArticulos);
@@ -133,7 +130,7 @@ namespace Sistema_Envios.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             tbArticulos tbArticulos = db.tbArticulos.Find(id);
-            db.UDP_Eliminar_Articulos(tbArticulos.art_ID, UsuarioModi).ToString();
+            db.UDP_Eliminar_Articulos(id, UsuarioModi).ToString();
             return RedirectToAction("Index");
         }
 

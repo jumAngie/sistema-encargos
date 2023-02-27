@@ -13,6 +13,7 @@ namespace Sistema_Envios.Controllers
     public class PedidoDetallesController : Controller
     {
         private DBArticulosEncargosEntities db = new DBArticulosEncargosEntities();
+        public string Usu = "1";
 
         // GET: PedidoDetalles
         public ActionResult Index()
@@ -90,10 +91,15 @@ namespace Sistema_Envios.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "det_Id,pedi_ID,art_ID,det_Cantidad,det_UsuarioCrea,det_FechaCrea,det_UsuModif,det_FechaModif,det_Estado")] tbPedidoDetalles tbPedidoDetalles)
         {
+            
+            ModelState.Remove("det_UsuarioCrea");
+            ModelState.Remove("det_FechaCrea");
+            ModelState.Remove("det_FechaModif");
+            ModelState.Remove("det_Estado");
+
             if (ModelState.IsValid)
             {
-                db.Entry(tbPedidoDetalles).State = EntityState.Modified;
-                db.SaveChanges();
+                db.UDP_Editar_PedidosDetalles(tbPedidoDetalles.det_Id, tbPedidoDetalles.pedi_ID, tbPedidoDetalles.art_ID, tbPedidoDetalles.det_Cantidad, Usu).ToString();
                 return RedirectToAction("Index");
             }
             ViewBag.pedi_ID = new SelectList(db.tbPedidos, "pedi_ID", "pedi_Code", tbPedidoDetalles.pedi_ID);
@@ -123,7 +129,7 @@ namespace Sistema_Envios.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             tbPedidoDetalles tbPedidoDetalles = db.tbPedidoDetalles.Find(id);
-            db.tbPedidoDetalles.Remove(tbPedidoDetalles);
+            db.UDP_Eliminar_PedidosDetalles(id, Usu);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

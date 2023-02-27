@@ -838,7 +838,7 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <Parameter Name="client_Sexo" Type="char" Mode="In" />
           <Parameter Name="client_Telefono" Type="nvarchar" Mode="In" />
           <Parameter Name="client_Saldo" Type="nvarchar" Mode="In" />
-          <Parameter Name="client_LimiteCredito" Type="nvarchar" Mode="In" />
+          <Parameter Name="client_LimiteCredito" Type="decimal" Mode="In" />
           <Parameter Name="client_Descuento" Type="nvarchar" Mode="In" />
           <Parameter Name="client_UsuarioMod" Type="nvarchar" Mode="In" />
         </Function>
@@ -858,7 +858,7 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <Parameter Name="emp_Id" Type="int" Mode="In" />
           <Parameter Name="emp_Name" Type="nvarchar" Mode="In" />
           <Parameter Name="emp_Apellido" Type="nvarchar" Mode="In" />
-          <Parameter Name="emp_DNI" Type="int" Mode="In" />
+          <Parameter Name="emp_DNI" Type="varchar" Mode="In" />
           <Parameter Name="emp_FechaNac" Type="date" Mode="In" />
           <Parameter Name="ciu_ID" Type="int" Mode="In" />
           <Parameter Name="est_ID" Type="char" Mode="In" />
@@ -2037,7 +2037,7 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
             <Parameter Name="client_Sexo" Mode="In" Type="String" />
             <Parameter Name="client_Telefono" Mode="In" Type="String" />
             <Parameter Name="client_Saldo" Mode="In" Type="String" />
-            <Parameter Name="client_LimiteCredito" Mode="In" Type="String" />
+            <Parameter Name="client_LimiteCredito" Mode="In" Type="Decimal" />
             <Parameter Name="client_Descuento" Mode="In" Type="String" />
             <Parameter Name="client_UsuarioMod" Mode="In" Type="String" />
           </FunctionImport>
@@ -2057,7 +2057,7 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
             <Parameter Name="emp_Id" Mode="In" Type="Int32" />
             <Parameter Name="emp_Name" Mode="In" Type="String" />
             <Parameter Name="emp_Apellido" Mode="In" Type="String" />
-            <Parameter Name="emp_DNI" Mode="In" Type="Int32" />
+            <Parameter Name="emp_DNI" Mode="In" Type="String" />
             <Parameter Name="emp_FechaNac" Mode="In" Type="DateTime" />
             <Parameter Name="ciu_ID" Mode="In" Type="Int32" />
             <Parameter Name="est_ID" Mode="In" Type="String" />

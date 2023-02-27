@@ -179,7 +179,7 @@ namespace Sistema_Envios.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Editar_Ciudades", ciu_IDParameter, ciu_DescripcionParameter, ciu_UsuarioModParameter);
         }
     
-        public virtual int UDP_Editar_Clientes(Nullable<int> client_ID, string client_Nombre, string client_Identidad, string client_EstadoCivil, string client_Sexo, string client_Telefono, string client_Saldo, string client_LimiteCredito, string client_Descuento, string client_UsuarioMod)
+        public virtual int UDP_Editar_Clientes(Nullable<int> client_ID, string client_Nombre, string client_Identidad, string client_EstadoCivil, string client_Sexo, string client_Telefono, string client_Saldo, Nullable<decimal> client_LimiteCredito, string client_Descuento, string client_UsuarioMod)
         {
             var client_IDParameter = client_ID.HasValue ?
                 new ObjectParameter("client_ID", client_ID) :
@@ -209,9 +209,9 @@ namespace Sistema_Envios.Models
                 new ObjectParameter("client_Saldo", client_Saldo) :
                 new ObjectParameter("client_Saldo", typeof(string));
     
-            var client_LimiteCreditoParameter = client_LimiteCredito != null ?
+            var client_LimiteCreditoParameter = client_LimiteCredito.HasValue ?
                 new ObjectParameter("client_LimiteCredito", client_LimiteCredito) :
-                new ObjectParameter("client_LimiteCredito", typeof(string));
+                new ObjectParameter("client_LimiteCredito", typeof(decimal));
     
             var client_DescuentoParameter = client_Descuento != null ?
                 new ObjectParameter("client_Descuento", client_Descuento) :
@@ -266,7 +266,7 @@ namespace Sistema_Envios.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Editar_Direcciones", direc_IDParameter, direc_ClienteIDParameter, direc_DireccionExactaParameter, direc_CiudadIDParameter, direc_UsuarioModParameter);
         }
     
-        public virtual int UDP_Editar_Empleados(Nullable<int> emp_Id, string emp_Name, string emp_Apellido, Nullable<int> emp_DNI, Nullable<System.DateTime> emp_FechaNac, Nullable<int> ciu_ID, string est_ID, string emp_Sexo, Nullable<int> carg_Id, string emp_UsuModif)
+        public virtual int UDP_Editar_Empleados(Nullable<int> emp_Id, string emp_Name, string emp_Apellido, string emp_DNI, Nullable<System.DateTime> emp_FechaNac, Nullable<int> ciu_ID, string est_ID, string emp_Sexo, Nullable<int> carg_Id, string emp_UsuModif)
         {
             var emp_IdParameter = emp_Id.HasValue ?
                 new ObjectParameter("emp_Id", emp_Id) :
@@ -280,9 +280,9 @@ namespace Sistema_Envios.Models
                 new ObjectParameter("emp_Apellido", emp_Apellido) :
                 new ObjectParameter("emp_Apellido", typeof(string));
     
-            var emp_DNIParameter = emp_DNI.HasValue ?
+            var emp_DNIParameter = emp_DNI != null ?
                 new ObjectParameter("emp_DNI", emp_DNI) :
-                new ObjectParameter("emp_DNI", typeof(int));
+                new ObjectParameter("emp_DNI", typeof(string));
     
             var emp_FechaNacParameter = emp_FechaNac.HasValue ?
                 new ObjectParameter("emp_FechaNac", emp_FechaNac) :

@@ -13,6 +13,7 @@ namespace Sistema_Envios.Controllers
     public class EstadosCivilesController : Controller
     {
         private DBArticulosEncargosEntities db = new DBArticulosEncargosEntities();
+        public string Usu = "1";
 
         // GET: EstadosCiviles
         public ActionResult Index()
@@ -87,10 +88,14 @@ namespace Sistema_Envios.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "est_ID,est_Descripcion,est_UsuCrea,est_FechaCrea,est_UsuMod,est_FechaMod")] tbEstadosCiviles tbEstadosCiviles)
         {
+            
+            ModelState.Remove("est_UsuCrea");
+            ModelState.Remove("est_FechaCrea");
+            ModelState.Remove("est_FechaMod");
+
             if (ModelState.IsValid)
             {
-                db.Entry(tbEstadosCiviles).State = EntityState.Modified;
-                db.SaveChanges();
+                db.UDP_Editar_EstadosCiviles(tbEstadosCiviles.est_ID, tbEstadosCiviles.est_Descripcion, Usu).ToString();
                 return RedirectToAction("Index");
             }
             ViewBag.est_UsuCrea = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbEstadosCiviles.est_UsuCrea);
@@ -99,30 +104,30 @@ namespace Sistema_Envios.Controllers
         }
 
         // GET: EstadosCiviles/Delete/5
-        public ActionResult Delete(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            tbEstadosCiviles tbEstadosCiviles = db.tbEstadosCiviles.Find(id);
-            if (tbEstadosCiviles == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tbEstadosCiviles);
-        }
+        //public ActionResult Delete(string id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    tbEstadosCiviles tbEstadosCiviles = db.tbEstadosCiviles.Find(id);
+        //    if (tbEstadosCiviles == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(tbEstadosCiviles);
+        //}
 
-        // POST: EstadosCiviles/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
-        {
-            tbEstadosCiviles tbEstadosCiviles = db.tbEstadosCiviles.Find(id);
-            db.tbEstadosCiviles.Remove(tbEstadosCiviles);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //// POST: EstadosCiviles/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(string id)
+        //{
+        //    tbEstadosCiviles tbEstadosCiviles = db.tbEstadosCiviles.Find(id);
+        //    db.tbEstadosCiviles.Remove(tbEstadosCiviles);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
         protected override void Dispose(bool disposing)
         {

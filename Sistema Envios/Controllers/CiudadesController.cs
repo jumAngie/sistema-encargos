@@ -13,6 +13,7 @@ namespace Sistema_Envios.Controllers
     public class CiudadesController : Controller
     {
         private DBArticulosEncargosEntities db = new DBArticulosEncargosEntities();
+        public string UsuarioModi = "1";
 
         // GET: Ciudades
         public ActionResult Index()
@@ -90,10 +91,14 @@ namespace Sistema_Envios.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ciu_ID,ciu_Descripcion,ciu_DeptoID,ciu_UsuarioCreador,ciu_FechaCreacion,ciu_UsuarioMod,ciu_FechaMod")] tbCiudades tbCiudades)
         {
+            
+            ModelState.Remove("ciu_UsuarioCreador");
+            ModelState.Remove("ciu_FechaCreacion");
+            ModelState.Remove("ciu_FechaMod");
+            ModelState.Remove("ciu_FechaMod");
             if (ModelState.IsValid)
             {
-                db.Entry(tbCiudades).State = EntityState.Modified;
-                db.SaveChanges();
+                db.UDP_Editar_Ciudades(tbCiudades.ciu_ID, tbCiudades.ciu_Descripcion, UsuarioModi).ToString();
                 return RedirectToAction("Index");
             }
             ViewBag.ciu_DeptoID = new SelectList(db.tbDepartamentos, "depto_ID", "depto_Descripcion", tbCiudades.ciu_DeptoID);
@@ -103,30 +108,28 @@ namespace Sistema_Envios.Controllers
         }
 
         // GET: Ciudades/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            tbCiudades tbCiudades = db.tbCiudades.Find(id);
-            if (tbCiudades == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tbCiudades);
-        }
+        //public ActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    tbCiudades tbCiudades = db.tbCiudades.Find(id);
+        //    if (tbCiudades == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(tbCiudades);
+        //}
 
-        // POST: Ciudades/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            tbCiudades tbCiudades = db.tbCiudades.Find(id);
-            db.tbCiudades.Remove(tbCiudades);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //// POST: Ciudades/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(int id)
+        //{
+        //    tbCiudades tbCiudades = db.tbCiudades.Find(id);
+        //    return RedirectToAction("Index");
+        //}
 
         protected override void Dispose(bool disposing)
         {

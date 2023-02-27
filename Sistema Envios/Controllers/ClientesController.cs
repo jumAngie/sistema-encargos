@@ -13,6 +13,7 @@ namespace Sistema_Envios.Controllers
     public class ClientesController : Controller
     {
         private DBArticulosEncargosEntities db = new DBArticulosEncargosEntities();
+        public string Usu = "1";
 
         // GET: Clientes
         public ActionResult Index()
@@ -90,10 +91,16 @@ namespace Sistema_Envios.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "client_ID,client_Nombre,client_Identidad,client_EstadoCivil,client_Sexo,client_Telefono,client_Saldo,client_LimiteCredito,client_Descuento,client_UsuarioCreador,client_FechaCreacion,client_UsuarioMod,client_FechaMod,client_Estado")] tbClientes tbClientes)
         {
+            
+            ModelState.Remove("client_UsuarioCreador");
+            ModelState.Remove("client_FechaCreacion");
+            ModelState.Remove("client_FechaMod");
+            ModelState.Remove("client_Estado");
+
             if (ModelState.IsValid)
             {
-                db.Entry(tbClientes).State = EntityState.Modified;
-                db.SaveChanges();
+                db.UDP_Editar_Clientes(tbClientes.client_ID, tbClientes.client_Nombre, tbClientes.client_Identidad, tbClientes.client_EstadoCivil, tbClientes.client_Sexo, tbClientes.client_Telefono,
+                                        tbClientes.client_Saldo, tbClientes.client_LimiteCredito , tbClientes.client_Descuento, Usu).ToString();
                 return RedirectToAction("Index");
             }
             ViewBag.client_EstadoCivil = new SelectList(db.tbEstadosCiviles, "est_ID", "est_Descripcion", tbClientes.client_EstadoCivil);
@@ -123,7 +130,7 @@ namespace Sistema_Envios.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             tbClientes tbClientes = db.tbClientes.Find(id);
-            db.tbClientes.Remove(tbClientes);
+            db.UDP_Eliminar_Cliente(id, Usu);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -13,6 +13,7 @@ namespace Sistema_Envios.Controllers
     public class CargosController : Controller
     {
         private DBArticulosEncargosEntities db = new DBArticulosEncargosEntities();
+        public string UsuarioModi = "1";
 
         // GET: Cargos
         public ActionResult Index()
@@ -87,10 +88,14 @@ namespace Sistema_Envios.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "carg_Id,carg_Description,rep_UsuarioCreador,rep_FechaCreacion,rep_UsuarioMod,rep_FechaMod,rep_Estado")] tbCargos tbCargos)
         {
+            ModelState.Remove("rep_UsuarioCreador");
+            ModelState.Remove("rep_FechaCreacion");
+            ModelState.Remove("rep_FechaMod");
+            ModelState.Remove("rep_Estado");
+
             if (ModelState.IsValid)
             {
-                db.Entry(tbCargos).State = EntityState.Modified;
-                db.SaveChanges();
+                db.UDP_Editar_Cargos(tbCargos.carg_Id, tbCargos.carg_Description, UsuarioModi);
                 return RedirectToAction("Index");
             }
             ViewBag.rep_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbCargos.rep_UsuarioCreador);
@@ -119,7 +124,7 @@ namespace Sistema_Envios.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             tbCargos tbCargos = db.tbCargos.Find(id);
-            db.tbCargos.Remove(tbCargos);
+            db.UDP_Eliminar_Cargos(id, UsuarioModi).ToString();
             db.SaveChanges();
             return RedirectToAction("Index");
         }

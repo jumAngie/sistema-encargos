@@ -13,6 +13,7 @@ namespace Sistema_Envios.Controllers
     public class DireccionesController : Controller
     {
         private DBArticulosEncargosEntities db = new DBArticulosEncargosEntities();
+        public string Usu = "1";
 
         // GET: Direcciones
         public ActionResult Index()
@@ -93,10 +94,15 @@ namespace Sistema_Envios.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "direc_ID,direc_ClienteID,direc_DireccionExacta,direc_CiudadID,direc_UsuarioCreador,direc_FechaCreacion,direc_UsuarioMod,direc_FechaMod,direc_Estado")] tbDirecciones tbDirecciones)
         {
+            // ,,direc_UsuarioMod,,
+            ModelState.Remove("direc_UsuarioCreador");
+            ModelState.Remove("direc_FechaCreacion");
+            ModelState.Remove("direc_FechaMod");
+            ModelState.Remove("direc_Estado");
+
             if (ModelState.IsValid)
             {
-                db.Entry(tbDirecciones).State = EntityState.Modified;
-                db.SaveChanges();
+                db.UDP_Editar_Direcciones(tbDirecciones.direc_ID, tbDirecciones.direc_ClienteID, tbDirecciones.direc_DireccionExacta, tbDirecciones.direc_CiudadID, Usu).ToString();
                 return RedirectToAction("Index");
             }
             ViewBag.direc_CiudadID = new SelectList(db.tbCiudades, "ciu_ID", "ciu_Descripcion", tbDirecciones.direc_CiudadID);
@@ -127,7 +133,7 @@ namespace Sistema_Envios.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             tbDirecciones tbDirecciones = db.tbDirecciones.Find(id);
-            db.tbDirecciones.Remove(tbDirecciones);
+            db.UDP_Eliminar_Direcciones(id, Usu);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

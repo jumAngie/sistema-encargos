@@ -63,7 +63,7 @@
         <AssociationConnector Association="DBArticulosEncargosModel.FK_tbEmpleados_UsuModif" />
         <AssociationConnector Association="DBArticulosEncargosModel.FK_tbUsuarios_tbEmpleados" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_CLIENTES" Width="1.5" PointX="9.375" PointY="0.75" />
-        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbClientes" Width="1.5" PointX="10.5" PointY="27.5" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbClientes" Width="2.25" PointX="10.5" PointY="27.75" />
         <AssociationConnector Association="DBArticulosEncargosModel.FK_dbo_tbClientes_dbo_tbEstadosCiviles_est_ID" />
         <AssociationConnector Association="DBArticulosEncargosModel.FK_dbo_tbDirecciones_tbClientes_client_ID" />
         <AssociationConnector Association="DBArticulosEncargosModel.FK_tbClientes_UsuarioCrea" />

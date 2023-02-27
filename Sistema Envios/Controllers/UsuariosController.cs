@@ -13,6 +13,7 @@ namespace Sistema_Envios.Controllers
     public class UsuariosController : Controller
     {
         private DBArticulosEncargosEntities db = new DBArticulosEncargosEntities();
+        public string Usu = "1";
 
         // GET: Usuarios
         public ActionResult Index()
@@ -50,6 +51,8 @@ namespace Sistema_Envios.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "usu_ID,usu_Usuario,emp_Id,rol_ID,usu_Clave,usu_UsuarioCreador,usu_FechaCreacion,usu_UsuarioMod,usu_FechaMod,usu_Estado,usu_EsAdmin")] tbUsuarios tbUsuarios)
         {
+            
+
             if (ModelState.IsValid)
             {
                 db.tbUsuarios.Add(tbUsuarios);
@@ -84,10 +87,15 @@ namespace Sistema_Envios.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "usu_ID,usu_Usuario,emp_Id,rol_ID,usu_Clave,usu_UsuarioCreador,usu_FechaCreacion,usu_UsuarioMod,usu_FechaMod,usu_Estado,usu_EsAdmin")] tbUsuarios tbUsuarios)
         {
+            ModelState.Remove("usu_UsuarioCreador");
+            ModelState.Remove("usu_FechaCreacion");
+            ModelState.Remove("usu_FechaMod");
+            ModelState.Remove("usu_Estado");
+            ModelState.Remove("usu_Clave");
+
             if (ModelState.IsValid)
             {
-                db.Entry(tbUsuarios).State = EntityState.Modified;
-                db.SaveChanges();
+                db.UDP_Editar_Usuarios(tbUsuarios.usu_ID, tbUsuarios.usu_Usuario, tbUsuarios.rol_ID, tbUsuarios.usu_EsAdmin, Usu).ToString();
                 return RedirectToAction("Index");
             }
             ViewBag.rol_ID = new SelectList(db.tblRoles, "rol_ID", "rol_Descripcion", tbUsuarios.rol_ID);
@@ -115,7 +123,7 @@ namespace Sistema_Envios.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             tbUsuarios tbUsuarios = db.tbUsuarios.Find(id);
-            db.tbUsuarios.Remove(tbUsuarios);
+            db.UDP_Eliminar_Usuarios(id, Usu);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

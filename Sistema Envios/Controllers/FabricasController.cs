@@ -13,6 +13,7 @@ namespace Sistema_Envios.Controllers
     public class FabricasController : Controller
     {
         private DBArticulosEncargosEntities db = new DBArticulosEncargosEntities();
+        public string Usu = "1";
 
         // GET: Fabricas
         public ActionResult Index()
@@ -87,10 +88,15 @@ namespace Sistema_Envios.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "fab_ID,fab_Descripcion,fab_Telefono,fab_UsuarioCreador,fab_FechaCreacion,fab_UsuarioMod,fab_FechaMod,fab_Estado")] tbFabricas tbFabricas)
         {
+            
+            ModelState.Remove("fab_UsuarioCreador");
+            ModelState.Remove(",fab_FechaCreacion");
+            ModelState.Remove("fab_FechaMod");
+            ModelState.Remove("fab_Estado");
+
             if (ModelState.IsValid)
             {
-                db.Entry(tbFabricas).State = EntityState.Modified;
-                db.SaveChanges();
+                db.UDP_Editar_Fabricas(tbFabricas.fab_ID, tbFabricas.fab_Descripcion, tbFabricas.fab_Telefono, Usu).ToString();
                 return RedirectToAction("Index");
             }
             ViewBag.fab_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbFabricas.fab_UsuarioCreador);
@@ -119,7 +125,7 @@ namespace Sistema_Envios.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             tbFabricas tbFabricas = db.tbFabricas.Find(id);
-            db.tbFabricas.Remove(tbFabricas);
+            db.UDP_Eliminar_Fabricas(id, Usu);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
