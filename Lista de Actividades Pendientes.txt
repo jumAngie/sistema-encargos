@@ -4,6 +4,7 @@
 - Crear una pantalla de ¿Olvidaste tu contraseña?
 ------------------------------------------------------------------------------------------
 
+-- Triggers de STOCK
 -- Colocar los DataAnnotations
 -- Colocar los Modales
 -- Conectar el Login
