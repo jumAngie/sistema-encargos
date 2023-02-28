@@ -1,5 +1,6 @@
 ............................. Actividades Pendientes ..................................
--- Colocar los Modales
+-- Colocar los Modales (9 modales de Crear)
+		(//cargos, deptos, articulos, direcciones)
 -- Agregar los udps de Insertar
 -- Editar los Create y Edit.
 -- Hacer los Tickets de Pedidos mostrando los detalles en un DataTable.

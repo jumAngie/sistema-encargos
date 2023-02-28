@@ -16,7 +16,6 @@
     })
 })
 
-
 $(function () {
     $('#btnCancelar').click(function () {
         $('#Articulos').modal('hide');

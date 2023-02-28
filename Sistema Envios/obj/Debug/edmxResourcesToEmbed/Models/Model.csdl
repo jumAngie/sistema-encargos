@@ -1245,6 +1245,8 @@
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="UDP_CargarFabricas" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarFabricas_Result)" />
+    <FunctionImport Name="UDP_CargarClientes" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarClientes_Result)" />
+    <FunctionImport Name="UDP_CargarCliente" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarCliente_Result)" />
   </EntityContainer>
   <ComplexType Name="UDP_CargarCiudades_Result">
     <Property Type="Int32" Name="ciu_ID" Nullable="false" />
@@ -1272,5 +1274,13 @@
   <ComplexType Name="UDP_CargarFabricas_Result">
     <Property Type="Int32" Name="fab_ID" Nullable="false" />
     <Property Type="String" Name="fab_Descripcion" Nullable="false" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="UDP_CargarClientes_Result">
+    <Property Type="Int32" Name="fab_ID" Nullable="false" />
+    <Property Type="String" Name="fab_Descripcion" Nullable="false" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="UDP_CargarCliente_Result">
+    <Property Type="Int32" Name="client_ID" Nullable="false" />
+    <Property Type="String" Name="client_Nombre" Nullable="false" MaxLength="250" />
   </ComplexType>
 </Schema>

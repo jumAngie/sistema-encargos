@@ -422,5 +422,21 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_CargarClientes" FunctionName="DBArticulosEncargosModel.Store.UDP_CargarClientes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CargarClientes_Result">
+          <ScalarProperty Name="fab_ID" ColumnName="fab_ID" />
+          <ScalarProperty Name="fab_Descripcion" ColumnName="fab_Descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_CargarCliente" FunctionName="DBArticulosEncargosModel.Store.UDP_CargarCliente">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CargarCliente_Result">
+          <ScalarProperty Name="client_ID" ColumnName="client_ID" />
+          <ScalarProperty Name="client_Nombre" ColumnName="client_Nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

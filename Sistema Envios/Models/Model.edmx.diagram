@@ -25,9 +25,9 @@
         <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_CARGOS" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_CIUDADES" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_CLIENTES" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_DEPARTAMENTOS" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_DEPARTAMENTOS" Width="2.25" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_DIRECCIONES" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_EMPLEADOS" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_EMPLEADOS" Width="1.5" PointX="8.125" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_ESTADOS_CIVILES" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_FABRICAS" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_PEDIDOS" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />

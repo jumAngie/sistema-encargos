@@ -18,7 +18,7 @@ namespace Sistema_Envios.Controllers
         // GET: Departamentos
         public ActionResult Index()
         {
-            var tbDepartamentosIndex = db.V_INDEX_DIRECCIONES;
+            var tbDepartamentosIndex = db.V_INDEX_DEPARTAMENTOS;
             return View(tbDepartamentosIndex.ToList());
         }
 
@@ -49,19 +49,16 @@ namespace Sistema_Envios.Controllers
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "depto_ID,depto_Descripcion,usu_UsuarioCreador,usu_FechaCreacion,usu_UsuarioMod,depto_FechaMod")] tbDepartamentos tbDepartamentos)
+        //[ValidateAntiForgeryToken]
+        public ActionResult Create(string txtDeptos)
         {
+            int Usuario = 1;
             if (ModelState.IsValid)
             {
-                db.tbDepartamentos.Add(tbDepartamentos);
-                db.SaveChanges();
+                db.UDP_DEPARTAMENTOS_INSERT(txtDeptos,Usuario);
                 return RedirectToAction("Index");
             }
-
-            ViewBag.usu_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbDepartamentos.usu_UsuarioCreador);
-            ViewBag.usu_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbDepartamentos.usu_UsuarioMod);
-            return View(tbDepartamentos);
+            return View();
         }
 
         // GET: Departamentos/Edit/5

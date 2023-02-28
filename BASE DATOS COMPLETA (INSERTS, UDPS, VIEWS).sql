@@ -1839,3 +1839,11 @@ BEGIN
 	UNION ALL
 	SELECT fab_ID, fab_Descripcion FROM tbFabricas WHERE fab_Estado = 1
 END
+GO
+CREATE OR ALTER PROCEDURE UDP_CargarClientes
+AS
+BEGIN
+	SELECT '0' AS fab_ID, ' Seleccione un Cliente' AS fab_Descripcion
+	UNION ALL
+	SELECT  client_ID ,client_Nombre FROM tbClientes WHERE client_Estado = 1
+END

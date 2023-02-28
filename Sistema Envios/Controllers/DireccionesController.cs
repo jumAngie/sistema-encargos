@@ -51,21 +51,21 @@ namespace Sistema_Envios.Controllers
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "direc_ID,direc_ClienteID,direc_DireccionExacta,direc_CiudadID,direc_UsuarioCreador,direc_FechaCreacion,direc_UsuarioMod,direc_FechaMod,direc_Estado")] tbDirecciones tbDirecciones)
         {
+            // AÑADIR UN MODEL STATE ERROR Y LLENARLO EN EL MODAL
             if (ModelState.IsValid)
             {
                 db.tbDirecciones.Add(tbDirecciones);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            ViewBag.direc_CiudadID = new SelectList(db.tbCiudades, "ciu_ID", "ciu_Descripcion", tbDirecciones.direc_CiudadID);
-            ViewBag.direc_ClienteID = new SelectList(db.tbClientes, "client_ID", "client_Nombre", tbDirecciones.direc_ClienteID);
-            ViewBag.direc_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbDirecciones.direc_UsuarioCreador);
-            ViewBag.direc_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbDirecciones.direc_UsuarioMod);
-            return View(tbDirecciones);
+            //ViewBag.direc_CiudadID = new SelectList(db.tbCiudades, "ciu_ID", "ciu_Descripcion", tbDirecciones.direc_CiudadID);
+            //ViewBag.direc_ClienteID = new SelectList(db.tbClientes, "client_ID", "client_Nombre", tbDirecciones.direc_ClienteID);
+            //ViewBag.direc_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbDirecciones.direc_UsuarioCreador);
+            //ViewBag.direc_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbDirecciones.direc_UsuarioMod);
+            return View();
         }
 
         // GET: Direcciones/Edit/5
@@ -136,6 +136,31 @@ namespace Sistema_Envios.Controllers
             db.UDP_Eliminar_Direcciones(id, Usu);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public JsonResult CargarCliente()
+        {
+            var ddl = db.UDP_CargarCliente().ToList();
+
+            return Json(ddl, JsonRequestBehavior.AllowGet);
+
+        }
+
+
+        public JsonResult CargarDepartamentos()
+        {
+            var ddl = db.UDP_CargarDepartamentos().ToList();
+
+            return Json(ddl, JsonRequestBehavior.AllowGet);
+
+        }
+
+        public JsonResult CargarMunicipios(string dep_ID)
+        {
+            var ddl = db.UDP_CargarCiudades(dep_ID).ToList();
+
+            return Json(ddl, JsonRequestBehavior.AllowGet);
+
         }
 
         protected override void Dispose(bool disposing)

@@ -1,0 +1,27 @@
+﻿<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<div class="modal fade" id="Direc" tabindex="-1" role="dialog" aria-labelledby="Crear-Direc" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="crear-Direc">Direcciones</h5>
+            </div>
+            <div class="modal-body">
+                <label>Escoga el cliente</label>
+                <select id="client_ID" name="client_ID" class="form-control"></select>
+                <label>Ingrese la dirección exacta</label>
+                <input type="text" name="txtDirec" id="txtDirec" class="form-control" />
+                <label>Escoga el Departamento</label>
+                <select id="dep_ID" name="dep_ID" class="form-control"></select>
+                <label>Escoga la Ciudad</label>
+                <select id="ciu_ID" name="ciu_ID" class="form-control"></select>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnCancelar" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <a id="btn-insertar"  class="btn btn-danger">Insertar</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/CrearDirecciones.js"></script>

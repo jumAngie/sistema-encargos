@@ -13,41 +13,42 @@
             <div class="float-e-margins">
                 <div class="ibox-title">
                     <div class="ibox-tools">
-                       @Html.ActionLink("Nuevo", "Create", null, new { @class = "btn btn-primary"})
+                        <input type="button" value="Nuevo" class="btn btn-primary" />
                     </div>
                 </div>
-                  <br />
+                <br />
                 <div class="ibox-content">
-                  <table class="table table-responsive" id="DataTable">
-                    <thead>
-                        <tr role="row">
-                            <th>@Html.DisplayNameFor(model => model.ID)</th>
-                            <th>@Html.DisplayNameFor(model => model.NOMBRE)</th>
-                         
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                      @foreach (var item in Model) {
-                        <tr class="gradeA odd" role="row" data-id="@item.ID">
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ID)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.NOMBRE)
-                            </td>
-                          
-                            <td>
-                              @Html.ActionLink("Detalles", "Details", new { id=item.ID },  new {@class = "btn btn-default btn-xs" })
-                              @Html.ActionLink("Editar", "Edit", new { id=item.ID }, new {@class = "btn btn-primary btn-xs" })
-                            </td>
-                        </tr>
-                      }
-                    </tbody>
-                  </table>
+                    <table class="table table-responsive" id="DataTable">
+                        <thead>
+                            <tr role="row">
+                                <th>@Html.DisplayNameFor(model => model.ID)</th>
+                                <th>@Html.DisplayNameFor(model => model.NOMBRE)</th>
+
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr class="gradeA odd" role="row" data-id="@item.ID">
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NOMBRE)
+                                    </td>
+
+                                    <td>
+                                        @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn btn-default btn-xs" })
+                                        @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn btn-primary btn-xs" })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
- </div>
-    
+</div>
+@Html.Partial("CrearDeptos")
