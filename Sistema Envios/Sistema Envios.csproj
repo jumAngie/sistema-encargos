@@ -224,6 +224,12 @@
     <Compile Include="Models\UDP_CargarDepartamentos_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UDP_CargarFabricas_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UDP_ListaDeArticulosPorPedido_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UDP_USUARIO_VALIDAR_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -2865,6 +2871,8 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\CrearArticulo.js" />
+    <Content Include="Scripts\CrearCargos.js" />
     <Content Include="Scripts\EmpleadosScript\CargarCiudades.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2894,7 +2902,6 @@
     <Content Include="Views\Articulos\Create.cshtml" />
     <Content Include="Views\Articulos\Delete.cshtml" />
     <Content Include="Views\Articulos\Details.cshtml" />
-    <Content Include="Views\Cargos\Create.cshtml" />
     <Content Include="Views\Cargos\Delete.cshtml" />
     <Content Include="Views\Cargos\Details.cshtml" />
     <Content Include="Views\Cargos\Edit.cshtml" />
@@ -2952,6 +2959,7 @@
     <Content Include="Views\Login\CambiarContraseña.cshtml" />
     <Content Include="Views\Login\Principal.cshtml" />
     <Content Include="Views\Cargos\CreateCargos.cshtml" />
+    <Content Include="Views\Articulos\CrearArticulo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
