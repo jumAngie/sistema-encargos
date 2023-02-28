@@ -49,19 +49,18 @@ namespace Sistema_Envios.Controllers
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "carg_Id,carg_Description,rep_UsuarioCreador,rep_FechaCreacion,rep_UsuarioMod,rep_FechaMod,rep_Estado")] tbCargos tbCargos)
-        {
+        //[ValidateAntiForgeryToken]
+        public ActionResult Create(string txtCargo)
+        { 
+            int UsuarioModi = 1;
+
             if (ModelState.IsValid)
             {
-                db.tbCargos.Add(tbCargos);
-                db.SaveChanges();
+                db.UDP_CARGOS_INSERT(txtCargo, UsuarioModi);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.rep_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbCargos.rep_UsuarioCreador);
-            ViewBag.rep_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbCargos.rep_UsuarioMod);
-            return View(tbCargos);
+            return View();
         }
 
         // GET: Cargos/Edit/5
@@ -139,3 +138,5 @@ namespace Sistema_Envios.Controllers
         }
     }
 }
+
+

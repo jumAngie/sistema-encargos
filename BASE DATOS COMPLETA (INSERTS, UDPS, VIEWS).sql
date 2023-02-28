@@ -1819,3 +1819,23 @@ BEGIN
 	UPDATE		tbArticulos SET art_Stock = art_Stock - (SELECT det_Cantidad from inserted)
 	WHERE		art_ID = (Select art_ID from inserted)
 END;
+GO
+-- UDPS PARA LISTAR --
+CREATE OR ALTER PROCEDURE UDP_ListaDeArticulosPorPedido
+		@ID	INT
+AS
+BEGIN
+SELECT T3.pedi_Code, t2.art_Descripcion, t1.det_Cantidad FROM tbPedidoDetalles T1 INNER JOIN [dbo].[tbArticulos]  T2
+		ON t1.art_ID = t2.art_ID INNER JOIN [dbo].[tbPedidos] t3
+		ON T1.pedi_ID = T3.pedi_ID
+		WHERE T1.pedi_ID = @ID
+END
+
+go
+CREATE OR ALTER PROCEDURE UDP_CargarFabricas
+AS
+BEGIN
+	SELECT '0' AS fab_ID, ' Seleccione una Fabrica' AS fab_Descripcion
+	UNION ALL
+	SELECT fab_ID, fab_Descripcion FROM tbFabricas WHERE fab_Estado = 1
+END

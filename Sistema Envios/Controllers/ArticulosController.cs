@@ -41,7 +41,7 @@ namespace Sistema_Envios.Controllers
         // GET: Articulos/Create
         public ActionResult Create()
         {
-            ViewBag.fab_ID = new SelectList(db.tbFabricas, "fab_ID", "fab_Descripcion");
+            ViewBag.fab_ID = new SelectList(db.UDP_CargarFabricas(), "fab_ID", "fab_Descripcion");
             ViewBag.art_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario");
             ViewBag.art_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario");
             return View();
@@ -51,20 +51,17 @@ namespace Sistema_Envios.Controllers
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "art_ID,art_Descripcion,fab_ID,art_Stock,art_UsuarioCreador,art_FechaCreacion,art_UsuarioMod,art_FechaMod,art_Estado")] tbArticulos tbArticulos)
+        public ActionResult Create(string txtArticulo, string txtFabrica, string Stock)
         {
+            int Modi = 1;
+            int fab = Int32.Parse(txtFabrica);
+            int stock = Int32.Parse(Stock);
             if (ModelState.IsValid)
             {
-                db.tbArticulos.Add(tbArticulos);
-                db.SaveChanges();
+                db.UDP_InsertArticulos(txtArticulo, fab, stock, Modi);
                 return RedirectToAction("Index");
             }
-
-            ViewBag.fab_ID = new SelectList(db.tbFabricas, "fab_ID", "fab_Descripcion", tbArticulos.fab_ID);
-            ViewBag.art_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbArticulos.art_UsuarioCreador);
-            ViewBag.art_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbArticulos.art_UsuarioMod);
-            return View(tbArticulos);
+            return View();
         }
 
         // GET: Articulos/Edit/5
@@ -132,6 +129,14 @@ namespace Sistema_Envios.Controllers
             tbArticulos tbArticulos = db.tbArticulos.Find(id);
             db.UDP_Eliminar_Articulos(id, UsuarioModi).ToString();
             return RedirectToAction("Index");
+        }
+
+        public JsonResult CargarFabricas()
+        {
+            var ddl = db.UDP_CargarFabricas().ToList();
+
+            return Json(ddl, JsonRequestBehavior.AllowGet);
+
         }
 
         protected override void Dispose(bool disposing)

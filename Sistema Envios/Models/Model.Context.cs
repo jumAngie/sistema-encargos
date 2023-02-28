@@ -860,5 +860,19 @@ namespace Sistema_Envios.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_VALIDAR_LOGIN_Result>("UDP_VALIDAR_LOGIN", usu_UsuarioParameter, usu_ClaveParameter);
         }
+    
+        public virtual ObjectResult<UDP_ListaDeArticulosPorPedido_Result> UDP_ListaDeArticulosPorPedido(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_ListaDeArticulosPorPedido_Result>("UDP_ListaDeArticulosPorPedido", iDParameter);
+        }
+    
+        public virtual ObjectResult<UDP_CargarFabricas_Result> UDP_CargarFabricas()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CargarFabricas_Result>("UDP_CargarFabricas");
+        }
     }
 }

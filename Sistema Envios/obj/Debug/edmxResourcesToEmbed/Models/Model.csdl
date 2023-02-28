@@ -1241,6 +1241,10 @@
       <Parameter Name="usu_Usuario" Mode="In" Type="String" />
       <Parameter Name="usu_Clave" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="UDP_ListaDeArticulosPorPedido" ReturnType="Collection(DBArticulosEncargosModel.UDP_ListaDeArticulosPorPedido_Result)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UDP_CargarFabricas" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarFabricas_Result)" />
   </EntityContainer>
   <ComplexType Name="UDP_CargarCiudades_Result">
     <Property Type="Int32" Name="ciu_ID" Nullable="false" />
@@ -1259,5 +1263,14 @@
     <Property Type="String" Name="usu_Usuario" Nullable="false" MaxLength="200" />
     <Property Type="String" Name="usu_Clave" Nullable="false" />
     <Property Type="String" Name="emp_Name" Nullable="false" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="UDP_ListaDeArticulosPorPedido_Result">
+    <Property Type="String" Name="pedi_Code" Nullable="false" MaxLength="6" />
+    <Property Type="String" Name="art_Descripcion" Nullable="false" MaxLength="200" />
+    <Property Type="Int32" Name="det_Cantidad" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="UDP_CargarFabricas_Result">
+    <Property Type="Int32" Name="fab_ID" Nullable="false" />
+    <Property Type="String" Name="fab_Descripcion" Nullable="false" MaxLength="250" />
   </ComplexType>
 </Schema>
