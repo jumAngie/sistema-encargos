@@ -144,6 +144,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Articulos.cs" />
+    <Compile Include="Models\Cargos.cs" />
+    <Compile Include="Models\Ciudades.cs" />
+    <Compile Include="Models\Clientes.cs" />
+    <Compile Include="Models\Departamentos.cs" />
+    <Compile Include="Models\Direcciones.cs" />
+    <Compile Include="Models\Empleados.cs" />
+    <Compile Include="Models\EstadosCiviles.cs" />
+    <Compile Include="Models\Fábrica.cs" />
     <Compile Include="Models\Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -159,6 +168,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Pedidos.cs" />
+    <Compile Include="Models\PedidosDetalles.cs" />
     <Compile Include="Models\tbArticulos.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -219,6 +230,7 @@
     <Compile Include="Models\UDP_VALIDAR_LOGIN_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Usuarios.cs" />
     <Compile Include="Models\V_INDEX_ARTICULOS.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
