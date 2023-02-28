@@ -49,19 +49,16 @@ namespace Sistema_Envios.Controllers
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "fab_ID,fab_Descripcion,fab_Telefono,fab_UsuarioCreador,fab_FechaCreacion,fab_UsuarioMod,fab_FechaMod,fab_Estado")] tbFabricas tbFabricas)
-        {
+        //[ValidateAntiForgeryToken]
+        public ActionResult Create(string txtFabrica, string txtTelefono)
+        {   int UsuarioModi = 1;
             if (ModelState.IsValid)
             {
-                db.tbFabricas.Add(tbFabricas);
-                db.SaveChanges();
+                db.UDP_InsertFabrica(txtFabrica, txtTelefono, UsuarioModi);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.fab_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbFabricas.fab_UsuarioCreador);
-            ViewBag.fab_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbFabricas.fab_UsuarioMod);
-            return View(tbFabricas);
+            return View();
         }
 
         // GET: Fabricas/Edit/5

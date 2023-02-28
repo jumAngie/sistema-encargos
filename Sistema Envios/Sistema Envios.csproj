@@ -2880,8 +2880,12 @@
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\CrearArticulo.js" />
     <Content Include="Scripts\CrearCargos.js" />
+<<<<<<< HEAD
     <Content Include="Scripts\CrearDepartamentos.js" />
     <Content Include="Scripts\CrearDirecciones.js" />
+=======
+    <Content Include="Scripts\CrearFabrica.js" />
+>>>>>>> f2a0b22739f3e579f183c1d05f3790666eba26e3
     <Content Include="Scripts\EmpleadosScript\CargarCiudades.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2968,8 +2972,12 @@
     <Content Include="Views\Login\Principal.cshtml" />
     <Content Include="Views\Cargos\CreateCargos.cshtml" />
     <Content Include="Views\Articulos\CrearArticulo.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Departamentos\CrearDeptos.cshtml" />
     <Content Include="Views\Direcciones\CrearDirecciones.cshtml" />
+=======
+    <Content Include="Views\Fabricas\CrearFabrica.cshtml" />
+>>>>>>> f2a0b22739f3e579f183c1d05f3790666eba26e3
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
