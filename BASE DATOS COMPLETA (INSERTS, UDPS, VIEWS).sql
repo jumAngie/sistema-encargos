@@ -1412,7 +1412,7 @@ SELECT*FROM [dbo].[V_INDEX_USUARIOS]
 
 --------------------------------------------------------------------------------------------------------------
 -------------------------------------------- TABLA ARTICULOS ----------------------------------------------
-
+go
 CREATE OR ALTER   PROCEDURE [dbo].[UDP_Editar_Articulos]
 		@art_ID				INT, 
 		@art_Descripcion	NVARCHAR(200), 
