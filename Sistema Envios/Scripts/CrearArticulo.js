@@ -1,15 +1,15 @@
 ﻿$(document).ready(function () {
 
-    /*var fab_ID = $("#fab_ID").val();*/
+    var fab_ID = $("#fab_ID").val();
     $.ajax({
         url: "/Articulos/CargarFabricas",
         method: "POST",
         dataType: "json",
         contentType: "application/json; charset=utf-8",
-        /*data: JSON.stringify({ fab_ID: fab_ID }),*/
+        data: JSON.stringify({ fab_ID: fab_ID }),
         success: function (data) {
             $.each(data, function (i, value) {
-                $("#fab_ID").empty()
+                
                 $("#fab_ID").append("<option value='" + value.fab_ID + "'>" + value.fab_Descripcion + "</option>")
             })
         }

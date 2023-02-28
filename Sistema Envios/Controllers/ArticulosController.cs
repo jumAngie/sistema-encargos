@@ -51,14 +51,14 @@ namespace Sistema_Envios.Controllers
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Create(string txtArticulo, string txtFabrica, string Stock)
+        public ActionResult Create(string txtArt, string fab_ID, string txtStock)
         {
             int Modi = 1;
-            int fab = Int32.Parse(txtFabrica);
-            int stock = Int32.Parse(Stock);
+            int fab = Int32.Parse(fab_ID);
+            int stock = Int32.Parse(txtStock);
             if (ModelState.IsValid)
             {
-                db.UDP_InsertArticulos(txtArticulo, fab, stock, Modi);
+                db.UDP_InsertArticulos(txtArt, fab, stock, Modi);
                 return RedirectToAction("Index");
             }
             return View();

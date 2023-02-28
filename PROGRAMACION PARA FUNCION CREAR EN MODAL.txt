@@ -1,6 +1,4 @@
 SCRIPTS
-
-
 $(function () {
     $('#btnCancelar').click(function () {
         $('#Cargos').modal('hide');
