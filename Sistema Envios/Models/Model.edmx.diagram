@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e60486bfa3c6467a9d0c0fa61370fefd" Name="Diagram1">
+      <Diagram DiagramId="6e74ac01f2814212b9660c19e7085d6b" Name="Diagram1">
         <EntityTypeShape EntityType="DBArticulosEncargosModel.tbArticulos" Width="1.5" PointX="10.5" PointY="27.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.tbCargos" Width="1.5" PointX="8.25" PointY="18" IsExpanded="true" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.tbCiudades" Width="1.5" PointX="10.5" PointY="22.625" IsExpanded="true" />
@@ -21,8 +21,8 @@
         <EntityTypeShape EntityType="DBArticulosEncargosModel.tbPedidoDetalles" Width="1.5" PointX="20.25" PointY="19.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.tbPedidos" Width="1.5" PointX="18" PointY="19.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.tbUsuarios" Width="1.5" PointX="6" PointY="17" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_ARTICULOS" Width="1.875" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_CARGOS" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_ARTICULOS" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_CARGOS" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_CIUDADES" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_CLIENTES" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_DEPARTAMENTOS" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />

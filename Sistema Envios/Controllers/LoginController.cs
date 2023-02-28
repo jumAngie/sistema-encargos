@@ -34,7 +34,7 @@ namespace Sistema_Envios.Controllers
                     {
                         Session["Usuario"] = item.emp_Name;
                         Session["UsuarioID"] = item.usu_ID;
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Principal");
                     }
                 }
                 else
@@ -45,6 +45,11 @@ namespace Sistema_Envios.Controllers
 
                 return RedirectToAction("Index", "Home");
             }
+        }
+
+        public ActionResult Principal()
+        {
+            return View();
         }
 
         //GET: Olvidar Contra

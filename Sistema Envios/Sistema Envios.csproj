@@ -2950,6 +2950,8 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Login\OlvidarContraseña.cshtml" />
     <Content Include="Views\Login\CambiarContraseña.cshtml" />
+    <Content Include="Views\Login\Principal.cshtml" />
+    <Content Include="Views\Cargos\CreateCargos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
