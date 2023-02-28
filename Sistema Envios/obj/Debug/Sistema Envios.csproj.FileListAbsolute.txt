@@ -177,7 +177,6 @@ C:\Users\LAB02\Documents\GitHub\sistema-encargos\Sistema Envios\obj\Debug\Sistem
 C:\Users\LAB02\Documents\GitHub\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.csproj.CopyComplete
 C:\Users\LAB02\Documents\GitHub\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.dll
 C:\Users\LAB02\Documents\GitHub\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.pdb
-<<<<<<< Updated upstream
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\Sistema Envios.dll.config
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\Sistema Envios.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\Sistema Envios.pdb
@@ -357,6 +356,6 @@ C:\Users\Usuario\Documents\GitHub\sistema-encargos\Sistema Envios\obj\Debug\Sist
 C:\Users\Usuario\Documents\GitHub\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.dll
 C:\Users\Usuario\Documents\GitHub\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.pdb
 C:\Users\Usuario\Documents\GitHub\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.csproj.AssemblyReference.cache
-=======
+
 C:\Users\LAB02\Documents\GitHub\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.csproj.AssemblyReference.cache
->>>>>>> Stashed changes
+C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.csproj.AssemblyReference.cache
