@@ -1809,3 +1809,13 @@ BEGIN
 	SELECT depto_ID , depto_Descripcion FROM tbDepartamentos
 END
 
+GO
+------- TRIGGER DE STOCK ------------
+CREATE TRIGGER tg_ActualizarStock ON tbPedidoDetalles
+AFTER INSERT 
+AS
+BEGIN
+	SET NOCOUNT ON;
+	UPDATE		tbArticulos SET art_Stock = art_Stock - (SELECT det_Cantidad from inserted)
+	WHERE		art_ID = (Select art_ID from inserted)
+END;
