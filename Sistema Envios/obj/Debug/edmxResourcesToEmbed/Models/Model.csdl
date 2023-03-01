@@ -1249,9 +1249,7 @@
       <Parameter Name="usu_Usuario" Mode="In" Type="String" />
       <Parameter Name="usu_Clave" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="UDP_CARGAR_ARTICULO" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGAR_ARTICULO_Result)">
-      <Parameter Name="Id" Mode="In" Type="Int32" />
-    </FunctionImport>
+    <FunctionImport Name="UDP_CargarArticulos" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarArticulos_Result)" />
   </EntityContainer>
   <ComplexType Name="UDP_CARGAR_ARTICULOS_Result">
     <Property Type="String" Name="art_Descripcion" Nullable="false" MaxLength="200" />
@@ -1293,10 +1291,8 @@
     <Property Type="String" Name="usu_Clave" Nullable="false" />
     <Property Type="String" Name="emp_Name" Nullable="false" MaxLength="150" />
   </ComplexType>
-  <ComplexType Name="UDP_CARGAR_ARTICULO_Result">
+  <ComplexType Name="UDP_CargarArticulos_Result">
     <Property Type="Int32" Name="art_ID" Nullable="false" />
     <Property Type="String" Name="art_Descripcion" Nullable="false" MaxLength="200" />
-    <Property Type="Int32" Name="fab_ID" Nullable="false" />
-    <Property Type="Int32" Name="art_Stock" Nullable="false" />
   </ComplexType>
 </Schema>

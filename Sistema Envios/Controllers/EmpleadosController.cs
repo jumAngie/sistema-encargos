@@ -105,28 +105,9 @@ namespace Sistema_Envios.Controllers
         }
 
         // GET: Empleados/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            tbEmpleados tbEmpleados = db.tbEmpleados.Find(id);
-            if (tbEmpleados == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tbEmpleados);
-        }
-
-        // POST: Empleados/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            tbEmpleados tbEmpleados = db.tbEmpleados.Find(id);
             db.UDP_Eliminar_Empleados(id, Usu);
-            db.SaveChanges();
             return RedirectToAction("Index");
         }
 

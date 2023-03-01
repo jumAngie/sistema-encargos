@@ -1855,6 +1855,14 @@ BEGIN
 	UNION ALL
 	SELECT	pedi_ID, pedi_Code from tbPedidos WHERE pedi_Estado = 1
 END
+GO
+CREATE OR ALTER PROCEDURE UDP_CargarArticulos
+AS
+BEGIN
+	SELECT '0' AS art_ID, ' Seleccione un Pedido' AS art_Descripcion
+	UNION ALL
+	SELECT	art_ID, art_Descripcion from tbArticulos WHERE art_Estado = 1
+END
 
 
 

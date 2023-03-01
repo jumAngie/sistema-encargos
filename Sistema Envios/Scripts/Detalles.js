@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
     var txtPedi = $("#txtPedi").val();
     $.ajax({
-        url: "/PedidosDetalles/CargarPedidos",
+        url: "/PedidoDetalles/CargarPedidos",
         method: "POST",
         dataType: "json",
         contentType: "application/json; charset=utf-8",
@@ -16,23 +16,22 @@
 })
 
 
-// articulos
-//$(document).ready(function () {
-//    var dep_ID = $("#dep_ID").val();
-//    $.ajax({
-//        url: "/PedidosDetalles/",
-//        method: "POST",
-//        dataType: "json",
-//        contentType: "application/json; charset=utf-8",
-//        data: JSON.stringify({ dep_ID: dep_ID }),
-//        success: function (data) {
-//            $.each(data, function (i, value) {
+$(document).ready(function () {
+    var txtArticulo = $("#txtArticulo").val();
+    $.ajax({
+        url: "/PedidoDetalles/CargarArticulos",
+        method: "POST",
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({ txtArticulo: txtArticulo }),
+        success: function (data) {
+            $.each(data, function (i, value) {
 
-//                $("#dep_ID").append("<option value='" + value.depto_ID + "'>" + value.depto_Descripcion + "</option>")
-//            })
-//        }
-//    })
-//})
+                $("#txtArticulo").append("<option value='" + value.art_ID + "'>" + value.art_Descripcion + "</option>")
+            })
+        }
+    })
+})
 
 
 
@@ -53,7 +52,7 @@ function Insertar() {
     var txtArticulo = $("#txtArticulo").val()
     var txtCant = $("#txtCant").val()
     $.ajax({
-        url: "/PedidosDetalles/Create",
+        url: "/PedidoDetalles/Create",
         method: "POST",
         data: { txtPedi: txtPedi, txtArticulo: txtArticulo, txtCant: txtCant },
         success: function (data) {

@@ -149,27 +149,9 @@ namespace Sistema_Envios.Controllers
         //}
 
         // GET: Articulos/Delete/5
-        public ActionResult Delete(int? id)
+         public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            tbArticulos tbArticulos = db.tbArticulos.Find(id);
-            if (tbArticulos == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tbArticulos);
-        }
-
-        // POST: Articulos/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            tbArticulos tbArticulos = db.tbArticulos.Find(id);
-            db.UDP_Eliminar_Articulos(id, UsuarioModi).ToString();
+            db.UDP_Eliminar_Articulos(id, UsuarioModi);
             return RedirectToAction("Index");
         }
 

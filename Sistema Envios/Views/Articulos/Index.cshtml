@@ -5,8 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
@@ -42,11 +41,11 @@
                                     <td>
                                         @Html.ActionLink("Detalles", "Details", new { id = item.ID_ARTICULO }, new { @class = "btn btn-default btn-xs" })
                                         @*@Html.ActionLink("Editar", "Edit", new { id = item.ID_ARTICULO }, new { @class = "btn btn-primary btn-xs" })*@
-                                        @Html.ActionLink("Delete", "Delete", new { id = item.ID_ARTICULO }, new { @class = "btn btn-secondary btn-xs" })
+                                        <button class="btn-delete btn btn-secondary btn-xs" data-id="@item.ID_ARTICULO">Eliminar</button>
 
-                                        <button class='btn btn-secondary btn-sm' type='submit' id="tbnModal" value="Editar" onclick="AbrirModal(@item.ID_ARTICULO)"><i class='fas fa-pen'></i></button>
+                                        <button class='btn btn-primary btn-sm' type='button' id="tbnModal" value="Editar" onclick="AbrirModal(@item.ID_ARTICULO)"><i class='fas fa-pen'></i></button>
 
-                                        <form method="post" >
+                                        <form method="post">
                                             @Html.AntiForgeryToken()
                                             <div class="modal fade" id="FormModal" tabindex="-1" role="dialog" aria-labelledby="Crear-Articulos" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
@@ -64,8 +63,7 @@
                                                             </select>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <input type="hidden" id="art_ID" />
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="Cerrar()">Close</button>
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                             <input type="submit" value="Editar" onclick="Editar(@item.ID_ARTICULO)" class="btn btn-default" />
                                                         </div>
                                                     </div>
@@ -74,8 +72,11 @@
 
                                         </form>
 
+                                        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+                                        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
+                                        <script src="~/Scripts/ArticulosEditar.js"></script>
 
 
 
@@ -93,5 +94,4 @@
 
 @Html.Partial("CrearArticulo")
 
-<script src="~/Scripts/ArticulosEditar.js"></script>
-
+@Html.Partial("EliminarArticulo")

@@ -218,6 +218,9 @@
     <Compile Include="Models\tbUsuarios.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UDP_CargarArticulos_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UDP_CargarCiudades_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -2891,7 +2894,7 @@
     <Content Include="Scripts\CrearDirecciones.js" />
     <Content Include="Scripts\CrearEstadoCivil.js" />
     <Content Include="Scripts\CrearFabrica.js" />
-    <Content Include="Scripts\EliminarCliente.js" />
+    <Content Include="Scripts\Detalles.js" />
     <Content Include="Scripts\EmpleadosScript\CargarCiudades.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2981,7 +2984,7 @@
     <Content Include="Views\Direcciones\CrearDirecciones.cshtml" />
     <Content Include="Views\Fabricas\CrearFabrica.cshtml" />
     <Content Include="Views\EstadosCiviles\CrearEstadoCivil.cshtml" />
-    <Content Include="Views\Clientes\EliminarCliente.cshtml" />
+    <Content Include="Views\PedidoDetalles\CreateDetalles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
