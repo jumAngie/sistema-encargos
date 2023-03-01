@@ -798,6 +798,9 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <Parameter Name="usu_Usuario" Type="nvarchar" Mode="In" />
           <Parameter Name="usu_NewClave" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="UDP_CARGAR_ARTICULO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
         <Function Name="UDP_CARGAR_ARTICULOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id" Type="int" Mode="In" />
         </Function>
@@ -2541,6 +2544,9 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
             <Parameter Name="usu_Clave" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="UDP_CargarArticulos" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarArticulos_Result)" />
+          <FunctionImport Name="UDP_CARGAR_ARTICULO" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGAR_ARTICULO_Result)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="UDP_CARGAR_ARTICULOS_Result">
           <Property Type="String" Name="art_Descripcion" Nullable="false" MaxLength="200" />
@@ -2585,6 +2591,12 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
         <ComplexType Name="UDP_CargarArticulos_Result">
           <Property Type="Int32" Name="art_ID" Nullable="false" />
           <Property Type="String" Name="art_Descripcion" Nullable="false" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="UDP_CARGAR_ARTICULO_Result">
+          <Property Type="Int32" Name="art_ID" Nullable="false" />
+          <Property Type="String" Name="art_Descripcion" Nullable="false" MaxLength="200" />
+          <Property Type="Int32" Name="fab_ID" Nullable="false" />
+          <Property Type="Int32" Name="art_Stock" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3043,6 +3055,16 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
               <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CargarArticulos_Result">
                 <ScalarProperty Name="art_ID" ColumnName="art_ID" />
                 <ScalarProperty Name="art_Descripcion" ColumnName="art_Descripcion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_CARGAR_ARTICULO" FunctionName="DBArticulosEncargosModel.Store.UDP_CARGAR_ARTICULO">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CARGAR_ARTICULO_Result">
+                <ScalarProperty Name="art_ID" ColumnName="art_ID" />
+                <ScalarProperty Name="art_Descripcion" ColumnName="art_Descripcion" />
+                <ScalarProperty Name="fab_ID" ColumnName="fab_ID" />
+                <ScalarProperty Name="art_Stock" ColumnName="art_Stock" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
