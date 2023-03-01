@@ -357,8 +357,6 @@ C:\Users\LAB01\Documents\GitHub\sistema-encargos\Sistema Envios\obj\Debug\Sistem
 C:\Users\LAB01\Documents\GitHub\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.csproj.CopyComplete
 C:\Users\LAB01\Documents\GitHub\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.dll
 C:\Users\LAB01\Documents\GitHub\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.pdb
-C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\VBCSCompiler.exe
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\Sistema Envios.dll.config
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\Sistema Envios.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\Sistema Envios.pdb
@@ -373,6 +371,7 @@ C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\Mic
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\Microsoft.CodeAnalysis.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\Microsoft.CSharp.Core.targets
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
@@ -408,6 +407,7 @@ C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\Sys
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\vbc.exe
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\vbc.exe.config
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\vbc.rsp
+C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\VBCSCompiler.exe
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\Antlr3.Runtime.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\EntityFramework.dll
@@ -446,4 +446,3 @@ C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sist
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.csproj.CopyComplete
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.pdb
-C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.csproj.AssemblyReference.cache

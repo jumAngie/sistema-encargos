@@ -236,6 +236,9 @@
     <Compile Include="Models\UDP_CARGAR_ARTICULOS_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UDP_CARGAR_ARTICULO_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UDP_ListaDeArticulosPorPedido_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -2957,7 +2960,6 @@
     <Content Include="Views\Usuarios\Details.cshtml" />
     <Content Include="Views\Usuarios\Edit.cshtml" />
     <Content Include="Views\Articulos\Index.cshtml" />
-    <Content Include="Views\Articulos\Edit.cshtml" />
     <Content Include="Views\Cargos\Index.cshtml" />
     <Content Include="Views\Ciudades\Index.cshtml" />
     <Content Include="Views\Clientes\Index.cshtml" />

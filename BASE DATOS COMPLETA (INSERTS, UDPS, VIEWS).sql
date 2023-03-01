@@ -1863,11 +1863,11 @@ END
 
 
 GO
-CREATE OR ALTER PROCEDURE UDP_CARGAR_ARTICULOS
+CREATE OR ALTER PROCEDURE UDP_CARGAR_ARTICULO
 @Id   INT
 AS
 BEGIN
-SELECT [art_Descripcion], [fab_ID], [art_Stock] FROM [dbo].[tbArticulos]
+SELECT [art_ID],[art_Descripcion], [fab_ID], [art_Stock] FROM [dbo].[tbArticulos]
 WHERE [art_ID] = @Id
 END
 
@@ -1890,3 +1890,5 @@ BEGIN
 	WHERE		client_ID = (SELECT t2.direc_ClienteID from inserted t1 inner join [dbo].[tbDirecciones] t2 on t1.pedi_DireccionID = t2.direc_ID)
 END
 GO
+----------------------------------
+

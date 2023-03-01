@@ -72,8 +72,8 @@ namespace Sistema_Envios.Controllers
         public JsonResult Cargar(string art_Id)
         {
 
-            var tbDepartamentos = db.UDP_CARGAR_ARTICULOS(int.Parse(art_Id)).ToList();
-            return Json(tbDepartamentos, JsonRequestBehavior.AllowGet);
+            var tbArticulos = db.UDP_CARGAR_ARTICULO(int.Parse(art_Id)).ToList();
+            return Json(tbArticulos, JsonRequestBehavior.AllowGet);
         }
 
 
@@ -82,12 +82,13 @@ namespace Sistema_Envios.Controllers
 
         [HttpPost, ActionName("Editores")]
         //[ValidateAntiForgeryToken]
-        public ActionResult Edito(string ID, string fab_Id, string stock, string descrip )
+        public ActionResult Edito(string ID, string articulo, string fabrica, string stock)
+
         {
             if (ModelState.IsValid)
             {
                 //string id = Session["IdUsuario"].ToString();
-                var Edit = db.UDP_Editar_Articulos(int.Parse(ID), descrip,int.Parse(fab_Id), int.Parse(stock), "1");
+                var Edit = db.UDP_Editar_Articulos(int.Parse(ID), articulo, int.Parse(fabrica), int.Parse(stock), "1");
 
 
                 return RedirectToAction("Index");
