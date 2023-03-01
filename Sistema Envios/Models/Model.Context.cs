@@ -658,12 +658,8 @@ namespace Sistema_Envios.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_EMPLEADOS_INSERT", emp_NameParameter, emp_ApellidoParameter, emp_DNIParameter, emp_FechaNacParameter, ciu_IDParameter, est_IDParameter, emp_SexoParameter, carg_IdParameter, emp_UsuarioCreaParameter);
         }
     
-        public virtual int UDP_EstadosCiviles_INSERT(string est_ID, string est_Description, Nullable<int> est_UsuCrea)
+        public virtual int UDP_EstadosCiviles_INSERT(string est_Description, Nullable<int> est_UsuCrea)
         {
-            var est_IDParameter = est_ID != null ?
-                new ObjectParameter("est_ID", est_ID) :
-                new ObjectParameter("est_ID", typeof(string));
-    
             var est_DescriptionParameter = est_Description != null ?
                 new ObjectParameter("est_Description", est_Description) :
                 new ObjectParameter("est_Description", typeof(string));
@@ -672,7 +668,7 @@ namespace Sistema_Envios.Models
                 new ObjectParameter("est_UsuCrea", est_UsuCrea) :
                 new ObjectParameter("est_UsuCrea", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_EstadosCiviles_INSERT", est_IDParameter, est_DescriptionParameter, est_UsuCreaParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_EstadosCiviles_INSERT", est_DescriptionParameter, est_UsuCreaParameter);
         }
     
         public virtual int UDP_InsertArticulos(string art_Descripcion, Nullable<int> fab_ID, Nullable<int> art_Stock, Nullable<int> art_UsuarioCreador)

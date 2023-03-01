@@ -13,57 +13,59 @@
             <div class="float-e-margins">
                 <div class="ibox-title">
                     <div class="ibox-tools">
-                       @Html.ActionLink("Nuevo", "Create", null, new { @class = "btn btn-primary"})
+                        @Html.ActionLink("Nuevo", "Create", null, new { @class = "btn btn-primary" })
                     </div>
                 </div>
-                  <br />
+                <br />
                 <div class="ibox-content">
-                  <table class="table table-responsive" id="DataTable">
-                    <thead>
-                        <tr role="row">
-                            <th>@Html.DisplayNameFor(model => model.ID)</th>
-                            <th>@Html.DisplayNameFor(model => model.NOMBRE)</th>
-                            <th>@Html.DisplayNameFor(model => model.IDENTIDAD)</th>
-                            <th>@Html.DisplayNameFor(model => model.SALDO)</th>
-                            <th>@Html.DisplayNameFor(model => model.LIMITE_CREDITO)</th>
-                            <th>@Html.DisplayNameFor(model => model.DESCUENTO)</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                      @foreach (var item in Model) {
-                        <tr class="gradeA odd" role="row" data-id="@item.ID">
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ID)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.NOMBRE)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.IDENTIDAD)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.SALDO)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.LIMITE_CREDITO)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.DESCUENTO)
-                            </td>
-                         
-                            <td>
-                              @Html.ActionLink("Detalles", "Details", new { id=item.ID },  new {@class = "btn btn-default btn-xs" })
-                              @Html.ActionLink("Editar", "Edit", new { id=item.ID }, new {@class = "btn btn-primary btn-xs" })
-                              @Html.ActionLink("Delete", "Delete", new { id=item.ID }, new { @class = "btn btn-secondary btn-xs" })
-                            </td>
-                        </tr>
-                      }
-                    </tbody>
-                  </table>
+                    <table class="table table-responsive" id="DataTable">
+                        <thead>
+                            <tr role="row">
+                                <th>@Html.DisplayNameFor(model => model.ID)</th>
+                                <th>@Html.DisplayNameFor(model => model.NOMBRE)</th>
+                                <th>@Html.DisplayNameFor(model => model.IDENTIDAD)</th>
+                                <th>@Html.DisplayNameFor(model => model.SALDO)</th>
+                                <th>@Html.DisplayNameFor(model => model.LIMITE_CREDITO)</th>
+                                <th>@Html.DisplayNameFor(model => model.DESCUENTO)</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr class="gradeA odd" role="row" data-id="@item.ID">
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NOMBRE)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IDENTIDAD)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SALDO)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.LIMITE_CREDITO)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DESCUENTO)
+                                    </td>
+
+                                    <td>
+                                        @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn btn-default btn-xs" })
+                                        @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn btn-primary btn-xs" })
+                                        <button class="btn-delete btn btn-secondary btn-xs" data-id="@item.ID">Eliminar</button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
- </div>
-    
+</div>
+
+@Html.Partial("EliminarCliente")
