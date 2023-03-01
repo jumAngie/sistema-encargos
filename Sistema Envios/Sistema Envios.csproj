@@ -2980,6 +2980,7 @@
     <Content Include="Views\Fabricas\CrearFabrica.cshtml" />
     <Content Include="Views\EstadosCiviles\CrearEstadoCivil.cshtml" />
     <Content Include="Views\Clientes\EliminarCliente.cshtml" />
+    <Content Include="Views\Empleados\EliminarEmpleado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
