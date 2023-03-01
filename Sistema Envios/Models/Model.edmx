@@ -2305,7 +2305,9 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <FunctionImport Name="UDP_CargarCiudades" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarCiudades_Result)">
           <Parameter Name="ciu_DeptoID" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="UDP_CargarClientes" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarClientes_Result)" />
           <FunctionImport Name="UDP_CargarDepartamentos" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarDepartamentos_Result)" />
+          <FunctionImport Name="UDP_CargarFabricas" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarFabricas_Result)" />
           <FunctionImport Name="UDP_CARGOS_INSERT">
             <Parameter Name="carg_Description" Mode="In" Type="String" />
             <Parameter Name="rep_UsuarioCreador" Mode="In" Type="Int32" />
@@ -2491,6 +2493,9 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
             <Parameter Name="fab_Telefono" Mode="In" Type="String" />
             <Parameter Name="fab_UsuarioCreador" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="UDP_ListaDeArticulosPorPedido" ReturnType="Collection(DBArticulosEncargosModel.UDP_ListaDeArticulosPorPedido_Result)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="UDP_PASSWORD_CAMBIAR">
             <Parameter Name="usu_Usuario" Mode="In" Type="String" />
             <Parameter Name="usu_Clave" Mode="In" Type="String" />
@@ -2529,20 +2534,28 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
             <Parameter Name="usu_Usuario" Mode="In" Type="String" />
             <Parameter Name="usu_Clave" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="UDP_ListaDeArticulosPorPedido" ReturnType="Collection(DBArticulosEncargosModel.UDP_ListaDeArticulosPorPedido_Result)">
-          <Parameter Name="ID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="UDP_CargarFabricas" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarFabricas_Result)" />
-          <FunctionImport Name="UDP_CargarClientes" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarClientes_Result)" />
           <FunctionImport Name="UDP_CargarCliente" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarCliente_Result)" />
         </EntityContainer>
         <ComplexType Name="UDP_CargarCiudades_Result">
           <Property Type="Int32" Name="ciu_ID" Nullable="false" />
           <Property Type="String" Name="ciu_Descripcion" Nullable="false" MaxLength="255" />
         </ComplexType>
+        <ComplexType Name="UDP_CargarClientes_Result">
+          <Property Type="Int32" Name="fab_ID" Nullable="false" />
+          <Property Type="String" Name="fab_Descripcion" Nullable="false" MaxLength="250" />
+        </ComplexType>
         <ComplexType Name="UDP_CargarDepartamentos_Result">
           <Property Type="Int32" Name="depto_ID" Nullable="false" />
           <Property Type="String" Name="depto_Descripcion" Nullable="false" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="UDP_CargarFabricas_Result">
+          <Property Type="Int32" Name="fab_ID" Nullable="false" />
+          <Property Type="String" Name="fab_Descripcion" Nullable="false" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="UDP_ListaDeArticulosPorPedido_Result">
+          <Property Type="String" Name="pedi_Code" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="art_Descripcion" Nullable="false" MaxLength="200" />
+          <Property Type="Int32" Name="det_Cantidad" Nullable="false" />
         </ComplexType>
         <ComplexType Name="UDP_USUARIO_VALIDAR_Result">
           <Property Type="Int32" Name="usu_ID" Nullable="false" />
@@ -2553,19 +2566,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <Property Type="String" Name="usu_Usuario" Nullable="false" MaxLength="200" />
           <Property Type="String" Name="usu_Clave" Nullable="false" />
           <Property Type="String" Name="emp_Name" Nullable="false" MaxLength="150" />
-        </ComplexType>
-        <ComplexType Name="UDP_ListaDeArticulosPorPedido_Result">
-          <Property Type="String" Name="pedi_Code" Nullable="false" MaxLength="6" />
-          <Property Type="String" Name="art_Descripcion" Nullable="false" MaxLength="200" />
-          <Property Type="Int32" Name="det_Cantidad" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="UDP_CargarFabricas_Result">
-          <Property Type="Int32" Name="fab_ID" Nullable="false" />
-          <Property Type="String" Name="fab_Descripcion" Nullable="false" MaxLength="250" />
-        </ComplexType>
-        <ComplexType Name="UDP_CargarClientes_Result">
-          <Property Type="Int32" Name="fab_ID" Nullable="false" />
-          <Property Type="String" Name="fab_Descripcion" Nullable="false" MaxLength="250" />
         </ComplexType>
         <ComplexType Name="UDP_CargarCliente_Result">
           <Property Type="Int32" Name="client_ID" Nullable="false" />
@@ -2919,11 +2919,27 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_CargarClientes" FunctionName="DBArticulosEncargosModel.Store.UDP_CargarClientes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CargarClientes_Result">
+                <ScalarProperty Name="fab_ID" ColumnName="fab_ID" />
+                <ScalarProperty Name="fab_Descripcion" ColumnName="fab_Descripcion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="UDP_CargarDepartamentos" FunctionName="DBArticulosEncargosModel.Store.UDP_CargarDepartamentos">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CargarDepartamentos_Result">
                 <ScalarProperty Name="depto_ID" ColumnName="depto_ID" />
                 <ScalarProperty Name="depto_Descripcion" ColumnName="depto_Descripcion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_CargarFabricas" FunctionName="DBArticulosEncargosModel.Store.UDP_CargarFabricas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CargarFabricas_Result">
+                <ScalarProperty Name="fab_ID" ColumnName="fab_ID" />
+                <ScalarProperty Name="fab_Descripcion" ColumnName="fab_Descripcion" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -2958,6 +2974,15 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <FunctionImportMapping FunctionImportName="UDP_InsertArticulos" FunctionName="DBArticulosEncargosModel.Store.UDP_InsertArticulos" />
           <FunctionImportMapping FunctionImportName="UDP_InsertClientes" FunctionName="DBArticulosEncargosModel.Store.UDP_InsertClientes" />
           <FunctionImportMapping FunctionImportName="UDP_InsertFabrica" FunctionName="DBArticulosEncargosModel.Store.UDP_InsertFabrica" />
+          <FunctionImportMapping FunctionImportName="UDP_ListaDeArticulosPorPedido" FunctionName="DBArticulosEncargosModel.Store.UDP_ListaDeArticulosPorPedido">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_ListaDeArticulosPorPedido_Result">
+                <ScalarProperty Name="pedi_Code" ColumnName="pedi_Code" />
+                <ScalarProperty Name="art_Descripcion" ColumnName="art_Descripcion" />
+                <ScalarProperty Name="det_Cantidad" ColumnName="det_Cantidad" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="UDP_PASSWORD_CAMBIAR" FunctionName="DBArticulosEncargosModel.Store.UDP_PASSWORD_CAMBIAR" />
           <FunctionImportMapping FunctionImportName="UDP_PEDIDO_DETALLE" FunctionName="DBArticulosEncargosModel.Store.UDP_PEDIDO_DETALLE" />
           <FunctionImportMapping FunctionImportName="UDP_PEDIDOS_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_PEDIDOS_INSERT" />
@@ -2978,31 +3003,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
                 <ScalarProperty Name="usu_Usuario" ColumnName="usu_Usuario" />
                 <ScalarProperty Name="usu_Clave" ColumnName="usu_Clave" />
                 <ScalarProperty Name="emp_Name" ColumnName="emp_Name" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="UDP_ListaDeArticulosPorPedido" FunctionName="DBArticulosEncargosModel.Store.UDP_ListaDeArticulosPorPedido">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_ListaDeArticulosPorPedido_Result">
-                <ScalarProperty Name="pedi_Code" ColumnName="pedi_Code" />
-                <ScalarProperty Name="art_Descripcion" ColumnName="art_Descripcion" />
-                <ScalarProperty Name="det_Cantidad" ColumnName="det_Cantidad" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="UDP_CargarFabricas" FunctionName="DBArticulosEncargosModel.Store.UDP_CargarFabricas">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CargarFabricas_Result">
-                <ScalarProperty Name="fab_ID" ColumnName="fab_ID" />
-                <ScalarProperty Name="fab_Descripcion" ColumnName="fab_Descripcion" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="UDP_CargarClientes" FunctionName="DBArticulosEncargosModel.Store.UDP_CargarClientes">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CargarClientes_Result">
-                <ScalarProperty Name="fab_ID" ColumnName="fab_ID" />
-                <ScalarProperty Name="fab_Descripcion" ColumnName="fab_Descripcion" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

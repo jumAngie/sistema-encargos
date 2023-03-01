@@ -389,11 +389,11 @@ END
 
 /*Datos de los 18 departamentos ejecutados desde el proc de insertar*/
 EXEC UDP_DEPARTAMENTOS_INSERT 'Atlántida', 1
-EXEC UDP_DEPARTAMENTOS_INSERT 'Choluteca', 1
 EXEC UDP_DEPARTAMENTOS_INSERT 'Colón', 1
 EXEC UDP_DEPARTAMENTOS_INSERT 'Comayagua', 1
-EXEC UDP_DEPARTAMENTOS_INSERT 'Cortés', 1
 EXEC UDP_DEPARTAMENTOS_INSERT 'Copán', 1
+EXEC UDP_DEPARTAMENTOS_INSERT 'Cortés', 1
+EXEC UDP_DEPARTAMENTOS_INSERT 'Choluteca', 1
 EXEC UDP_DEPARTAMENTOS_INSERT 'El Paraíso', 1
 EXEC UDP_DEPARTAMENTOS_INSERT 'Francisco Morazán', 1
 EXEC UDP_DEPARTAMENTOS_INSERT 'Gracias a Dios', 1
@@ -406,7 +406,6 @@ EXEC UDP_DEPARTAMENTOS_INSERT 'Olancho', 1
 EXEC UDP_DEPARTAMENTOS_INSERT 'Santa Bárbara', 1
 EXEC UDP_DEPARTAMENTOS_INSERT 'Valle', 1
 EXEC UDP_DEPARTAMENTOS_INSERT 'Yoro', 1
-
 
 GO
 
@@ -1843,7 +1842,7 @@ GO
 CREATE OR ALTER PROCEDURE UDP_CargarClientes
 AS
 BEGIN
-	SELECT '0' AS fab_ID, ' Seleccione un Cliente' AS fab_Descripcion
+	SELECT '0' AS client_ID, ' Seleccione un Cliente' AS client_Nombre
 	UNION ALL
 	SELECT  client_ID ,client_Nombre FROM tbClientes WHERE client_Estado = 1
 END
