@@ -233,9 +233,6 @@
     <Compile Include="Models\UDP_CargarFabricas_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UDP_CargarPedidos_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\UDP_ListaDeArticulosPorPedido_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -2883,10 +2880,10 @@
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\CrearArticulo.js" />
     <Content Include="Scripts\CrearCargos.js" />
+
     <Content Include="Scripts\CrearDepartamentos.js" />
     <Content Include="Scripts\CrearDirecciones.js" />
     <Content Include="Scripts\CrearFabrica.js" />
-    <Content Include="Scripts\Detalles.js" />
     <Content Include="Scripts\EmpleadosScript\CargarCiudades.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2973,10 +2970,12 @@
     <Content Include="Views\Login\Principal.cshtml" />
     <Content Include="Views\Cargos\CreateCargos.cshtml" />
     <Content Include="Views\Articulos\CrearArticulo.cshtml" />
+
     <Content Include="Views\Departamentos\CrearDeptos.cshtml" />
     <Content Include="Views\Direcciones\CrearDirecciones.cshtml" />
+
     <Content Include="Views\Fabricas\CrearFabrica.cshtml" />
-    <Content Include="Views\PedidoDetalles\CreateDetalles.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
