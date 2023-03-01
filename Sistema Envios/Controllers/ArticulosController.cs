@@ -64,47 +64,88 @@ namespace Sistema_Envios.Controllers
             return View();
         }
 
-        // GET: Articulos/Edit/5
-        public ActionResult Edit(int? id)
+
+
+
+
+        [HttpPost]
+        public JsonResult Cargar(string art_Id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            tbArticulos tbArticulos = db.tbArticulos.Find(id);
-            if (tbArticulos == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.fab_ID = new SelectList(db.tbFabricas, "fab_ID", "fab_Descripcion", tbArticulos.fab_ID);
-            ViewBag.art_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbArticulos.art_UsuarioCreador);
-            ViewBag.art_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbArticulos.art_UsuarioMod);
-            return View(tbArticulos);
+
+            var tbDepartamentos = db.UDP_CARGAR_ARTICULOS(int.Parse(art_Id)).ToList();
+            return Json(tbDepartamentos, JsonRequestBehavior.AllowGet);
         }
 
-        // POST: Articulos/Edit/5
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "art_ID,art_Descripcion,fab_ID,art_Stock,art_UsuarioCreador,art_FechaCreacion,art_UsuarioMod,art_FechaMod,art_Estado")] tbArticulos tbArticulos)
-        {
-            
-            ModelState.Remove("art_UsuarioCreador");
-            ModelState.Remove("art_FechaCreacion");
-            ModelState.Remove("art_FechaMod");
-            ModelState.Remove("art_Estado");
 
+
+
+
+        [HttpPost, ActionName("Editores")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Edito(string ID, string fab_Id, string stock, string descrip )
+        {
             if (ModelState.IsValid)
             {
-                db.UDP_Editar_Articulos(tbArticulos.art_ID, tbArticulos.art_Descripcion, tbArticulos.fab_ID, tbArticulos.art_Stock, UsuarioModi).ToString();
+                //string id = Session["IdUsuario"].ToString();
+                var Edit = db.UDP_Editar_Articulos(int.Parse(ID), descrip,int.Parse(fab_Id), int.Parse(stock), "1");
+
+
                 return RedirectToAction("Index");
+
+
             }
-            ViewBag.fab_ID = new SelectList(db.tbFabricas, "fab_ID", "fab_Descripcion", tbArticulos.fab_ID);
-            ViewBag.art_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbArticulos.art_UsuarioCreador);
-            ViewBag.art_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbArticulos.art_UsuarioMod);
-            return View(tbArticulos);
+
+            return RedirectToAction("Index");
         }
+
+
+
+
+
+
+
+
+        // GET: Articulos/Edit/5
+        //public ActionResult Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    tbArticulos tbArticulos = db.tbArticulos.Find(id);
+        //    if (tbArticulos == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    ViewBag.fab_ID = new SelectList(db.tbFabricas, "fab_ID", "fab_Descripcion", tbArticulos.fab_ID);
+        //    ViewBag.art_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbArticulos.art_UsuarioCreador);
+        //    ViewBag.art_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbArticulos.art_UsuarioMod);
+        //    return View(tbArticulos);
+        //}
+
+        //// POST: Articulos/Edit/5
+        //// Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
+        //// más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit([Bind(Include = "art_ID,art_Descripcion,fab_ID,art_Stock,art_UsuarioCreador,art_FechaCreacion,art_UsuarioMod,art_FechaMod,art_Estado")] tbArticulos tbArticulos)
+        //{
+
+        //    ModelState.Remove("art_UsuarioCreador");
+        //    ModelState.Remove("art_FechaCreacion");
+        //    ModelState.Remove("art_FechaMod");
+        //    ModelState.Remove("art_Estado");
+
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.UDP_Editar_Articulos(tbArticulos.art_ID, tbArticulos.art_Descripcion, tbArticulos.fab_ID, tbArticulos.art_Stock, UsuarioModi).ToString();
+        //        return RedirectToAction("Index");
+        //    }
+        //    ViewBag.fab_ID = new SelectList(db.tbFabricas, "fab_ID", "fab_Descripcion", tbArticulos.fab_ID);
+        //    ViewBag.art_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbArticulos.art_UsuarioCreador);
+        //    ViewBag.art_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbArticulos.art_UsuarioMod);
+        //    return View(tbArticulos);
+        //}
 
         // GET: Articulos/Delete/5
         public ActionResult Delete(int? id)

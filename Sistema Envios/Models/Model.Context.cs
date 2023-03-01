@@ -69,6 +69,15 @@ namespace Sistema_Envios.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_CambiarContraOlvidada", usu_UsuarioParameter, usu_NewClaveParameter);
         }
     
+        public virtual ObjectResult<UDP_CARGAR_ARTICULOS_Result> UDP_CARGAR_ARTICULOS(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_ARTICULOS_Result>("UDP_CARGAR_ARTICULOS", idParameter);
+        }
+    
         public virtual ObjectResult<UDP_CargarCiudades_Result> UDP_CargarCiudades(string ciu_DeptoID)
         {
             var ciu_DeptoIDParameter = ciu_DeptoID != null ?
@@ -78,9 +87,24 @@ namespace Sistema_Envios.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CargarCiudades_Result>("UDP_CargarCiudades", ciu_DeptoIDParameter);
         }
     
+        public virtual ObjectResult<UDP_CargarCliente_Result> UDP_CargarCliente()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CargarCliente_Result>("UDP_CargarCliente");
+        }
+    
         public virtual ObjectResult<UDP_CargarDepartamentos_Result> UDP_CargarDepartamentos()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CargarDepartamentos_Result>("UDP_CargarDepartamentos");
+        }
+    
+        public virtual ObjectResult<UDP_CargarFabricas_Result> UDP_CargarFabricas()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CargarFabricas_Result>("UDP_CargarFabricas");
+        }
+    
+        public virtual ObjectResult<UDP_CargarPedidos_Result> UDP_CargarPedidos()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CargarPedidos_Result>("UDP_CargarPedidos");
         }
     
         public virtual int UDP_CARGOS_INSERT(string carg_Description, Nullable<int> rep_UsuarioCreador)
@@ -730,6 +754,15 @@ namespace Sistema_Envios.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_InsertFabrica", fab_DescripcionParameter, fab_TelefonoParameter, fab_UsuarioCreadorParameter);
         }
     
+        public virtual ObjectResult<UDP_ListaDeArticulosPorPedido_Result> UDP_ListaDeArticulosPorPedido(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_ListaDeArticulosPorPedido_Result>("UDP_ListaDeArticulosPorPedido", iDParameter);
+        }
+    
         public virtual int UDP_PASSWORD_CAMBIAR(string usu_Usuario, string usu_Clave, string usu_NewClave)
         {
             var usu_UsuarioParameter = usu_Usuario != null ?
@@ -859,30 +892,6 @@ namespace Sistema_Envios.Models
                 new ObjectParameter("usu_Clave", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_VALIDAR_LOGIN_Result>("UDP_VALIDAR_LOGIN", usu_UsuarioParameter, usu_ClaveParameter);
-        }
-    
-        public virtual ObjectResult<UDP_ListaDeArticulosPorPedido_Result> UDP_ListaDeArticulosPorPedido(Nullable<int> iD)
-        {
-            var iDParameter = iD.HasValue ?
-                new ObjectParameter("ID", iD) :
-                new ObjectParameter("ID", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_ListaDeArticulosPorPedido_Result>("UDP_ListaDeArticulosPorPedido", iDParameter);
-        }
-    
-        public virtual ObjectResult<UDP_CargarFabricas_Result> UDP_CargarFabricas()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CargarFabricas_Result>("UDP_CargarFabricas");
-        }
-    
-        public virtual ObjectResult<UDP_CargarClientes_Result> UDP_CargarClientes()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CargarClientes_Result>("UDP_CargarClientes");
-        }
-    
-        public virtual ObjectResult<UDP_CargarCliente_Result> UDP_CargarCliente()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CargarCliente_Result>("UDP_CargarCliente");
         }
     }
 }
