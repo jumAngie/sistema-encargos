@@ -236,9 +236,6 @@
     <Compile Include="Models\UDP_CargarPedidos_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UDP_CARGAR_ARTICULOS_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\UDP_CARGAR_ARTICULO_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

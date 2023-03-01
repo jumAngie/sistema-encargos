@@ -1014,7 +1014,7 @@
       <Parameter Name="usu_Usuario" Mode="In" Type="String" />
       <Parameter Name="usu_NewClave" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="UDP_CARGAR_ARTICULOS" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGAR_ARTICULOS_Result)">
+    <FunctionImport Name="UDP_CARGAR_ARTICULO" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGAR_ARTICULO_Result)">
       <Parameter Name="Id" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="UDP_CargarCiudades" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarCiudades_Result)">
@@ -1250,11 +1250,9 @@
       <Parameter Name="usu_Clave" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="UDP_CargarArticulos" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarArticulos_Result)" />
-    <FunctionImport Name="UDP_CARGAR_ARTICULO" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGAR_ARTICULO_Result)">
-      <Parameter Name="Id" Mode="In" Type="Int32" />
-    </FunctionImport>
   </EntityContainer>
-  <ComplexType Name="UDP_CARGAR_ARTICULOS_Result">
+  <ComplexType Name="UDP_CARGAR_ARTICULO_Result">
+    <Property Type="Int32" Name="art_ID" Nullable="false" />
     <Property Type="String" Name="art_Descripcion" Nullable="false" MaxLength="200" />
     <Property Type="Int32" Name="fab_ID" Nullable="false" />
     <Property Type="Int32" Name="art_Stock" Nullable="false" />
@@ -1297,11 +1295,5 @@
   <ComplexType Name="UDP_CargarArticulos_Result">
     <Property Type="Int32" Name="art_ID" Nullable="false" />
     <Property Type="String" Name="art_Descripcion" Nullable="false" MaxLength="200" />
-  </ComplexType>
-  <ComplexType Name="UDP_CARGAR_ARTICULO_Result">
-    <Property Type="Int32" Name="art_ID" Nullable="false" />
-    <Property Type="String" Name="art_Descripcion" Nullable="false" MaxLength="200" />
-    <Property Type="Int32" Name="fab_ID" Nullable="false" />
-    <Property Type="Int32" Name="art_Stock" Nullable="false" />
   </ComplexType>
 </Schema>

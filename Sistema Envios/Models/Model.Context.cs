@@ -69,13 +69,13 @@ namespace Sistema_Envios.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_CambiarContraOlvidada", usu_UsuarioParameter, usu_NewClaveParameter);
         }
     
-        public virtual ObjectResult<UDP_CARGAR_ARTICULOS_Result> UDP_CARGAR_ARTICULOS(Nullable<int> id)
+        public virtual ObjectResult<UDP_CARGAR_ARTICULO_Result> UDP_CARGAR_ARTICULO(Nullable<int> id)
         {
             var idParameter = id.HasValue ?
                 new ObjectParameter("Id", id) :
                 new ObjectParameter("Id", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_ARTICULOS_Result>("UDP_CARGAR_ARTICULOS", idParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_ARTICULO_Result>("UDP_CARGAR_ARTICULO", idParameter);
         }
     
         public virtual ObjectResult<UDP_CargarCiudades_Result> UDP_CargarCiudades(string ciu_DeptoID)
@@ -893,15 +893,6 @@ namespace Sistema_Envios.Models
         public virtual ObjectResult<UDP_CargarArticulos_Result> UDP_CargarArticulos()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CargarArticulos_Result>("UDP_CargarArticulos");
-        }
-    
-        public virtual ObjectResult<UDP_CARGAR_ARTICULO_Result> UDP_CARGAR_ARTICULO(Nullable<int> id)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("Id", id) :
-                new ObjectParameter("Id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_ARTICULO_Result>("UDP_CARGAR_ARTICULO", idParameter);
         }
     }
 }
