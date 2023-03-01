@@ -1854,3 +1854,19 @@ BEGIN
 	UNION ALL
 	SELECT	pedi_ID, pedi_Code from tbPedidos WHERE pedi_Estado = 1
 END
+
+
+
+------------------------------------------------------------------------
+
+
+
+GO
+CREATE OR ALTER PROCEDURE UDP_CARGAR_ARTICULOS
+@Id   INT
+AS
+BEGIN
+SELECT [art_Descripcion], [fab_ID], [art_Stock] FROM [dbo].[tbArticulos]
+WHERE [art_ID] = @Id
+END
+
