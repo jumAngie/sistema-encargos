@@ -879,5 +879,10 @@ namespace Sistema_Envios.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_VALIDAR_LOGIN_Result>("UDP_VALIDAR_LOGIN", usu_UsuarioParameter, usu_ClaveParameter);
         }
+    
+        public virtual ObjectResult<UDP_CargarCliente_Result> UDP_CargarCliente()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CargarCliente_Result>("UDP_CargarCliente");
+        }
     }
 }

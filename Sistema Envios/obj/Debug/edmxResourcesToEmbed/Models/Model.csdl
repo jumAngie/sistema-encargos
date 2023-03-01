@@ -1246,6 +1246,7 @@
       <Parameter Name="usu_Usuario" Mode="In" Type="String" />
       <Parameter Name="usu_Clave" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="UDP_CargarCliente" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarCliente_Result)" />
   </EntityContainer>
   <ComplexType Name="UDP_CargarCiudades_Result">
     <Property Type="Int32" Name="ciu_ID" Nullable="false" />
@@ -1277,5 +1278,9 @@
     <Property Type="String" Name="usu_Usuario" Nullable="false" MaxLength="200" />
     <Property Type="String" Name="usu_Clave" Nullable="false" />
     <Property Type="String" Name="emp_Name" Nullable="false" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="UDP_CargarCliente_Result">
+    <Property Type="Int32" Name="client_ID" Nullable="false" />
+    <Property Type="String" Name="client_Nombre" Nullable="false" MaxLength="250" />
   </ComplexType>
 </Schema>

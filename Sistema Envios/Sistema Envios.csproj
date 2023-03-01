@@ -224,6 +224,9 @@
     <Compile Include="Models\UDP_CargarClientes_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UDP_CargarCliente_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UDP_CargarDepartamentos_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
