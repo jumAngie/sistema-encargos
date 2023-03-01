@@ -53,19 +53,24 @@ namespace Sistema_Envios.Controllers
         //[ValidateAntiForgeryToken]
         public ActionResult Create(string txtPedi, string txtArticulo, string txtCant)
         {
-            int Usuario = 1;
-            int Pedi = Int32.Parse(txtPedi);
-            int Articulo = Int32.Parse(txtArticulo);
-            int Cantidad = Int32.Parse(txtCant);
-            if (ModelState.IsValid)
+            if (txtPedi == "0")
             {
-                db.UDP_PEDIDO_DETALLE(Pedi, Articulo, Cantidad, Usuario);
-                return RedirectToAction("Index");
+                
+                ModelState.AddModelError("Vacio", "El campo es obligatorio.");
             }
-
-            //ViewBag.pedi_ID = new SelectList(db.tbPedidos, "pedi_ID", "pedi_Code", tbPedidoDetalles.pedi_ID);
-            //ViewBag.det_UsuarioCrea = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbPedidoDetalles.det_UsuarioCrea);
-            //ViewBag.det_UsuModif = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbPedidoDetalles.det_UsuModif);
+            else
+            {
+                int Usuario = 1;
+                int Pedi = Int32.Parse(txtPedi);
+                int Articulo = Int32.Parse(txtArticulo);
+                int Cantidad = Int32.Parse(txtCant);
+                if (ModelState.IsValid)
+                {
+                    db.UDP_PEDIDO_DETALLE(Pedi, Articulo, Cantidad, Usuario);
+                    return RedirectToAction("Index");
+                }
+                return View();
+            }
             return View();
         }
 
