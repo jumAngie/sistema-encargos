@@ -884,5 +884,10 @@ namespace Sistema_Envios.Models
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CargarCliente_Result>("UDP_CargarCliente");
         }
+    
+        public virtual ObjectResult<UDP_CargarPedidos_Result> UDP_CargarPedidos()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CargarPedidos_Result>("UDP_CargarPedidos");
+        }
     }
 }
