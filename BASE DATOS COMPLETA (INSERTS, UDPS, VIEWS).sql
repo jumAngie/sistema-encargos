@@ -349,11 +349,11 @@ GO
 
 
 /*Datos de los estados civiles ejecutados desde el prco insertar*/
-EXEC UDP_EstadosCiviles_INSERT 'S','Soltero',1
-EXEC UDP_EstadosCiviles_INSERT 'C','Casado',1
-EXEC UDP_EstadosCiviles_INSERT 'D','Divorciado',1
-EXEC UDP_EstadosCiviles_INSERT 'U','Union Libre',1
-EXEC UDP_EstadosCiviles_INSERT 'V','Viudo',1
+EXEC UDP_EstadosCiviles_INSERT 'Soltero',1
+EXEC UDP_EstadosCiviles_INSERT 'Casado',1
+EXEC UDP_EstadosCiviles_INSERT 'Divorciado',1
+EXEC UDP_EstadosCiviles_INSERT 'Union Libre',1
+EXEC UDP_EstadosCiviles_INSERT 'Viudo',1
 GO
 
 -------------------------------------------------------------------------
