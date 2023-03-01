@@ -804,7 +804,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
         <Function Name="UDP_CARGAR_ARTICULOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id" Type="int" Mode="In" />
         </Function>
-        <Function Name="UDP_CargarArticulos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="UDP_CargarCiudades" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ciu_DeptoID" Type="varchar" Mode="In" />
         </Function>
@@ -3050,11 +3049,13 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="UDP_CargarArticulos" FunctionName="DBArticulosEncargosModel.Store.UDP_CargarArticulos">
+          <FunctionImportMapping FunctionImportName="UDP_CARGAR_ARTICULO" FunctionName="DBArticulosEncargosModel.Store.UDP_CARGAR_ARTICULO">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CargarArticulos_Result">
+              <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CARGAR_ARTICULO_Result">
                 <ScalarProperty Name="art_ID" ColumnName="art_ID" />
                 <ScalarProperty Name="art_Descripcion" ColumnName="art_Descripcion" />
+                <ScalarProperty Name="fab_ID" ColumnName="fab_ID" />
+                <ScalarProperty Name="art_Stock" ColumnName="art_Stock" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

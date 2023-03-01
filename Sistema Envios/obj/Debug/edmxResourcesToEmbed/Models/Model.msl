@@ -447,11 +447,13 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="UDP_CargarArticulos" FunctionName="DBArticulosEncargosModel.Store.UDP_CargarArticulos">
+    <FunctionImportMapping FunctionImportName="UDP_CARGAR_ARTICULO" FunctionName="DBArticulosEncargosModel.Store.UDP_CARGAR_ARTICULO">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CargarArticulos_Result">
+        <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CARGAR_ARTICULO_Result">
           <ScalarProperty Name="art_ID" ColumnName="art_ID" />
           <ScalarProperty Name="art_Descripcion" ColumnName="art_Descripcion" />
+          <ScalarProperty Name="fab_ID" ColumnName="fab_ID" />
+          <ScalarProperty Name="art_Stock" ColumnName="art_Stock" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
