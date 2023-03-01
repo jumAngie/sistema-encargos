@@ -1320,6 +1320,7 @@ AS
 SELECT[client_ID] ID,[client_Nombre] NOMBRE,[client_Identidad] IDENTIDAD, [client_Saldo] SALDO,[client_LimiteCredito] [LIMITE CREDITO],[client_Descuento] DESCUENTO
 FROM [dbo].[tbClientes] c
 INNER JOIN [dbo].[tbEstadosCiviles] e ON c.client_EstadoCivil = e.est_ID
+WHERE client_Estado = 1;
 GO
 
 
