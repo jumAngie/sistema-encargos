@@ -1,4 +1,4 @@
----------EN EL CONTROLADOR---------
+---------EN EL CONTROLADOR---------//BORRAR LAS LÍNEAS DE CÓDIGO DE DELETE EN EL CONTROLADOR Y DEJAR ÚNICAMENTE ESTA PARTE
  public ActionResult Delete(int id)
         {
             db.UDP_EliminarUsuario(id);
@@ -48,5 +48,5 @@ $('#btn-close-modal').click(function () {
     $('#confirm-delete-modal').modal('hide');
 });
 });
-------BOTÓN DE ELIMINAR------
- <button class="btn-delete btn btn-danger" data-id="@item.usu_ID">Eliminar</button>
+------BOTÓN DE ELIMINAR------ //COLOCAR BOTON EN LUGAR DE LA REDIRECCION DE LA PÁGINA DELETE
+ <button class="btn-delete btn btn-secondary btn-xs" data-id="@item.usu_ID">Eliminar</button>
