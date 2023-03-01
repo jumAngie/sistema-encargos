@@ -1868,8 +1868,6 @@ END
 
 ------------------------------------------------------------------------
 
-
-
 GO
 CREATE OR ALTER PROCEDURE UDP_CARGAR_ARTICULO
 @Id   INT

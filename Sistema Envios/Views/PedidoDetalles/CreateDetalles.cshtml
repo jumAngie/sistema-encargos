@@ -4,22 +4,28 @@
 <div class="modal fade" id="Detalles" tabindex="-1" role="dialog" aria-labelledby="Crear-Detalles" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="crear-Detalles">Pedidos Detalles</h5>
+            <form action="@Url.Action("Create")" method="post" class="needs-validation" novalidate>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="crear-Detalles">Pedidos Detalles</h5>
+                </div>
+                <div class="modal-body">
+
+                    <label>Ingrese el Código del pedido</label>
+                    <label id="lblPedido" style="color:orangered">*Campo Requerido</label>
+                    <label style="color:orangered">@Html.ValidationMessage("Vacio")</label>
+                    <select id="txtPedi" name="txtPedi" class="form-control"></select>
+                    <label>Ingrese el artículo</label>
+                    <select id="txtArticulo" name="txtArticulo" class="form-control"></select>
+                    <label>Ingrese la cantidad</label>
+                    <input type="number" id="txtCant" name="txtCant" class="form-control" />
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnCancelar" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <a id="btn-insertar" role="button" onclick="Insertar()" class="btn btn-danger">Insertar</a>
+                </div>
+            </form>
             </div>
-            <div class="modal-body">
-                <label>Ingrese el Código del pedido</label>
-                <select id="txtPedi" name="txtPedi" class="form-control"></select>
-                <label>Ingrese el artículo</label>
-                <select id="txtArticulo" name="txtArticulo" class="form-control"></select>
-                <label>Ingrese la cantidad</label>
-                <input type="number" id="txtCant" name="txtCant" class="form-control" />
-            </div>
-            <div class="modal-footer">
-                <button type="button" id="btnCancelar" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <a id="btn-insertar" role="button" onclick="Insertar()" class="btn btn-danger">Insertar</a>
-            </div>
-        </div>
     </div>
 </div>
 <script src="~/Scripts/Detalles.js"></script>

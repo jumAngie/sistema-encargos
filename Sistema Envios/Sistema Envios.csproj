@@ -2947,7 +2947,6 @@
     <Content Include="Views\Fabricas\Delete.cshtml" />
     <Content Include="Views\Fabricas\Details.cshtml" />
     <Content Include="Views\Fabricas\Edit.cshtml" />
-    <Content Include="Views\PedidoDetalles\Create.cshtml" />
     <Content Include="Views\PedidoDetalles\Delete.cshtml" />
     <Content Include="Views\PedidoDetalles\Details.cshtml" />
     <Content Include="Views\PedidoDetalles\Edit.cshtml" />
