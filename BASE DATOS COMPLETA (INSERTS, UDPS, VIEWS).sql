@@ -1870,3 +1870,22 @@ SELECT [art_Descripcion], [fab_ID], [art_Stock] FROM [dbo].[tbArticulos]
 WHERE [art_ID] = @Id
 END
 
+----------------------------- TRIGGERS ---------------------------------------
+ALTER TABLE tbArticulos
+ADD CONSTRAINT CK_artStock_tbArticulos
+CHECK (art_Stock > 0 OR art_Stock = 0)
+
+ALTER TABLE tbClientes
+ADD CONSTRAINT CK_client_Saldo
+CHECK (client_Saldo > client_LimiteCredito OR client_Saldo = client_LimiteCredito)
+
+go
+CREATE TRIGGER tg_ActualizarSaldo ON tbPedidos
+AFTER INSERT 
+AS
+BEGIN
+	SET NOCOUNT ON;
+	UPDATE		tbClientes SET client_Saldo = client_Saldo - ((SELECT pedi_CostoEnvio from inserted) - (SELECT client_Descuento * pedi_CostoEnvio from inserted))
+	WHERE		client_ID = (SELECT t2.direc_ClienteID from inserted t1 inner join [dbo].[tbDirecciones] t2 on t1.pedi_DireccionID = t2.direc_ID)
+END
+GO
