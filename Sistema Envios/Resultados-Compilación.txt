@@ -1,0 +1,4 @@
+﻿Operación Compilar iniciada..
+1>------ Operación Compilar iniciada: proyecto: Sistema Envios, configuración: Debug Any CPU ------
+1>  Sistema Envios -> C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\Sistema Envios.dll
+========== Compilar: 1 correctos, 0 incorrectos, 0 actualizados, 0 omitidos ==========
