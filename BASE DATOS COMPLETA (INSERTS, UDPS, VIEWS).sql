@@ -1842,7 +1842,7 @@ GO
 CREATE OR ALTER PROCEDURE UDP_CargarClientes
 AS
 BEGIN
-	SELECT '0' AS fab_ID, ' Seleccione un Cliente' AS fab_Descripcion
+	SELECT '0' AS client_ID, ' Seleccione un Cliente' AS client_Nombre
 	UNION ALL
 	SELECT  client_ID ,client_Nombre FROM tbClientes WHERE client_Estado = 1
 END
