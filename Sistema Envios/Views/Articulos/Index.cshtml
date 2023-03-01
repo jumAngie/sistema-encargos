@@ -40,14 +40,14 @@
 
                                     <td>
                                         @Html.ActionLink("Detalles", "Details", new { id = item.ID_ARTICULO }, new { @class = "btn btn-default btn-xs" })
-                                        @Html.ActionLink("Editar", "Edit", new { id = item.ID_ARTICULO }, new { @class = "btn btn-primary btn-xs" })
+                                        @*@Html.ActionLink("Editar", "Edit", new { id = item.ID_ARTICULO }, new { @class = "btn btn-primary btn-xs" })*@
                                         @Html.ActionLink("Delete", "Delete", new { id = item.ID_ARTICULO }, new { @class = "btn btn-secondary btn-xs" })
 
                                         <button class='btn btn-primary btn-sm' type='button' id="tbnModal" value="Editar" onclick="AbrirModal(@item.ID_ARTICULO)"><i class='fas fa-pen'></i></button>
 
                                         <form method="post">
                                             @Html.AntiForgeryToken()
-                                            <div class="modal fade" id="Articulos" tabindex="-1" role="dialog" aria-labelledby="Crear-Articulos" aria-hidden="true">
+                                            <div class="modal fade" id="FormModal" tabindex="-1" role="dialog" aria-labelledby="Crear-Articulos" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
