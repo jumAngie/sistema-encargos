@@ -325,8 +325,7 @@ GO
 
 
 CREATE OR ALTER PROCEDURE UDP_EstadosCiviles_INSERT 
-(@est_ID					CHAR(1),
-@est_Description		NVARCHAR(100),
+(@est_Description		NVARCHAR(100),
 @est_UsuCrea			INT)
 AS BEGIN
 
@@ -334,6 +333,7 @@ DECLARE @Estado			BIT = 1;
 DECLARE @FechaCrea		DATETIME = GETDATE();
 DECLARE @UsuModif		INT = NULL;
 DECLARE @FechaModi		DATETIME = NULL;
+DECLARE @est_ID			CHAR(1) = (SELECT LEFT(@est_Description, 1));
 
 INSERT INTO[dbo].[tbEstadosCiviles] ([est_ID], [est_Descripcion], [est_UsuCrea], [est_FechaCrea], [est_UsuMod], [est_FechaMod],est_Estado)
 VALUES (@est_ID,
@@ -349,11 +349,11 @@ GO
 
 
 /*Datos de los estados civiles ejecutados desde el prco insertar*/
-EXEC UDP_EstadosCiviles_INSERT 'S','Soltero',1
-EXEC UDP_EstadosCiviles_INSERT 'C','Casado',1
-EXEC UDP_EstadosCiviles_INSERT 'D','Divorciado',1
-EXEC UDP_EstadosCiviles_INSERT 'U','Union Libre',1
-EXEC UDP_EstadosCiviles_INSERT 'V','Viudo',1
+EXEC UDP_EstadosCiviles_INSERT 'Soltero',1
+EXEC UDP_EstadosCiviles_INSERT 'Casado',1
+EXEC UDP_EstadosCiviles_INSERT 'Divorciado',1
+EXEC UDP_EstadosCiviles_INSERT 'Union Libre',1
+EXEC UDP_EstadosCiviles_INSERT 'Viudo',1
 GO
 
 -------------------------------------------------------------------------
