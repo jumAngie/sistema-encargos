@@ -52,17 +52,19 @@ namespace Sistema_Envios.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public ActionResult Create(string client_ID, string txtDirec, string ciu_ID)
+        public ActionResult Create([Bind(Include = "direc_ID,direc_ClienteID,direc_DireccionExacta,direc_CiudadID,direc_UsuarioCreador,direc_FechaCreacion,direc_UsuarioMod,direc_FechaMod,direc_Estado")] tbDirecciones tbDirecciones)
         {
-            int Cliente = Int32.Parse(client_ID);
-            int Ciudad = Int32.Parse(ciu_ID);
-            int Usuario = 1;
             // AÑADIR UN MODEL STATE ERROR Y LLENARLO EN EL MODAL
             if (ModelState.IsValid)
             {
-                db.UDP_DIRECCIONES_INSERT(Cliente, txtDirec, Ciudad, Usuario);
+                db.tbDirecciones.Add(tbDirecciones);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            //ViewBag.direc_CiudadID = new SelectList(db.tbCiudades, "ciu_ID", "ciu_Descripcion", tbDirecciones.direc_CiudadID);
+            //ViewBag.direc_ClienteID = new SelectList(db.tbClientes, "client_ID", "client_Nombre", tbDirecciones.direc_ClienteID);
+            //ViewBag.direc_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbDirecciones.direc_UsuarioCreador);
+            //ViewBag.direc_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbDirecciones.direc_UsuarioMod);
             return View();
         }
 

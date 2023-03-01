@@ -67,16 +67,14 @@ $(function () {
     });
 });
 
-function Insertar() {
-    var client_ID = $("#client_ID").val()
-    var txtDirec = $("#txtDirec").val()
-    var ciu_ID = $("#ciu_ID").val()
-    $.ajax({
-        url: "/Direcciones/Create",
-        method: "POST",
-        data: { client_ID: client_ID, txtDirec: txtDirec, ciu_ID: ciu_ID },
-        success: function (data) {
-            window.location.reload();
-        }
-    })
-}
+//function Insertar() {
+//    var id = $("#txtCargo").val()
+//    $.ajax({
+//        url: "/Cargos/Create",
+//        method: "POST",
+//        data: { txtCargo: id },
+//        success: function (data) {
+//            window.location.reload();
+//        }
+//    })
+//}
