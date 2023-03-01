@@ -103,28 +103,9 @@ namespace Sistema_Envios.Controllers
         }
 
         // GET: Cargos/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            tbCargos tbCargos = db.tbCargos.Find(id);
-            if (tbCargos == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tbCargos);
-        }
-
-        // POST: Cargos/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            tbCargos tbCargos = db.tbCargos.Find(id);
-            db.UDP_Eliminar_Cargos(id, UsuarioModi).ToString();
-            db.SaveChanges();
+            db.UDP_Eliminar_Cargos(id, UsuarioModi);
             return RedirectToAction("Index");
         }
 

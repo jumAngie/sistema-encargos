@@ -2889,6 +2889,7 @@
     <Content Include="Scripts\CrearEstadoCivil.js" />
     <Content Include="Scripts\CrearFabrica.js" />
     <Content Include="Scripts\EliminarArticulo.js" />
+    <Content Include="Scripts\EliminarCargo.js" />
     <Content Include="Scripts\EliminarCliente.js" />
     <Content Include="Scripts\EliminarEmpleado.js" />
     <Content Include="Scripts\EmpleadosScript\CargarCiudades.js" />
@@ -2984,6 +2985,7 @@
     <Content Include="Views\Clientes\EliminarCliente.cshtml" />
     <Content Include="Views\Empleados\EliminarEmpleado.cshtml" />
     <Content Include="Views\Articulos\EliminarArticulo.cshtml" />
+    <Content Include="Views\Cargos\EliminarCargo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
