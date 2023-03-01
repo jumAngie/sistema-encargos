@@ -3,7 +3,7 @@
     console.log(usu_Id);
 
     $.ajax({
-        url: "/Usuarios/Cargar",
+        url: "/Articulos/Cargar",
         method: "POST",
         dataType: "json",
         contentType: "application/json; charset=utf-8",
@@ -35,7 +35,7 @@ function Editar(x) {
     console.log(x);
     console.log(Nombre);
     $.ajax({
-        url: "/Usuarios/Editores",
+        url: "/Articulos/Editores",
         method: "POST",
         dataType: "json",
         contentType: "application/json; charset=utf-8",
