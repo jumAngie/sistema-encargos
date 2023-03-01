@@ -49,19 +49,16 @@ namespace Sistema_Envios.Controllers
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "est_ID,est_Descripcion,est_UsuCrea,est_FechaCrea,est_UsuMod,est_FechaMod")] tbEstadosCiviles tbEstadosCiviles)
+        //[ValidateAntiForgeryToken]
+        public ActionResult Create(string txtEstadoCivil)
         {
+            int UsuarioCrea = 1;
             if (ModelState.IsValid)
             {
-                db.tbEstadosCiviles.Add(tbEstadosCiviles);
-                db.SaveChanges();
+                db.UDP_EstadosCiviles_INSERT(txtEstadoCivil, UsuarioCrea);
                 return RedirectToAction("Index");
             }
-
-            ViewBag.est_UsuCrea = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbEstadosCiviles.est_UsuCrea);
-            ViewBag.est_UsuMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbEstadosCiviles.est_UsuMod);
-            return View(tbEstadosCiviles);
+            return View();
         }
 
         // GET: EstadosCiviles/Edit/5

@@ -2886,6 +2886,7 @@
     <Content Include="Scripts\CrearCargos.js" />
     <Content Include="Scripts\CrearDepartamentos.js" />
     <Content Include="Scripts\CrearDirecciones.js" />
+    <Content Include="Scripts\CrearEstadoCivil.js" />
     <Content Include="Scripts\CrearFabrica.js" />
     <Content Include="Scripts\EmpleadosScript\CargarCiudades.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -2976,6 +2977,7 @@
     <Content Include="Views\Departamentos\CrearDeptos.cshtml" />
     <Content Include="Views\Direcciones\CrearDirecciones.cshtml" />
     <Content Include="Views\Fabricas\CrearFabrica.cshtml" />
+    <Content Include="Views\EstadosCiviles\CrearEstadoCivil.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
