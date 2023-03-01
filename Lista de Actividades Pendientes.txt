@@ -1,8 +1,6 @@
 ............................. Actividades Pendientes ..................................
--- Colocar los Modales (9 modales de Crear)
-		(//cargos, deptos, articulos, direcciones)
--- Agregar los udps de Insertar
--- Editar los Create y Edit.
+
+-- Agregar los udps de Insertar (FALTA USUARIOS, CIUDADES, PEDIDOS DETALLES)
+-- Editar los Create y Edit. (COLOCAR LOS CAMPOS DE EMPLEADO, CLIENTE Y PEDIDOS EN 2 COLUMNAS)
 -- Hacer los Tickets de Pedidos mostrando los detalles en un DataTable.
 -- Hacer las Validaciones de los Roles
--- Añadir un CHECK que no permita insertar un pedido si su cantidad es mayor al stock
