@@ -1183,7 +1183,6 @@
       <Parameter Name="emp_UsuarioCrea" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="UDP_EstadosCiviles_INSERT">
-      <Parameter Name="est_ID" Mode="In" Type="String" />
       <Parameter Name="est_Description" Mode="In" Type="String" />
       <Parameter Name="est_UsuCrea" Mode="In" Type="Int32" />
     </FunctionImport>
@@ -1250,6 +1249,7 @@
       <Parameter Name="usu_Usuario" Mode="In" Type="String" />
       <Parameter Name="usu_Clave" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="UDP_CargarArticulos" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarArticulos_Result)" />
   </EntityContainer>
   <ComplexType Name="UDP_CARGAR_ARTICULOS_Result">
     <Property Type="String" Name="art_Descripcion" Nullable="false" MaxLength="200" />
@@ -1290,5 +1290,9 @@
     <Property Type="String" Name="usu_Usuario" Nullable="false" MaxLength="200" />
     <Property Type="String" Name="usu_Clave" Nullable="false" />
     <Property Type="String" Name="emp_Name" Nullable="false" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="UDP_CargarArticulos_Result">
+    <Property Type="Int32" Name="art_ID" Nullable="false" />
+    <Property Type="String" Name="art_Descripcion" Nullable="false" MaxLength="200" />
   </ComplexType>
 </Schema>

@@ -82,7 +82,7 @@ namespace Sistema_Envios.Controllers
                         foreach (var item in result)
                         {
                             db.UDP_CambiarContraOlvidada(txtUsuario, txtNewPass);
-                            return RedirectToAction("Index", "Home");
+                            return RedirectToAction("Index");
                         }
                     }
                     else
@@ -91,7 +91,7 @@ namespace Sistema_Envios.Controllers
                         return View();
                     }
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index");
                 }
             }
         }

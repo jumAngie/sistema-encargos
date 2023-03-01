@@ -50,20 +50,23 @@ namespace Sistema_Envios.Controllers
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "det_Id,pedi_ID,art_ID,det_Cantidad,det_UsuarioCrea,det_FechaCrea,det_UsuModif,det_FechaModif,det_Estado")] tbPedidoDetalles tbPedidoDetalles)
+        //[ValidateAntiForgeryToken]
+        public ActionResult Create(string txtPedi, string txtArticulo, string txtCant)
         {
+            int Usuario = 1;
+            int Pedi = Int32.Parse(txtPedi);
+            int Articulo = Int32.Parse(txtArticulo);
+            int Cantidad = Int32.Parse(txtCant);
             if (ModelState.IsValid)
             {
-                db.tbPedidoDetalles.Add(tbPedidoDetalles);
-                db.SaveChanges();
+                db.UDP_PEDIDO_DETALLE(Pedi, Articulo, Cantidad, Usuario);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.pedi_ID = new SelectList(db.tbPedidos, "pedi_ID", "pedi_Code", tbPedidoDetalles.pedi_ID);
-            ViewBag.det_UsuarioCrea = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbPedidoDetalles.det_UsuarioCrea);
-            ViewBag.det_UsuModif = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbPedidoDetalles.det_UsuModif);
-            return View(tbPedidoDetalles);
+            //ViewBag.pedi_ID = new SelectList(db.tbPedidos, "pedi_ID", "pedi_Code", tbPedidoDetalles.pedi_ID);
+            //ViewBag.det_UsuarioCrea = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbPedidoDetalles.det_UsuarioCrea);
+            //ViewBag.det_UsuModif = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbPedidoDetalles.det_UsuModif);
+            return View();
         }
 
         // GET: PedidoDetalles/Edit/5
@@ -132,6 +135,22 @@ namespace Sistema_Envios.Controllers
             db.UDP_Eliminar_PedidosDetalles(id, Usu);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public JsonResult CargarPedidos()
+        {
+            var ddl = db.UDP_CargarPedidos().ToList();
+
+            return Json(ddl, JsonRequestBehavior.AllowGet);
+
+        }
+
+        public JsonResult CargarArticulos()
+        {
+            var ddl = db.UDP_CargarArticulos().ToList();
+
+            return Json(ddl, JsonRequestBehavior.AllowGet);
+
         }
 
         protected override void Dispose(bool disposing)
