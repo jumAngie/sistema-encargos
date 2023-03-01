@@ -1247,6 +1247,7 @@
       <Parameter Name="usu_Clave" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="UDP_CargarCliente" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarCliente_Result)" />
+    <FunctionImport Name="UDP_CargarPedidos" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarPedidos_Result)" />
   </EntityContainer>
   <ComplexType Name="UDP_CargarCiudades_Result">
     <Property Type="Int32" Name="ciu_ID" Nullable="false" />
@@ -1282,5 +1283,9 @@
   <ComplexType Name="UDP_CargarCliente_Result">
     <Property Type="Int32" Name="client_ID" Nullable="false" />
     <Property Type="String" Name="client_Nombre" Nullable="false" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="UDP_CargarPedidos_Result">
+    <Property Type="Int32" Name="pedi_ID" Nullable="false" />
+    <Property Type="String" Name="pedi_Code" Nullable="false" MaxLength="21" />
   </ComplexType>
 </Schema>

@@ -1829,7 +1829,7 @@ SELECT T3.pedi_Code, t2.art_Descripcion, t1.det_Cantidad FROM tbPedidoDetalles T
 		ON T1.pedi_ID = T3.pedi_ID
 		WHERE T1.pedi_ID = @ID
 END
-
+-------------ddls----------------------------------------------
 go
 CREATE OR ALTER PROCEDURE UDP_CargarFabricas
 AS
@@ -1839,10 +1839,18 @@ BEGIN
 	SELECT fab_ID, fab_Descripcion FROM tbFabricas WHERE fab_Estado = 1
 END
 GO
-CREATE OR ALTER PROCEDURE UDP_CargarClientes
+CREATE OR ALTER PROCEDURE UDP_CargarCliente
 AS
 BEGIN
 	SELECT '0' AS client_ID, ' Seleccione un Cliente' AS client_Nombre
 	UNION ALL
 	SELECT  client_ID ,client_Nombre FROM tbClientes WHERE client_Estado = 1
+END
+go
+CREATE OR ALTER PROCEDURE UDP_CargarPedidos
+AS
+BEGIN
+	SELECT '0' AS pedi_ID, ' Seleccione un Pedido' AS pedi_Code
+	UNION ALL
+	SELECT	pedi_ID, pedi_Code from tbPedidos WHERE pedi_Estado = 1
 END

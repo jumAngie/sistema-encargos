@@ -134,6 +134,14 @@ namespace Sistema_Envios.Controllers
             return RedirectToAction("Index");
         }
 
+        public JsonResult CargarPedidos()
+        {
+            var ddl = db.UDP_CargarPedidos().ToList();
+
+            return Json(ddl, JsonRequestBehavior.AllowGet);
+
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
