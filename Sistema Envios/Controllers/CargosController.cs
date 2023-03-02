@@ -63,44 +63,82 @@ namespace Sistema_Envios.Controllers
             return View();
         }
 
-        // GET: Cargos/Edit/5
-        public ActionResult Edit(int? id)
+
+
+        [HttpPost]
+        public JsonResult Cargar(string carg_Id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            tbCargos tbCargos = db.tbCargos.Find(id);
-            if (tbCargos == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.rep_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbCargos.rep_UsuarioCreador);
-            ViewBag.rep_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbCargos.rep_UsuarioMod);
-            return View(tbCargos);
+
+            var tbCargos = db.UDP_CARGAR_CARGOS(int.Parse(carg_Id)).ToList();
+            return Json(tbCargos, JsonRequestBehavior.AllowGet);
         }
 
-        // POST: Cargos/Edit/5
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "carg_Id,carg_Description,rep_UsuarioCreador,rep_FechaCreacion,rep_UsuarioMod,rep_FechaMod,rep_Estado")] tbCargos tbCargos)
-        {
-            ModelState.Remove("rep_UsuarioCreador");
-            ModelState.Remove("rep_FechaCreacion");
-            ModelState.Remove("rep_FechaMod");
-            ModelState.Remove("rep_Estado");
 
+
+
+
+        [HttpPost, ActionName("Editores")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Edito(string ID, string Descripcion)
+
+        {
             if (ModelState.IsValid)
             {
-                db.UDP_Editar_Cargos(tbCargos.carg_Id, tbCargos.carg_Description, UsuarioModi);
+                //string id = Session["IdUsuario"].ToString();
+                var Edit = db.UDP_Editar_Cargos(int.Parse(ID),Descripcion, "1");
+
+
                 return RedirectToAction("Index");
+
+
             }
-            ViewBag.rep_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbCargos.rep_UsuarioCreador);
-            ViewBag.rep_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbCargos.rep_UsuarioMod);
-            return View(tbCargos);
+
+            return RedirectToAction("Index");
         }
+
+
+
+
+
+
+        // GET: Cargos/Edit/5
+        //public ActionResult Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    tbCargos tbCargos = db.tbCargos.Find(id);
+        //    if (tbCargos == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    ViewBag.rep_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbCargos.rep_UsuarioCreador);
+        //    ViewBag.rep_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbCargos.rep_UsuarioMod);
+        //    return View(tbCargos);
+        //}
+
+        //// POST: Cargos/Edit/5
+        //// Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
+        //// más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit([Bind(Include = "carg_Id,carg_Description,rep_UsuarioCreador,rep_FechaCreacion,rep_UsuarioMod,rep_FechaMod,rep_Estado")] tbCargos tbCargos)
+        //{
+        //    ModelState.Remove("rep_UsuarioCreador");
+        //    ModelState.Remove("rep_FechaCreacion");
+        //    ModelState.Remove("rep_FechaMod");
+        //    ModelState.Remove("rep_Estado");
+
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.UDP_Editar_Cargos(tbCargos.carg_Id, tbCargos.carg_Description, UsuarioModi);
+        //        return RedirectToAction("Index");
+        //    }
+        //    ViewBag.rep_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbCargos.rep_UsuarioCreador);
+        //    ViewBag.rep_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbCargos.rep_UsuarioMod);
+        //    return View(tbCargos);
+        //}
 
         // GET: Cargos/Delete/5
         public ActionResult Delete(int id)

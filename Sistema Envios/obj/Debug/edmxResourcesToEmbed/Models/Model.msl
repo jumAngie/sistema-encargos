@@ -456,5 +456,13 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_CARGAR_CARGOS" FunctionName="DBArticulosEncargosModel.Store.UDP_CARGAR_CARGOS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CARGAR_CARGOS_Result">
+          <ScalarProperty Name="carg_Id" ColumnName="carg_Id" />
+          <ScalarProperty Name="carg_Description" ColumnName="carg_Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>
