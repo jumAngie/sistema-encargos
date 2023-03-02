@@ -245,6 +245,9 @@
     <Compile Include="Models\UDP_CARGAR_CIUDAD_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UDP_CARGAR_DEPARTAMENTO_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UDP_ListaDeArticulosPorPedido_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -2941,7 +2944,6 @@
     <Content Include="Views\Departamentos\Create.cshtml" />
     <Content Include="Views\Departamentos\Delete.cshtml" />
     <Content Include="Views\Departamentos\Details.cshtml" />
-    <Content Include="Views\Departamentos\Edit.cshtml" />
     <Content Include="Views\Direcciones\Create.cshtml" />
     <Content Include="Views\Direcciones\Delete.cshtml" />
     <Content Include="Views\Direcciones\Details.cshtml" />

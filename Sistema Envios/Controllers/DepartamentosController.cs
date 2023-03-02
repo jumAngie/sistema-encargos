@@ -63,10 +63,10 @@ namespace Sistema_Envios.Controllers
 
 
         [HttpPost]
-        public JsonResult Cargar(string ciu_ID)
+        public JsonResult Cargar(string depto_ID)
         {
 
-            var tbCargos = db.UDP_CARGAR_CIUDAD(int.Parse(ciu_ID)).ToList();
+            var tbCargos = db.UDP_CARGAR_DEPARTAMENTO(int.Parse(depto_ID)).ToList();
             return Json(tbCargos, JsonRequestBehavior.AllowGet);
         }
 
@@ -82,7 +82,7 @@ namespace Sistema_Envios.Controllers
             if (ModelState.IsValid)
             {
                 //string id = Session["IdUsuario"].ToString();
-                var Edit = db.UDP_Editar_Ciudades(int.Parse(ID), Descripcion, "1");
+                var Edit = db.UDP_Editar_Departamentos(int.Parse(ID), Descripcion, "1");
 
 
                 return RedirectToAction("Index");

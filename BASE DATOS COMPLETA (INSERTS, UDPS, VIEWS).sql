@@ -1920,5 +1920,21 @@ BEGIN
 
  GO
 
+ --------------------------------
+
+ CREATE OR ALTER PROCEDURE UDP_CARGAR_DEPARTAMENTO
+ @depto_ID   INT
+ AS
+ BEGIN
+
+ SELECT [depto_ID], [depto_Descripcion] FROM [dbo].[tbDepartamentos]
+ WHERE [depto_ID] = @depto_ID
+ END
+
+ GO
+
+
+
+
 
 

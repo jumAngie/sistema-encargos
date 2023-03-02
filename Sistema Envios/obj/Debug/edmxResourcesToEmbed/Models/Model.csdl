@@ -1256,6 +1256,9 @@
     <FunctionImport Name="UDP_CARGAR_CIUDAD" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGAR_CIUDAD_Result)">
       <Parameter Name="ciu_ID" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="UDP_CARGAR_DEPARTAMENTO" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGAR_DEPARTAMENTO_Result)">
+      <Parameter Name="depto_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="UDP_CARGAR_ARTICULO_Result">
     <Property Type="Int32" Name="art_ID" Nullable="false" />
@@ -1309,5 +1312,9 @@
   <ComplexType Name="UDP_CARGAR_CIUDAD_Result">
     <Property Type="Int32" Name="ciu_ID" Nullable="false" />
     <Property Type="String" Name="ciu_Descripcion" Nullable="false" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="UDP_CARGAR_DEPARTAMENTO_Result">
+    <Property Type="Int32" Name="depto_ID" Nullable="false" />
+    <Property Type="String" Name="depto_Descripcion" Nullable="false" MaxLength="255" />
   </ComplexType>
 </Schema>

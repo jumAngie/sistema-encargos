@@ -912,5 +912,14 @@ namespace Sistema_Envios.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_CIUDAD_Result>("UDP_CARGAR_CIUDAD", ciu_IDParameter);
         }
+    
+        public virtual ObjectResult<UDP_CARGAR_DEPARTAMENTO_Result> UDP_CARGAR_DEPARTAMENTO(Nullable<int> depto_ID)
+        {
+            var depto_IDParameter = depto_ID.HasValue ?
+                new ObjectParameter("depto_ID", depto_ID) :
+                new ObjectParameter("depto_ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_DEPARTAMENTO_Result>("UDP_CARGAR_DEPARTAMENTO", depto_IDParameter);
+        }
     }
 }
