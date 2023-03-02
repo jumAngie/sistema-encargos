@@ -41,7 +41,7 @@ namespace Sistema_Envios.Controllers
         public ActionResult Create()
         {
             ViewBag.depto_ID = new SelectList(db.UDP_CargarDepartamentos(), "depto_ID", "depto_Descripcion");
-            ViewBag.est_ID = new SelectList(db.UDP_CargarArticulos(), "est_ID", "est_Descripcion");
+            ViewBag.est_ID = new SelectList(db.UDP_CargarEstadosCiviles(), "est_ID", "est_Descripcion");
             return View();
         }
 

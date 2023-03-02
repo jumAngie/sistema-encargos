@@ -3034,6 +3034,7 @@
     <Content Include="Views\Usuarios\EliminarUsuario.cshtml" />
     <Content Include="Views\Direcciones\EliminarDireccion.cshtml" />
     <Content Include="Views\PedidoDetalles\EliminarPedidoDetalle.cshtml" />
+    <Content Include="Views\Empleados\EliminarEmpleado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
