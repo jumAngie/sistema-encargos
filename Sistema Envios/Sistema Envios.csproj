@@ -254,6 +254,9 @@
     <Compile Include="Models\UDP_CARGAR_DEPARTAMENTO_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UDP_CARGAR_ESTADOSCIVILES_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UDP_ListaDeArticulosPorPedido_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -2916,7 +2919,10 @@
     <Content Include="Scripts\CrearFabrica.js" />
     <Content Include="Scripts\DepartamentosEditar.js" />
     <Content Include="Scripts\Detalles.js" />
+    <Content Include="Scripts\EliminarFabrica.js" />
+    <Content Include="Scripts\EliminarPedido.js" />
     <Content Include="Scripts\EmpleadosScript\CargarCiudades.js" />
+    <Content Include="Scripts\EstadosCivilesEditar.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -2963,7 +2969,6 @@
     <Content Include="Views\EstadosCiviles\Create.cshtml" />
     <Content Include="Views\EstadosCiviles\Delete.cshtml" />
     <Content Include="Views\EstadosCiviles\Details.cshtml" />
-    <Content Include="Views\EstadosCiviles\Edit.cshtml" />
     <Content Include="Views\Fabricas\Create.cshtml" />
     <Content Include="Views\Fabricas\Delete.cshtml" />
     <Content Include="Views\Fabricas\Details.cshtml" />
@@ -3002,8 +3007,14 @@
     <Content Include="Views\Fabricas\CrearFabrica.cshtml" />
     <Content Include="Views\EstadosCiviles\CrearEstadoCivil.cshtml" />
     <Content Include="Views\PedidoDetalles\CreateDetalles.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Clientes\PedidosPorCliente.cshtml" />
     <Content Include="Views\Clientes\ModalArticulos.cshtml" />
+=======
+    <Content Include="Views\Fabricas\EliminarFabrica.cshtml" />
+    <Content Include="Views\Pedidos\EliminarPedido.cshtml" />
+    <Content Include="Views\EstadosCiviles\_EditEstado.cshtml" />
+>>>>>>> 0b96f191870a178f6e913568e8e7d6576c81cbd0
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

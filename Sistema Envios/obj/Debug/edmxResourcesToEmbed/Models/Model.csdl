@@ -1278,6 +1278,9 @@
     <FunctionImport Name="UDF_ArticulosPorPedido" IsComposable="true" ReturnType="Collection(DBArticulosEncargosModel.UDF_ArticulosPorPedido_Result)">
       <Parameter Name="PedidoCode" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="UDP_CARGAR_ESTADOSCIVILES" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGAR_ESTADOSCIVILES_Result)">
+      <Parameter Name="est_ID" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="UDP_CARGAR_ARTICULO_Result">
     <Property Type="Int32" Name="art_ID" Nullable="false" />
@@ -1354,5 +1357,9 @@
     <Property Type="String" Name="PEDIDO" Nullable="false" MaxLength="6" />
     <Property Type="String" Name="ARTICULO" Nullable="false" MaxLength="200" />
     <Property Type="Int32" Name="CANTIDAD" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="UDP_CARGAR_ESTADOSCIVILES_Result">
+    <Property Type="String" Name="est_ID" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="est_Descripcion" Nullable="true" MaxLength="100" />
   </ComplexType>
 </Schema>

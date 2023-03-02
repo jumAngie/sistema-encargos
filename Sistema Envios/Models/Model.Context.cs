@@ -960,5 +960,14 @@ namespace Sistema_Envios.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<UDF_ArticulosPorPedido_Result>("[DBArticulosEncargosEntities1].[UDF_ArticulosPorPedido](@PedidoCode)", pedidoCodeParameter);
         }
+    
+        public virtual ObjectResult<UDP_CARGAR_ESTADOSCIVILES_Result> UDP_CARGAR_ESTADOSCIVILES(string est_ID)
+        {
+            var est_IDParameter = est_ID != null ?
+                new ObjectParameter("est_ID", est_ID) :
+                new ObjectParameter("est_ID", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_ESTADOSCIVILES_Result>("UDP_CARGAR_ESTADOSCIVILES", est_IDParameter);
+        }
     }
 }

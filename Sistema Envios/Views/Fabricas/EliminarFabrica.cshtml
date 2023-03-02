@@ -1,0 +1,23 @@
+﻿
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<div class="modal fade" id="confirm-delete-modal" tabindex="-1" role="dialog" aria-labelledby="confirm-delete-modal-label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirm-delete-modal-label">Arrepientase de su decisión</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ¿Desea eliminar esta fabrica?
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn-close-modal" class="btn btn-secondary">Cancelar</button>
+                <a href="#" id="btn-confirm-delete" class="btn btn-danger" onclick="Borrar()">Eliminar</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/EliminarFabrica.js"></script>
