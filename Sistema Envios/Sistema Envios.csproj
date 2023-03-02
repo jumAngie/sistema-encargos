@@ -2923,6 +2923,7 @@
     <Content Include="Scripts\DepartamentosEditar.js" />
     <Content Include="Scripts\Detalles.js" />
     <Content Include="Scripts\EditarFabricas.js" />
+    <Content Include="Scripts\EliminarDireccion.js" />
     <Content Include="Scripts\EliminarFabrica.js" />
     <Content Include="Scripts\EliminarPedido.js" />
     <Content Include="Scripts\EliminarUsuario.js" />
@@ -3017,6 +3018,7 @@
     <Content Include="Views\Fabricas\EliminarFabrica.cshtml" />
     <Content Include="Views\Pedidos\EliminarPedido.cshtml" />
     <Content Include="Views\Usuarios\EliminarUsuario.cshtml" />
+    <Content Include="Views\Direcciones\EliminarDireccion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
