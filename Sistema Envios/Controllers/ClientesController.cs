@@ -91,7 +91,7 @@ namespace Sistema_Envios.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "client_ID,client_Nombre,client_Identidad,client_EstadoCivil,client_Sexo,client_Telefono,client_Saldo,client_LimiteCredito,client_Descuento,client_UsuarioCreador,client_FechaCreacion,client_UsuarioMod,client_FechaMod,client_Estado")] tbClientes tbClientes)
         {
-            
+
             ModelState.Remove("client_UsuarioCreador");
             ModelState.Remove("client_FechaCreacion");
             ModelState.Remove("client_FechaMod");

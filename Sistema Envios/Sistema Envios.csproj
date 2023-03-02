@@ -2899,6 +2899,7 @@
     <Content Include="Scripts\CrearDirecciones.js" />
     <Content Include="Scripts\CrearEstadoCivil.js" />
     <Content Include="Scripts\CrearFabrica.js" />
+    <Content Include="Scripts\DepartamentosEditar.js" />
     <Content Include="Scripts\Detalles.js" />
     <Content Include="Scripts\EmpleadosScript\CargarCiudades.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -2933,7 +2934,6 @@
     <Content Include="Views\Ciudades\Create.cshtml" />
     <Content Include="Views\Ciudades\Delete.cshtml" />
     <Content Include="Views\Ciudades\Details.cshtml" />
-    <Content Include="Views\Ciudades\Edit.cshtml" />
     <Content Include="Views\Clientes\Create.cshtml" />
     <Content Include="Views\Clientes\Delete.cshtml" />
     <Content Include="Views\Clientes\Details.cshtml" />

@@ -61,44 +61,80 @@ namespace Sistema_Envios.Controllers
             return View();
         }
 
-        // GET: Departamentos/Edit/5
-        public ActionResult Edit(int? id)
+
+        [HttpPost]
+        public JsonResult Cargar(string ciu_ID)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            tbDepartamentos tbDepartamentos = db.tbDepartamentos.Find(id);
-            if (tbDepartamentos == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.usu_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbDepartamentos.usu_UsuarioCreador);
-            ViewBag.usu_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbDepartamentos.usu_UsuarioMod);
-            return View(tbDepartamentos);
+
+            var tbCargos = db.UDP_CARGAR_CIUDAD(int.Parse(ciu_ID)).ToList();
+            return Json(tbCargos, JsonRequestBehavior.AllowGet);
         }
 
-        // POST: Departamentos/Edit/5
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "depto_ID,depto_Descripcion,usu_UsuarioCreador,usu_FechaCreacion,usu_UsuarioMod,depto_FechaMod")] tbDepartamentos tbDepartamentos)
-        {
-            // ,,usu_UsuarioMod,
-            ModelState.Remove("usu_UsuarioCreador");
-            ModelState.Remove("usu_FechaCreacion");
-            ModelState.Remove("depto_FechaMod");
 
+
+
+
+        [HttpPost, ActionName("Editores")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Edito(string ID, string Descripcion)
+
+        {
             if (ModelState.IsValid)
             {
-                db.UDP_Editar_Departamentos(tbDepartamentos.depto_ID, tbDepartamentos.depto_Descripcion, Usu).ToString();
+                //string id = Session["IdUsuario"].ToString();
+                var Edit = db.UDP_Editar_Ciudades(int.Parse(ID), Descripcion, "1");
+
+
                 return RedirectToAction("Index");
+
+
             }
-            ViewBag.usu_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbDepartamentos.usu_UsuarioCreador);
-            ViewBag.usu_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbDepartamentos.usu_UsuarioMod);
-            return View(tbDepartamentos);
+
+            return RedirectToAction("Index");
         }
+
+
+
+
+
+        // GET: Departamentos/Edit/5
+        //public ActionResult Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    tbDepartamentos tbDepartamentos = db.tbDepartamentos.Find(id);
+        //    if (tbDepartamentos == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    ViewBag.usu_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbDepartamentos.usu_UsuarioCreador);
+        //    ViewBag.usu_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbDepartamentos.usu_UsuarioMod);
+        //    return View(tbDepartamentos);
+        //}
+
+        //// POST: Departamentos/Edit/5
+        //// Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
+        //// más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit([Bind(Include = "depto_ID,depto_Descripcion,usu_UsuarioCreador,usu_FechaCreacion,usu_UsuarioMod,depto_FechaMod")] tbDepartamentos tbDepartamentos)
+        //{
+        //    // ,,usu_UsuarioMod,
+        //    ModelState.Remove("usu_UsuarioCreador");
+        //    ModelState.Remove("usu_FechaCreacion");
+        //    ModelState.Remove("depto_FechaMod");
+
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.UDP_Editar_Departamentos(tbDepartamentos.depto_ID, tbDepartamentos.depto_Descripcion, Usu).ToString();
+        //        return RedirectToAction("Index");
+        //    }
+        //    ViewBag.usu_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbDepartamentos.usu_UsuarioCreador);
+        //    ViewBag.usu_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbDepartamentos.usu_UsuarioMod);
+        //    return View(tbDepartamentos);
+        //}
 
         // GET: Departamentos/Delete/5
         //public ActionResult Delete(int? id)
