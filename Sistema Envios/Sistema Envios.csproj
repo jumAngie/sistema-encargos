@@ -2905,6 +2905,7 @@
     <Content Include="Scripts\DepartamentosEditar.js" />
     <Content Include="Scripts\Detalles.js" />
     <Content Include="Scripts\EliminarFabrica.js" />
+    <Content Include="Scripts\EliminarPedido.js" />
     <Content Include="Scripts\EmpleadosScript\CargarCiudades.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2992,6 +2993,7 @@
     <Content Include="Views\EstadosCiviles\CrearEstadoCivil.cshtml" />
     <Content Include="Views\PedidoDetalles\CreateDetalles.cshtml" />
     <Content Include="Views\Fabricas\EliminarFabrica.cshtml" />
+    <Content Include="Views\Pedidos\EliminarPedido.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
