@@ -487,5 +487,14 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_CARGARDATOS_FABRICA" FunctionName="DBArticulosEncargosModel.Store.UDP_CARGARDATOS_FABRICA">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CARGARDATOS_FABRICA_Result">
+          <ScalarProperty Name="fab_ID" ColumnName="fab_ID" />
+          <ScalarProperty Name="fab_Descripcion" ColumnName="fab_Descripcion" />
+          <ScalarProperty Name="fab_Telefono" ColumnName="fab_Telefono" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

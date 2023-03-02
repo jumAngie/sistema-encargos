@@ -1952,6 +1952,17 @@ BEGIN
 --[est_ID], [est_Descripcion], [est_UsuCrea], [est_FechaCrea], [est_UsuMod], [est_FechaMod], [est_Estado]
 
 
+CREATE OR ALTER PROCEDURE UDP_CARGARDATOS_FABRICA
+@fab_ID    INT
+AS
+BEGIN
+SELECT [fab_ID],[fab_Descripcion],[fab_Telefono] FROM [dbo].[tbFabricas]
+WHERE [fab_ID] = @fab_ID
+
+END
+
+GO
+
 
 
 

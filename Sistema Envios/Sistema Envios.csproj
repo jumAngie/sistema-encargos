@@ -227,6 +227,9 @@
     <Compile Include="Models\UDP_CargarCliente_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UDP_CARGARDATOS_FABRICA_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UDP_CargarDepartamentos_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -2907,6 +2910,7 @@
     <Content Include="Scripts\CrearFabrica.js" />
     <Content Include="Scripts\DepartamentosEditar.js" />
     <Content Include="Scripts\Detalles.js" />
+    <Content Include="Scripts\EditarFabricas.js" />
     <Content Include="Scripts\EliminarFabrica.js" />
     <Content Include="Scripts\EliminarPedido.js" />
     <Content Include="Scripts\EmpleadosScript\CargarCiudades.js" />
