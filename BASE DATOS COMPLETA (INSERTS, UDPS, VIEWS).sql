@@ -1863,9 +1863,17 @@ GO
 CREATE OR ALTER PROCEDURE UDP_CargarArticulos
 AS
 BEGIN
-	SELECT '0' AS art_ID, ' Seleccione un Pedido' AS art_Descripcion
+	SELECT '0' AS art_ID, ' Seleccione un Articulo' AS art_Descripcion
 	UNION ALL
 	SELECT	art_ID, art_Descripcion from tbArticulos WHERE art_Estado = 1
+END
+GO
+CREATE OR ALTER PROCEDURE UDP_CargarEstadosCiviles
+AS
+BEGIN
+	SELECT '0' AS est_ID, ' Seleccione un Estado Civil' AS est_Descripcion
+	UNION ALL
+	SELECT	est_ID, est_Descripcion FROM [dbo].[tbEstadosCiviles] WHERE est_Estado = 1
 END
 
 
