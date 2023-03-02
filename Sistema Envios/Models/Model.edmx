@@ -2615,16 +2615,11 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <FunctionImport Name="UDF_PedidosPorCliente" IsComposable="true" ReturnType="Collection(DBArticulosEncargosModel.UDF_PedidosPorCliente_Result)">
           <Parameter Name="Cliente_ID" Mode="In" Type="Int32" />
           </FunctionImport>
-<<<<<<< HEAD
-          <FunctionImport Name="UDF_ArticulosPorPedido" IsComposable="true" ReturnType="Collection(DBArticulosEncargosModel.UDF_ArticulosPorPedido_Result)">
+            <FunctionImport Name="UDF_ArticulosPorPedido" IsComposable="true" ReturnType="Collection(DBArticulosEncargosModel.UDF_ArticulosPorPedido_Result)">
             <Parameter Name="PedidoCode" Mode="In" Type="String" />
-=======
-          <FunctionImport Name="UDP_CARGAR_DEPARTAMENTO" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGAR_DEPARTAMENTO_Result)">
-          <Parameter Name="depto_ID" Mode="In" Type="Int32" />
-          </FunctionImport>
+		  </FunctionImport>
           <FunctionImport Name="UDP_CARGAR_ESTADOSCIVILES" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGAR_ESTADOSCIVILES_Result)">
           <Parameter Name="est_ID" Mode="In" Type="String" />
->>>>>>> 0b96f191870a178f6e913568e8e7d6576c81cbd0
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="UDP_CARGAR_ARTICULO_Result">

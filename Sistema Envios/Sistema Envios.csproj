@@ -3007,14 +3007,11 @@
     <Content Include="Views\Fabricas\CrearFabrica.cshtml" />
     <Content Include="Views\EstadosCiviles\CrearEstadoCivil.cshtml" />
     <Content Include="Views\PedidoDetalles\CreateDetalles.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Clientes\PedidosPorCliente.cshtml" />
     <Content Include="Views\Clientes\ModalArticulos.cshtml" />
-=======
     <Content Include="Views\Fabricas\EliminarFabrica.cshtml" />
     <Content Include="Views\Pedidos\EliminarPedido.cshtml" />
     <Content Include="Views\EstadosCiviles\_EditEstado.cshtml" />
->>>>>>> 0b96f191870a178f6e913568e8e7d6576c81cbd0
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
