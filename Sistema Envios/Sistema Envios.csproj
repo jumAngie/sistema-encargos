@@ -242,6 +242,9 @@
     <Compile Include="Models\UDP_CARGAR_CARGOS_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UDP_CARGAR_CIUDAD_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UDP_ListaDeArticulosPorPedido_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -2889,6 +2892,7 @@
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\CargosEditar.js" />
+    <Content Include="Scripts\CiudadesEditar.js" />
     <Content Include="Scripts\CrearArticulo.js" />
     <Content Include="Scripts\CrearCargos.js" />
     <Content Include="Scripts\CrearDepartamentos.js" />

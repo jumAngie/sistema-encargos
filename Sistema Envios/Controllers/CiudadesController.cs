@@ -66,46 +66,85 @@ namespace Sistema_Envios.Controllers
             return View(tbCiudades);
         }
 
-        // GET: Ciudades/Edit/5
-        public ActionResult Edit(int? id)
+
+
+
+
+
+        [HttpPost]
+        public JsonResult Cargar(string ciu_ID)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            tbCiudades tbCiudades = db.tbCiudades.Find(id);
-            if (tbCiudades == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.ciu_DeptoID = new SelectList(db.tbDepartamentos, "depto_ID", "depto_Descripcion", tbCiudades.ciu_DeptoID);
-            ViewBag.ciu_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbCiudades.ciu_UsuarioCreador);
-            ViewBag.ciu_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbCiudades.ciu_UsuarioMod);
-            return View(tbCiudades);
+
+            var tbCargos = db.UDP_CARGAR_CIUDAD(int.Parse(ciu_ID)).ToList();
+            return Json(tbCargos, JsonRequestBehavior.AllowGet);
         }
 
-        // POST: Ciudades/Edit/5
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ciu_ID,ciu_Descripcion,ciu_DeptoID,ciu_UsuarioCreador,ciu_FechaCreacion,ciu_UsuarioMod,ciu_FechaMod")] tbCiudades tbCiudades)
+
+
+
+
+        [HttpPost, ActionName("Editores")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Edito(string ID, string Descripcion)
+
         {
-            
-            ModelState.Remove("ciu_UsuarioCreador");
-            ModelState.Remove("ciu_FechaCreacion");
-            ModelState.Remove("ciu_FechaMod");
-            ModelState.Remove("ciu_FechaMod");
             if (ModelState.IsValid)
             {
-                db.UDP_Editar_Ciudades(tbCiudades.ciu_ID, tbCiudades.ciu_Descripcion, UsuarioModi).ToString();
+                //string id = Session["IdUsuario"].ToString();
+                var Edit = db.UDP_Editar_Ciudades(int.Parse(ID), Descripcion, "1");
+
+
                 return RedirectToAction("Index");
+
+
             }
-            ViewBag.ciu_DeptoID = new SelectList(db.tbDepartamentos, "depto_ID", "depto_Descripcion", tbCiudades.ciu_DeptoID);
-            ViewBag.ciu_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbCiudades.ciu_UsuarioCreador);
-            ViewBag.ciu_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbCiudades.ciu_UsuarioMod);
-            return View(tbCiudades);
+
+            return RedirectToAction("Index");
         }
+
+
+
+
+        // GET: Ciudades/Edit/5
+        //public ActionResult Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    tbCiudades tbCiudades = db.tbCiudades.Find(id);
+        //    if (tbCiudades == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    ViewBag.ciu_DeptoID = new SelectList(db.tbDepartamentos, "depto_ID", "depto_Descripcion", tbCiudades.ciu_DeptoID);
+        //    ViewBag.ciu_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbCiudades.ciu_UsuarioCreador);
+        //    ViewBag.ciu_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbCiudades.ciu_UsuarioMod);
+        //    return View(tbCiudades);
+        //}
+
+        //// POST: Ciudades/Edit/5
+        //// Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
+        //// más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit([Bind(Include = "ciu_ID,ciu_Descripcion,ciu_DeptoID,ciu_UsuarioCreador,ciu_FechaCreacion,ciu_UsuarioMod,ciu_FechaMod")] tbCiudades tbCiudades)
+        //{
+
+        //    ModelState.Remove("ciu_UsuarioCreador");
+        //    ModelState.Remove("ciu_FechaCreacion");
+        //    ModelState.Remove("ciu_FechaMod");
+        //    ModelState.Remove("ciu_FechaMod");
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.UDP_Editar_Ciudades(tbCiudades.ciu_ID, tbCiudades.ciu_Descripcion, UsuarioModi).ToString();
+        //        return RedirectToAction("Index");
+        //    }
+        //    ViewBag.ciu_DeptoID = new SelectList(db.tbDepartamentos, "depto_ID", "depto_Descripcion", tbCiudades.ciu_DeptoID);
+        //    ViewBag.ciu_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbCiudades.ciu_UsuarioCreador);
+        //    ViewBag.ciu_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbCiudades.ciu_UsuarioMod);
+        //    return View(tbCiudades);
+        //}
 
         // GET: Ciudades/Delete/5
         //public ActionResult Delete(int? id)

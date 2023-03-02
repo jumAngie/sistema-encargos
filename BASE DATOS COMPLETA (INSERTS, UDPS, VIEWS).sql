@@ -1898,3 +1898,27 @@ END
 GO
 ----------------------------------
 
+CREATE OR ALTER PROCEDURE UDP_CARGAR_CARGOS
+@carg_Id   INT
+AS
+BEGIN
+ SELECT [carg_Id],[carg_Description] FROM [dbo].[tbCargos]
+ WHERE [carg_Id] = @carg_Id
+ END
+
+ GO
+ -------------------------------------
+
+ CREATE OR ALTER PROCEDURE UDP_CARGAR_CIUDAD
+ @ciu_ID  INT
+ AS
+ BEGIN
+ SELECT [ciu_ID], [ciu_Descripcion] FROM [dbo].[tbCiudades]
+ WHERE [ciu_ID] = @ciu_ID
+
+ END
+
+ GO
+
+
+

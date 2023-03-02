@@ -6,6 +6,9 @@
 }
 
 
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
@@ -13,41 +16,71 @@
             <div class="float-e-margins">
                 <div class="ibox-title">
                     <div class="ibox-tools">
-                       @Html.ActionLink("Nuevo", "Create", null, new { @class = "btn btn-primary"})
+                        @Html.ActionLink("Nuevo", "Create", null, new { @class = "btn btn-primary" })
                     </div>
                 </div>
-                  <br />
+                <br />
                 <div class="ibox-content">
-                  <table class="table table-responsive" id="DataTable">
-                    <thead>
-                        <tr role="row">
-                            <th>@Html.DisplayNameFor(model => model.ID)</th>
-                            <th>@Html.DisplayNameFor(model => model.NOMBRE_CIUDAD)</th>
-                           
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                      @foreach (var item in Model) {
-                        <tr class="gradeA odd" role="row" data-id="@item.ID">
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ID)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.NOMBRE_CIUDAD)
-                            </td>
-                           
-                            <td>
-                              @Html.ActionLink("Detalles", "Details", new { id=item.ID },  new {@class = "btn btn-default btn-xs" })
-                              @Html.ActionLink("Editar", "Edit", new { id=item.ID }, new {@class = "btn btn-primary btn-xs" })
-                            </td>
-                        </tr>
-                      }
-                    </tbody>
-                  </table>
+                    <table class="table table-responsive" id="DataTable">
+                        <thead>
+                            <tr role="row">
+                                <th>@Html.DisplayNameFor(model => model.ID)</th>
+                                <th>@Html.DisplayNameFor(model => model.NOMBRE_CIUDAD)</th>
+
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr class="gradeA odd" role="row" data-id="@item.ID">
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NOMBRE_CIUDAD)
+                                    </td>
+
+                                    <td>
+                                        @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn btn-default btn-xs" })
+
+
+                                        <button class='btn btn-secondary btn-sm' type='submit' id="tbnModal" value="Editar" onclick="AbrirModal(@item.ID)"><i class='fas fa-pen'></i>Editar</button>
+
+                                        <form method="post">
+                                            @Html.AntiForgeryToken()
+                                            <div class="modal fade" id="FormModal" tabindex="-1" role="dialog" aria-labelledby="Crear-Articulos" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="crear-cargos">Articulos</h5>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <label> CARGO </label>
+                                                            <input type="text" name="txtDescripcion" id="txtDescripcion" class="form-control" />
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <input type="hidden" id="ciu_ID" />
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="Cerrar()">Close</button>
+                                                            <input type="submit" value="Editar" onclick="Editar(@item.ID)" class="btn btn-default" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </form>
+
+                                        <script src="~/Scripts/CiudadesEditar.js"></script>
+
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
- </div>
-    
+</div>
+
