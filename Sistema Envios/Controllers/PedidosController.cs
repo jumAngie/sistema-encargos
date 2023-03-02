@@ -17,9 +17,15 @@ namespace Sistema_Envios.Controllers
 
         // GET: Pedidos
         public ActionResult Index()
-        {
-            var tbPedidos = db.V_INDEX_PEDIDOS;
-            return View(tbPedidos.ToList());
+        {if (Session.Count > 0)
+            {
+                var tbPedidos = db.V_INDEX_PEDIDOS;
+                return View(tbPedidos.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         // GET: Pedidos/Details/5

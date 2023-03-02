@@ -1,3 +1,4 @@
+GO
 CREATE OR ALTER PROCEDURE V_TICKET_PEDIDOSPORCLIENTE
 		@ID INT
 AS
@@ -9,8 +10,6 @@ ON		pedidos.estv_Id = estadoenvio.estv_Id				INNER JOIN	[dbo].[tbEmpleados] empl
 ON		pedidos.emp_Id = empleados.emp_Id
 WHERE	clientes.client_ID = @ID
 END
-
-EXEC V_TICKET_PEDIDOSPORCLIENTE 1
 
 go
 CREATE FUNCTION UDF_PedidosPorCliente(@Cliente_ID INT)
@@ -26,7 +25,7 @@ ON		pedidos.emp_Id = empleados.emp_Id
 WHERE	clientes.client_ID = @Cliente_ID
 )
 GO
-SELECT * FROM UDF_PedidosPorCliente(2)
+
 GO
 CREATE FUNCTION UDF_ArticulosPorPedido(@PedidoCode VARCHAR(6))
 RETURNS TABLE
@@ -39,8 +38,3 @@ RETURN
 		WHERE T3.pedi_Code = @PedidoCode
 )
 GO
-
-SELECT * FROM UDF_ArticulosPorPedido('CSA01')
-
-SELECT * FROM tbPedidoDetalles
-SELECT * FROM tbPedidos

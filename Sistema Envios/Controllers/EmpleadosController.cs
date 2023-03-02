@@ -17,9 +17,15 @@ namespace Sistema_Envios.Controllers
 
         // GET: Empleados
         public ActionResult Index()
-        {
-            var tbEmpleadosIndex = db.V_INDEX_EMPLEADOS;
-            return View(tbEmpleadosIndex.ToList());
+        {if (Session.Count > 0)
+            {
+                var tbEmpleadosIndex = db.V_INDEX_EMPLEADOS;
+                return View(tbEmpleadosIndex.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         // GET: Empleados/Details/5
@@ -41,7 +47,7 @@ namespace Sistema_Envios.Controllers
         public ActionResult Create()
         {
             ViewBag.depto_ID = new SelectList(db.UDP_CargarDepartamentos(), "depto_ID", "depto_Descripcion");
-            ViewBag.est_ID = new SelectList(db.tbEstadosCiviles, "est_ID", "est_Descripcion");
+            ViewBag.est_ID = new SelectList(db.UDP_CargarEstadosCiviles(), "est_ID", "est_Descripcion");
             return View();
         }
 

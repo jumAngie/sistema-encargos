@@ -1,17 +1,13 @@
 ............................. Actividades Pendientes ..................................
 
--- Agregar los udps de Insertar (FALTA USUARIOS, CIUDADES, PEDIDOS DETALLES)
--- Editar los Create y Edit. (COLOCAR LOS CAMPOS DE EMPLEADO, CLIENTE Y PEDIDOS EN 2 COLUMNAS)
--- Hacer los Tickets de Pedidos mostrando los detalles en un DataTable.
--- Hacer las Validaciones de los Roles. 
+-- Agregar los udps de INSERTAR (FALTA CIUDADES)
+-- Agregar los udps de EDITAR 	(FALTA DIRECCIONES)
+-- Editar los Create y Edit de las pantallas sin modales (COLOCAR LOS CAMPOS DE CLIENTE Y PEDIDOS EN 2 COLUMNAS)
+-- Hacer las Validaciones de los Roles. (HACER UN SESSION.COUNT > 0 EN EL INDEX DE CADA CONTROLADOR)
+-- Hacer las Validaciones de CADA CAMPO QUE NO PERMITE INGRESAR NULOS (EN JAVASCRIPT)
 
--- PARA CREAR UN USUARIO: CAMPOS (USUARIO, ROL, CLAVE, DDL DE EMPLEADO, 
-				  ES ADMIN)
--- PARA EDITAR UN USUARIO: CAMPOS (USUARIO, ROL, ES ADMIN)
-
-EN EL FORMULARIO: VALIDAR 'ES ADMIN' Y 'ROL'
-SI CHEKEA ES ADMIN, EL DDL DE ROL DEBE ESCONDERSE
-
+-- EN EL FORMULARIO: VALIDAR 'ES ADMIN' Y 'ROL'
+	SI CHEKEA ES ADMIN, EL DDL DE ROL DEBE ESCONDERSE
 // ESCONDER EL CHECKBOX Y EL DDLg
 ck.EsAdmin.checked{
 		ddl.rol.hide()}
@@ -19,3 +15,42 @@ ck.EsAdmin.checked{
 ddl.rol.selected value != '0'{
 	ck.esAdmin.hide()
 }
+
+........................................................................................
+
+CAMBIAR DISEÑO DE DETALLES: UTILIZAR EL DEFAULT Y ELIMINAR LOS CAMPOS EXTRAS
+
+COLOCAR UNA CLASE DETERMINADA A CADA BOTON: 	'NUEVO' DEBE SER PRIMARY
+						'EDITAR' SECONDARY
+						'DETALLES' DEFAULT
+						'ELIMINAR' DANGER
+						'(EXTRAS)' WARNING
+...................................................................................
+CAMBIAR DISEÑO DE LOS MODALES: 
+<style>
+    .modal-header, h4, .close {
+        background-color: orangered;
+        color: white !important;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .modal-footer {
+        background-color: #f9f9f9;
+    }
+</style>
+  <div class="modal-header" style="padding:35px 50px;">
+                <h4><span class="glyphicon glyphicon-lock"></span>NOMBRE DEL MODAL</h4>
+            </div>
+            <div class="modal-body" style="padding:40px 50px;">
+.....................................................................................
+
+CAMBIAR DISEÑO DEL LAYOUT:  -- ACOMODAR EL MENU Y SI ES POSIBLE HACER SUB MENUS Y CLASFICAR LAS PANTALLAS.
+			    -- DEJAR UN SOLO COLOR EL LAYOUT.
+			    -- COLOCAR UN SLIDER EN LA PÁGINA PRINCIPAL
+EDITAR EL BOTÓN LOG-OUT: LE HAREMOS UN REDIRECT TO LOGIN, Y DESTRUIREMOS LAS SESIONES
+
+.....................................................................................
+
+HACER EL PERFIL DEL USUARIO: CAMBIAR EL UDP Y REEMPLAZAR LAS VARIBALES DE SESIÓN EN EL PERFIL
+

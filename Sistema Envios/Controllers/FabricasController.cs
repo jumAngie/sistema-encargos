@@ -17,9 +17,15 @@ namespace Sistema_Envios.Controllers
 
         // GET: Fabricas
         public ActionResult Index()
-        {
-            var tbFabricasIndex = db.V_INDEX_FABRICAS;
-            return View(tbFabricasIndex.ToList());
+        {if (Session.Count > 0)
+            {
+                var tbFabricasIndex = db.V_INDEX_FABRICAS;
+                return View(tbFabricasIndex.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         // GET: Fabricas/Details/5

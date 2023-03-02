@@ -18,8 +18,16 @@ namespace Sistema_Envios.Controllers
         // GET: Clientes
         public ActionResult Index()
         {
-            var tbClientesIndex = db.V_INDEX_CLIENTES;
-            return View(tbClientesIndex.ToList());
+            if(Session.Count > 0)
+            {
+                var tbClientesIndex = db.V_INDEX_CLIENTES;
+                return View(tbClientesIndex.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            
         }
 
         // GET: Clientes/Details/5

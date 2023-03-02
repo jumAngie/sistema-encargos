@@ -11,12 +11,9 @@ namespace Sistema_Envios.Models
 {
     using System;
     
-    public partial class V_TICKET_PEDIDOPORCLIENTE_Result
+    public partial class UDP_CargarEstadosCiviles_Result
     {
-        public string pedi_Code { get; set; }
-        public decimal pedi_CostoEnvio { get; set; }
-        public System.DateTime pedi_Fecha { get; set; }
-        public string emp_ID { get; set; }
-        public string estv_Description { get; set; }
+        public string est_ID { get; set; }
+        public string est_Descripcion { get; set; }
     }
 }

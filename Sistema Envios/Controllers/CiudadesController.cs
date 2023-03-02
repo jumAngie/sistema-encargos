@@ -18,8 +18,15 @@ namespace Sistema_Envios.Controllers
         // GET: Ciudades
         public ActionResult Index()
         {
-            var tbCiudadesIndex = db.V_INDEX_CIUDADES;
-            return View(tbCiudadesIndex.ToList());
+            if(Session.Count > 0)
+            {
+                var tbCiudadesIndex = db.V_INDEX_CIUDADES;
+                return View(tbCiudadesIndex.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         // GET: Ciudades/Details/5

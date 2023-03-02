@@ -17,9 +17,15 @@ namespace Sistema_Envios.Controllers
 
         // GET: Departamentos
         public ActionResult Index()
-        {
-            var tbDepartamentosIndex = db.V_INDEX_DEPARTAMENTOS;
-            return View(tbDepartamentosIndex.ToList());
+        {if (Session.Count > 0)
+            {
+                var tbDepartamentosIndex = db.V_INDEX_DEPARTAMENTOS;
+                return View(tbDepartamentosIndex.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         // GET: Departamentos/Details/5
