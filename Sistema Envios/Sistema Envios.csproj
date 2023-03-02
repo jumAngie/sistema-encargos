@@ -3015,7 +3015,6 @@
     <Content Include="Views\Clientes\ModalArticulos.cshtml" />
     <Content Include="Views\Fabricas\EliminarFabrica.cshtml" />
     <Content Include="Views\Pedidos\EliminarPedido.cshtml" />
-    <Content Include="Views\EstadosCiviles\_EditEstado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

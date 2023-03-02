@@ -46,15 +46,15 @@
                                         @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn btn-default btn-xs" })
 
                                         @Html.ActionLink("Edt", "_EditEstado", new { id = item.ID }, new { @class = "btn btn-default btn-xs" })
-                                        <button class='btn btn-secondary btn-xs' type='submit' id="tbnModal" name="tbnModal" onclick="ObtenerId(@item.ID)"><i class='fas fa-pen'></i>Editar</button>
+                                        <button class='btn btn-secondary btn-xs' type='submit' id="tbnModal" name="tbnModal" onclick="ObtenerId('@item.ID')"><i class='fas fa-pen'></i>Editar</button>
 
-                                        <form method="post">
+                                        <form method="POST">
                                             @Html.AntiForgeryToken()
                                             <div class="modal fade" id="FormModal" tabindex="-1" role="dialog" aria-labelledby="Crear-Articulos" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="crear-cargos">Articulos</h5>
+                                                            <h5 class="modal-title" id="crear-cargos">Estado</h5>
                                                         </div>
                                                         <div class="modal-body">
                                                             <label> Estado</label>

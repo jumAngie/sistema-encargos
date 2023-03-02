@@ -62,30 +62,36 @@ namespace Sistema_Envios.Controllers
         }
 
 
-        [HttpPost]
-        public JsonResult Cargar(string est_ID)
-        {
-            var tbEstadosCiviles1 = db.UDP_CARGAR_ESTADOSCIVILES(est_ID).ToList();
-            return Json(tbEstadosCiviles1, JsonRequestBehavior.AllowGet);
-        }
 
+        [HttpPost]
+
+        public JsonResult Cargar (string est_ID)
+        {
+
+
+            var jso = db.UDP_CARGAR_ESTADOSCIVILES(est_ID).ToList();
+
+            return Json(jso, JsonRequestBehavior.AllowGet);
+        }
 
 
 
 
         [HttpPost, ActionName("Editores")]
         //[ValidateAntiForgeryToken]
-        public ActionResult Edito(string ID, string Descripcion)
+        public ActionResult Edito(string ID, string estado)
 
         {
             if (ModelState.IsValid)
             {
-                //string id = Session["IdUsuario"].ToString();
-                var Edit = db.UDP_Editar_EstadosCiviles(ID, Descripcion, "1");
+                if (estado != "")
+                {
+                    //string id = Session["IdUsuario"].ToString();
+                    var Edit = db.UDP_Editar_EstadosCiviles(ID, estado, "1");
 
 
-                return RedirectToAction("Index");
-
+                    return RedirectToAction("Index");
+                }
 
             }
 
@@ -96,43 +102,43 @@ namespace Sistema_Envios.Controllers
 
 
         // GET: EstadosCiviles/Edit/5
-        public ActionResult _EditEstado(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            tbEstadosCiviles tbEstadosCiviles = db.tbEstadosCiviles.Find(id);
-            if (tbEstadosCiviles == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.est_UsuCrea = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbEstadosCiviles.est_UsuCrea);
-            ViewBag.est_UsuMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbEstadosCiviles.est_UsuMod);
-            return View(tbEstadosCiviles);
-        }
+        //public ActionResult _EditEstado(string id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    tbEstadosCiviles tbEstadosCiviles = db.tbEstadosCiviles.Find(id);
+        //    if (tbEstadosCiviles == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    ViewBag.est_UsuCrea = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbEstadosCiviles.est_UsuCrea);
+        //    ViewBag.est_UsuMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbEstadosCiviles.est_UsuMod);
+        //    return View(tbEstadosCiviles);
+        //}
 
-        //POST: EstadosCiviles/Edit/5
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse.Para obtener
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult _EditEstado([Bind(Include = "est_ID,est_Descripcion,est_UsuCrea,est_FechaCrea,est_UsuMod,est_FechaMod")] tbEstadosCiviles tbEstadosCiviles)
-        {
+        ////POST: EstadosCiviles/Edit/5
+        //// Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse.Para obtener
+        //// más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult _EditEstado([Bind(Include = "est_ID,est_Descripcion,est_UsuCrea,est_FechaCrea,est_UsuMod,est_FechaMod")] tbEstadosCiviles tbEstadosCiviles)
+        //{
 
-            ModelState.Remove("est_UsuCrea");
-            ModelState.Remove("est_FechaCrea");
-            ModelState.Remove("est_FechaMod");
+        //    ModelState.Remove("est_UsuCrea");
+        //    ModelState.Remove("est_FechaCrea");
+        //    ModelState.Remove("est_FechaMod");
 
-            if (ModelState.IsValid)
-            {
-                db.UDP_Editar_EstadosCiviles(tbEstadosCiviles.est_ID, tbEstadosCiviles.est_Descripcion, Usu).ToString();
-                return RedirectToAction("Index");
-            }
-            //ViewBag.est_UsuCrea = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbEstadosCiviles.est_UsuCrea);
-            //ViewBag.est_UsuMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbEstadosCiviles.est_UsuMod);
-            return View(tbEstadosCiviles);
-        }
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.UDP_Editar_EstadosCiviles(tbEstadosCiviles.est_ID, tbEstadosCiviles.est_Descripcion, Usu).ToString();
+        //        return RedirectToAction("Index");
+        //    }
+        //    //ViewBag.est_UsuCrea = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbEstadosCiviles.est_UsuCrea);
+        //    //ViewBag.est_UsuMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbEstadosCiviles.est_UsuMod);
+        //    return View(tbEstadosCiviles);
+        //}
 
 
 
