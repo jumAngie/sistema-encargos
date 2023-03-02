@@ -117,6 +117,56 @@ namespace Sistema_Envios.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult PedidosPorCliente(string id)
+        {
+            if (id == "")
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                try
+                {
+                    var pedidos = db.UDF_PedidosPorCliente(Int32.Parse(id)).AsEnumerable();
+                    return View(pedidos);
+                }
+                catch (Exception)
+                {
+
+                    return RedirectToAction("Index");
+                }
+            }
+        }
+
+        [HttpGet]
+        public ActionResult ObtenerDatosTabla(string id)
+        {
+            if (id != null)
+            {
+                try
+                {
+                    using (var db = new DBArticulosEncargosEntities1())
+                    {
+                        var listaDatos = db.UDF_ArticulosPorPedido(id).ToList();
+                        return Json(listaDatos, JsonRequestBehavior.AllowGet);
+                    }
+
+                }
+                catch (Exception)
+                {
+
+                    return RedirectToAction("Index");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+            
+            
+        }
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

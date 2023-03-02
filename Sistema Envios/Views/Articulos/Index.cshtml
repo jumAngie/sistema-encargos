@@ -46,7 +46,7 @@
 
                                         <button class='btn btn-secondary btn-sm' type='submit' id="tbnModal" value="Editar" onclick="AbrirModal(@item.ID_ARTICULO)"><i class='fas fa-pen'></i></button>
 
-                                        <form method="post" >
+                                        <form method="post">
                                             @Html.AntiForgeryToken()
                                             <div class="modal fade" id="FormModal" tabindex="-1" role="dialog" aria-labelledby="Crear-Articulos" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
@@ -73,7 +73,7 @@
                                             </div>
 
                                         </form>
-                                        <script src="~/Scripts/ArticulosEditar.js"></script>
+                                        
 
 
 
@@ -89,6 +89,5 @@
         </div>
     </div>
 </div>
-
 @Html.Partial("CrearArticulo")
-
+<script src="~/Scripts/ArticulosEditar.js"></script>

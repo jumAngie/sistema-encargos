@@ -1,0 +1,67 @@
+﻿<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<div class="modal fade" id="modal-articulos" tabindex="-1" role="dialog" aria-labelledby="miModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="miModalLabel">Lista de Artículos</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>PEDIDO</th>
+                            <th>ARTICULO</th>
+                            <th>CANTIDAD</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnCerrar" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    $(function () {
+        $('.btn-warning').click(function () {
+            $('#modal-articulos').modal('show');
+                })
+            })
+
+    $(function () {
+        $('#btnCerrar').click(function () {
+            $('#modal-articulos').modal('hide');
+        });
+    });
+            
+
+            function Abrir() {
+                $('.btn-warning').click(function () {
+                    $('#modal-articulos').modal('show');
+                    var id = $(this).data('id')
+
+                    $.ajax({
+                        url: "/Clientes/ObtenerDatosTabla",
+                        type: 'GET',
+                        data: { id: id },
+                        success: function (data) {
+                            var tbody = $('#modal-articulos').find('table tbody');
+                            tbody.empty();
+                            $.each(data, function (i, item) {
+                                tbody.append($('<tr>')
+                                    .append($('<td>').text(item.PEDIDO))
+                                    .append($('<td>').text(item.ARTICULO))
+                                    .append($('<td>').text(item.CANTIDAD)));
+                            });
+                        }
+                    });
+                })
+            }
+</script>

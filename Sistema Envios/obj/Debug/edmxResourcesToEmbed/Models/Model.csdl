@@ -1,5 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DBArticulosEncargosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="V_TICKET_PEDIDOPORCLIENTE_Result">
+    <Property Name="pedi_Code" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="pedi_CostoEnvio" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="pedi_Fecha" Type="DateTime" Nullable="false" />
+    <Property Name="emp_ID" Type="String" MaxLength="301" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="estv_Description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+  </ComplexType>
   <EntityType Name="tbArticulos">
     <Key>
       <PropertyRef Name="art_ID" />
@@ -1010,6 +1017,9 @@
       <End Role="tbUsuarios" EntitySet="tbUsuarios" />
       <End Role="tbPedidos" EntitySet="tbPedidos" />
     </AssociationSet>
+    <FunctionImport Name="V_TICKET_PEDIDOPORCLIENTE" IsComposable="true" ReturnType="Collection(DBArticulosEncargosModel.V_TICKET_PEDIDOPORCLIENTE_Result)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
     <FunctionImport Name="UDP_CambiarContraOlvidada">
       <Parameter Name="usu_Usuario" Mode="In" Type="String" />
       <Parameter Name="usu_NewClave" Mode="In" Type="String" />
@@ -1017,6 +1027,16 @@
     <FunctionImport Name="UDP_CARGAR_ARTICULO" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGAR_ARTICULO_Result)">
       <Parameter Name="Id" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="UDP_CARGAR_CARGOS" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGAR_CARGOS_Result)">
+      <Parameter Name="carg_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UDP_CARGAR_CIUDAD" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGAR_CIUDAD_Result)">
+      <Parameter Name="ciu_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UDP_CARGAR_DEPARTAMENTO" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGAR_DEPARTAMENTO_Result)">
+      <Parameter Name="depto_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UDP_CargarArticulos" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarArticulos_Result)" />
     <FunctionImport Name="UDP_CargarCiudades" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarCiudades_Result)">
       <Parameter Name="ciu_DeptoID" Mode="In" Type="String" />
     </FunctionImport>
@@ -1249,15 +1269,14 @@
       <Parameter Name="usu_Usuario" Mode="In" Type="String" />
       <Parameter Name="usu_Clave" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="UDP_CargarArticulos" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarArticulos_Result)" />
-    <FunctionImport Name="UDP_CARGAR_CARGOS" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGAR_CARGOS_Result)">
-      <Parameter Name="carg_Id" Mode="In" Type="Int32" />
+    <FunctionImport Name="V_TICKET_PEDIDOSPORCLIENTE" ReturnType="Collection(DBArticulosEncargosModel.V_TICKET_PEDIDOSPORCLIENTE_Result)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="UDP_CARGAR_CIUDAD" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGAR_CIUDAD_Result)">
-      <Parameter Name="ciu_ID" Mode="In" Type="Int32" />
+    <FunctionImport Name="UDF_PedidosPorCliente" IsComposable="true" ReturnType="Collection(DBArticulosEncargosModel.UDF_PedidosPorCliente_Result)">
+      <Parameter Name="Cliente_ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="UDP_CARGAR_DEPARTAMENTO" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGAR_DEPARTAMENTO_Result)">
-      <Parameter Name="depto_ID" Mode="In" Type="Int32" />
+    <FunctionImport Name="UDF_ArticulosPorPedido" IsComposable="true" ReturnType="Collection(DBArticulosEncargosModel.UDF_ArticulosPorPedido_Result)">
+      <Parameter Name="PedidoCode" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="UDP_CARGAR_ESTADOSCIVILES" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGAR_ESTADOSCIVILES_Result)">
       <Parameter Name="est_ID" Mode="In" Type="String" />
@@ -1271,6 +1290,22 @@
     <Property Type="String" Name="art_Descripcion" Nullable="false" MaxLength="200" />
     <Property Type="Int32" Name="fab_ID" Nullable="false" />
     <Property Type="Int32" Name="art_Stock" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="UDP_CARGAR_CARGOS_Result">
+    <Property Type="Int32" Name="carg_Id" Nullable="false" />
+    <Property Type="String" Name="carg_Description" Nullable="false" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="UDP_CARGAR_CIUDAD_Result">
+    <Property Type="Int32" Name="ciu_ID" Nullable="false" />
+    <Property Type="String" Name="ciu_Descripcion" Nullable="false" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="UDP_CARGAR_DEPARTAMENTO_Result">
+    <Property Type="Int32" Name="depto_ID" Nullable="false" />
+    <Property Type="String" Name="depto_Descripcion" Nullable="false" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="UDP_CargarArticulos_Result">
+    <Property Type="Int32" Name="art_ID" Nullable="false" />
+    <Property Type="String" Name="art_Descripcion" Nullable="false" MaxLength="200" />
   </ComplexType>
   <ComplexType Name="UDP_CargarCiudades_Result">
     <Property Type="Int32" Name="ciu_ID" Nullable="false" />
@@ -1307,21 +1342,24 @@
     <Property Type="String" Name="usu_Clave" Nullable="false" />
     <Property Type="String" Name="emp_Name" Nullable="false" MaxLength="150" />
   </ComplexType>
-  <ComplexType Name="UDP_CargarArticulos_Result">
-    <Property Type="Int32" Name="art_ID" Nullable="false" />
-    <Property Type="String" Name="art_Descripcion" Nullable="false" MaxLength="200" />
+  <ComplexType Name="V_TICKET_PEDIDOSPORCLIENTE_Result">
+    <Property Type="String" Name="PEDIDO" Nullable="false" MaxLength="6" />
+    <Property Type="Decimal" Name="COSTO_ENVÍO" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="FECHA" Nullable="false" />
+    <Property Type="String" Name="EMPLEADO" Nullable="false" MaxLength="301" />
+    <Property Type="String" Name="ESTADO_ENVIO" Nullable="false" MaxLength="150" />
   </ComplexType>
-  <ComplexType Name="UDP_CARGAR_CARGOS_Result">
-    <Property Type="Int32" Name="carg_Id" Nullable="false" />
-    <Property Type="String" Name="carg_Description" Nullable="false" MaxLength="200" />
+  <ComplexType Name="UDF_PedidosPorCliente_Result">
+    <Property Type="String" Name="PEDIDO" Nullable="false" MaxLength="6" />
+    <Property Type="Decimal" Name="COSTO_ENVÍO" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="FECHA" Nullable="false" Precision="10" />
+    <Property Type="String" Name="EMPLEADO" Nullable="false" MaxLength="301" />
+    <Property Type="String" Name="ESTADO_ENVIO" Nullable="false" MaxLength="150" />
   </ComplexType>
-  <ComplexType Name="UDP_CARGAR_CIUDAD_Result">
-    <Property Type="Int32" Name="ciu_ID" Nullable="false" />
-    <Property Type="String" Name="ciu_Descripcion" Nullable="false" MaxLength="255" />
-  </ComplexType>
-  <ComplexType Name="UDP_CARGAR_DEPARTAMENTO_Result">
-    <Property Type="Int32" Name="depto_ID" Nullable="false" />
-    <Property Type="String" Name="depto_Descripcion" Nullable="false" MaxLength="255" />
+  <ComplexType Name="UDF_ArticulosPorPedido_Result">
+    <Property Type="String" Name="PEDIDO" Nullable="false" MaxLength="6" />
+    <Property Type="String" Name="ARTICULO" Nullable="false" MaxLength="200" />
+    <Property Type="Int32" Name="CANTIDAD" Nullable="false" />
   </ComplexType>
   <ComplexType Name="UDP_CARGAR_ESTADOSCIVILES_Result">
     <Property Type="String" Name="est_ID" Nullable="false" MaxLength="1" />

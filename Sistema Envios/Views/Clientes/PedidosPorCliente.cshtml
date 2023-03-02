@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Sistema_Envios.Models.UDF_PedidosPorCliente_Result>
+
+@{
+    ViewBag.Title = "PedidosPorCliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="float-e-margins">
+                <div class="ibox-title">
+                    <div class="ibox-tools">
+                    </div>
+                </div>
+                  <br />
+                <div class="ibox-content">
+                  <table class="table table-responsive" id="DataTable">
+                    <thead>
+                        <tr role="row">
+                            <th>@Html.DisplayNameFor(model => model.PEDIDO)</th>
+                            <th>@Html.DisplayNameFor(model => model.COSTO_ENVÍO)</th>
+                            <th>@Html.DisplayNameFor(model => model.FECHA)</th>
+                            <th>@Html.DisplayNameFor(model => model.EMPLEADO)</th>
+                            <th>@Html.DisplayNameFor(model => model.ESTADO_ENVIO)</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      @foreach (var item in Model) {
+                        <tr class="gradeA odd" role="row" data-id="@item.PEDIDO">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PEDIDO)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.COSTO_ENVÍO)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FECHA)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EMPLEADO)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ESTADO_ENVIO)
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-articulos" onclick="Abrir()" data-id="@item.PEDIDO">
+                                    Ver Artículos
+                                </button>
+                            </td>
+                        </tr>
+                      }
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+@Html.Partial("ModalArticulos")
+    

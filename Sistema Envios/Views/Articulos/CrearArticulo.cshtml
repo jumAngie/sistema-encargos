@@ -8,13 +8,15 @@
                 <h5 class="modal-title" id="crear-cargos">Articulos</h5>
             </div>
             <div class="modal-body">
-                <label>Ingrese el artículo</label>
+                <label>Ingrese el artículo</label><br />
+                <label id="lblArticulo" style="color:orange; display:none">*Campo requerido</label>
                 <input type="text" name="txtArt" id="txtArt" class="form-control" />
-                <label>Ingrese el stock</label>
+                <label>Ingrese el stock</label><br />
+                <label id="lblStock" style="color:orange; display:none">*Campo requerido</label>
                 <input type="number" name="txtStock" id="txtStock" class="form-control" />
                 <label>Escoja la Fábrica</label>
-
-                <select id="fab_ID" name="fab_ID" class="form-control">
+                <label id="lblfabrica" style="color:orange; display:none">*Campo requerido</label>
+                <select id="fabrica_ID" name="fabrica_ID" class="form-control">
                 </select>
             </div>
             <div class="modal-footer">
@@ -24,4 +26,4 @@
         </div>
     </div>
 </div>
-<script src="~/Scripts/CrearArticulo.js"></script>
+<script src="~/Scripts/CrearArticulos.js"></script>
