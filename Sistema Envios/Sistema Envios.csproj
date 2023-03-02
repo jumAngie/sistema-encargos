@@ -218,6 +218,12 @@
     <Compile Include="Models\tbUsuarios.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UDF_ArticulosPorPedido_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UDF_PedidosPorCliente_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UDP_CargarArticulos_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -292,6 +298,12 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\V_INDEX_USUARIOS.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\V_TICKET_PEDIDOPORCLIENTE_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\V_TICKET_PEDIDOSPORCLIENTE_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2990,6 +3002,8 @@
     <Content Include="Views\Fabricas\CrearFabrica.cshtml" />
     <Content Include="Views\EstadosCiviles\CrearEstadoCivil.cshtml" />
     <Content Include="Views\PedidoDetalles\CreateDetalles.cshtml" />
+    <Content Include="Views\Clientes\PedidosPorCliente.cshtml" />
+    <Content Include="Views\Clientes\ModalArticulos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

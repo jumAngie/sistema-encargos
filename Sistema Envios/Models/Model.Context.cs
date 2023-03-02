@@ -56,6 +56,16 @@ namespace Sistema_Envios.Models
         public virtual DbSet<V_INDEX_PEDIDOS_DETALLES> V_INDEX_PEDIDOS_DETALLES { get; set; }
         public virtual DbSet<V_INDEX_USUARIOS> V_INDEX_USUARIOS { get; set; }
     
+        [DbFunction("DBArticulosEncargosEntities1", "V_TICKET_PEDIDOPORCLIENTE")]
+        public virtual IQueryable<V_TICKET_PEDIDOPORCLIENTE_Result> V_TICKET_PEDIDOPORCLIENTE(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<V_TICKET_PEDIDOPORCLIENTE_Result>("[DBArticulosEncargosEntities1].[V_TICKET_PEDIDOPORCLIENTE](@ID)", iDParameter);
+        }
+    
         public virtual int UDP_CambiarContraOlvidada(string usu_Usuario, string usu_NewClave)
         {
             var usu_UsuarioParameter = usu_Usuario != null ?
@@ -76,6 +86,38 @@ namespace Sistema_Envios.Models
                 new ObjectParameter("Id", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_ARTICULO_Result>("UDP_CARGAR_ARTICULO", idParameter);
+        }
+    
+        public virtual ObjectResult<UDP_CARGAR_CARGOS_Result> UDP_CARGAR_CARGOS(Nullable<int> carg_Id)
+        {
+            var carg_IdParameter = carg_Id.HasValue ?
+                new ObjectParameter("carg_Id", carg_Id) :
+                new ObjectParameter("carg_Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_CARGOS_Result>("UDP_CARGAR_CARGOS", carg_IdParameter);
+        }
+    
+        public virtual ObjectResult<UDP_CARGAR_CIUDAD_Result> UDP_CARGAR_CIUDAD(Nullable<int> ciu_ID)
+        {
+            var ciu_IDParameter = ciu_ID.HasValue ?
+                new ObjectParameter("ciu_ID", ciu_ID) :
+                new ObjectParameter("ciu_ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_CIUDAD_Result>("UDP_CARGAR_CIUDAD", ciu_IDParameter);
+        }
+    
+        public virtual ObjectResult<UDP_CARGAR_DEPARTAMENTO_Result> UDP_CARGAR_DEPARTAMENTO(Nullable<int> depto_ID)
+        {
+            var depto_IDParameter = depto_ID.HasValue ?
+                new ObjectParameter("depto_ID", depto_ID) :
+                new ObjectParameter("depto_ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_DEPARTAMENTO_Result>("UDP_CARGAR_DEPARTAMENTO", depto_IDParameter);
+        }
+    
+        public virtual ObjectResult<UDP_CargarArticulos_Result> UDP_CargarArticulos()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CargarArticulos_Result>("UDP_CargarArticulos");
         }
     
         public virtual ObjectResult<UDP_CargarCiudades_Result> UDP_CargarCiudades(string ciu_DeptoID)
@@ -890,36 +932,33 @@ namespace Sistema_Envios.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_VALIDAR_LOGIN_Result>("UDP_VALIDAR_LOGIN", usu_UsuarioParameter, usu_ClaveParameter);
         }
     
-        public virtual ObjectResult<UDP_CargarArticulos_Result> UDP_CargarArticulos()
+        public virtual ObjectResult<V_TICKET_PEDIDOSPORCLIENTE_Result> V_TICKET_PEDIDOSPORCLIENTE(Nullable<int> iD)
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CargarArticulos_Result>("UDP_CargarArticulos");
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<V_TICKET_PEDIDOSPORCLIENTE_Result>("V_TICKET_PEDIDOSPORCLIENTE", iDParameter);
         }
     
-        public virtual ObjectResult<UDP_CARGAR_CARGOS_Result> UDP_CARGAR_CARGOS(Nullable<int> carg_Id)
+        [DbFunction("DBArticulosEncargosEntities1", "UDF_PedidosPorCliente")]
+        public virtual IQueryable<UDF_PedidosPorCliente_Result> UDF_PedidosPorCliente(Nullable<int> cliente_ID)
         {
-            var carg_IdParameter = carg_Id.HasValue ?
-                new ObjectParameter("carg_Id", carg_Id) :
-                new ObjectParameter("carg_Id", typeof(int));
+            var cliente_IDParameter = cliente_ID.HasValue ?
+                new ObjectParameter("Cliente_ID", cliente_ID) :
+                new ObjectParameter("Cliente_ID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_CARGOS_Result>("UDP_CARGAR_CARGOS", carg_IdParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<UDF_PedidosPorCliente_Result>("[DBArticulosEncargosEntities1].[UDF_PedidosPorCliente](@Cliente_ID)", cliente_IDParameter);
         }
     
-        public virtual ObjectResult<UDP_CARGAR_CIUDAD_Result> UDP_CARGAR_CIUDAD(Nullable<int> ciu_ID)
+        [DbFunction("DBArticulosEncargosEntities1", "UDF_ArticulosPorPedido")]
+        public virtual IQueryable<UDF_ArticulosPorPedido_Result> UDF_ArticulosPorPedido(string pedidoCode)
         {
-            var ciu_IDParameter = ciu_ID.HasValue ?
-                new ObjectParameter("ciu_ID", ciu_ID) :
-                new ObjectParameter("ciu_ID", typeof(int));
+            var pedidoCodeParameter = pedidoCode != null ?
+                new ObjectParameter("PedidoCode", pedidoCode) :
+                new ObjectParameter("PedidoCode", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_CIUDAD_Result>("UDP_CARGAR_CIUDAD", ciu_IDParameter);
-        }
-    
-        public virtual ObjectResult<UDP_CARGAR_DEPARTAMENTO_Result> UDP_CARGAR_DEPARTAMENTO(Nullable<int> depto_ID)
-        {
-            var depto_IDParameter = depto_ID.HasValue ?
-                new ObjectParameter("depto_ID", depto_ID) :
-                new ObjectParameter("depto_ID", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_DEPARTAMENTO_Result>("UDP_CARGAR_DEPARTAMENTO", depto_IDParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<UDF_ArticulosPorPedido_Result>("[DBArticulosEncargosEntities1].[UDF_ArticulosPorPedido](@PedidoCode)", pedidoCodeParameter);
         }
     }
 }

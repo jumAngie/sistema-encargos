@@ -6,11 +6,13 @@ using System.Web;
 
 namespace Sistema_Envios.Models
 {
+  
     [MetadataType(typeof(tbClientesMetaData))]
     public partial class tbClientes
     {
     }
 
+   
     public class tbClientesMetaData
     {
         [Display(Name = "Cliente ID")]
