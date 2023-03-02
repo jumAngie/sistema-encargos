@@ -62,35 +62,35 @@ namespace Sistema_Envios.Controllers
         }
 
 
-        //[HttpPost]
-        //public JsonResult Cargar(string est_ID)
-        //{ 
-        //    var  tbEstadosCiviles1 = db.UDP_CARGAR_ESTADOSCIVILES(est_ID).ToList();
-        //    return Json(tbEstadosCiviles1, JsonRequestBehavior.AllowGet);
-        //}
+        [HttpPost]
+        public JsonResult Cargar(string est_ID)
+        {
+            var tbEstadosCiviles1 = db.UDP_CARGAR_ESTADOSCIVILES(est_ID).ToList();
+            return Json(tbEstadosCiviles1, JsonRequestBehavior.AllowGet);
+        }
 
 
 
 
 
-        //[HttpPost, ActionName("Editores")]
-        ////[ValidateAntiForgeryToken]
-        //public ActionResult Edito(string ID, string Descripcion)
+        [HttpPost, ActionName("Editores")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Edito(string ID, string Descripcion)
 
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        //string id = Session["IdUsuario"].ToString();
-        //        var Edit = db.UDP_Editar_EstadosCiviles(ID, Descripcion, "1");
-
-
-        //        return RedirectToAction("Index");
+        {
+            if (ModelState.IsValid)
+            {
+                //string id = Session["IdUsuario"].ToString();
+                var Edit = db.UDP_Editar_EstadosCiviles(ID, Descripcion, "1");
 
 
-        //    }
+                return RedirectToAction("Index");
 
-        //    return RedirectToAction("Index");
-        //}
+
+            }
+
+            return RedirectToAction("Index");
+        }
 
 
 

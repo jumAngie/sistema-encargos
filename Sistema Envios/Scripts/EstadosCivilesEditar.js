@@ -10,34 +10,37 @@ function Abrir() {
     $('#FormModal').modal('show');
 }
 
-
-
-
-//function AbrirModal(est_ID) {
+//$("#tbnModal").click(function () {
 //    $('#FormModal').modal('show');
-//   //var est_ID = $("#est_ID").val()
-//    $.ajax({
-//        url: "/EStadosCiviles/Cargar",
-//        method: "GET",
-//        dataType: "json",
-//        contentType: "application/json; charset=utf-8",
-//        data: JSON.stringify({ est_ID: est_ID }),
-//        success: function (data) {
-//            console.log(data);
-           
-//            $.each(data, function (i, value) {
-//                $("#est_ID").val(value.est_ID);
-//                $("#txtEstadoCivil").val(value.est_Descripcion);
-
-//            })
+//});
 
 
+function ObtenerId(est_ID) {
 
-//        }
+    var est_Id = est_ID;
 
-//    })
+    $.ajax({
+        url: "/EStadosCiviles/Cargar",
+        method: "GET",
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({ est_Id: est_Id }),
+        success: function (data) {
+            console.log(data);
+            $('#FormModal').modal('show');
+            $.each(data, function (i, value) {
+                $("#est_ID").val(value.est_ID);
+                $("#txtEstadoCivil").val(value.est_Descripcion);
 
-//}
+            })
+
+
+
+        }
+
+    })
+
+}
 
 
 //function Editar(x) {
