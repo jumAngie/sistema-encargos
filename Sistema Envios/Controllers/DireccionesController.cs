@@ -176,28 +176,9 @@ namespace Sistema_Envios.Controllers
         //}
 
         // GET: Direcciones/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            tbDirecciones tbDirecciones = db.tbDirecciones.Find(id);
-            if (tbDirecciones == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tbDirecciones);
-        }
-
-        // POST: Direcciones/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            tbDirecciones tbDirecciones = db.tbDirecciones.Find(id);
             db.UDP_Eliminar_Direcciones(id, Usu);
-            db.SaveChanges();
             return RedirectToAction("Index");
         }
 

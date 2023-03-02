@@ -2936,8 +2936,11 @@
     <Content Include="Scripts\Detalles.js" />
     <Content Include="Scripts\DireccionesEditar.js" />
     <Content Include="Scripts\EditarFabricas.js" />
+    <Content Include="Scripts\EliminarDireccion.js" />
     <Content Include="Scripts\EliminarFabrica.js" />
     <Content Include="Scripts\EliminarPedido.js" />
+    <Content Include="Scripts\EliminarPedidoDetalle.js" />
+    <Content Include="Scripts\EliminarUsuario.js" />
     <Content Include="Scripts\EmpleadosScript\CargarCiudades.js" />
     <Content Include="Scripts\EstadosCivilesEditar.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -3028,6 +3031,9 @@
     <Content Include="Views\Clientes\ModalArticulos.cshtml" />
     <Content Include="Views\Fabricas\EliminarFabrica.cshtml" />
     <Content Include="Views\Pedidos\EliminarPedido.cshtml" />
+    <Content Include="Views\Usuarios\EliminarUsuario.cshtml" />
+    <Content Include="Views\Direcciones\EliminarDireccion.cshtml" />
+    <Content Include="Views\PedidoDetalles\EliminarPedidoDetalle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -103,28 +103,9 @@ namespace Sistema_Envios.Controllers
         }
 
         // GET: Usuarios/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            tbUsuarios tbUsuarios = db.tbUsuarios.Find(id);
-            if (tbUsuarios == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tbUsuarios);
-        }
-
-        // POST: Usuarios/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            tbUsuarios tbUsuarios = db.tbUsuarios.Find(id);
             db.UDP_Eliminar_Usuarios(id, Usu);
-            db.SaveChanges();
             return RedirectToAction("Index");
         }
 

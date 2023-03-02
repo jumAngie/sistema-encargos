@@ -76,28 +76,9 @@ namespace Sistema_Envios.Controllers
 
 
         // GET: PedidoDetalles/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            tbPedidoDetalles tbPedidoDetalles = db.tbPedidoDetalles.Find(id);
-            if (tbPedidoDetalles == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tbPedidoDetalles);
-        }
-
-        // POST: PedidoDetalles/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            tbPedidoDetalles tbPedidoDetalles = db.tbPedidoDetalles.Find(id);
             db.UDP_Eliminar_PedidosDetalles(id, Usu);
-            db.SaveChanges();
             return RedirectToAction("Index");
         }
 
