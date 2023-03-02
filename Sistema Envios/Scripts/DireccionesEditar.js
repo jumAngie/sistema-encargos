@@ -85,7 +85,7 @@ $("#dep_ID").change(function () {
 function ObtenerId(direc_ID) {
 
     //var id = '';
-    //var direc_ID = direc_ID;
+//    var direc_ID = direc_ID;
 /*    var Id = $("#Id_depto").val();*/
     $.ajax({
         url: "/Direcciones/Cargar",
@@ -103,12 +103,13 @@ function ObtenerId(direc_ID) {
                 $("#txtDireccion").val(value.direc_DireccionExacta);
                 $("#Id_depto").val(value.depto_ID);
                 $("#direc_ID").val(value.direc_ID);
+
                 /* cargarDep();*/
                 /*   Muni(depto);*/  
                 Muni($("#Id_depto").val());
              
                 //Muni($("#Id_depto").val());
-                $('#Id_Ciudad').val(value.direc_CiudadID);
+                $('#Id_Ciudad').val(value.ciu_ID);
 
                 /*    $("#Id_Ciudad").append("<option value='" + value.direc_CiudadID + "'>" + value.ciu_Descripcion + "</option>")*/
 
