@@ -1933,6 +1933,23 @@ BEGIN
 
  GO
 
+ ----------------------------------------------------------------------
+
+ CREATE OR ALTER PROCEDURE UDP_CARGAR_ESTADOSCIVILES
+ @est_ID   VARCHAR(30)
+ AS
+ BEGIN
+
+ SELECT [est_ID], [est_Descripcion] FROM [dbo].[tbEstadosCiviles]
+ WHERE [est_ID] = @est_ID
+ END
+
+ GO
+
+
+ --EXEC UDP_CARGAR_ESTADOSCIVILES c 
+
+--[est_ID], [est_Descripcion], [est_UsuCrea], [est_FechaCrea], [est_UsuMod], [est_FechaMod], [est_Estado]
 
 
 

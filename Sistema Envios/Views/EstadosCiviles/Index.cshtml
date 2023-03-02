@@ -7,6 +7,7 @@
 
 
 
+
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-lg-12">
@@ -41,7 +42,11 @@
 
                                     <td>
                                         @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn btn-default btn-xs" })
-                                        @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn btn-primary btn-xs" })
+
+                                        @Html.ActionLink("Edt", "_EditEstado", new { id = item.ID }, new { @class = "btn btn-default btn-xs" })
+                                        @*<button class='btn btn-secondary btn-xs' type='submit' id="tbnModal" onclick="Abrir()"><i class='fas fa-pen'></i>Editar</button>*@
+
+
                                     </td>
                                 </tr>
                             }
@@ -52,5 +57,7 @@
         </div>
     </div>
 </div>
+@*@Html.Partial("_EditEstado")*@
+
 
 @Html.Partial("CrearEstadoCivil")
