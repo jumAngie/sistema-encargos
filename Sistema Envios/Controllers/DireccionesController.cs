@@ -86,6 +86,12 @@ namespace Sistema_Envios.Controllers
 
         }
 
+
+
+
+
+        [HttpPost]
+
         public JsonResult CargarMunicipiosEdit(string dep_ID)
         {
             var ddlM = db.UDP_CARGARCIIUDAD_DIRECCONEDIT(int.Parse(dep_ID)).ToList();
@@ -111,24 +117,25 @@ namespace Sistema_Envios.Controllers
 
         [HttpPost, ActionName("Editores")]
         //[ValidateAntiForgeryToken]
-        public ActionResult Edito(string ID, string estado)
+        public ActionResult Edito(string ID, string cliente, string ciudad, string direccion)
 
         {
             if (ModelState.IsValid)
             {
-                if (estado != "")
-                {
+              
                     //string id = Session["IdUsuario"].ToString();
-                    var Edit = db.UDP_Editar_EstadosCiviles(ID, estado, "1");
+                    var Edit = db.UDP_Editar_Direcciones(int.Parse(ID), int.Parse(cliente), direccion,int.Parse(ciudad) ,"1");
 
 
                     return RedirectToAction("Index");
-                }
+                
 
             }
 
             return RedirectToAction("Index");
         }
+
+
 
 
         //// GET: Direcciones/Edit/5

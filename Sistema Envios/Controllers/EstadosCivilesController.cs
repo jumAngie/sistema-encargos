@@ -4,20 +4,26 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.ServiceModel.Channels;
 using System.Web;
 using System.Web.Mvc;
 using Sistema_Envios.Models;
 
+
 namespace Sistema_Envios.Controllers
 {
+
+   
     public class EstadosCivilesController : Controller
     {
+        
         private DBArticulosEncargosEntities1 db = new DBArticulosEncargosEntities1();
         public string Usu = "1";
 
         // GET: EstadosCiviles
         public ActionResult Index()
         {
+           
             var tbEstadosCivilesIndex = db.V_INDEX_ESTADOS_CIVILES;
             return View(tbEstadosCivilesIndex.ToList());
         }
@@ -87,7 +93,7 @@ namespace Sistema_Envios.Controllers
                 if (estado != "")
                 {
                     //string id = Session["IdUsuario"].ToString();
-                    var Edit = db.UDP_Editar_EstadosCiviles(ID, estado, "1");
+                    db.UDP_Editar_EstadosCiviles(ID, estado, "1");
 
 
                     return RedirectToAction("Index");

@@ -31,7 +31,7 @@ $(function () {
 function Insertar() {
 
     var articulo = $("#txtArt").val()
-    var fabrica = $("#fab_ID").val()
+    var fabrica = $("#fabrica_ID").val()
     var stock = $("#txtStock").val()
 
     if (articulo == null || fabrica == "0" || stock == null) {

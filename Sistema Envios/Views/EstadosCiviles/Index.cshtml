@@ -45,7 +45,7 @@
                                     <td>
                                         @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn btn-default btn-xs" })
 
-                                        @Html.ActionLink("Edt", "_EditEstado", new { id = item.ID }, new { @class = "btn btn-default btn-xs" })
+
                                         <button class='btn btn-secondary btn-xs' type='submit' id="tbnModal" name="tbnModal" onclick="ObtenerId('@item.ID')"><i class='fas fa-pen'></i>Editar</button>
 
                                         <form method="POST">
@@ -64,14 +64,14 @@
                                                         <div class="modal-footer">
                                                             <input type="hidden" id="est_ID" />
                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="Cerrar()">Close</button>
-                                                            <input type="submit" value="Editar" onclick="Editar()" class="btn btn-default" />
+                                                            <input type="button" value="Editar" onclick="Editar()" class="btn btn-default" />
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
 
                                         </form>
-
+                                        <script src="~/Scripts/EstadosCivilesEditar.js"></script>
                                     </td>
                                 </tr>
                             }
@@ -83,6 +83,6 @@
     </div>
 </div>
 @*@Html.Partial("_EditEstado")*@
-<script src="~/Scripts/EstadosCivilesEditar.js"></script>
+
 
 @Html.Partial("CrearEstadoCivil")

@@ -10,9 +10,9 @@ function Cerrar() {
 //    $('#FormModal').modal('show');
 //}
 
-$("#tbnModal").click(function () {
-    $('#FormModal').modal('show');
-});
+//$("#tbnModal").click(function () {
+//    $('#FormModal').modal('show');
+//});
 
 
 
@@ -29,7 +29,7 @@ function ObtenerId(est_ID) {
         data: JSON.stringify({ est_Id: est_Id }),
         success: function (data) {
             console.log(data);
-           /* $('#FormModal').modal('show');*/
+           $('#FormModal').modal('show');
             $.each(data, function (i, value) {
                 $("#est_ID").val(value.est_ID);
                 $("#txtEstadoCivil").val(value.est_Descripcion);
