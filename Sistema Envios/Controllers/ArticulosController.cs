@@ -31,7 +31,7 @@ public class ArticulosController : Controller
             }
             else
             {
-                return RedirectToAction("/Login/Index");
+                return RedirectToAction("Index", "Login");
             }
         }
 

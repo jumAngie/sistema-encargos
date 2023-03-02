@@ -18,8 +18,16 @@ namespace Sistema_Envios.Controllers
         // GET: Cargos
         public ActionResult Index()
         {
-            var tbCargosIndex = db.V_INDEX_CARGOS;
-            return View(tbCargosIndex.ToList());
+            if(Session.Count > 0)
+            {
+                var tbCargosIndex = db.V_INDEX_CARGOS;
+                return View(tbCargosIndex.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            
         }
 
         // GET: Cargos/Details/5

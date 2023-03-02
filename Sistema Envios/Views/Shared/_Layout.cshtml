@@ -535,7 +535,6 @@
                                     <li>@Html.ActionLink("Clientes", "Index", "Clientes", null, new { @class = "nav-link" })</li>
                                     <li>@Html.ActionLink("Departamentos", "Index", "Departamentos", null, new { @class = "nav-link" })</li>
                                     <li>@Html.ActionLink("Direcciones", "Index", "Direcciones", null, new { @class = "nav-link" })</li>
-                                    <li>@Html.ActionLink("Estado del Envío", "Index", "EstadoEnvios", null, new { @class = "nav-link" })</li>
                                     <li>@Html.ActionLink("Estados Civiles", "Index", "EstadosCiviles", null, new { @class = "nav-link" })</li>
                                     <li>@Html.ActionLink("Pedido Detalles", "Index", "PedidoDetalles", null, new { @class = "nav-link" })</li>
                                     <li>@Html.ActionLink("Fabricas", "Index", "Fabricas", null, new { @class = "nav-link" })</li>
@@ -1118,21 +1117,10 @@
                 <div class="mainnav__bottom-content border-top pb-2">
                     <ul id="mainnav" class="mainnav__menu nav flex-column">
                         <li class="nav-item has-sub">
-                            <a href="#" class="nav-link mininav-toggle collapsed" aria-expanded="false">
+                            <a onclick="CerrarSesion()" class="nav-link mininav-toggle collapsed" aria-expanded="false">
                                 <i class="demo-pli-unlock fs-5 me-2"></i>
-                                <span class="nav-label ms-1">Logout</span>
+                                <span class="nav-label ms-1">Cerrar Sesión</span>
                             </a>
-                            <ul class="mininav-content nav flex-column collapse">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">This device only</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">All Devices</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Lock screen</a>
-                                </li>
-                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -2072,7 +2060,12 @@
     <!-- Nifty Settings [ DEMO ] -->
     <script src="~/Content/assets/js/demo-purpose-only.js" defer></script>
     <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
+    <script>
 
+        function CerrarSesion() {
+            window.location.href('https://localhost:44335/Login/Index')
+        }
+    </script>
     <script>
 
         var table = $('#DataTable').DataTable({

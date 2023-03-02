@@ -17,9 +17,15 @@ namespace Sistema_Envios.Controllers
 
         // GET: Empleados
         public ActionResult Index()
-        {
-            var tbEmpleadosIndex = db.V_INDEX_EMPLEADOS;
-            return View(tbEmpleadosIndex.ToList());
+        {if (Session.Count > 0)
+            {
+                var tbEmpleadosIndex = db.V_INDEX_EMPLEADOS;
+                return View(tbEmpleadosIndex.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         // GET: Empleados/Details/5
