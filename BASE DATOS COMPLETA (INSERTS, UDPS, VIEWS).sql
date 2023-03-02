@@ -1282,6 +1282,7 @@ EXEC UDP_PEDIDO_DETALLE 10,23,14,2
 EXEC UDP_PEDIDO_DETALLE 11,29,15,2
 EXEC UDP_PEDIDO_DETALLE 15,15,17,2
 EXEC UDP_PEDIDO_DETALLE 13,7,7,1
+EXEC UDP_PEDIDO_DETALLE 1,2,56,7
 
 
 GO
@@ -1290,25 +1291,21 @@ GO
 ------------------------------------------------------------------------------------
 CREATE OR ALTER VIEW V_INDEX_ARTICULOS
 AS
-SELECT [art_ID] [ID ARTICULO], [art_Descripcion] DESCRIPCION FROM [dbo].[tbArticulos]
-
+SELECT	[art_ID] [ID ARTICULO], [art_Descripcion] DESCRIPCION FROM [dbo].[tbArticulos]
+WHERE	[art_Estado] = 1
 
 
 GO
 CREATE OR ALTER VIEW V_INDEX_CARGOS
 AS
 SELECT [carg_Id] ID, [carg_Description] DESCRIPCION FROM [dbo].[tbCargos]
-
-
-
-
+WHERE	[rep_Estado] = 1
 GO
 
 
 CREATE OR ALTER VIEW V_INDEX_CIUDADES
 AS
 SELECT [ciu_ID] ID,[ciu_Descripcion] [NOMBRE CIUDAD] FROM [dbo].[tbCiudades]
-
 GO
 
 
@@ -1339,6 +1336,7 @@ FROM [dbo].[tbDirecciones] d
 INNER JOIN [dbo].[tbClientes] c ON d.direc_ClienteID = c.client_ID
 INNER JOIN [dbo].[tbCiudades] ciu ON ciu.ciu_ID = d.direc_CiudadID
 INNER JOIN [dbo].[tbDepartamentos] depa ON depa.depto_ID = ciu.ciu_DeptoID
+WHERE	D.direc_Estado = 1
 GO
 
 
@@ -1352,12 +1350,14 @@ CASE	[emp_Sexo]
 		when 'M' THEN 'MASCULINO'
 		ELSE 'OTROS' END AS SEXO ,[carg_Description] CARGO 
 FROM [dbo].[tbEmpleados] e
-INNER JOIN [dbo].[tbCargos] c ON c.carg_Id = e.carg_Id 
+INNER JOIN [dbo].[tbCargos] c ON c.carg_Id = e.carg_Id
+WHERE	e.emp_Estado = 1
 GO
 
 CREATE OR ALTER VIEW V_INDEX_ESTADOS_CIVILES
 AS
 SELECT [est_ID] ID,[est_Descripcion] DESCRIPCION FROM [dbo].[tbEstadosCiviles]
+WHERE est_Estado = 1
 GO
 
 
@@ -1365,6 +1365,7 @@ GO
 CREATE OR ALTER VIEW V_INDEX_FABRICAS
 AS
 SELECT [fab_ID] ID,[fab_Descripcion] NOMBRE FROM [dbo].[tbFabricas]
+WHERE fab_Estado = 1
 GO
 
 CREATE OR ALTER VIEW [dbo].[V_INDEX_PEDIDOS_DETALLES]
@@ -1372,6 +1373,7 @@ AS
 SELECT [det_Id] ID_DETALLE,p.[pedi_Code] [CODIGO PEDIDO], [art_Descripcion] [ARTICULO], [det_Cantidad] CANTIDAD FROM [dbo].[tbPedidoDetalles] pd
 INNER JOIN [dbo].[tbArticulos] a ON a.art_ID = pd.art_ID
 INNER JOIN [dbo].[tbPedidos] p ON pd.pedi_ID = p.pedi_ID
+WHERE	pd.det_Estado = 1
 GO
 
 
@@ -1385,6 +1387,7 @@ INNER JOIN [dbo].[tbDirecciones] d ON d.direc_ID = p.pedi_DireccionID
 INNER JOIN [dbo].[tbClientes] c ON c.client_ID = d.direc_ClienteID
 INNER JOIN [dbo].[tbEstadoEnvios] estv ON estv.estv_Id = p.estv_Id
 INNER JOIN [dbo].[tbEmpleados] emp ON emp.emp_Id = p.emp_Id
+WHERE	p.pedi_Estado = 1
 GO
 
 
@@ -1394,6 +1397,7 @@ AS
 SELECT [usu_ID] ID,[usu_Usuario] USUARIO, [emp_Name] NOMBRE, r.rol_Descripcion ROL FROM [dbo].[tbUsuarios] u
 INNER JOIN [dbo].[tbEmpleados] emp ON emp.emp_Id = u.emp_Id
 INNER JOIN [dbo].[tblRoles] r ON r.rol_ID = u.rol_ID
+WHERE	u.usu_Estado = 1
 GO
 
 
@@ -2008,6 +2012,46 @@ GO
 
 
 --EXEC UDP_CARGAR_DIRECCIONESEdit 2
+------------------- FUNCIONES ---------------------------------------
+GO
+CREATE OR ALTER PROCEDURE V_TICKET_PEDIDOSPORCLIENTE
+		@ID INT
+AS
+BEGIN
+SELECT	pedi_Code AS PEDIDO, pedi_CostoEnvio AS COSTO_ENVÍO, pedi_Fecha AS FECHA, empleados.emp_Name + ' ' + empleados.emp_Apellido AS EMPLEADO, estadoenvio.estv_Description AS ESTADO_ENVIO FROM tbPedidos pedidos	INNER JOIN [dbo].[tbDirecciones] direc
+ON		pedidos.pedi_DireccionID = direc.direc_ID			INNER JOIN [dbo].[tbClientes]	clientes
+ON		direc.direc_ClienteID = clientes.client_ID			INNER JOIN [dbo].[tbEstadoEnvios] estadoenvio
+ON		pedidos.estv_Id = estadoenvio.estv_Id				INNER JOIN	[dbo].[tbEmpleados] empleados
+ON		pedidos.emp_Id = empleados.emp_Id
+WHERE	clientes.client_ID = @ID
+END
 
+go
+CREATE FUNCTION UDF_PedidosPorCliente(@Cliente_ID INT)
+RETURNS TABLE
+AS
+RETURN
+(
+	SELECT	pedi_Code AS PEDIDO, pedi_CostoEnvio AS COSTO_ENVÍO, pedi_Fecha AS FECHA, empleados.emp_Name + ' ' + empleados.emp_Apellido AS EMPLEADO, estadoenvio.estv_Description AS ESTADO_ENVIO FROM tbPedidos pedidos	INNER JOIN [dbo].[tbDirecciones] direc
+ON		pedidos.pedi_DireccionID = direc.direc_ID			INNER JOIN [dbo].[tbClientes]	clientes
+ON		direc.direc_ClienteID = clientes.client_ID			INNER JOIN [dbo].[tbEstadoEnvios] estadoenvio
+ON		pedidos.estv_Id = estadoenvio.estv_Id				INNER JOIN	[dbo].[tbEmpleados] empleados
+ON		pedidos.emp_Id = empleados.emp_Id
+WHERE	clientes.client_ID = @Cliente_ID
+)
+GO
+
+GO
+CREATE FUNCTION UDF_ArticulosPorPedido(@PedidoCode VARCHAR(6))
+RETURNS TABLE
+AS
+RETURN
+(
+	SELECT T3.pedi_Code AS PEDIDO, t2.art_Descripcion  AS ARTICULO, t1.det_Cantidad AS CANTIDAD FROM tbPedidoDetalles T1 INNER JOIN [dbo].[tbArticulos]  T2
+		ON t1.art_ID = t2.art_ID INNER JOIN [dbo].[tbPedidos] t3
+		ON T1.pedi_ID = T3.pedi_ID
+		WHERE T3.pedi_Code = @PedidoCode
+)
+GO
 
 
