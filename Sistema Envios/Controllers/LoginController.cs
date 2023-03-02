@@ -13,7 +13,9 @@ namespace Sistema_Envios.Controllers
         // GET: Login
         public ActionResult Index()
         {
+
             return View();
+            
         }
         // POST: Login
         [HttpPost]

@@ -1294,6 +1294,7 @@
     <FunctionImport Name="V_TICKET_PEDIDOSPORCLIENTE" ReturnType="Collection(DBArticulosEncargosModel.V_TICKET_PEDIDOSPORCLIENTE_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="UDP_CargarEstadosCiviles" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarEstadosCiviles_Result)" />
   </EntityContainer>
   <ComplexType Name="UDP_CARGAR_ARTICULO_Result">
     <Property Type="Int32" Name="art_ID" Nullable="false" />
@@ -1386,5 +1387,9 @@
     <Property Type="DateTime" Name="FECHA" Nullable="false" />
     <Property Type="String" Name="EMPLEADO" Nullable="false" MaxLength="301" />
     <Property Type="String" Name="ESTADO_ENVIO" Nullable="false" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="UDP_CargarEstadosCiviles_Result">
+    <Property Type="String" Name="est_ID" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="est_Descripcion" Nullable="true" MaxLength="100" />
   </ComplexType>
 </Schema>

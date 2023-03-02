@@ -23,8 +23,16 @@ public class ArticulosController : Controller
     // GET: Articulos
     public ActionResult Index()
         {
-            var tbArticulosIndex = db.V_INDEX_ARTICULOS;
-            return View(tbArticulosIndex.ToList());
+            if(Session.Count > 0)
+            {
+                var tbArticulosIndex = db.V_INDEX_ARTICULOS;
+                return View(tbArticulosIndex.ToList());
+
+            }
+            else
+            {
+                return RedirectToAction("/Login/Index");
+            }
         }
 
         // GET: Articulos/Details/5

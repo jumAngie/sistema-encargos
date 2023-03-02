@@ -248,6 +248,9 @@
     <Compile Include="Models\UDP_CARGARDEPTOS_DIRECCIONEDIT_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UDP_CargarEstadosCiviles_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UDP_CargarFabricas_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

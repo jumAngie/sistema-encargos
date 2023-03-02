@@ -996,5 +996,10 @@ namespace Sistema_Envios.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<V_TICKET_PEDIDOSPORCLIENTE_Result>("V_TICKET_PEDIDOSPORCLIENTE", iDParameter);
         }
+    
+        public virtual ObjectResult<UDP_CargarEstadosCiviles_Result> UDP_CargarEstadosCiviles()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CargarEstadosCiviles_Result>("UDP_CargarEstadosCiviles");
+        }
     }
 }
