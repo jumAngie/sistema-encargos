@@ -3043,6 +3043,7 @@
     <Content Include="Views\Clientes\EliminarCliente.cshtml" />
     <Content Include="Views\Articulos\EliminarArticulo.cshtml" />
     <Content Include="Views\Cargos\EliminarCargo.cshtml" />
+    <Content Include="Views\Ciudades\CrearCiudades.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
