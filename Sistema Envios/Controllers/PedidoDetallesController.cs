@@ -72,8 +72,16 @@ namespace Sistema_Envios.Controllers
                 int Cantidad = Int32.Parse(txtCant);
                 if (ModelState.IsValid)
                 {
-                    db.UDP_PEDIDO_DETALLE(Pedi, Articulo, Cantidad, Usuario);
-                    return RedirectToAction("Index");
+                    try
+                    {
+                        db.UDP_PEDIDO_DETALLE(Pedi, Articulo, Cantidad, Usuario);
+                        return RedirectToAction("Index");
+                    }
+                    catch (Exception)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    
                 }
                 return View();
             }
