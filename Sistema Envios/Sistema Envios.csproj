@@ -318,9 +318,6 @@
     <Compile Include="Models\V_INDEX_USUARIOS.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\V_TICKET_PEDIDOPORCLIENTE_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\V_TICKET_PEDIDOSPORCLIENTE_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

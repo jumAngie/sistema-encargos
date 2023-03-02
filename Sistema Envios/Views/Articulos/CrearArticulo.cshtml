@@ -1,13 +1,25 @@
 ﻿<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    .modal-header, h4, .close {
+        background-color: #5cb85c;
+        color: white !important;
+        text-align: center;
+        font-size: 30px;
+    }
 
+    .modal-footer {
+        background-color: #f9f9f9;
+    }
+</style>
 <div class="modal fade" id="Articulos" tabindex="-1" role="dialog" aria-labelledby="Crear-Articulos" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="crear-cargos">Articulos</h5>
+            <div class="modal-header" style="padding:35px 50px;">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4><span class="glyphicon glyphicon-lock"></span>Articulos</h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="padding:40px 50px;">
                 <label>Ingrese el artículo</label><br />
                 <label id="lblArticulo" style="color:orange; display:none">*Campo requerido</label>
                 <input type="text" name="txtArt" id="txtArt" class="form-control" />

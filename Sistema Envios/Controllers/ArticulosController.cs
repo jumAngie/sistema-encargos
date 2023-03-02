@@ -8,15 +8,20 @@ using System.Web;
 using System.Web.Mvc;
 using Sistema_Envios.Models;
 
+
 namespace Sistema_Envios.Controllers
 {
-    public class ArticulosController : Controller
+    
+public class ArticulosController : Controller
     {
+        
+
         private DBArticulosEncargosEntities1 db = new DBArticulosEncargosEntities1();
         public string UsuarioModi = "1";
 
-        // GET: Articulos
-        public ActionResult Index()
+
+    // GET: Articulos
+    public ActionResult Index()
         {
             var tbArticulosIndex = db.V_INDEX_ARTICULOS;
             return View(tbArticulosIndex.ToList());
