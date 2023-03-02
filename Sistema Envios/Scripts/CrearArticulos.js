@@ -63,6 +63,12 @@ function Insertar() {
             method: "POST",
             data: { txtArt: articulo, fab_ID: fabrica, txtStock: stock },
             success: function (data) {
+                swal({
+                    title: "Buen Trabajo!",
+                    text: "¡Se han guardado los cambios!",
+                    icon: "success",
+                    button: "Continuar"
+                });
                 window.location.reload();
             }
         })
