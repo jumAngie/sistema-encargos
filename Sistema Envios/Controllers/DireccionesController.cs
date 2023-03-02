@@ -68,49 +68,112 @@ namespace Sistema_Envios.Controllers
             return View();
         }
 
-        // GET: Direcciones/Edit/5
-        public ActionResult Edit(int? id)
+
+        public JsonResult CargarClienteEdit()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            tbDirecciones tbDirecciones = db.tbDirecciones.Find(id);
-            if (tbDirecciones == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.direc_CiudadID = new SelectList(db.tbCiudades, "ciu_ID", "ciu_Descripcion", tbDirecciones.direc_CiudadID);
-            ViewBag.direc_ClienteID = new SelectList(db.tbClientes, "client_ID", "client_Nombre", tbDirecciones.direc_ClienteID);
-            ViewBag.direc_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbDirecciones.direc_UsuarioCreador);
-            ViewBag.direc_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbDirecciones.direc_UsuarioMod);
-            return View(tbDirecciones);
+            var ddlC = db.UDP_CARGARCLIENTES_DIRECCIONESEdit().ToList();
+
+            return Json(ddlC, JsonRequestBehavior.AllowGet);
+
         }
 
-        // POST: Direcciones/Edit/5
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "direc_ID,direc_ClienteID,direc_DireccionExacta,direc_CiudadID,direc_UsuarioCreador,direc_FechaCreacion,direc_UsuarioMod,direc_FechaMod,direc_Estado")] tbDirecciones tbDirecciones)
-        {
-            // ,,direc_UsuarioMod,,
-            ModelState.Remove("direc_UsuarioCreador");
-            ModelState.Remove("direc_FechaCreacion");
-            ModelState.Remove("direc_FechaMod");
-            ModelState.Remove("direc_Estado");
 
+        public JsonResult CargarDepartamentosEdit()
+        {
+            var ddlD = db.UDP_CARGARDEPTOS_DIRECCIONEDIT().ToList();
+
+            return Json(ddlD, JsonRequestBehavior.AllowGet);
+
+        }
+
+        public JsonResult CargarMunicipiosEdit(string dep_ID)
+        {
+            var ddlM = db.UDP_CARGARCIIUDAD_DIRECCONEDIT(int.Parse(dep_ID)).ToList();
+
+            return Json(ddlM, JsonRequestBehavior.AllowGet);
+
+        }
+
+
+        [HttpPost]
+
+        public JsonResult Cargar(string direc_ID)
+        {
+
+
+            var direc= db.UDP_CARGAR_DIRECCIONESEdit(int.Parse(direc_ID)).ToList();
+
+            return Json(direc, JsonRequestBehavior.AllowGet);
+        }
+
+
+
+
+        [HttpPost, ActionName("Editores")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Edito(string ID, string estado)
+
+        {
             if (ModelState.IsValid)
             {
-                db.UDP_Editar_Direcciones(tbDirecciones.direc_ID, tbDirecciones.direc_ClienteID, tbDirecciones.direc_DireccionExacta, tbDirecciones.direc_CiudadID, Usu).ToString();
-                return RedirectToAction("Index");
+                if (estado != "")
+                {
+                    //string id = Session["IdUsuario"].ToString();
+                    var Edit = db.UDP_Editar_EstadosCiviles(ID, estado, "1");
+
+
+                    return RedirectToAction("Index");
+                }
+
             }
-            ViewBag.direc_CiudadID = new SelectList(db.tbCiudades, "ciu_ID", "ciu_Descripcion", tbDirecciones.direc_CiudadID);
-            ViewBag.direc_ClienteID = new SelectList(db.tbClientes, "client_ID", "client_Nombre", tbDirecciones.direc_ClienteID);
-            ViewBag.direc_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbDirecciones.direc_UsuarioCreador);
-            ViewBag.direc_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbDirecciones.direc_UsuarioMod);
-            return View(tbDirecciones);
+
+            return RedirectToAction("Index");
         }
+
+
+        //// GET: Direcciones/Edit/5
+        //public ActionResult Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    tbDirecciones tbDirecciones = db.tbDirecciones.Find(id);
+        //    if (tbDirecciones == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    ViewBag.direc_CiudadID = new SelectList(db.tbCiudades, "ciu_ID", "ciu_Descripcion", tbDirecciones.direc_CiudadID);
+        //    ViewBag.direc_ClienteID = new SelectList(db.tbClientes, "client_ID", "client_Nombre", tbDirecciones.direc_ClienteID);
+        //    ViewBag.direc_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbDirecciones.direc_UsuarioCreador);
+        //    ViewBag.direc_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbDirecciones.direc_UsuarioMod);
+        //    return View(tbDirecciones);
+        //}
+
+        //// POST: Direcciones/Edit/5
+        //// Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
+        //// más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit([Bind(Include = "direc_ID,direc_ClienteID,direc_DireccionExacta,direc_CiudadID,direc_UsuarioCreador,direc_FechaCreacion,direc_UsuarioMod,direc_FechaMod,direc_Estado")] tbDirecciones tbDirecciones)
+        //{
+        //    // ,,direc_UsuarioMod,,
+        //    ModelState.Remove("direc_UsuarioCreador");
+        //    ModelState.Remove("direc_FechaCreacion");
+        //    ModelState.Remove("direc_FechaMod");
+        //    ModelState.Remove("direc_Estado");
+
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.UDP_Editar_Direcciones(tbDirecciones.direc_ID, tbDirecciones.direc_ClienteID, tbDirecciones.direc_DireccionExacta, tbDirecciones.direc_CiudadID, Usu).ToString();
+        //        return RedirectToAction("Index");
+        //    }
+        //    ViewBag.direc_CiudadID = new SelectList(db.tbCiudades, "ciu_ID", "ciu_Descripcion", tbDirecciones.direc_CiudadID);
+        //    ViewBag.direc_ClienteID = new SelectList(db.tbClientes, "client_ID", "client_Nombre", tbDirecciones.direc_ClienteID);
+        //    ViewBag.direc_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbDirecciones.direc_UsuarioCreador);
+        //    ViewBag.direc_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbDirecciones.direc_UsuarioMod);
+        //    return View(tbDirecciones);
+        //}
 
         // GET: Direcciones/Delete/5
         public ActionResult Delete(int? id)

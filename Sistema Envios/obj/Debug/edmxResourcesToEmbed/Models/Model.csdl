@@ -1284,6 +1284,14 @@
     <FunctionImport Name="UDP_CARGARDATOS_FABRICA" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGARDATOS_FABRICA_Result)">
       <Parameter Name="fab_ID" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="UDP_CARGAR_DIRECCIONESEdit" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGAR_DIRECCIONESEdit_Result)">
+      <Parameter Name="direc_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UDP_CARGARCIIUDAD_DIRECCONEDIT" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGARCIIUDAD_DIRECCONEDIT_Result)">
+      <Parameter Name="depto_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UDP_CARGARCLIENTES_DIRECCIONESEdit" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGARCLIENTES_DIRECCIONESEdit_Result)" />
+    <FunctionImport Name="UDP_CARGARDEPTOS_DIRECCIONEDIT" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGARDEPTOS_DIRECCIONEDIT_Result)" />
   </EntityContainer>
   <ComplexType Name="UDP_CARGAR_ARTICULO_Result">
     <Property Type="Int32" Name="art_ID" Nullable="false" />
@@ -1369,5 +1377,24 @@
     <Property Type="Int32" Name="fab_ID" Nullable="false" />
     <Property Type="String" Name="fab_Descripcion" Nullable="false" MaxLength="250" />
     <Property Type="String" Name="fab_Telefono" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="UDP_CARGAR_DIRECCIONESEdit_Result">
+    <Property Type="Int32" Name="direc_ID" Nullable="false" />
+    <Property Type="Int32" Name="direc_ClienteID" Nullable="false" />
+    <Property Type="String" Name="direc_DireccionExacta" Nullable="false" />
+    <Property Type="Int32" Name="direc_CiudadID" Nullable="false" />
+    <Property Type="Int32" Name="depto_ID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="UDP_CARGARCIIUDAD_DIRECCONEDIT_Result">
+    <Property Type="Int32" Name="ciu_ID" Nullable="false" />
+    <Property Type="String" Name="ciu_Descripcion" Nullable="false" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="UDP_CARGARCLIENTES_DIRECCIONESEdit_Result">
+    <Property Type="Int32" Name="client_ID" Nullable="false" />
+    <Property Type="String" Name="client_Nombre" Nullable="false" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="UDP_CARGARDEPTOS_DIRECCIONEDIT_Result">
+    <Property Type="Int32" Name="depto_ID" Nullable="false" />
+    <Property Type="String" Name="depto_Descripcion" Nullable="false" MaxLength="255" />
   </ComplexType>
 </Schema>

@@ -978,5 +978,33 @@ namespace Sistema_Envios.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGARDATOS_FABRICA_Result>("UDP_CARGARDATOS_FABRICA", fab_IDParameter);
         }
+    
+        public virtual ObjectResult<UDP_CARGAR_DIRECCIONESEdit_Result> UDP_CARGAR_DIRECCIONESEdit(Nullable<int> direc_ID)
+        {
+            var direc_IDParameter = direc_ID.HasValue ?
+                new ObjectParameter("direc_ID", direc_ID) :
+                new ObjectParameter("direc_ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_DIRECCIONESEdit_Result>("UDP_CARGAR_DIRECCIONESEdit", direc_IDParameter);
+        }
+    
+        public virtual ObjectResult<UDP_CARGARCIIUDAD_DIRECCONEDIT_Result> UDP_CARGARCIIUDAD_DIRECCONEDIT(Nullable<int> depto_Id)
+        {
+            var depto_IdParameter = depto_Id.HasValue ?
+                new ObjectParameter("depto_Id", depto_Id) :
+                new ObjectParameter("depto_Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGARCIIUDAD_DIRECCONEDIT_Result>("UDP_CARGARCIIUDAD_DIRECCONEDIT", depto_IdParameter);
+        }
+    
+        public virtual ObjectResult<UDP_CARGARCLIENTES_DIRECCIONESEdit_Result> UDP_CARGARCLIENTES_DIRECCIONESEdit()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGARCLIENTES_DIRECCIONESEdit_Result>("UDP_CARGARCLIENTES_DIRECCIONESEdit");
+        }
+    
+        public virtual ObjectResult<UDP_CARGARDEPTOS_DIRECCIONEDIT_Result> UDP_CARGARDEPTOS_DIRECCIONEDIT()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGARDEPTOS_DIRECCIONEDIT_Result>("UDP_CARGARDEPTOS_DIRECCIONEDIT");
+        }
     }
 }

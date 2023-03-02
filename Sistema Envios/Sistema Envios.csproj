@@ -227,7 +227,13 @@
     <Compile Include="Models\UDP_CargarArticulos_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UDP_CARGARCIIUDAD_DIRECCONEDIT_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UDP_CargarCiudades_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UDP_CARGARCLIENTES_DIRECCIONESEdit_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UDP_CargarCliente_Result.cs">
@@ -237,6 +243,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UDP_CargarDepartamentos_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UDP_CARGARDEPTOS_DIRECCIONEDIT_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UDP_CargarFabricas_Result.cs">
@@ -255,6 +264,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UDP_CARGAR_DEPARTAMENTO_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UDP_CARGAR_DIRECCIONESEdit_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UDP_CARGAR_ESTADOSCIVILES_Result.cs">
@@ -2922,6 +2934,7 @@
     <Content Include="Scripts\CrearFabrica.js" />
     <Content Include="Scripts\DepartamentosEditar.js" />
     <Content Include="Scripts\Detalles.js" />
+    <Content Include="Scripts\DireccionesEditar.js" />
     <Content Include="Scripts\EditarFabricas.js" />
     <Content Include="Scripts\EliminarFabrica.js" />
     <Content Include="Scripts\EliminarPedido.js" />
