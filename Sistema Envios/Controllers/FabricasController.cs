@@ -102,28 +102,9 @@ namespace Sistema_Envios.Controllers
         }
 
         // GET: Fabricas/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            tbFabricas tbFabricas = db.tbFabricas.Find(id);
-            if (tbFabricas == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tbFabricas);
-        }
-
-        // POST: Fabricas/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            tbFabricas tbFabricas = db.tbFabricas.Find(id);
             db.UDP_Eliminar_Fabricas(id, Usu);
-            db.SaveChanges();
             return RedirectToAction("Index");
         }
 
