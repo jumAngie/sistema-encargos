@@ -5,20 +5,25 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<div class="card">
+    <div class="card-header bg-warning">
+        <div class="text-center">
+            <h4 style="color:azure">Estados Civiles</h4>
+        </div>
+    </div>
+    <div class="card-body">
+        <dl>
+            <div class="row">
+                <div class="col-sm-4">
+            <dt>
+                @Html.DisplayNameFor(model => model.est_Descripcion)
+            </dt>
 
-<div>
-    <h4>tbEstadosCiviles</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.est_Descripcion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.est_Descripcion)
-        </dd>
-
+            <dd>
+                @Html.DisplayFor(model => model.est_Descripcion)
+            </dd>
+    </div>
+    <div class="col-sm-4">
         <dt>
             @Html.DisplayNameFor(model => model.est_FechaCrea)
         </dt>
@@ -26,7 +31,8 @@
         <dd>
             @Html.DisplayFor(model => model.est_FechaCrea)
         </dd>
-
+    </div>
+    <div class="col-sm-4">
         <dt>
             @Html.DisplayNameFor(model => model.est_FechaMod)
         </dt>
@@ -34,7 +40,10 @@
         <dd>
             @Html.DisplayFor(model => model.est_FechaMod)
         </dd>
-
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-4">
         <dt>
             @Html.DisplayNameFor(model => model.tbUsuarios.usu_Usuario)
         </dt>
@@ -42,7 +51,8 @@
         <dd>
             @Html.DisplayFor(model => model.tbUsuarios.usu_Usuario)
         </dd>
-
+    </div>
+    <div class="col-sm-4">
         <dt>
             @Html.DisplayNameFor(model => model.tbUsuarios1.usu_Usuario)
         </dt>
@@ -50,10 +60,19 @@
         <dd>
             @Html.DisplayFor(model => model.tbUsuarios1.usu_Usuario)
         </dd>
+    </div>
+    <div class="col-sm-4">
 
-    </dl>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.est_ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        </dl>
+<div class="text-center">
+    <button class="btn btn-warning">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.est_ID })
+    </button>
+    <button class="btn btn-warning">
+        @Html.ActionLink("Back to List", "Index")
+    </button>
+</div>
+    </div>
+</div>

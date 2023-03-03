@@ -5,20 +5,25 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<div class="card">
+    <div class="card-header bg-warning">
+        <div class="text-center">
+            <h4 style="color:azure">Empleados</h4>
+        </div>
+    </div>
+    <div class="card-body">
+        <dl>
+            <div class="row">
+                <div class="col-sm-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.emp_Name)
+            </dt>
 
-<div>
-    <h4>tbEmpleados</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.emp_Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.emp_Name)
-        </dd>
-
+            <dd>
+                @Html.DisplayFor(model => model.emp_Name)
+            </dd>
+    </div>
+    <div class="col-sm-6">
         <dt>
             @Html.DisplayNameFor(model => model.emp_Apellido)
         </dt>
@@ -26,7 +31,10 @@
         <dd>
             @Html.DisplayFor(model => model.emp_Apellido)
         </dd>
-
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
         <dt>
             @Html.DisplayNameFor(model => model.emp_DNI)
         </dt>
@@ -34,7 +42,8 @@
         <dd>
             @Html.DisplayFor(model => model.emp_DNI)
         </dd>
-
+    </div>
+    <div class="col-sm-6">
         <dt>
             @Html.DisplayNameFor(model => model.emp_FechaNac)
         </dt>
@@ -42,7 +51,10 @@
         <dd>
             @Html.DisplayFor(model => model.emp_FechaNac)
         </dd>
-
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
         <dt>
             @Html.DisplayNameFor(model => model.emp_Sexo)
         </dt>
@@ -50,7 +62,8 @@
         <dd>
             @Html.DisplayFor(model => model.emp_Sexo)
         </dd>
-
+    </div>
+    <div class="col-sm-6">
         <dt>
             @Html.DisplayNameFor(model => model.carg_Id)
         </dt>
@@ -58,47 +71,10 @@
         <dd>
             @Html.DisplayFor(model => model.carg_Id)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.emp_UsuarioCrea)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.emp_UsuarioCrea)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.emp_FechaCrea)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.emp_FechaCrea)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.emp_UsuModif)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.emp_UsuModif)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.emp_FechaModif)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.emp_FechaModif)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.emp_Estado)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.emp_Estado)
-        </dd>
-
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
         <dt>
             @Html.DisplayNameFor(model => model.tbCiudades.ciu_Descripcion)
         </dt>
@@ -106,7 +82,8 @@
         <dd>
             @Html.DisplayFor(model => model.tbCiudades.ciu_Descripcion)
         </dd>
-
+    </div>
+    <div class="col-sm-6">
         <dt>
             @Html.DisplayNameFor(model => model.tbEstadosCiviles.est_Descripcion)
         </dt>
@@ -114,10 +91,19 @@
         <dd>
             @Html.DisplayFor(model => model.tbEstadosCiviles.est_Descripcion)
         </dd>
-
-    </dl>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.emp_Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        </dl>
+    </div>
+<div class="text-center">
+    <button class="btn btn-warning">
+        @Html.ActionLink("Editar", "Edit", new { id = Model.emp_Id })
+    </button>
+    <button class="btn btn-warning">
+        @Html.ActionLink("Volver a la lista", "Index")
+    </button>
+</div>
+<br />
+</div>
+
+
