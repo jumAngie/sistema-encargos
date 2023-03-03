@@ -71,7 +71,7 @@ function Guardar() {
         success: function (data) {
 
 
-            /*   window.location.reload();*/
+               window.location.reload();
 
         }
 
@@ -80,6 +80,10 @@ function Guardar() {
     if ($("#drf").prop('checked', false) && $("#drm").prop('checked', false)) {
 
         $("#lblSexo").show();
+
+    }
+    if (EstadoCiv == "" || EstadoCiv == null) {
+        $("#lblEstadoCiv").show();
 
     }
     if (nombre == "" || nombre == null) {
@@ -121,11 +125,12 @@ function Guardar() {
 
 
     }
-    if (parseInt(limite_Credit) > 3000000) {
+
+    if (limi > 3000000) {
         $("#lblAlertaCredito").show();
         $("#txtCredito").focus();
     }
-    if ((nombre != "" || nombre != null) && (identidad != "" || identidad != null) && (telefono != "" || telefono != null) && (saldo != "" || saldo != null) && (limite_Credit != "" || limite_Credit != null) && (descuento != "" || descuento != null)) {
+    if ((nombre != "" || nombre != null) && (identidad != "" || identidad != null) && (telefono != "" || telefono != null) && (saldo != "" || saldo != null) && (limite_Credit != "" || limite_Credit != null) && (descuento != "" || descuento != null) && (EstadoCiv != "" || EstadoCiv != null) {
        
         $("#lblAlertaCredito").hide();
         $("#lblNombre").hide();
@@ -136,10 +141,11 @@ function Guardar() {
         $("#lblCredito").hide();
         $("#lblDescuento").hide();
         $("#lblTelefono").hide();
+        $("#lblEstadoCiv").hide();
 
         window.location.reload();
 
-        alert("Se guardo correctamente");
+        alert("Se guardo correctamente ??");
 
         
     }

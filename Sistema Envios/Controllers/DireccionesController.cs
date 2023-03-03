@@ -89,14 +89,14 @@ namespace Sistema_Envios.Controllers
 
 
 
+        [HttpPost]
+        public JsonResult CargarMunicipiosEdit()
+        {
+            var ddlM = db.UDP_CARGAR_MUNICIPIO().ToList();
 
-        //public JsonResult CargarMunicipiosEdit()
-        //{
-        //    var ddlM = db.UDP_CARGAR_MUNICIPIO().ToList();
+            return Json(ddlM, JsonRequestBehavior.AllowGet);
 
-        //    return Json(ddlM, JsonRequestBehavior.AllowGet);
-
-        //}
+        }
 
         //[HttpPost]
         //public JsonResult CargarMunicipiosDEPA(string depto)

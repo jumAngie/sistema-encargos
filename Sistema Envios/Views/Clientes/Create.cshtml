@@ -1,17 +1,13 @@
-﻿@*@model Sistema_Envios.Models.tbClientes*@
+﻿@model Sistema_Envios.Models.tbClientes
 
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<h2> Create </h2>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-@*@using (Html.BeginForm())*@
-
-    @*@Html.AntiForgeryToken()*@
+    <h2> Create </h2>
 
     <div class="card">
         <div class="card-header">
@@ -31,7 +27,7 @@
                 </div>
 
                 <div class="col-sm-6">
-                    <label>ESTADO CIVIL</label>
+                    <label>ESTADO CIVIL</label><label style="color:red" id="lblEstadoCiv">El campo es requerido!!</label>
                     <select id="Id_Estado" name="Id_Estado" class="form-control"> </select>
                 </div>
 
@@ -50,7 +46,7 @@
                 <div class="col-sm-6">
                     <label>CREDITO</label> <label style="color:red" id="lblCredito">El campo es requerido!!</label>
                     <label style="color:red" id="lblAlertaCredito">Ha superado el limite de credito!!</label>
-                    <input type="text" id="txtCredito" name="txtCredito" class="form-control" />
+                    <input type="number" id="txtCredito" name="txtCredito" class="form-control" />
                 </div>
                 <div class="col-sm-6">
                     <label>DESCUENTO</label>  <label style="color:red" id="lblDescuento">El campo es requerido!!</label>
@@ -73,11 +69,17 @@
             </div>
         </div>
     </div>
+
     <script src="~/Scripts/CrearClientes.js"></script>
 
 
-@*}*@
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+
+
+
+}
