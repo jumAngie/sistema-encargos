@@ -145,7 +145,7 @@ namespace Sistema_Envios.Controllers
             {
                 try
                 {
-                    if (cliente != "" || ciudad != "" || direccion != "")
+                    if ( direccion != "" || direccion != null)
                     {
                         //string id = Session["IdUsuario"].ToString();
                         var Edit = db.UDP_Editar_Direcciones(int.Parse(ID), int.Parse(cliente), direccion, int.Parse(ciudad), "1");
@@ -156,6 +156,10 @@ namespace Sistema_Envios.Controllers
                 {
                     return RedirectToAction("Index");
                 }
+            }
+            else
+            {
+                return RedirectToAction("Index");
             }
 
             return RedirectToAction("Index");

@@ -8,6 +8,20 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    .modal-header, h4, .close {
+        background-color: orangered;
+        color: white !important;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .modal-footer {
+        background-color: #f9f9f9;
+    }
+</style>
+
+
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-lg-12">
@@ -55,29 +69,39 @@
                                             <div class="modal fade" id="FormModal" tabindex="-1" role="dialog" aria-labelledby="Crear-Articulos" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="crear-cargos">Fabricas</h5>
-                                                            <label hidden id="lblMensaje3" name="lblMensaje3">Los campos son requeridos!!</label>
+                                                        <div class="modal-header" style="padding:35px 50px;">
+                                                            <h4><span class="glyphicon glyphicon-lock"></span>EDITAR FABRICAS</h4>
+                                                            <label id="lblMensaje1" style="color:red">Los campos son requeridos!!</label>
                                                         </div>
-                                                        <div class="modal-body">
-                                                            <label> Fabrica </label>
-                                                            <input type="text" name="txtFabrica" id="txtFabrica" class="form-control" />
-                                                            <label>Telefono </label> <label hidden id="lblMensaje2" name="lblMensaje2">El campo no puede estar vacio!!</label>
-                                                            <input type="number" name="txtTelefono" id="txtTelefono" class="form-control" />
+                                                        <div class="modal-body" style="padding:40px 50px;">
+                                                            <div class="card">
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-6">
+                                                                            <label> Fabrica </label><label id="lblMensaje2" style="color:red">El campo no puede estar vacio!!</label>
+                                                                            <input type="text" name="txtFabrica" id="txtFabrica" class="form-control" />
+                                                                        </div>
+                                                                        <div class="col-sm-6">
+                                                                            <label>Telefono </label> <label style="color:red" id="lblMensaje3">El campo no puede estar vacio!!</label>
 
+                                                                            <input type="number" name="txtTelefono" id="txtTelefono" class="form-control" />
+                                                                        </div>
+                                                                        </div>
+                                                                    </div>
+                                                            </div>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <input type="hidden" id="fab_ID" />
                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="Cerrar()">Close</button>
-                                                            <input type="submit" value="Editar" id="btnEditar" name="btnEditar" onclick="Editar(@item.ID)" class="btn btn-default" />
+                                                            <input type="button" value="Editar" id="btnEditar" name="btnEditar" onclick="Editar(@item.ID)" class="btn btn-default" />
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-
+                                            <script src="~/Scripts/EditarFabricas.js"></script>
                                         </form>
 
-                                        <script src="~/Scripts/EditarFabricas.js"></script>
+
                                     </td>
                                 </tr>
                             }

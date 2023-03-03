@@ -1,5 +1,6 @@
 ﻿$("#lblMensaje1").hide();
-
+$("#lblMensaje2").hide();
+$("#lblMensaje3").hide();
 
 function Cerrar() {
     $('#FormModal').modal('hide');
@@ -41,55 +42,54 @@ var ID = $("#fab_ID").val();
 //if (Descripcion.val() != "" && telefono.val() != "") {
 
 
-     function Editar(x) {
+function Editar(x) {
 
-        var Descripcion = $("#txtFabrica").val();
-        var telefono = $("#txtTelefono").val();
-        var ID = $("#fab_ID").val();
- 
-        //if (Descripcion.val() == "") {
-        //    $("#lblMensaje1").show();
-        //    $("#txtFabrica").focus();
-        //    $("#lblMensaje1").show();
-        //    $('#FormModal').modal('show');
+    var Descripcion = $("#txtFabrica").val();
+    var telefono = $("#txtTelefono").val();
+    var ID = $("#fab_ID").val();
 
-        //}
-
-        //if (telefono.val() == "") {
-        //    $("#lblMensaje2").show();
-        //    $("#txtTelefono").focus();
-        //    /*  $('#FormModal').modal('show');*/
-        //}
-        //if (telefono.val() == "" && Descripcion.val() == "") {
-        //    $("#lblMensaje3").show();
-        //    /*   $('#FormModal').modal('show');*/
-        //}
-
-        //else {
-             console.log(x);   
-            $.ajax({
-                url: "/Fabricas/Editores",
-                method: "POST",
-                dataType: "json",
-                contentType: "application/json; charset=utf-8",
-                data: JSON.stringify({ ID: ID, Descripcion: Descripcion, telefono: telefono }),
-                success: function (data) {
+    console.log(x);
+    $.ajax({
+        url: "/Fabricas/Editores",
+        method: "POST",
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({ ID: ID, Descripcion: Descripcion, telefono: telefono }),
+        success: function (data) {
 
 
-                    window.location.reload();
+            window.location.reload();
 
-                }
+        }
 
-
-
-            })
-        /*    $('#FormModal').modal('hide');*/
-}
+    })
 
 
+    if (Descripcion == "" || Descripcion == null) {
+        $("#lblMensaje2").show();
+        $("#txtFabrica").focus();
+
+    }
+
+    if (telefono == "" || telefono == null) {
+            $("#lblMensaje3").show();
+            $("#txtTelefono").focus();
+          
+    }
+    if ((telefono == "" && Descripcion == "") || (telefono == null && Descripcion == null)) {
+            $("#lblMensaje1").show();
+           
+     }
+
+    if (telefono != "" && Descripcion != "") {
+        $('#FormModal').modal('hide');
+        window.location.reload();
+    }
+ }
 
 
-/*}*/
+
+
 
     
 

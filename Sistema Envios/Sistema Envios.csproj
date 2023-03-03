@@ -249,6 +249,9 @@
     <Compile Include="Models\UDP_CARGARDEPTOS_DIRECCIONEDIT_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UDP_CargarEmpleados_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UDP_CargarEstadosCiviles_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -256,6 +259,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UDP_CargarPedidos_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UDP_CargarRol_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UDP_CARGAR_ARTICULOS_Result.cs">
