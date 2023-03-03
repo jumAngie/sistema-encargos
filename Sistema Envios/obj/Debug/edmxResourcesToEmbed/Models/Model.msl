@@ -395,7 +395,8 @@
           <ScalarProperty Name="direc_ID" ColumnName="direc_ID" />
           <ScalarProperty Name="direc_ClienteID" ColumnName="direc_ClienteID" />
           <ScalarProperty Name="direc_DireccionExacta" ColumnName="direc_DireccionExacta" />
-          <ScalarProperty Name="direc_CiudadID" ColumnName="direc_CiudadID" />
+          <ScalarProperty Name="ciu_ID" ColumnName="ciu_ID" />
+          <ScalarProperty Name="ciu_Descripcion" ColumnName="ciu_Descripcion" />
           <ScalarProperty Name="depto_ID" ColumnName="depto_ID" />
         </ComplexTypeMapping>
       </ResultMapping>
@@ -473,6 +474,14 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_CargarEstadosCiviles" FunctionName="DBArticulosEncargosModel.Store.UDP_CargarEstadosCiviles">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CargarEstadosCiviles_Result">
+          <ScalarProperty Name="est_ID" ColumnName="est_ID" />
+          <ScalarProperty Name="est_Descripcion" ColumnName="est_Descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="UDP_CargarFabricas" FunctionName="DBArticulosEncargosModel.Store.UDP_CargarFabricas">
       <ResultMapping>
         <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CargarFabricas_Result">
@@ -492,6 +501,7 @@
     <FunctionImportMapping FunctionImportName="UDP_CARGOS_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_CARGOS_INSERT" />
     <FunctionImportMapping FunctionImportName="UDP_CIUDADES_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_CIUDADES_INSERT" />
     <FunctionImportMapping FunctionImportName="UDP_DEPARTAMENTOS_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_DEPARTAMENTOS_INSERT" />
+    <FunctionImportMapping FunctionImportName="UDP_DIRECCIONES_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_DIRECCIONES_INSERT" />
     <FunctionImportMapping FunctionImportName="UDP_Editar_Articulos" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Articulos" />
     <FunctionImportMapping FunctionImportName="UDP_Editar_Cargos" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Cargos" />
     <FunctionImportMapping FunctionImportName="UDP_Editar_Ciudades" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Ciudades" />

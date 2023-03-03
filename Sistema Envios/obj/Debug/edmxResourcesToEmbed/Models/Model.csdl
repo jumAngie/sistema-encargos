@@ -1064,6 +1064,7 @@
     </FunctionImport>
     <FunctionImport Name="UDP_CargarDepartamentos" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarDepartamentos_Result)" />
     <FunctionImport Name="UDP_CARGARDEPTOS_DIRECCIONEDIT" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGARDEPTOS_DIRECCIONEDIT_Result)" />
+    <FunctionImport Name="UDP_CargarEstadosCiviles" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarEstadosCiviles_Result)" />
     <FunctionImport Name="UDP_CargarFabricas" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarFabricas_Result)" />
     <FunctionImport Name="UDP_CargarPedidos" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarPedidos_Result)" />
     <FunctionImport Name="UDP_CARGOS_INSERT">
@@ -1294,7 +1295,6 @@
     <FunctionImport Name="V_TICKET_PEDIDOSPORCLIENTE" ReturnType="Collection(DBArticulosEncargosModel.V_TICKET_PEDIDOSPORCLIENTE_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="UDP_CargarEstadosCiviles" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarEstadosCiviles_Result)" />
   </EntityContainer>
   <ComplexType Name="UDP_CARGAR_ARTICULO_Result">
     <Property Type="Int32" Name="art_ID" Nullable="false" />
@@ -1318,7 +1318,8 @@
     <Property Type="Int32" Name="direc_ID" Nullable="false" />
     <Property Type="Int32" Name="direc_ClienteID" Nullable="false" />
     <Property Type="String" Name="direc_DireccionExacta" Nullable="false" />
-    <Property Type="Int32" Name="direc_CiudadID" Nullable="false" />
+    <Property Type="Int32" Name="ciu_ID" Nullable="false" />
+    <Property Type="String" Name="ciu_Descripcion" Nullable="false" MaxLength="255" />
     <Property Type="Int32" Name="depto_ID" Nullable="false" />
   </ComplexType>
   <ComplexType Name="UDP_CARGAR_ESTADOSCIVILES_Result">
@@ -1358,6 +1359,10 @@
     <Property Type="Int32" Name="depto_ID" Nullable="false" />
     <Property Type="String" Name="depto_Descripcion" Nullable="false" MaxLength="255" />
   </ComplexType>
+  <ComplexType Name="UDP_CargarEstadosCiviles_Result">
+    <Property Type="String" Name="est_ID" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="est_Descripcion" Nullable="true" MaxLength="100" />
+  </ComplexType>
   <ComplexType Name="UDP_CargarFabricas_Result">
     <Property Type="Int32" Name="fab_ID" Nullable="false" />
     <Property Type="String" Name="fab_Descripcion" Nullable="false" MaxLength="250" />
@@ -1387,9 +1392,5 @@
     <Property Type="DateTime" Name="FECHA" Nullable="false" />
     <Property Type="String" Name="EMPLEADO" Nullable="false" MaxLength="301" />
     <Property Type="String" Name="ESTADO_ENVIO" Nullable="false" MaxLength="150" />
-  </ComplexType>
-  <ComplexType Name="UDP_CargarEstadosCiviles_Result">
-    <Property Type="String" Name="est_ID" Nullable="false" MaxLength="1" />
-    <Property Type="String" Name="est_Descripcion" Nullable="true" MaxLength="100" />
   </ComplexType>
 </Schema>

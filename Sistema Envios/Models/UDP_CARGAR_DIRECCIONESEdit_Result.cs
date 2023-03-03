@@ -16,7 +16,8 @@ namespace Sistema_Envios.Models
         public int direc_ID { get; set; }
         public int direc_ClienteID { get; set; }
         public string direc_DireccionExacta { get; set; }
-        public int direc_CiudadID { get; set; }
+        public int ciu_ID { get; set; }
+        public string ciu_Descripcion { get; set; }
         public int depto_ID { get; set; }
     }
 }
