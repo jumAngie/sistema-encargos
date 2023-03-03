@@ -84,37 +84,42 @@ namespace Sistema_Envios.Controllers
 
 
 
-        //[HttpPost]
-
+        [HttpPost]
         //[ValidateAntiForgeryToken]
+
         public ActionResult Guardo( string nombre, string identidad, string EstadoCiv, string sexo, string telefono, string saldo, string limite_Credit, string descuento )
             
         {
-         
-
-            if (ModelState.IsValid)
+            try
             {
-                try
+                if (ModelState.IsValid)
                 {
                     string usuario = Session["UsuarioID"].ToString();
-                    if (nombre != "" && descuento != "" && limite_Credit != "" && telefono != "" && identidad != "" && saldo != "" && sexo != null)
+                    if (nombre != "" && descuento != "" && limite_Credit != "" && telefono != "" && identidad != "" && saldo != "" && sexo != "" && EstadoCiv != "")
                     {
                         //string id = Session["IdUsuario"].ToString();
-                         db.UDP_InsertClientes(nombre,identidad,EstadoCiv, sexo,telefono,saldo,limite_Credit,descuento,int.Parse(usuario));
+                        var insert = db.UDP_InsertClientes(nombre, identidad, EstadoCiv, sexo, telefono, saldo, limite_Credit, descuento, int.Parse(usuario));
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
                         return RedirectToAction("Index");
                     }
                 }
-                catch (Exception)
+                else
                 {
                     return RedirectToAction("Index");
                 }
+
             }
-            else
+
+
+            catch (Exception)
             {
                 return RedirectToAction("Index");
             }
-
-            return RedirectToAction("Index");
+         
+            //return RedirectToAction("Index");
         }
 
 
