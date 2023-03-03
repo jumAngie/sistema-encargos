@@ -209,6 +209,11 @@ namespace Sistema_Envios.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGARDEPTOS_DIRECCIONEDIT_Result>("UDP_CARGARDEPTOS_DIRECCIONEDIT");
         }
     
+        public virtual ObjectResult<UDP_CargarEmpleados_Result> UDP_CargarEmpleados()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CargarEmpleados_Result>("UDP_CargarEmpleados");
+        }
+    
         public virtual ObjectResult<UDP_CargarEstadosCiviles_Result> UDP_CargarEstadosCiviles()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CargarEstadosCiviles_Result>("UDP_CargarEstadosCiviles");
@@ -222,6 +227,11 @@ namespace Sistema_Envios.Models
         public virtual ObjectResult<UDP_CargarPedidos_Result> UDP_CargarPedidos()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CargarPedidos_Result>("UDP_CargarPedidos");
+        }
+    
+        public virtual ObjectResult<UDP_CargarRol_Result> UDP_CargarRol()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CargarRol_Result>("UDP_CargarRol");
         }
     
         public virtual int UDP_CARGOS_INSERT(string carg_Description, Nullable<int> rep_UsuarioCreador)

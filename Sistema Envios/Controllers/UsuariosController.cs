@@ -50,7 +50,7 @@ namespace Sistema_Envios.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public ActionResult Create(string txtUsuario, string txtClave, string emp_Id, string ckEsAdmin, string rol_ID)
+        public ActionResult Create(string txtUsuario, string txtClave, string emp_Id, bool ckEsAdmin, string rol_ID)
         {
             if (ModelState.IsValid)
             {

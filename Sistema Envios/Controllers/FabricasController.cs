@@ -86,15 +86,22 @@ namespace Sistema_Envios.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (Descripcion != "" && telefono != "")
+                try
                 {
-                    ModelState.AddModelError("Validacion", "Los campos no deben estar vacios");
 
 
-                    //string id = Session["IdUsuario"].ToString();
-                    var Edit = db.UDP_Editar_Fabricas(int.Parse(ID), Descripcion, telefono, "1");
+                    if (Descripcion != "" && telefono != "")
+                    {
+                      
+                        //string id = Session["IdUsuario"].ToString();
+                        var Edit = db.UDP_Editar_Fabricas(int.Parse(ID), Descripcion, telefono, "1");
 
 
+                        return RedirectToAction("Index");
+                    }
+                }
+                catch (Exception)
+                {
                     return RedirectToAction("Index");
                 }
 

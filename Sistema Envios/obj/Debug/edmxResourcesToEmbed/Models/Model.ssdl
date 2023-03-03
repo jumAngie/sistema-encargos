@@ -855,9 +855,11 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
   </Function>
   <Function Name="UDP_CargarDepartamentos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="UDP_CARGARDEPTOS_DIRECCIONEDIT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="UDP_CargarEmpleados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="UDP_CargarEstadosCiviles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="UDP_CargarFabricas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="UDP_CargarPedidos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="UDP_CargarRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="UDP_CARGOS_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="carg_Description" Type="nvarchar" Mode="In" />
     <Parameter Name="rep_UsuarioCreador" Type="int" Mode="In" />
@@ -870,12 +872,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
   <Function Name="UDP_DEPARTAMENTOS_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="depto_Description" Type="nvarchar" Mode="In" />
     <Parameter Name="depto_Usucrea" Type="int" Mode="In" />
-  </Function>
-  <Function Name="UDP_DIRECCIONES_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="direc_ClienteID" Type="int" Mode="In" />
-    <Parameter Name="direc_DireccionExacta" Type="nvarchar(max)" Mode="In" />
-    <Parameter Name="direc_CiudadID" Type="int" Mode="In" />
-    <Parameter Name="direc_UsuarioCreador" Type="int" Mode="In" />
   </Function>
   <Function Name="UDP_Editar_Articulos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="art_ID" Type="int" Mode="In" />
