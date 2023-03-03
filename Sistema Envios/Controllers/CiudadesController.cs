@@ -14,7 +14,6 @@ namespace Sistema_Envios.Controllers
     {
         private DBArticulosEncargosEntities1 db = new DBArticulosEncargosEntities1();
         public string UsuarioModi = "1";
-
         // GET: Ciudades
         public ActionResult Index()
         {
@@ -53,42 +52,50 @@ namespace Sistema_Envios.Controllers
             return View();
         }
 
-        // POST: Ciudades/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ciu_ID,ciu_Descripcion,ciu_DeptoID,ciu_UsuarioCreador,ciu_FechaCreacion,ciu_UsuarioMod,ciu_FechaMod")] tbCiudades tbCiudades)
+        public ActionResult Create(string Depto, string muni)
         {
-            if (ModelState.IsValid)
+            if(Depto == "0" || muni == "")
             {
-                db.tbCiudades.Add(tbCiudades);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                
 
-            ViewBag.ciu_DeptoID = new SelectList(db.tbDepartamentos, "depto_ID", "depto_Descripcion", tbCiudades.ciu_DeptoID);
-            ViewBag.ciu_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbCiudades.ciu_UsuarioCreador);
-            ViewBag.ciu_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbCiudades.ciu_UsuarioMod);
-            return View(tbCiudades);
+            }
+            else
+            {
+                try
+                {
+                    if (ModelState.IsValid)
+                    {
+                        int DepId = Int32.Parse(Depto);
+                        int Usu = Int32.Parse(UsuarioModi);
+                        db.UDP_CIUDADES_INSERT(muni, DepId, Usu);
+                        return RedirectToAction("Index");
+                    }
+                }
+                catch (Exception)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            
+            return RedirectToAction("Index");
         }
 
 
-
+        public JsonResult CargarDepto()
+        {
+            var ddl = db.UDP_CargarDepartamentos().ToList();
+            return Json(ddl, JsonRequestBehavior.AllowGet);
+        }
 
 
 
         [HttpPost]
         public JsonResult Cargar(string ciu_ID)
         {
-
             var tbCargos = db.UDP_CARGAR_CIUDAD(int.Parse(ciu_ID)).ToList();
             return Json(tbCargos, JsonRequestBehavior.AllowGet);
         }
-
-
-
-
 
         [HttpPost, ActionName("Editores")]
         //[ValidateAntiForgeryToken]
@@ -108,74 +115,6 @@ namespace Sistema_Envios.Controllers
 
             return RedirectToAction("Index");
         }
-
-
-
-
-        // GET: Ciudades/Edit/5
-        //public ActionResult Edit(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    tbCiudades tbCiudades = db.tbCiudades.Find(id);
-        //    if (tbCiudades == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    ViewBag.ciu_DeptoID = new SelectList(db.tbDepartamentos, "depto_ID", "depto_Descripcion", tbCiudades.ciu_DeptoID);
-        //    ViewBag.ciu_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbCiudades.ciu_UsuarioCreador);
-        //    ViewBag.ciu_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbCiudades.ciu_UsuarioMod);
-        //    return View(tbCiudades);
-        //}
-
-        //// POST: Ciudades/Edit/5
-        //// Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        //// más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit([Bind(Include = "ciu_ID,ciu_Descripcion,ciu_DeptoID,ciu_UsuarioCreador,ciu_FechaCreacion,ciu_UsuarioMod,ciu_FechaMod")] tbCiudades tbCiudades)
-        //{
-
-        //    ModelState.Remove("ciu_UsuarioCreador");
-        //    ModelState.Remove("ciu_FechaCreacion");
-        //    ModelState.Remove("ciu_FechaMod");
-        //    ModelState.Remove("ciu_FechaMod");
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.UDP_Editar_Ciudades(tbCiudades.ciu_ID, tbCiudades.ciu_Descripcion, UsuarioModi).ToString();
-        //        return RedirectToAction("Index");
-        //    }
-        //    ViewBag.ciu_DeptoID = new SelectList(db.tbDepartamentos, "depto_ID", "depto_Descripcion", tbCiudades.ciu_DeptoID);
-        //    ViewBag.ciu_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbCiudades.ciu_UsuarioCreador);
-        //    ViewBag.ciu_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbCiudades.ciu_UsuarioMod);
-        //    return View(tbCiudades);
-        //}
-
-        // GET: Ciudades/Delete/5
-        //public ActionResult Delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    tbCiudades tbCiudades = db.tbCiudades.Find(id);
-        //    if (tbCiudades == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(tbCiudades);
-        //}
-
-        //// POST: Ciudades/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    tbCiudades tbCiudades = db.tbCiudades.Find(id);
-        //    return RedirectToAction("Index");
-        //}
 
         protected override void Dispose(bool disposing)
         {

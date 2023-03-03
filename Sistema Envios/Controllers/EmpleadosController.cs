@@ -56,17 +56,32 @@ namespace Sistema_Envios.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "emp_Id,emp_Name,emp_Apellido,emp_DNI,emp_FechaNac,ciu_ID,est_ID,emp_Sexo,carg_Id,emp_UsuarioCrea,emp_FechaCrea,emp_UsuModif,emp_FechaModif,emp_Estado")] tbEmpleados tbEmpleados)
+        public ActionResult Create([Bind(Include = "emp_Id,emp_Name,emp_Apellido,emp_DNI,emp_FechaNac,depto_ID,ciu_ID,est_ID,emp_Sexo,carg_Id,emp_UsuarioCrea,emp_FechaCrea,emp_UsuModif,emp_FechaModif,emp_Estado")] tbEmpleados tbEmpleados)
         {
-            if (ModelState.IsValid)
+            ModelState.Remove("depto_ID");
+            ModelState.Remove("emp_Id");
+            ModelState.Remove("emp_UsuModif");
+            ModelState.Remove("emp_FechaCrea");
+            ModelState.Remove("emp_FechaModif");
+            ModelState.Remove("emp_Estado");
+            try
             {
-                db.tbEmpleados.Add(tbEmpleados);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.UDP_EMPLEADOS_INSERT(tbEmpleados.emp_Name, tbEmpleados.emp_Apellido, tbEmpleados.emp_DNI, tbEmpleados.emp_FechaNac, tbEmpleados.ciu_ID, tbEmpleados.est_ID, tbEmpleados.emp_Sexo, tbEmpleados.carg_Id, 1);
+                    return RedirectToAction("Index");
+                }
             }
+            catch (Exception)
+            {
+                return RedirectToAction("Index");
+                throw;
+            }
+            
 
+            ViewBag.depto_ID = new SelectList(db.UDP_CargarDepartamentos(), "depto_ID", "depto_Descripcion");
             ViewBag.ciu_ID = new SelectList(db.tbCiudades, "ciu_ID", "ciu_Descripcion", tbEmpleados.ciu_ID);
-            ViewBag.est_ID = new SelectList(db.tbEstadosCiviles, "est_ID", "est_Descripcion", tbEmpleados.est_ID);
+            ViewBag.est_ID = new SelectList(db.UDP_CargarEstadosCiviles(), "est_ID", "est_Descripcion");
             return View(tbEmpleados);
         }
 
@@ -82,6 +97,7 @@ namespace Sistema_Envios.Controllers
             {
                 return HttpNotFound();
             }
+
             ViewBag.ciu_ID = new SelectList(db.tbCiudades, "ciu_ID", "ciu_Descripcion", tbEmpleados.ciu_ID);
             ViewBag.est_ID = new SelectList(db.tbEstadosCiviles, "est_ID", "est_Descripcion", tbEmpleados.est_ID);
             return View(tbEmpleados);
@@ -92,13 +108,14 @@ namespace Sistema_Envios.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "emp_Id,emp_Name,emp_Apellido,emp_DNI,emp_FechaNac,ciu_ID,est_ID,emp_Sexo,carg_Id,emp_UsuarioCrea,emp_FechaCrea,emp_UsuModif,emp_FechaModif,emp_Estado")] tbEmpleados tbEmpleados)
+        public ActionResult Edit([Bind(Include = "emp_Id,emp_Name,emp_Apellido,emp_DNI,emp_FechaNac,depto_ID,ciu_ID,est_ID,emp_Sexo,carg_Id,emp_UsuarioCrea,emp_FechaCrea,emp_UsuModif,emp_FechaModif,emp_Estado")] tbEmpleados tbEmpleados)
         {
-            
+
             ModelState.Remove("emp_UsuarioCrea");
             ModelState.Remove("emp_FechaCrea");
             ModelState.Remove("emp_FechaModif");
             ModelState.Remove("emp_Estado");
+           
 
             if (ModelState.IsValid)
             {

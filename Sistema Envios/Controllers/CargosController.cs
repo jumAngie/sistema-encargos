@@ -5,7 +5,9 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.WebPages;
 using System.Web.Mvc;
+using System.Web.UI;
 using Sistema_Envios.Models;
 
 namespace Sistema_Envios.Controllers
@@ -58,14 +60,22 @@ namespace Sistema_Envios.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public ActionResult Create(string txtCargo)
+        public ActionResult Create(string txtCargos)
         { 
             int UsuarioModi = 1;
 
             if (ModelState.IsValid)
             {
-                db.UDP_CARGOS_INSERT(txtCargo, UsuarioModi);
-                return RedirectToAction("Index");
+                try
+                {
+                    db.UDP_CARGOS_INSERT(txtCargos, UsuarioModi);
+                    return RedirectToAction("Index");
+                }
+                catch (Exception)
+                {
+                    return RedirectToAction("Index");
+                }
+                
             }
 
             return View();
