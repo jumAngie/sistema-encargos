@@ -292,7 +292,7 @@ CREATE OR ALTER PROCEDURE UDP_USUARIOS_INSERT
 @emp_Id			INT,
 @rol_ID			INT,
 @usu_Clave		NVARCHAR(MAX), 
-@usu_EsAdmin       BIT,
+@usu_EsAdmin       VARCHAR(10),
 @usu_UsuarioCreador INT
 
 
@@ -307,7 +307,7 @@ CREATE OR ALTER PROCEDURE UDP_USUARIOS_INSERT
 DECLARE @Pass NVARCHAR(MAX) = CONVERT(NVARCHAR(MAX), HASHBYTES('SHA2_512', @usu_Clave),2);
 
 INSERT INTO tbUsuarios([usu_Usuario], [emp_Id], [rol_ID], [usu_Clave], [usu_UsuarioCreador], [usu_FechaCreacion], [usu_UsuarioMod], [usu_FechaMod], [usu_Estado], [usu_EsAdmin])
-VALUES (@usu_Usuario,@emp_Id,@rol_ID,@Pass,@usu_UsuarioCreador,@usu_FechaCreacion, @usu_UsuarioMod, @usu_FechaMod, @usu_Estado, @usu_EsAdmin)
+VALUES (@usu_Usuario,@emp_Id,@rol_ID,@Pass,@usu_UsuarioCreador,@usu_FechaCreacion, @usu_UsuarioMod, @usu_FechaMod, @usu_Estado, CONVERT(BIT, @usu_EsAdmin))
 
 END
 
@@ -1439,6 +1439,7 @@ BEGIN
 			UPDATE	tbArticulos
 			SET		[art_Estado] = 0, [art_UsuarioMod] = @UsuarioMod , 
 					[art_FechaMod] = GETDATE()
+			WHERE	[art_ID] = @ID
 END
 
 GO
@@ -1463,6 +1464,7 @@ BEGIN
 			UPDATE	tbCargos
 			SET		rep_Estado = 0, [rep_UsuarioMod] = @UsuarioMod , 
 					rep_FechaMod = GETDATE()
+			WHERE	[carg_Id] = @ID
 END
 go
 -------------------------------------------- TABLA CIUDADES ----------------------------------------------
@@ -1509,6 +1511,7 @@ AS
 BEGIN
 		UPDATE	tbClientes
 		SET		[client_Estado] = 0, [client_UsuarioMod] = @UsuarioMod, [client_FechaMod] = GETDATE()
+		WHERE	client_ID = @ID;
 END
 
 GO
@@ -1550,6 +1553,7 @@ AS
 BEGIN
 		UPDATE	tbDirecciones
 		SET		[direc_Estado] = 0, [direc_UsuarioMod] = @UsuarioModi, [direc_FechaMod] = GETDATE()
+		WHERE	direc_ID = @ID
 END
 go
 -------------------------------------------- TABLA EMPLEADOS  -------------------------------------------
@@ -2074,4 +2078,22 @@ RETURN
 )
 GO
 
-
+-------------------CARGAR EMPLEADOS-------------------
+CREATE OR ALTER PROCEDURE UDP_CargarEmpleados
+AS
+BEGIN
+SELECT '0' AS emp_Id, ' Seleccione un empleado' AS emp_Nombre
+UNION ALL
+SELECT emp_Id, emp_Name + ' ' + emp_Apellido emp_Nombre FROM tbEmpleados
+WHERE emp_Id  NOT IN (SELECT emp_Id FROM tbUsuarios)
+END;
+GO
+-------------------CARGAR ROLES-------------------
+CREATE OR ALTER PROCEDURE UDP_CargarRol
+AS
+BEGIN
+SELECT '0' AS rol_ID, ' Seleccione un rol' AS rol_Descripcion
+UNION ALL
+SELECT rol_ID, rol_Descripcion FROM tblRoles
+END;
+GO
