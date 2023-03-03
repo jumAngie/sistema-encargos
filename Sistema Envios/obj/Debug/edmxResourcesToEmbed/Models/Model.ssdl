@@ -208,9 +208,11 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_ARTICULOS' n
     <Key>
       <PropertyRef Name="ID ARTICULO" />
       <PropertyRef Name="DESCRIPCION" />
+      <PropertyRef Name="STOCK" />
     </Key>
     <Property Name="ID ARTICULO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="DESCRIPCION" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="STOCK" Type="int" Nullable="false" />
   </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_CARGOS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -841,9 +843,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
   <Function Name="UDP_CARGAR_FABRICASArtc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="UDP_CARGAR_MUNICIPIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="UDP_CargarArticulos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="UDP_CARGARCIIUDAD_DIRECCONEDIT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="depto_Id" Type="int" Mode="In" />
-  </Function>
   <Function Name="UDP_CargarCiudades" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ciu_DeptoID" Type="varchar" Mode="In" />
   </Function>
@@ -874,6 +873,12 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
   <Function Name="UDP_DEPARTAMENTOS_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="depto_Description" Type="nvarchar" Mode="In" />
     <Parameter Name="depto_Usucrea" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_DIRECCIONES_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="direc_ClienteID" Type="int" Mode="In" />
+    <Parameter Name="direc_DireccionExacta" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="direc_CiudadID" Type="int" Mode="In" />
+    <Parameter Name="direc_UsuarioCreador" Type="int" Mode="In" />
   </Function>
   <Function Name="UDP_Editar_Articulos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="art_ID" Type="int" Mode="In" />
@@ -1077,7 +1082,7 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
     <Parameter Name="emp_Id" Type="int" Mode="In" />
     <Parameter Name="rol_ID" Type="int" Mode="In" />
     <Parameter Name="usu_Clave" Type="nvarchar(max)" Mode="In" />
-    <Parameter Name="usu_EsAdmin" Type="bit" Mode="In" />
+    <Parameter Name="usu_EsAdmin" Type="varchar" Mode="In" />
     <Parameter Name="usu_UsuarioCreador" Type="int" Mode="In" />
   </Function>
   <Function Name="UDP_VALIDAR_LOGIN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -1107,7 +1112,8 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
     <EntitySet Name="V_INDEX_ARTICULOS" EntityType="Self.V_INDEX_ARTICULOS" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [V_INDEX_ARTICULOS].[ID ARTICULO] AS [ID ARTICULO], 
-    [V_INDEX_ARTICULOS].[DESCRIPCION] AS [DESCRIPCION]
+    [V_INDEX_ARTICULOS].[DESCRIPCION] AS [DESCRIPCION], 
+    [V_INDEX_ARTICULOS].[STOCK] AS [STOCK]
     FROM [dbo].[V_INDEX_ARTICULOS] AS [V_INDEX_ARTICULOS]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="V_INDEX_CARGOS" EntityType="Self.V_INDEX_CARGOS" store:Type="Views" store:Schema="dbo">

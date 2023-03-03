@@ -86,28 +86,22 @@ namespace Sistema_Envios.Controllers
 
         }
 
+        public JsonResult CargarMunicipiosEdit()
+        {
+            var ddlM = db.UDP_CARGAR_MUNICIPIO().ToList();
 
+            return Json(ddlM, JsonRequestBehavior.AllowGet);
 
+        }
 
+        [HttpPost]
+        public JsonResult CargarMunicipiosDEPA(string depto)
+        {
+            var ddlMM = db.UDP_CargarCiudades(depto).ToList();
 
-        //public JsonResult CargarMunicipiosEdit()
-        //{
-        //    var ddlM = db.UDP_CARGAR_MUNICIPIO().ToList();
+            return Json(ddlMM, JsonRequestBehavior.AllowGet);
 
-        //    return Json(ddlM, JsonRequestBehavior.AllowGet);
-
-        //}
-
-        //[HttpPost]
-        //public JsonResult CargarMunicipiosDEPA(string depto)
-        //{
-        //    var ddlMM= db.UDP_CargarCiudades(depto).ToList();
-
-        //    return Json(ddlMM, JsonRequestBehavior.AllowGet);
-
-        //}
-
-
+        }
 
         //[HttpPost]
 
@@ -118,9 +112,6 @@ namespace Sistema_Envios.Controllers
         //    return Json(ddlM, JsonRequestBehavior.AllowGet);
 
         //}
-
-
-
 
         [HttpPost]
         public JsonResult Cargar(string direc_ID)
