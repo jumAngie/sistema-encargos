@@ -8,6 +8,19 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<style>
+    .modal-header, h4, .close {
+        background-color: orangered;
+        color: white !important;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .modal-footer {
+        background-color: #f9f9f9;
+    }
+</style>
+
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-lg-12">
@@ -44,40 +57,54 @@
                                         @*@Html.ActionLink("Editar", "Edit", new { id = item.ID_ARTICULO }, new { @class = "btn btn-primary btn-xs" })*@
                                         <button class="btn-delete btn btn-secondary btn-xs" data-id="@item.ID_ARTICULO">Eliminar</button>
 
-                                        <button class='btn btn-secondary btn-sm' type='submit' id="tbnModal" value="Editar" onclick="AbrirModal(@item.ID_ARTICULO)"><i class='fas fa-pen'></i></button>
+                                        <button class='btn btn-secondary btn-xs' type='submit' id="tbnModal" value="Editar" onclick="AbrirModal(@item.ID_ARTICULO)"><i class='fas fa-pen'></i>Editar</button>
 
                                         <form method="post">
                                             @Html.AntiForgeryToken()
                                             <div class="modal fade" id="FormModal" tabindex="-1" role="dialog" aria-labelledby="Crear-Articulos" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="crear-cargos">Articulos</h5>
+                                                        <div class="modal-header" style="padding:35px 50px;">
+                                                            <h4><span class="glyphicon glyphicon-lock"></span>EDITAR ARTICULOS</h4>
+                                                            <label id="Mensaje" style="color:red">NO PUEDE DEJAR CAMPOS VACIOS!!</label>
                                                         </div>
-                                                        <div class="modal-body">
-                                                            <label> artículo</label>
-                                                            <input type="text" name="txtArt1" id="txtArt1" class="form-control" />
-                                                            <label>stock</label>
-                                                            <input type="number" name="txtStock1" id="txtStock1" class="form-control" />
-                                                            <label>Fábrica</label>
-                                                            <select id="fab_ID" name="fab_ID" class="form-control">
-                                                            </select>
+                                                        <div class="modal-body" style="padding:40px 50px;">
+                                                            <div class="card">
+                                                                <div class="card-body">
+
+                                                                    <div class="row">
+                                                                        <div class="col-sm-6">
+                                                                            <label> artículo</label><label id="artiMess" style="color:red">El campo es requerido!!</label>
+                                                                            <input type="text" name="txtArtiC" id="txtArtiC" class="form-control" />
+                                                                        </div>
+
+                                                                        <div class="col-sm-6">
+                                                                            <label>stock</label><label id="CantidadMess" style="color:red">El campo es requerido!!</label>
+                                                                            <input type="number" name="txtExistencia" id="txtExistencia" class="form-control" />
+                                                                        </div>
+                                                                        <div class="col-sm-6">
+                                                                            <label>Fábrica</label>
+                                                                            <select id="fab_ID" name="fab_ID" class="form-control" style="border-color:black">
+                                                                            </select>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
+
                                                         <div class="modal-footer">
                                                             <input type="hidden" id="art_ID" />
                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="Cerrar()">Close</button>
-                                                            <input type="submit" value="Editar" onclick="Editar(@item.ID_ARTICULO)" class="btn btn-default" />
+                                                            <input type="button" value="Editar" onclick="Editar(@item.ID_ARTICULO)" class="btn btn-default" />
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-
+                                            
+                                            <script src="~/Scripts/ArticulosEditar.js"></script>
                                         </form>
                                         
-
-
-
-
 
                                     </td>
                                 </tr>
@@ -90,4 +117,4 @@
     </div>
 </div>
 @Html.Partial("CrearArticulo")
-<script src="~/Scripts/ArticulosEditar.js"></script>
+

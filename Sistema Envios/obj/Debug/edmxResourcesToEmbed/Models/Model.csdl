@@ -1298,18 +1298,7 @@
     <FunctionImport Name="V_TICKET_PEDIDOSPORCLIENTE" ReturnType="Collection(DBArticulosEncargosModel.V_TICKET_PEDIDOSPORCLIENTE_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="UDP_DIRECCIONES_INSERT">
-      <Parameter Name="direc_ClienteID" Mode="In" Type="Int32" />
-      <Parameter Name="direc_DireccionExacta" Mode="In" Type="String" />
-      <Parameter Name="direc_CiudadID" Mode="In" Type="Int32" />
-      <Parameter Name="direc_UsuarioCreador" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="UDP_InsertarDetalle">
-      <Parameter Name="PediCode" Mode="In" Type="String" />
-      <Parameter Name="Art" Mode="In" Type="Int32" />
-      <Parameter Name="Cantidad" Mode="In" Type="Int32" />
-      <Parameter Name="UsuarioCrea" Mode="In" Type="String" />
-    </FunctionImport>
+    <FunctionImport Name="UDP_CARGAR_FABRICASArtc" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGAR_FABRICASArtc_Result)" />
   </EntityContainer>
   <ComplexType Name="UDP_CARGAR_ARTICULO_Result">
     <Property Type="Int32" Name="art_ID" Nullable="false" />
@@ -1429,5 +1418,9 @@
     <Property Type="DateTime" Name="FECHA" Nullable="false" />
     <Property Type="String" Name="EMPLEADO" Nullable="false" MaxLength="301" />
     <Property Type="String" Name="ESTADO_ENVIO" Nullable="false" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="UDP_CARGAR_FABRICASArtc_Result">
+    <Property Type="Int32" Name="fab_ID" Nullable="false" />
+    <Property Type="String" Name="fab_Descripcion" Nullable="false" MaxLength="250" />
   </ComplexType>
 </Schema>

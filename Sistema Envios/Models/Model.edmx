@@ -842,6 +842,8 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
         <Function Name="UDP_CARGAR_ESTADOSCIVILES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="est_ID" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="UDP_CARGAR_FABRICASArtc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="UDP_CARGAR_MUNICIPIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="UDP_CargarArticulos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="UDP_CARGARCIIUDAD_DIRECCONEDIT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="depto_Id" Type="int" Mode="In" />
@@ -856,9 +858,11 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
         </Function>
         <Function Name="UDP_CargarDepartamentos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="UDP_CARGARDEPTOS_DIRECCIONEDIT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="UDP_CargarEmpleados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="UDP_CargarEstadosCiviles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="UDP_CargarFabricas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="UDP_CargarPedidos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="UDP_CargarRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="UDP_CARGOS_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="carg_Description" Type="nvarchar" Mode="In" />
           <Parameter Name="rep_UsuarioCreador" Type="int" Mode="In" />
@@ -871,12 +875,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
         <Function Name="UDP_DEPARTAMENTOS_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="depto_Description" Type="nvarchar" Mode="In" />
           <Parameter Name="depto_Usucrea" Type="int" Mode="In" />
-        </Function>
-        <Function Name="UDP_DIRECCIONES_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="direc_ClienteID" Type="int" Mode="In" />
-          <Parameter Name="direc_DireccionExacta" Type="nvarchar(max)" Mode="In" />
-          <Parameter Name="direc_CiudadID" Type="int" Mode="In" />
-          <Parameter Name="direc_UsuarioCreador" Type="int" Mode="In" />
         </Function>
         <Function Name="UDP_Editar_Articulos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="art_ID" Type="int" Mode="In" />
@@ -1021,12 +1019,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <Parameter Name="est_Description" Type="nvarchar" Mode="In" />
           <Parameter Name="est_UsuCrea" Type="int" Mode="In" />
         </Function>
-        <Function Name="UDP_InsertarDetalle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="PediCode" Type="varchar" Mode="In" />
-          <Parameter Name="Art" Type="int" Mode="In" />
-          <Parameter Name="Cantidad" Type="int" Mode="In" />
-          <Parameter Name="UsuarioCrea" Type="nvarchar" Mode="In" />
-        </Function>
         <Function Name="UDP_InsertArticulos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="art_Descripcion" Type="nvarchar" Mode="In" />
           <Parameter Name="fab_ID" Type="int" Mode="In" />
@@ -1051,6 +1043,9 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
         </Function>
         <Function Name="UDP_ListaDeArticulosPorPedido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_MUNICIPIO_CON_DEPA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dep_ID" Type="int" Mode="In" />
         </Function>
         <Function Name="UDP_PASSWORD_CAMBIAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="usu_Usuario" Type="nvarchar" Mode="In" />
@@ -2605,7 +2600,7 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="UDP_MUNICIPIO_CON_DEPA" ReturnType="Collection(DBArticulosEncargosModel.UDP_MUNICIPIO_CON_DEPA_Result)">
-            <Parameter Name="dep_ID" Mode="In" Type="Int32" />
+          <Parameter Name="dep_ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="UDP_PASSWORD_CAMBIAR">
             <Parameter Name="usu_Usuario" Mode="In" Type="String" />
@@ -2648,18 +2643,7 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <FunctionImport Name="V_TICKET_PEDIDOSPORCLIENTE" ReturnType="Collection(DBArticulosEncargosModel.V_TICKET_PEDIDOSPORCLIENTE_Result)">
           <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="UDP_DIRECCIONES_INSERT">
-            <Parameter Name="direc_ClienteID" Mode="In" Type="Int32" />
-            <Parameter Name="direc_DireccionExacta" Mode="In" Type="String" />
-            <Parameter Name="direc_CiudadID" Mode="In" Type="Int32" />
-            <Parameter Name="direc_UsuarioCreador" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="UDP_InsertarDetalle">
-            <Parameter Name="PediCode" Mode="In" Type="String" />
-            <Parameter Name="Art" Mode="In" Type="Int32" />
-            <Parameter Name="Cantidad" Mode="In" Type="Int32" />
-            <Parameter Name="UsuarioCrea" Mode="In" Type="String" />
-          </FunctionImport>
+          <FunctionImport Name="UDP_CARGAR_FABRICASArtc" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGAR_FABRICASArtc_Result)" />
         </EntityContainer>
         <ComplexType Name="UDP_CARGAR_ARTICULO_Result">
           <Property Type="Int32" Name="art_ID" Nullable="false" />
@@ -2779,6 +2763,10 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <Property Type="DateTime" Name="FECHA" Nullable="false" />
           <Property Type="String" Name="EMPLEADO" Nullable="false" MaxLength="301" />
           <Property Type="String" Name="ESTADO_ENVIO" Nullable="false" MaxLength="150" />
+        </ComplexType>
+        <ComplexType Name="UDP_CARGAR_FABRICASArtc_Result">
+          <Property Type="Int32" Name="fab_ID" Nullable="false" />
+          <Property Type="String" Name="fab_Descripcion" Nullable="false" MaxLength="250" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3194,6 +3182,14 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_CARGAR_MUNICIPIO" FunctionName="DBArticulosEncargosModel.Store.UDP_CARGAR_MUNICIPIO">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CARGAR_MUNICIPIO_Result">
+                <ScalarProperty Name="ciu_ID" ColumnName="ciu_ID" />
+                <ScalarProperty Name="ciu_Descripcion" ColumnName="ciu_Descripcion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="UDP_CargarArticulos" FunctionName="DBArticulosEncargosModel.Store.UDP_CargarArticulos">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CargarArticulos_Result">
@@ -3259,6 +3255,14 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_CargarEmpleados" FunctionName="DBArticulosEncargosModel.Store.UDP_CargarEmpleados">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CargarEmpleados_Result">
+                <ScalarProperty Name="emp_Id" ColumnName="emp_Id" />
+                <ScalarProperty Name="emp_Nombre" ColumnName="emp_Nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="UDP_CargarEstadosCiviles" FunctionName="DBArticulosEncargosModel.Store.UDP_CargarEstadosCiviles">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CargarEstadosCiviles_Result">
@@ -3280,6 +3284,14 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
               <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CargarPedidos_Result">
                 <ScalarProperty Name="pedi_ID" ColumnName="pedi_ID" />
                 <ScalarProperty Name="pedi_Code" ColumnName="pedi_Code" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_CargarRol" FunctionName="DBArticulosEncargosModel.Store.UDP_CargarRol">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CargarRol_Result">
+                <ScalarProperty Name="rol_ID" ColumnName="rol_ID" />
+                <ScalarProperty Name="rol_Descripcion" ColumnName="rol_Descripcion" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -3322,6 +3334,14 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_MUNICIPIO_CON_DEPA" FunctionName="DBArticulosEncargosModel.Store.UDP_MUNICIPIO_CON_DEPA">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_MUNICIPIO_CON_DEPA_Result">
+                <ScalarProperty Name="ciu_ID" ColumnName="ciu_ID" />
+                <ScalarProperty Name="ciu_Descripcion" ColumnName="ciu_Descripcion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="UDP_PASSWORD_CAMBIAR" FunctionName="DBArticulosEncargosModel.Store.UDP_PASSWORD_CAMBIAR" />
           <FunctionImportMapping FunctionImportName="UDP_PEDIDO_DETALLE" FunctionName="DBArticulosEncargosModel.Store.UDP_PEDIDO_DETALLE" />
           <FunctionImportMapping FunctionImportName="UDP_PEDIDOS_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_PEDIDOS_INSERT" />
@@ -3356,8 +3376,14 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="UDP_DIRECCIONES_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_DIRECCIONES_INSERT" />
-          <FunctionImportMapping FunctionImportName="UDP_InsertarDetalle" FunctionName="DBArticulosEncargosModel.Store.UDP_InsertarDetalle" />
+          <FunctionImportMapping FunctionImportName="UDP_CARGAR_FABRICASArtc" FunctionName="DBArticulosEncargosModel.Store.UDP_CARGAR_FABRICASArtc">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CARGAR_FABRICASArtc_Result">
+                <ScalarProperty Name="fab_ID" ColumnName="fab_ID" />
+                <ScalarProperty Name="fab_Descripcion" ColumnName="fab_Descripcion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

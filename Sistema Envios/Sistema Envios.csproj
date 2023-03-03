@@ -285,6 +285,9 @@
     <Compile Include="Models\UDP_CARGAR_ESTADOSCIVILES_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UDP_CARGAR_FABRICASArtc_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UDP_CARGAR_MUNICIPIO_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

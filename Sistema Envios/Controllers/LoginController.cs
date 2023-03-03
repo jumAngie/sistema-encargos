@@ -88,14 +88,14 @@ namespace Sistema_Envios.Controllers
         {
             if (txtUsuario == "" || txtNewPass == "" || txtConfirmNewPass == "")
             {
-                ModelState.AddModelError("Validacion", "Los campos no deben estar vacios");
+                ModelState.AddModelError("Validacion2", "Los campos no deben estar vacios");
                 return View();
             }
             else
             {
                 if (txtNewPass != txtConfirmNewPass)
                 {
-                    ModelState.AddModelError("Validacion", "La nueva contraseña no coincide con la confirmación de contraseña");
+                    ModelState.AddModelError("Validacion2", "La nueva contraseña no coincide con la confirmación de contraseña");
                     return View();
                 }
                 else
@@ -112,7 +112,7 @@ namespace Sistema_Envios.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("Validacion", "El usuario o la contraseña son incorrectos");
+                        ModelState.AddModelError("Validacion2", "El usuario o la contraseña son incorrectos");
                         return View();
                     }
 
@@ -132,14 +132,14 @@ namespace Sistema_Envios.Controllers
         {
             if (txtUsuario == "" || txtPass == "" || txtNewPass == "" || txtConfirmNewPass == "")
             {
-                ModelState.AddModelError("Validacion", "Los campos no deben estar vacios");
+                ModelState.AddModelError("Validacion3", "Los campos no deben estar vacios");
                 return View();
             }
             else
             {
                 if (txtNewPass != txtConfirmNewPass)
                 {
-                    ModelState.AddModelError("Validacion", "La nueva contraseña no coincide con la confirmación de contraseña");
+                    ModelState.AddModelError("Validacion3", "La nueva contraseña no coincide con la confirmación de contraseña");
                 }
                 else
                 {
@@ -155,7 +155,7 @@ namespace Sistema_Envios.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("Validacion", "El usuario o la contraseña son incorrectos");
+                        ModelState.AddModelError("Validacion3", "El usuario o la contraseña son incorrectos");
                         return View();
                     }
                 }

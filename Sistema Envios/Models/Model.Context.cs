@@ -1014,46 +1014,9 @@ namespace Sistema_Envios.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<V_TICKET_PEDIDOSPORCLIENTE_Result>("V_TICKET_PEDIDOSPORCLIENTE", iDParameter);
         }
     
-        public virtual int UDP_DIRECCIONES_INSERT(Nullable<int> direc_ClienteID, string direc_DireccionExacta, Nullable<int> direc_CiudadID, Nullable<int> direc_UsuarioCreador)
+        public virtual ObjectResult<UDP_CARGAR_FABRICASArtc_Result> UDP_CARGAR_FABRICASArtc()
         {
-            var direc_ClienteIDParameter = direc_ClienteID.HasValue ?
-                new ObjectParameter("direc_ClienteID", direc_ClienteID) :
-                new ObjectParameter("direc_ClienteID", typeof(int));
-    
-            var direc_DireccionExactaParameter = direc_DireccionExacta != null ?
-                new ObjectParameter("direc_DireccionExacta", direc_DireccionExacta) :
-                new ObjectParameter("direc_DireccionExacta", typeof(string));
-    
-            var direc_CiudadIDParameter = direc_CiudadID.HasValue ?
-                new ObjectParameter("direc_CiudadID", direc_CiudadID) :
-                new ObjectParameter("direc_CiudadID", typeof(int));
-    
-            var direc_UsuarioCreadorParameter = direc_UsuarioCreador.HasValue ?
-                new ObjectParameter("direc_UsuarioCreador", direc_UsuarioCreador) :
-                new ObjectParameter("direc_UsuarioCreador", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_DIRECCIONES_INSERT", direc_ClienteIDParameter, direc_DireccionExactaParameter, direc_CiudadIDParameter, direc_UsuarioCreadorParameter);
-        }
-    
-        public virtual int UDP_InsertarDetalle(string pediCode, Nullable<int> art, Nullable<int> cantidad, string usuarioCrea)
-        {
-            var pediCodeParameter = pediCode != null ?
-                new ObjectParameter("PediCode", pediCode) :
-                new ObjectParameter("PediCode", typeof(string));
-    
-            var artParameter = art.HasValue ?
-                new ObjectParameter("Art", art) :
-                new ObjectParameter("Art", typeof(int));
-    
-            var cantidadParameter = cantidad.HasValue ?
-                new ObjectParameter("Cantidad", cantidad) :
-                new ObjectParameter("Cantidad", typeof(int));
-    
-            var usuarioCreaParameter = usuarioCrea != null ?
-                new ObjectParameter("UsuarioCrea", usuarioCrea) :
-                new ObjectParameter("UsuarioCrea", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_InsertarDetalle", pediCodeParameter, artParameter, cantidadParameter, usuarioCreaParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_FABRICASArtc_Result>("UDP_CARGAR_FABRICASArtc");
         }
     }
 }
