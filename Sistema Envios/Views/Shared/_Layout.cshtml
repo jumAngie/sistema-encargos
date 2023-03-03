@@ -30,13 +30,13 @@
 <body>
     <!-- PAGE CONTAINER -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <div id="root" class="root mn--max hd--expanded">
+    <div id="root" class="root mn--max hd--expanded" style="background-color:darkorange">
 
         <!-- CONTENTS -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <section id="content" class="content">
 
-            <div class="content__header content__boxed">
+            <div class="content__header content__boxed" style="background-color:darkorange">
                 <div class="content__wrap">
                 </div>
 
@@ -82,15 +82,15 @@
         <!-- END - CONTENTS -->
         <!-- HEADER -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <header class="header">
-            <div class="header__inner">
+        <header class="header" style="background-color:darkorange">
+            <div class="header__inner" style="background-color:darkorange">
 
                 <!-- Brand -->
-                <div class="header__brand">
-                    <div class="brand-wrap">
+                <div class="header__brand" style="background-color:darkorange">
+                    <div class="brand-wrap" style="background-color:darkorange">
 
                         <!-- Brand logo -->
-                        <a href="./index.html" class="brand-img stretched-link">
+                        <a href="./index.html" class="brand-img stretched-link" style="background-color:darkorange">
                             <img src="~/Content/assets/img/logo.svg" alt="Nifty Logo" class="Nifty logo" width="40" height="40">
                         </a>
 
@@ -523,599 +523,65 @@
 
                                 <a href="#" class="mininav-toggle nav-link collapsed">
                                     <i class="demo-pli-home fs-5 me-2"></i>
-                                    <span class="nav-label ms-1">Dashboard</span>
+                                    <span class="nav-label ms-1">Paginas Principales</span>
                                 </a>
 
                                 <!-- Dashboard submenu list -->
                                 <ul class="mininav-content nav collapse">
 
                                     <li>@Html.ActionLink("Empleados", "Index", "Empleados", null, new { @class = "nav-link" })</li>
-                                    <li>@Html.ActionLink("Artículos", "Index", "Articulos", null, new { @class = "nav-link" })</li>
-                                    <li>@Html.ActionLink("Cargos", "Index", "Cargos", null, new { @class = "nav-link" })</li>
-                                    <li>@Html.ActionLink("Ciudades", "Index", "Ciudades", null, new { @class = "nav-link" })</li>
                                     <li>@Html.ActionLink("Clientes", "Index", "Clientes", null, new { @class = "nav-link" })</li>
-                                    <li>@Html.ActionLink("Departamentos", "Index", "Departamentos", null, new { @class = "nav-link" })</li>
-                                    <li>@Html.ActionLink("Direcciones", "Index", "Direcciones", null, new { @class = "nav-link" })</li>
-                                    <li>@Html.ActionLink("Estados Civiles", "Index", "EstadosCiviles", null, new { @class = "nav-link" })</li>
-                                    <li>@Html.ActionLink("Pedido Detalles", "Index", "PedidoDetalles", null, new { @class = "nav-link" })</li>
-                                    <li>@Html.ActionLink("Fabricas", "Index", "Fabricas", null, new { @class = "nav-link" })</li>
                                     <li>@Html.ActionLink("Pedidos", "Index", "Pedidos", null, new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Pedido Detalles", "Index", "PedidoDetalles", null, new { @class = "nav-link" })</li>
+
+
+
+
+
+
+
+
                                     <li>@Html.ActionLink("Usuarios", "Index", "Usuarios", null, new { @class = "nav-link" })</li>
 
                                 </ul>
-                                <!-- END : Dashboard submenu list -->
 
                             </li>
-                            <!-- END : Link with submenu -->
-                            <!-- Link with submenu -->
                             <li class="nav-item has-sub">
 
                                 <a href="#" class="mininav-toggle nav-link collapsed">
                                     <i class="demo-pli-split-vertical-2 fs-5 me-2"></i>
-                                    <span class="nav-label ms-1">Layouts</span>
+                                    <span class="nav-label ms-1">Configuraciones de Productos</span>
                                 </a>
-
-                                <!-- Layouts submenu list -->
                                 <ul class="mininav-content nav collapse">
-                                    <li class="nav-item">
-                                        <a href="./layouts-mini-navigation.html" class="nav-link">Mini Navigation</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./layouts-push-navigation.html" class="nav-link">Push Navigation</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./layouts-slide-navigation.html" class="nav-link">Slide Navigation</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./layouts-reveal-navigation.html" class="nav-link">Reveal Navigation</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./layouts-stuck-sidebar.html" class="nav-link">Stuck Sidebar</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./layouts-pinned-sidebar.html" class="nav-link">Pinned Sidebar</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./layouts-unite-sidebar.html" class="nav-link">Unite Sidebar</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./layouts-sticky-header.html" class="nav-link">Sticky Header</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./layouts-sticky-navigation.html" class="nav-link">Sticky Navigation</a>
-                                    </li>
-
+                                    <li>@Html.ActionLink("Artículos", "Index", "Articulos", null, new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Fabricas", "Index", "Fabricas", null, new { @class = "nav-link" })</li>
                                 </ul>
-                                <!-- END : Layouts submenu list -->
 
                             </li>
-                            <!-- END : Link with submenu -->
-                            <!-- Regular menu link -->
-                            <li class="nav-item">
-                                <a href="./widgets.html" class="nav-link mininav-toggle">
-                                    <i class="demo-pli-gear fs-5 me-2"></i>
-
-                                    <span class="nav-label mininav-content ms-1">Widgets</span>
-                                </a>
-                            </li>
-                            <!-- END : Regular menu link -->
-
-                        </ul>
-                    </div>
-                    <!-- END : Navigation Category -->
-                    <!-- Components Category -->
-                    <div class="mainnav__categoriy py-3">
-                        <h6 class="mainnav__caption mt-0 px-3 fw-bold">Components</h6>
-                        <ul class="mainnav__menu nav flex-column">
-
-                            <!-- Link with submenu -->
                             <li class="nav-item has-sub">
-
-                                <a href="#" class="mininav-toggle nav-link collapsed">
-                                    <i class="demo-pli-boot-2 fs-5 me-2"></i>
-                                    <span class="nav-label ms-1">Ui Elements</span>
-                                </a>
-
-                                <!-- Ui Elements submenu list -->
-                                <ul class="mininav-content nav collapse">
-                                    <li class="nav-item">
-                                        <a href="./ui-elements-buttons.html" class="nav-link">Buttons</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./ui-elements-cards.html" class="nav-link">Cards</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./ui-elements-dropdowns.html" class="nav-link">Dropdowns</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./ui-elements-typography.html" class="nav-link">Typography</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./ui-elements-list-group.html" class="nav-link">List Group</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./ui-elements-progress.html" class="nav-link">Progress</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./ui-elements-placeholders.html" class="nav-link d-flex align-items-center">Placeholders<span class="badge bg-danger ms-auto">NEW</span></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./ui-elements-tabs-and-accordions.html" class="nav-link">Tabs &amp; Accordions</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./ui-elements-components.html" class="nav-link">Components</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./ui-elements-tooltips-and-popover.html" class="nav-link">Tooltips &amp; Popover</a>
-                                    </li>
-
-                                </ul>
-                                <!-- END : Ui Elements submenu list -->
-
-                            </li>
-                            <!-- END : Link with submenu -->
-                            <!-- Link with submenu -->
-                            <li class="nav-item has-sub">
-
                                 <a href="#" class="mininav-toggle nav-link collapsed">
                                     <i class="demo-pli-pen-5 fs-5 me-2"></i>
-                                    <span class="nav-label ms-1">Forms</span>
+                                    <span class="nav-label ms-1">Configuraciones de Información Personal</span>
                                 </a>
-
-                                <!-- Forms submenu list -->
                                 <ul class="mininav-content nav collapse">
-                                    <li class="nav-item">
-                                        <a href="./forms-general.html" class="nav-link">General</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./forms-tags.html" class="nav-link">Tags</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./forms-date-time-picker.html" class="nav-link">Date Time Picker</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./forms-validation.html" class="nav-link">Validation</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./forms-wizard.html" class="nav-link">Wizard</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./forms-file-uploads.html" class="nav-link">File Uploads</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./forms-text-editor.html" class="nav-link">Text Editor</a>
-                                    </li>
-
+                                    <li>@Html.ActionLink("Estados Civiles", "Index", "EstadosCiviles", null, new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Cargos", "Index", "Cargos", null, new { @class = "nav-link" })</li>
                                 </ul>
-                                <!-- END : Forms submenu list -->
-
                             </li>
-                            <!-- END : Link with submenu -->
-                            <!-- Link with submenu -->
                             <li class="nav-item has-sub">
-
                                 <a href="#" class="mininav-toggle nav-link collapsed">
-                                    <i class="demo-pli-receipt-4 fs-5 me-2"></i>
-                                    <span class="nav-label ms-1">Tables</span>
+                                    <i class="demo-pli-boot-2 fs-5 me-2"></i>
+                                    <span class="nav-label ms-1">Configuraciones de Región</span>
                                 </a>
-
-                                <!-- Tables submenu list -->
                                 <ul class="mininav-content nav collapse">
-                                    <li class="nav-item">
-                                        <a href="./tables-static-tables.html" class="nav-link">Static Tables</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./tables-gridjs.html" class="nav-link">Gridjs</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./tables-tabulator.html" class="nav-link">Tabulator</a>
-                                    </li>
-
+                                    <li>@Html.ActionLink("Ciudades", "Index", "Ciudades", null, new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Departamentos", "Index", "Departamentos", null, new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Direcciones", "Index", "Direcciones", null, new { @class = "nav-link" })</li>
                                 </ul>
-                                <!-- END : Tables submenu list -->
-
                             </li>
-                            <!-- END : Link with submenu -->
-                            <!-- Link with submenu -->
-                            <li class="nav-item has-sub">
-
-                                <a href="#" class="mininav-toggle nav-link collapsed">
-                                    <i class="demo-pli-bar-chart fs-5 me-2"></i>
-                                    <span class="nav-label ms-1">Charts</span>
-                                </a>
-
-                                <!-- Charts submenu list -->
-                                <ul class="mininav-content nav collapse">
-                                    <li class="nav-item">
-                                        <a href="./charts-chartjs.html" class="nav-link">ChartJS</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./charts-chartscss.html" class="nav-link">ChartsCSS</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./charts-sparklines.html" class="nav-link">Sparklines</a>
-                                    </li>
-
-                                </ul>
-                                <!-- END : Charts submenu list -->
-
-                            </li>
-                            <!-- END : Link with submenu -->
-                            <!-- Link with submenu -->
-                            <li class="nav-item has-sub">
-
-                                <a href="#" class="mininav-toggle nav-link collapsed">
-                                    <i class="demo-pli-repair fs-5 me-2"></i>
-                                    <span class="nav-label ms-1">Miscellaneous</span>
-                                </a>
-
-                                <!-- Miscellaneous submenu list -->
-                                <ul class="mininav-content nav collapse">
-                                    <li class="nav-item">
-                                        <a href="./miscellaneous-timeline.html" class="nav-link">Timeline</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./miscellaneous-loader.css.html" class="nav-link">Loader.CSS</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./miscellaneous-spinkit.html" class="nav-link">Spinkit</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./miscellaneous-clipboard.html" class="nav-link">Clipboard</a>
-                                    </li>
-
-                                </ul>
-                                <!-- END : Miscellaneous submenu list -->
-
-                            </li>
-                            <!-- END : Link with submenu -->
-
                         </ul>
                     </div>
-                    <!-- END : Components Category -->
-                    <!-- More Category -->
-                    <div class="mainnav__categoriy py-3">
-                        <h6 class="mainnav__caption mt-0 px-3 fw-bold">More</h6>
-                        <ul class="mainnav__menu nav flex-column">
-
-                            <!-- Link with submenu -->
-                            <li class="nav-item has-sub">
-
-                                <a href="#" class="mininav-toggle nav-link collapsed">
-                                    <i class="demo-pli-computer-secure fs-5 me-2"></i>
-                                    <span class="nav-label ms-1">App Views</span>
-                                </a>
-
-                                <!-- App Views submenu list -->
-                                <ul class="mininav-content nav collapse">
-                                    <li class="nav-item">
-                                        <a href="./app-views-file-manager.html" class="nav-link">File Manager</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./app-views-users.html" class="nav-link">Users</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./app-views-users-2.html" class="nav-link">Users 2</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./app-views-profile.html" class="nav-link">Profile</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./app-views-calendar.html" class="nav-link">Calendar</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./app-views-taskboard.html" class="nav-link">Taskboard</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./app-views-chat.html" class="nav-link">Chat</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./app-views-contact-us.html" class="nav-link">Contact Us</a>
-                                    </li>
-
-                                </ul>
-                                <!-- END : App Views submenu list -->
-
-                            </li>
-                            <!-- END : Link with submenu -->
-                            <!-- Link with submenu -->
-                            <li class="nav-item has-sub">
-
-                                <a href="#" class="mininav-toggle nav-link collapsed">
-                                    <i class="demo-pli-speech-bubble-5 fs-5 me-2"></i>
-                                    <span class="nav-label ms-1">Blog Apps</span>
-                                </a>
-
-                                <!-- Blog Apps submenu list -->
-                                <ul class="mininav-content nav collapse">
-                                    <li class="nav-item">
-                                        <a href="./blog-apps-blog.html" class="nav-link">Blog</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./blog-apps-blog-list.html" class="nav-link">Blog List</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./blog-apps-blog-list-2.html" class="nav-link">Blog List 2</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./blog-apps-blog-article.html" class="nav-link">Blog Article</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./blog-apps-manage-posts.html" class="nav-link">Manage Posts</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./blog-apps-add-edit-posts.html" class="nav-link">Add Edit Posts</a>
-                                    </li>
-
-                                </ul>
-                                <!-- END : Blog Apps submenu list -->
-
-                            </li>
-                            <!-- END : Link with submenu -->
-                            <!-- Link with submenu -->
-                            <li class="nav-item has-sub">
-
-                                <a href="#" class="mininav-toggle nav-link collapsed">
-                                    <i class="demo-pli-mail fs-5 me-2"></i>
-                                    <span class="nav-label ms-1">Email</span>
-                                </a>
-
-                                <!-- Email submenu list -->
-                                <ul class="mininav-content nav collapse">
-                                    <li class="nav-item">
-                                        <a href="./email-inbox.html" class="nav-link">Inbox</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./email-view-message.html" class="nav-link">View Message</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./email-compose-message.html" class="nav-link">Compose Message</a>
-                                    </li>
-
-                                </ul>
-                                <!-- END : Email submenu list -->
-
-                            </li>
-                            <!-- END : Link with submenu -->
-                            <!-- Link with submenu -->
-                            <li class="nav-item has-sub">
-
-                                <a href="#" class="mininav-toggle nav-link active">
-                                    <i class="demo-pli-file-html fs-5 me-2"></i>
-                                    <span class="nav-label ms-1">Other Pages</span>
-                                </a>
-
-                                <!-- Other Pages submenu list -->
-                                <ul class="mininav-content nav collapse">
-                                    <li class="nav-item">
-                                        <a href="./other-pages-blank-page.html" class="nav-link active">Blank Page</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./other-pages-invoice.html" class="nav-link">Invoice</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./other-pages-search-results.html" class="nav-link">Search Results</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./other-pages-faq.html" class="nav-link">FAQ</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./other-pages-pricing-tables.html" class="nav-link">Pricing Tables</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./other-pages-error-404.html" class="nav-link">Error 404</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./other-pages-error-500.html" class="nav-link">Error 500</a>
-                                    </li>
-
-                                </ul>
-                                <!-- END : Other Pages submenu list -->
-
-                            </li>
-                            <!-- END : Link with submenu -->
-                            <!-- Link with submenu -->
-                            <li class="nav-item has-sub">
-
-                                <a href="#" class="mininav-toggle nav-link collapsed">
-                                    <i class="demo-pli-window-2 fs-5 me-2"></i>
-                                    <span class="nav-label ms-1">Front Pages</span>
-                                </a>
-
-                                <!-- Front Pages submenu list -->
-                                <ul class="mininav-content nav collapse">
-                                    <li class="nav-item">
-                                        <a href="./front-pages-error-404.html" class="nav-link">Error 404</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./front-pages-error-500.html" class="nav-link">Error 500</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./front-pages-maintenance.html" class="nav-link">Maintenance</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./front-pages-login.html" class="nav-link">Login</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./front-pages-register.html" class="nav-link">Register</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./front-pages-password-reminder.html" class="nav-link">Password Reminder</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./front-pages-lock-screen.html" class="nav-link">Lock Screen</a>
-                                    </li>
-
-                                </ul>
-                                <!-- END : Front Pages submenu list -->
-
-                            </li>
-                            <!-- END : Link with submenu -->
-                            <!-- Link with submenu -->
-                            <li class="nav-item has-sub">
-
-                                <a href="#" class="mininav-toggle nav-link collapsed">
-                                    <i class="demo-pli-tactic fs-5 me-2"></i>
-                                    <span class="nav-label ms-1">Menu Levels</span>
-                                </a>
-
-                                <!-- Menu Levels submenu list -->
-                                <ul class="mininav-content nav collapse">
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">Menu Link</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">Menu Link</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">Menu Link</a>
-                                    </li>
-                                    <li class="nav-item has-sub">
-                                        <a href="#" class="mininav-toggle nav-link collapsed">Submenu</a>
-                                        <ul class="mininav-content nav collapse">
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link">Menu Link</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link">Menu Link</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link">Menu Link</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link">Menu Link</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item has-sub">
-                                        <a href="#" class="mininav-toggle nav-link collapsed">Submenu</a>
-                                        <ul class="mininav-content nav collapse">
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link">Menu Link</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link">Menu Link</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link">Menu Link</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link">Menu Link</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <!-- END : Menu Levels submenu list -->
-
-                            </li>
-                            <!-- END : Link with submenu -->
-
-                        </ul>
-                    </div>
-                    <!-- END : More Category -->
-                    <!-- Extras Category -->
-                    <div class="mainnav__categoriy py-3">
-                        <h6 class="mainnav__caption mt-0 px-3 fw-bold">Extras</h6>
-                        <ul class="mainnav__menu nav flex-column">
-
-                            <!-- Link with submenu -->
-                            <li class="nav-item has-sub">
-
-                                <a href="#" class="mininav-toggle nav-link collapsed">
-                                    <i class="demo-pli-happy fs-5 me-2"></i>
-                                    <span class="nav-label ms-1">Icons Pack</span>
-                                </a>
-
-                                <!-- Icons Pack submenu list -->
-                                <ul class="mininav-content nav collapse">
-                                    <li class="nav-item">
-                                        <a href="./icons-pack-ionicons.html" class="nav-link">Ionicons</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./icons-pack-themify-icons.html" class="nav-link">Themify Icons</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./icons-pack-flag-icon-css.html" class="nav-link">Flag Icon CSS</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./icons-pack-weather-icons.html" class="nav-link">Weather Icons</a>
-                                    </li>
-
-                                </ul>
-                                <!-- END : Icons Pack submenu list -->
-
-                            </li>
-                            <!-- END : Link with submenu -->
-                            <!-- Link with submenu -->
-                            <li class="nav-item has-sub">
-
-                                <a href="#" class="mininav-toggle nav-link collapsed">
-                                    <i class="demo-pli-medal-2 fs-5 me-2"></i>
-                                    <span class="nav-label ms-1">Premium Icons</span>
-                                </a>
-
-                                <!-- Premium Icons submenu list -->
-                                <ul class="mininav-content nav collapse">
-                                    <li class="nav-item">
-                                        <a href="./premium-icons-line-icons-pack.html" class="nav-link">Line Icons Pack</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./premium-icons-solid-icons-pack.html" class="nav-link">Solid Icons Pack</a>
-                                    </li>
-
-                                </ul>
-                                <!-- END : Premium Icons submenu list -->
-
-                            </li>
-                            <!-- END : Link with submenu -->
-
-                        </ul>
-                    </div>
-                    <!-- END : Extras Category -->
-                    <!-- Widget -->
-                    <div class="mainnav__profile">
-
-                        <!-- Widget buttton form small navigation -->
-                        <div class="mininav-toggle text-center py-2 d-mn-min">
-                            <i class="demo-pli-monitor-2"></i>
-                        </div>
-
-                        <div class="d-mn-max mt-5"></div>
-
-                        <!-- Widget content -->
-                        <div class="mininav-content collapse d-mn-max">
-                            <h6 class="mainnav__caption px-3 fw-bold">Server Status</h6>
-                            <ul class="list-group list-group-borderless">
-                                <li class="list-group-item text-reset">
-                                    <div class="d-flex justify-content-between align-items-start">
-                                        <p class="mb-2 me-auto">CPU Usage</p>
-                                        <span class="badge bg-info rounded">35%</span>
-                                    </div>
-                                    <div class="progress progress-md">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 35%" aria-label="CPU Progress" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item text-reset">
-                                    <div class="d-flex justify-content-between align-items-start">
-                                        <p class="mb-2 me-auto">Bandwidth</p>
-                                        <span class="badge bg-warning rounded">73%</span>
-                                    </div>
-                                    <div class="progress progress-md">
-                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 73%" aria-label="Bandwidth Progress" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="d-grid px-3 mt-3">
-                                <a href="#" class="btn btn-sm btn-success">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End - Profile widget -->
-
-                </div>
-                <!-- End - Navigation menu -->
-                <!-- Bottom navigation menu -->
-                <div class="mainnav__bottom-content border-top pb-2">
+                @*<div class="mainnav__bottom-content border-top pb-2">
                     <ul id="mainnav" class="mainnav__menu nav flex-column">
                         <li class="nav-item has-sub">
                             <a onclick="CerrarSesion()" class="nav-link mininav-toggle collapsed" aria-expanded="false">
@@ -1124,7 +590,7 @@
                             </a>
                         </li>
                     </ul>
-                </div>
+                </div>*@
                 <!-- End - Bottom navigation menu -->
 
             </div>
@@ -1577,7 +1043,7 @@
     <!-- END - BOXED LAYOUT : BACKGROUND IMAGES CONTENT [ DEMO ] -->
     <!-- SETTINGS CONTAINER [ DEMO ] -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <div id="_dm-settingsContainer" class="_dm-setting-container offcanvas offcanvas-end rounded-start" tabindex="-1">
+    <!--<div id="_dm-settingsContainer" class="_dm-setting-container offcanvas offcanvas-end rounded-start" tabindex="-1">
         <button id="_dm-settingsToggler" class="_dm-btn-settings btn btn-sm btn-dark p-2 rounded-0 rounded-start shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#_dm-settingsContainer" aria-label="Customization button" aria-controls="_dm-settingsContainer">
             <i class="demo-psi-gear fs-1"></i>
         </button>
@@ -1586,43 +1052,43 @@
             <div class="_dm-setting-container__content row">
                 <div class="col-lg-3 p-4">
 
-                    <h5 class="fw-bold pb-3 mb-2">Layouts</h5>
+                    <h5 class="fw-bold pb-3 mb-2">Layouts</h5>-->
 
                     <!-- OPTION : Centered Layout -->
-                    <h6 class="mb-2 pb-1">Layouts</h6>
+                    <!--<h6 class="mb-2 pb-1">Layouts</h6>
                     <div class="d-flex align-items-center pt-1 mb-2">
                         <label class="form-check-label flex-fill" for="_dm-fluidLayoutRadio">Fluid Layout</label>
                         <div class="form-check form-switch">
                             <input id="_dm-fluidLayoutRadio" class="form-check-input ms-0" type="radio" name="settingLayouts" autocomplete="off" checked>
                         </div>
-                    </div>
+                    </div>-->
 
                     <!-- OPTION : Boxed layout -->
-                    <div class="d-flex align-items-center pt-1 mb-2">
+                    <!--<div class="d-flex align-items-center pt-1 mb-2">
                         <label class="form-check-label flex-fill" for="_dm-boxedLayoutRadio">Boxed Layout</label>
                         <div class="form-check form-switch">
                             <input id="_dm-boxedLayoutRadio" class="form-check-input ms-0" type="radio" name="settingLayouts" autocomplete="off">
                         </div>
-                    </div>
+                    </div>-->
 
                     <!-- OPTION : Boxed layout with background images -->
-                    <div id="_dm-boxedBgOption" class="opacity-50 d-flex align-items-center pt-1 mb-2">
+                    <!--<div id="_dm-boxedBgOption" class="opacity-50 d-flex align-items-center pt-1 mb-2">
                         <label class="form-label flex-fill mb-0">Background for boxed</label>
                         <button id="_dm-boxedBgBtn" class="btn btn-icon btn-primary btn-xs" type="button" data-bs-toggle="offcanvas" data-bs-target="#_dm-boxedBgContent" disabled>
                             <i class="demo-psi-dot-horizontal"></i>
                         </button>
-                    </div>
+                    </div>-->
 
                     <!-- OPTION : Centered Layout -->
-                    <div class="d-flex align-items-start pt-1 mb-2">
+                    <!--<div class="d-flex align-items-start pt-1 mb-2">
                         <label class="form-check-label flex-fill text-nowrap" for="_dm-centeredLayoutRadio">Centered Layout <br><span class="badge bg-danger">New in v.3.0</span></label>
                         <div class="form-check form-switch">
                             <input id="_dm-centeredLayoutRadio" class="form-check-input ms-0" type="radio" name="settingLayouts" autocomplete="off">
                         </div>
-                    </div>
+                    </div>-->
 
                     <!-- OPTION : Transition timing -->
-                    <h6 class="mt-4 mb-2 py-1">Transitions</h6>
+                    <!--<h6 class="mt-4 mb-2 py-1">Transitions</h6>
                     <div class="d-flex align-items-center pt-1 mb-2">
                         <select id="_dm-transtiionSelect" class="form-select" aria-label="select transition timing">
                             <option value="in-quart">In Quart</option>
@@ -1634,19 +1100,19 @@
                             <option value="jumping">Jumping</option>
                             <option value="rubber">Rubber</option>
                         </select>
-                    </div>
+                    </div>-->
 
                     <!-- OPTION : Sticky Header -->
-                    <h6 class="mt-4 mb-2 py-1">Header</h6>
+                    <!--<h6 class="mt-4 mb-2 py-1">Header</h6>
                     <div class="d-flex align-items-center pt-1 mb-2">
                         <label class="form-check-label flex-fill" for="_dm-stickyHeaderCheckbox">Sticky header</label>
                         <div class="form-check form-switch">
                             <input id="_dm-stickyHeaderCheckbox" class="form-check-input ms-0" type="checkbox" autocomplete="off">
                         </div>
-                    </div>
+                    </div>-->
 
                     <!-- OPTION : Additional Offcanvas -->
-                    <h6 class="mt-4 mb-2 py-1">Additional Offcanvas <span class="badge bg-danger">New in BS v.5.0</span></h6>
+                    <!--<h6 class="mt-4 mb-2 py-1">Additional Offcanvas <span class="badge bg-danger">New in BS v.5.0</span></h6>
                     <p>Select the offcanvas placement.</p>
                     <div class="text-nowrap">
                         <button type="button" class="_dm-offcanvasBtn btn btn-sm btn-primary" value="offcanvas-top">Top</button>
@@ -1658,101 +1124,101 @@
                 </div>
                 <div class="col-lg-3 p-4 bg-gray-300">
 
-                    <h5 class="fw-bold pb-3 mb-2">Sidebars</h5>
+                    <h5 class="fw-bold pb-3 mb-2">Sidebars</h5>-->
 
                     <!-- OPTION : Sticky Navigation -->
-                    <h6 class="mb-2 pb-1">Navigation</h6>
+                    <!--<h6 class="mb-2 pb-1">Navigation</h6>
                     <div class="d-flex align-items-center pt-1 mb-2">
                         <label class="form-check-label flex-fill" for="_dm-stickyNavCheckbox">Sticky navigation</label>
                         <div class="form-check form-switch">
                             <input id="_dm-stickyNavCheckbox" class="form-check-input ms-0" type="checkbox" autocomplete="off">
                         </div>
-                    </div>
+                    </div>-->
 
                     <!-- OPTION : Navigation Profile Widget -->
-                    <div class="d-flex align-items-center pt-1 mb-2">
+                    <!--<div class="d-flex align-items-center pt-1 mb-2">
                         <label class="form-check-label flex-fill" for="_dm-profileWidgetCheckbox">Widget Profile</label>
                         <div class="form-check form-switch">
                             <input id="_dm-profileWidgetCheckbox" class="form-check-input ms-0" type="checkbox" autocomplete="off" checked>
                         </div>
-                    </div>
+                    </div>-->
 
                     <!-- OPTION : Mini navigation mode -->
-                    <div class="d-flex align-items-center pt-3 mb-2">
+                    <!--<div class="d-flex align-items-center pt-3 mb-2">
                         <label class="form-check-label flex-fill" for="_dm-miniNavRadio">Min / Collapsed Mode</label>
                         <div class="form-check form-switch">
                             <input id="_dm-miniNavRadio" class="form-check-input ms-0" type="radio" name="navigation-mode" autocomplete="off">
                         </div>
-                    </div>
+                    </div>-->
 
                     <!-- OPTION : Maxi navigation mode -->
-                    <div class="d-flex align-items-center pt-1 mb-2">
+                    <!--<div class="d-flex align-items-center pt-1 mb-2">
                         <label class="form-check-label flex-fill" for="_dm-maxiNavRadio">Max / Expanded Mode</label>
                         <div class="form-check form-switch">
                             <input id="_dm-maxiNavRadio" class="form-check-input ms-0" type="radio" name="navigation-mode" autocomplete="off" checked>
                         </div>
-                    </div>
+                    </div>-->
 
                     <!-- OPTION : Push navigation mode -->
-                    <div class="d-flex align-items-center pt-1 mb-2">
+                    <!--<div class="d-flex align-items-center pt-1 mb-2">
                         <label class="form-check-label flex-fill" for="_dm-pushNavRadio">Push Mode</label>
                         <div class="form-check form-switch">
                             <input id="_dm-pushNavRadio" class="form-check-input ms-0" type="radio" name="navigation-mode" autocomplete="off">
                         </div>
-                    </div>
+                    </div>-->
 
                     <!-- OPTION : Slide on top navigation mode -->
-                    <div class="d-flex align-items-center pt-1 mb-2">
+                    <!--<div class="d-flex align-items-center pt-1 mb-2">
                         <label class="form-check-label flex-fill" for="_dm-slideNavRadio">Slide on top (default)</label>
                         <div class="form-check form-switch">
                             <input id="_dm-slideNavRadio" class="form-check-input ms-0" type="radio" name="navigation-mode" autocomplete="off">
                         </div>
-                    </div>
+                    </div>-->
 
                     <!-- OPTION : Slide on top navigation mode -->
-                    <div class="d-flex align-items-center pt-1 mb-2">
+                    <!--<div class="d-flex align-items-center pt-1 mb-2">
                         <label class="form-check-label flex-fill" for="_dm-revealNavRadio">Reveal Mode</label>
                         <div class="form-check form-switch">
                             <input id="_dm-revealNavRadio" class="form-check-input ms-0" type="radio" name="navigation-mode" autocomplete="off">
                         </div>
                     </div>
 
-                    <h6 class="mt-4 mb-2 py-1">Right sidebar</h6>
+                    <h6 class="mt-4 mb-2 py-1">Right sidebar</h6>-->
 
                     <!-- OPTION : Disable sidebar backdrop -->
-                    <div class="d-flex align-items-center pt-1 mb-2">
+                    <!--<div class="d-flex align-items-center pt-1 mb-2">
                         <label class="form-check-label flex-fill" for="_dm-disableBackdropCheckbox">Disable backdrop</label>
                         <div class="form-check form-switch">
                             <input id="_dm-disableBackdropCheckbox" class="form-check-input ms-0" type="checkbox" autocomplete="off">
                         </div>
-                    </div>
+                    </div>-->
 
                     <!-- OPTION : Static position -->
-                    <div class="d-flex align-items-center pt-1 mb-2">
+                    <!--<div class="d-flex align-items-center pt-1 mb-2">
                         <label class="form-check-label flex-fill" for="_dm-staticSidebarCheckbox">Static position</label>
                         <div class="form-check form-switch">
                             <input id="_dm-staticSidebarCheckbox" class="form-check-input ms-0" type="checkbox" autocomplete="off">
                         </div>
-                    </div>
+                    </div>-->
 
                     <!-- OPTION : Stuck sidebar -->
-                    <div class="d-flex align-items-center pt-1 mb-2">
+                    <!--<div class="d-flex align-items-center pt-1 mb-2">
                         <label class="form-check-label flex-fill" for="_dm-stuckSidebarCheckbox">Stuck Sidebar </label>
                         <div class="form-check form-switch">
                             <input id="_dm-stuckSidebarCheckbox" class="form-check-input ms-0" type="checkbox" autocomplete="off">
                         </div>
-                    </div>
+                    </div>-->
 
                     <!-- OPTION : Unite Sidebar -->
-                    <div class="d-flex align-items-center pt-1 mb-2">
+                    <!--<div class="d-flex align-items-center pt-1 mb-2">
                         <label class="form-check-label flex-fill" for="_dm-uniteSidebarCheckbox">Unite Sidebar</label>
                         <div class="form-check form-switch">
                             <input id="_dm-uniteSidebarCheckbox" class="form-check-input ms-0" type="checkbox" autocomplete="off">
                         </div>
-                    </div>
+                    </div>-->
 
                     <!-- OPTION : Pinned Sidebar -->
-                    <div class="d-flex align-items-start pt-1 mb-2">
+                    <!--<div class="d-flex align-items-start pt-1 mb-2">
                         <label class="form-check-label flex-fill" for="_dm-pinnedSidebarCheckbox">Pinned Sidebar <span class="badge bg-danger">New in v3.0</span></label>
                         <div class="form-check form-switch">
                             <input id="_dm-pinnedSidebarCheckbox" class="form-check-input ms-0" type="checkbox" autocomplete="off">
@@ -1792,20 +1258,20 @@
                         </div>
                     </div>
 
-                    <div class="row text-center my-3">
+                    <div class="row text-center my-3">-->
 
                         <!-- Expanded Header -->
-                        <div class="col-md-4">
+                        <!--<div class="col-md-4">
                             <h6 class="m-0">Expanded Header</h6>
-                            <div class="_dm-colorShcemesMode">
+                            <div class="_dm-colorShcemesMode">-->
 
                                 <!-- Scheme Button -->
-                                <button type="button" class="btn shadow-none">
+                                <!--<button type="button" class="btn shadow-none">
                                     <img src="~/Content/assets/img/color-schemes/expanded-header.png" alt="color scheme illusttration" loading="lazy">
-                                </button>
+                                </button>-->
 
                                 <!-- Scheme Colors -->
-                                <div class="_dm-colorSchemesMode__colors">
+                                <!--<div class="_dm-colorSchemesMode__colors">
                                     <div class="d-flex flex-wrap justify-content-center">
                                         <button class="_dm-themeColors _dm-box-xs _dm-bg-gray" type="button" data-dir="all-headers/gray" data-hd="expanded"></button>
                                         <button class="_dm-themeColors _dm-box-xs _dm-bg-navy active" type="button" data-dir="all-headers/navy" data-hd="expanded"></button>
@@ -1824,20 +1290,20 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
 
                         <!-- Fair Header -->
-                        <div class="col-md-4">
+                        <!--<div class="col-md-4">
                             <h6 class="m-0">Fair Header</h6>
-                            <div class="_dm-colorShcemesMode">
+                            <div class="_dm-colorShcemesMode">-->
 
                                 <!-- Scheme Button -->
-                                <button type="button" class="btn shadow-none">
+                                <!--<button type="button" class="btn shadow-none">
                                     <img src="~/Content/assets/img/color-schemes/fair-header.png" alt="color scheme illusttration" loading="lazy">
-                                </button>
+                                </button>-->
 
                                 <!-- Scheme Colors -->
-                                <div class="_dm-colorSchemesMode__colors">
+                                <!--<div class="_dm-colorSchemesMode__colors">
                                     <div class="d-flex flex-wrap justify-content-center">
                                         <button class="_dm-themeColors _dm-box-xs _dm-bg-gray" type="button" data-dir="all-headers/gray" data-hd="fair"></button>
                                         <button class="_dm-themeColors _dm-box-xs _dm-bg-navy" type="button" data-dir="" data-hd="fair"></button>
@@ -1861,15 +1327,15 @@
                         <div class="col-md-4">
                             <h6 class="m-0">Full Header</h6>
 
-                            <div class="_dm-colorShcemesMode">
+                            <div class="_dm-colorShcemesMode">-->
 
                                 <!-- Scheme Button -->
-                                <button type="button" class="btn shadow-none">
+                                <!--<button type="button" class="btn shadow-none">
                                     <img src="~/Content/assets/img/color-schemes/full-header.png" alt="color scheme illusttration" loading="lazy">
-                                </button>
+                                </button>-->
 
                                 <!-- Scheme Colors -->
-                                <div class="_dm-colorSchemesMode__colors">
+                                <!--<div class="_dm-colorSchemesMode__colors">
                                     <div class="d-flex flex-wrap justify-content-center">
                                         <button class="_dm-themeColors _dm-box-xs _dm-bg-gray" type="button" data-dir="all-headers/gray"></button>
                                         <button class="_dm-themeColors _dm-box-xs _dm-bg-navy" type="button" data-dir=""></button>
@@ -1895,15 +1361,15 @@
                         <div class="col-md-4">
                             <h6 class="m-0">Primary Nav</h6>
 
-                            <div class="_dm-colorShcemesMode">
+                            <div class="_dm-colorShcemesMode">-->
 
                                 <!-- Scheme Button -->
-                                <button type="button" class="btn shadow-none">
+                                <!--<button type="button" class="btn shadow-none">
                                     <img src="~/Content/assets/img/color-schemes/navigation.png" alt="color scheme illusttration" loading="lazy">
-                                </button>
+                                </button>-->
 
                                 <!-- Scheme Colors -->
-                                <div class="_dm-colorSchemesMode__colors">
+                                <!--<div class="_dm-colorSchemesMode__colors">
                                     <div class="d-flex flex-wrap justify-content-center">
                                         <button class="_dm-themeColors _dm-box-xs _dm-bg-gray" type="button" data-dir="primary-nav/gray" data-hd="fair"></button>
                                         <button class="_dm-themeColors _dm-box-xs _dm-bg-navy" type="button" data-dir="primary-nav/navy" data-hd="fair"></button>
@@ -1927,15 +1393,15 @@
                         <div class="col-md-4">
                             <h6 class="m-0">Brand</h6>
 
-                            <div class="_dm-colorShcemesMode">
+                            <div class="_dm-colorShcemesMode">-->
 
                                 <!-- Scheme Button -->
-                                <button type="button" class="btn shadow-none">
+                                <!--<button type="button" class="btn shadow-none">
                                     <img src="~/Content/assets/img/color-schemes/brand.png" alt="color scheme illusttration" loading="lazy">
-                                </button>
+                                </button>-->
 
                                 <!-- Scheme Colors -->
-                                <div class="_dm-colorSchemesMode__colors">
+                                <!--<div class="_dm-colorSchemesMode__colors">
                                     <div class="d-flex flex-wrap justify-content-center">
                                         <button class="_dm-themeColors _dm-box-xs _dm-bg-gray" type="button" data-dir="brand/gray"></button>
                                         <button class="_dm-themeColors _dm-box-xs _dm-bg-navy" type="button" data-dir="brand/navy"></button>
@@ -1958,15 +1424,15 @@
 
                         <div class="col-md-4">
                             <h6 class="m-0">Tall Header <span class="badge bg-danger">New in v3.0</span></h6>
-                            <div class="_dm-colorShcemesMode">
+                            <div class="_dm-colorShcemesMode">-->
 
                                 <!-- Scheme Button -->
-                                <button type="button" class="btn shadow-none">
+                                <!--<button type="button" class="btn shadow-none">
                                     <img src="~/Content/assets/img/color-schemes/tall-header.png" alt="color scheme illusttration" loading="lazy">
-                                </button>
+                                </button>-->
 
                                 <!-- Scheme Colors -->
-                                <div class="_dm-colorSchemesMode__colors">
+                                <!--<div class="_dm-colorSchemesMode__colors">
                                     <div class="d-flex flex-wrap justify-content-center">
                                         <button class="_dm-themeColors _dm-box-xs _dm-bg-gray" type="button" data-dir="all-headers/gray" data-hd="fair,expanded,border"></button>
                                         <button class="_dm-themeColors _dm-box-xs _dm-bg-navy" type="button" data-dir="" data-hd="fair,expanded,border"></button>
@@ -1992,18 +1458,18 @@
                     <h5 class="mt-5 fw-bold">Scrollbars</h5>
                     <p>Hides native scrollbars and creates custom styleable overlay scrollbars.</p>
                     <div class="row">
-                        <div class="col-5">
+                        <div class="col-5">-->
 
                             <!-- OPTION : Apply the OverlayScrollBar to the body. -->
-                            <div class="d-flex align-items-center pt-1 mb-2">
+                            <!--<div class="d-flex align-items-center pt-1 mb-2">
                                 <label class="form-check-label flex-fill" for="_dm-bodyScrollbarCheckbox">Body scrollbar</label>
                                 <div class="form-check form-switch">
                                     <input id="_dm-bodyScrollbarCheckbox" class="form-check-input ms-0" type="checkbox" autocomplete="off">
                                 </div>
-                            </div>
+                            </div>-->
 
                             <!-- OPTION : Apply the OverlayScrollBar to content containing class .scrollable-content. -->
-                            <div class="d-flex align-items-center pt-1 mb-2">
+                            <!--<div class="d-flex align-items-center pt-1 mb-2">
                                 <label class="form-check-label flex-fill" for="_dm-sidebarsScrollbarCheckbox">Navigation and Sidebar</label>
                                 <div class="form-check form-switch">
                                     <input id="_dm-sidebarsScrollbarCheckbox" class="form-check-input ms-0" type="checkbox" autocomplete="off">
@@ -2024,26 +1490,26 @@
             </div>
 
         </div>
-    </div>
+    </div>-->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <!-- END - SETTINGS CONTAINER [ DEMO ] -->
     <!-- OFFCANVAS [ DEMO ] -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <div id="_dm-offcanvas" class="offcanvas" tabindex="-1">
+    <!--<div id="_dm-offcanvas" class="offcanvas" tabindex="-1">-->
 
         <!-- Offcanvas header -->
-        <div class="offcanvas-header">
+        <!--<div class="offcanvas-header">
             <h5 class="offcanvas-title">Offcanvas Header</h5>
             <button type="button" class="btn-close btn-lg text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
+        </div>-->
 
         <!-- Offcanvas content -->
-        <div class="offcanvas-body">
+        <!--<div class="offcanvas-body">
             <h5>Content Here</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente eos nihil earum aliquam quod in dolor, aspernatur obcaecati et at. Dicta, ipsum aut, fugit nam dolore porro non est totam sapiente animi recusandae obcaecati dolorum, rem ullam cumque. Illum quidem reiciendis autem neque excepturi odit est accusantium, facilis provident molestias, dicta obcaecati itaque ducimus fuga iure in distinctio voluptate nesciunt dignissimos rem error a. Expedita officiis nam dolore dolores ea. Soluta repellendus delectus culpa quo. Ea tenetur impedit error quod exercitationem ut ad provident quisquam omnis! Nostrum quasi ex delectus vero, facilis aut recusandae deleniti beatae. Qui velit commodi inventore.</p>
         </div>
 
-    </div>
+    </div>-->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <!-- END - OFFCANVAS [ DEMO ] -->
     <!-- JAVASCRIPTS -->
