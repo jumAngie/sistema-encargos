@@ -1,4 +1,7 @@
-﻿function Cerrar() {
+﻿$("#mensaje1").hide();
+
+
+function Cerrar() {
     $('#FormModal').modal('hide');
 }
 
@@ -37,21 +40,40 @@ $(document).ready(function () {
     })
 })
 
-//$(document).ready(function () {
+$(document).ready(function () {
+    var ciu_Id = $("#ciu_Id").val();
+    $.ajax({
+        url: "/Direcciones/CargarMunicipiosEdit",
+        method: "POST",
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({ ciu_Id: ciu_Id }),
+        success: function (data) {
+            $.each(data, function (i, value) {
+
+                $("#ciu_Id").append("<option value='" + value.ciu_ID + "'>" + value.ciu_Descripcion + "</option>")
+            })
+        }
+    })
+})
+
+
+//$("#Id_depto").change(function () {
+
 //    var Id_depto = $("#Id_depto").val();
 //    $.ajax({
-//        url: "/Direcciones/CargarMunicipiosEdit",
+//        url: "/Direcciones/CargarMunicipiosDEPA",
 //        method: "POST",
 //        dataType: "json",
 //        contentType: "application/json; charset=utf-8",
 //        data: JSON.stringify({ Id_depto: Id_depto }),
 //        success: function (data) {
-//            $("#Id_Ciudad").empty();
 
-//            //$("#Id_Ciudad").append("<option value= '0' > Seleccione un Municipio</option>");
+//            $("#ciu_Id").empty();
+//          /*  $("#Id_Ciudad").append("<option value= '0' > Seleccione un Municipio</option>");*/
 
 //            $.each(data, function (i, value) {
-//                $("#Id_Ciudad").append("<option value='" + value.ciu_ID + "'>" + value.ciu_Descripcion + "</option>")
+//                $("#ciu_Id").append("<option value='" + value.ciu_ID + "'>" + value.ciu_Descripcion + "</option>")
 //            })
 //        }
 //    })
@@ -59,34 +81,32 @@ $(document).ready(function () {
 
 
 
+//function CargandoMunis(depa) {
+//    /* var Id_depto = $("#Id_depto").val();*/
+  
+//    $.ajax({
+//        url: "/Direcciones/CargarMunicipiosDEPA",
+//        method: "POST",
+//        dataType: "json",
+//        contentType: "application/json; charset=utf-8",
+//        data: JSON.stringify({ depa: depa }),
+//        success: function (data) {
+//            $("#ciu_Id").empty();
+//            //$("#Id_Ciudad").append("<option value= '0' > Seleccione un Municipio</option>");
 
-$("#dep_ID").change(function () {
+//            $.each(data, function (i, value) {
+//                $("#ciu_Id").append("<option value='" + value.ciudad + "'>" + value.ciu_Descripcion + "</option>")
+//            })
+//        }
+//    })
 
-    /*function Muni(dep_Id) {*/
-        var dep_Id = $("#Id_depto").val();
-        $.ajax({
-            url: "/Direcciones/CargarMunicipiosEdit",
-            method: "POST",
-            dataType: "json",
-            contentType: "application/json; charset=utf-8",
-            data: JSON.stringify({ dep_Id: dep_Id }),
-            success: function (data) {
-                $("#Id_Ciudad").empty();
-                //$("#Id_Ciudad").append("<option value= '0' > Seleccione un Municipio</option>");
+//}
 
-                $.each(data, function (i, value) {
-                    $("#Id_Ciudad").append("<option value='" + value.ciu_ID + "'>" + value.ciu_Descripcion + "</option>")
-                })
-            }
-        })
-   /* }*/
- })
+
+
 
 function ObtenerId(direc_ID) {
 
-    //var id = '';
-//    var direc_ID = direc_ID;
-/*    var Id = $("#Id_depto").val();*/
     $.ajax({
         url: "/Direcciones/Cargar",
         method: "POST",
@@ -99,74 +119,38 @@ function ObtenerId(direc_ID) {
             $('#FormModal').modal('show');
 
             $.each(data, function (i, value) {
-                $("#Id_Cliente").val(value.direc_ID);
+                $("#Id_Cliente").val(value.direc_ClienteID);
                 $("#txtDireccion").val(value.direc_DireccionExacta);
                 $("#Id_depto").val(value.depto_ID);
                 $("#direc_ID").val(value.direc_ID);
+                $("#txtCiudad").val(value.ciu_Descripcion);
 
-                /* cargarDep();*/
-                /*   Muni(depto);*/  
-                Muni($("#Id_depto").val());
+              
+                $("#ciu_Id").val(value.ciu_ID);            
+            
+
              
-                //Muni($("#Id_depto").val());
-                $('#Id_Ciudad').val(value.ciu_ID);
-
-                /*    $("#Id_Ciudad").append("<option value='" + value.direc_CiudadID + "'>" + value.ciu_Descripcion + "</option>")*/
-
 
             })
-
-
+        
+        
 
         }
 
     })
 
 
-
-
-
 }
 
-
-//function Abrir() {
-
-//    $('#FormModal').modal('show');
-//}
-
-//$("#tbnModal").click(function () {
-//    $('#FormModal').modal('show');
-//});
-
-
-
-
-
-
-//$(document).ready(function () {
-
-
-/*})*/
-
-
-
-
-/*$(document).ready(function () {*/
-
-/*})*/
-
-
-
-
-function Editar() {
+function Editar(x) {
  
-    var ID = $("#direc_ID").val();
+    var ID =      $("#direc_ID").val();
     var cliente = $("#Id_Cliente").val();
-    var ciudad = $("#Id_Ciudad").val();
-    var direccion = $("#direc_ID").val();
+    var ciudad =   $("#ciu_Id").val();
+    var direccion = $("#txtDireccion").val();
     console.log(ID);
-    console.log(estado);
-
+   
+    console.log(x);
     $.ajax({
         url: "/Direcciones/Editores",
         method: "POST",
@@ -181,6 +165,15 @@ function Editar() {
         }
 
     })
-    $('#FormModal').modal('hide');
 
+    if (direccion == "" || null) {
+        $("#mensaje1").show();
+        $("#txtDireccion").focus();
+    }
+    else {
+
+
+        $('#FormModal').modal('hide');
+        window.location.reload();
+    }
 }

@@ -1985,21 +1985,12 @@ END
 
 GO
 
-CREATE OR ALTER PROCEDURE UDP_CARGARCIIUDAD_DIRECCONEDIT
-@depto_Id  INT
-AS
-BEGIN
-SELECT [ciu_ID], [ciu_Descripcion] FROM [dbo].[tbCiudades]
-WHERE [ciu_DeptoID] = @depto_Id
 
-END
-GO
-
-CREATE OR ALTER PROCEDURE UDP_CARGAR_DIRECCIONESEdit
+CREATE OR ALTER PROCEDURE [dbo].[UDP_CARGAR_DIRECCIONESEdit]
 @direc_ID   INT
 AS
 BEGIN
-SELECT [direc_ID], [direc_ClienteID], [direc_DireccionExacta],[ciu_ID],[ciu_Descripcion], [depto_ID] 
+SELECT [direc_ID], [direc_ClienteID], [direc_DireccionExacta],[ciu_Descripcion],[ciu_ID] ,[depto_ID] 
 FROM [dbo].[tbDirecciones] di
 INNER JOIN [dbo].[tbCiudades] ciu ON ciu.ciu_ID = di.direc_CiudadID
 INNER JOIN [dbo].[tbDepartamentos] depto  ON depto.depto_ID = ciu.ciu_DeptoID
@@ -2007,12 +1998,12 @@ WHERE [direc_ID] = @direc_ID
 
 END
 
-GO
+
 
 --exec UDP_CARGAR_DIRECCIONESEdit  5
 
 
-
+GO
 CREATE OR ALTER PROCEDURE UDP_CARGARCLIENTES_DIRECCIONESEdit
 AS
 BEGIN
@@ -2020,6 +2011,24 @@ SELECT [client_ID], [client_Nombre] FROM [dbo].[tbClientes]
 
 END
 GO
+
+
+
+
+
+CREATE OR ALTER PROCEDURE UDP_MUNICIPIO_CON_DEPA
+@dep_ID   INT
+AS
+BEGIN
+
+SELECT [ciu_ID],[ciu_Descripcion] FROM [dbo].[tbCiudades]
+INNER JOIN [dbo].[tbDepartamentos] dep ON dep.depto_ID = ciu_DeptoID
+END
+
+GO
+
+
+
 
 
 --EXEC UDP_CARGAR_DIRECCIONESEdit 2

@@ -90,21 +90,39 @@ namespace Sistema_Envios.Controllers
 
 
 
-        [HttpPost]
-
-        public JsonResult CargarMunicipiosEdit(string dep_ID)
+        public JsonResult CargarMunicipiosEdit()
         {
-            var ddlM = db.UDP_CARGARCIIUDAD_DIRECCONEDIT(int.Parse(dep_ID)).ToList();
+            var ddlM = db.UDP_CARGAR_MUNICIPIO().ToList();
 
             return Json(ddlM, JsonRequestBehavior.AllowGet);
 
         }
 
+        //[HttpPost]
+        //public JsonResult CargarMunicipiosDEPA(string depto)
+        //{
+        //    var ddlMM= db.UDP_CargarCiudades(depto).ToList();
+
+        //    return Json(ddlMM, JsonRequestBehavior.AllowGet);
+
+        //}
+
+
+
+        //[HttpPost]
+
+        //public JsonResult CargarMunicipiosEdit(int dep_ID)
+        //{
+        //    var ddlM = db.UDP_CARGARCIIUDAD_DIRECCONEDIT(dep_ID).ToList();
+
+        //    return Json(ddlM, JsonRequestBehavior.AllowGet);
+
+        //}
+
 
 
 
         [HttpPost]
-
         public JsonResult Cargar(string direc_ID)
         {
 
@@ -124,14 +142,19 @@ namespace Sistema_Envios.Controllers
         {
             if (ModelState.IsValid)
             {
-              
-                    //string id = Session["IdUsuario"].ToString();
-                    var Edit = db.UDP_Editar_Direcciones(int.Parse(ID), int.Parse(cliente), direccion,int.Parse(ciudad) ,"1");
-
-
+                try
+                {
+                    if (cliente != "" || ciudad != "" || direccion != "")
+                    {
+                        //string id = Session["IdUsuario"].ToString();
+                        var Edit = db.UDP_Editar_Direcciones(int.Parse(ID), int.Parse(cliente), direccion, int.Parse(ciudad), "1");
+                        
+                    }
+                }
+                catch(Exception)
+                {
                     return RedirectToAction("Index");
-                
-
+                }
             }
 
             return RedirectToAction("Index");
