@@ -13,7 +13,11 @@ namespace Sistema_Envios.Controllers
         // GET: Login
         public ActionResult Index()
         {
-
+            Session["Usuario"] = "";
+            Session["UsuarioID"] = "";
+            Session["Nombre"] = "";
+            Session["Rol_ID"] ="";
+            Session["Rol"] = "";
             return View();
             
         }
@@ -34,8 +38,11 @@ namespace Sistema_Envios.Controllers
                 {
                     foreach (var item in result)
                     {
-                        Session["Usuario"] = item.emp_Name;
+                        Session["Usuario"] = item.usu_Usuario;
                         Session["UsuarioID"] = item.usu_ID;
+                        Session["Nombre"] = item.emp_Nombre;
+                        Session["Rol_ID"] = item.rol_ID;
+                        Session["Rol"] = item.rol_Descripcion;
                         return RedirectToAction("Principal");
                     }
                 }

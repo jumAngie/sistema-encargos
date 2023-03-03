@@ -228,9 +228,6 @@
     <Compile Include="Models\UDP_CargarArticulos_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UDP_CARGARCIIUDAD_DIRECCONEDIT_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\UDP_CargarCiudades_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -249,7 +246,16 @@
     <Compile Include="Models\UDP_CARGARDEPTOS_DIRECCIONEDIT_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UDP_CargarDireccionPedidos_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UDP_CargarEmpleadosPedidos_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UDP_CargarEmpleados_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UDP_CargarEstadoDeEnvio_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UDP_CargarEstadosCiviles_Result.cs">
@@ -262,9 +268,6 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UDP_CargarRol_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UDP_CARGAR_ARTICULOS_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UDP_CARGAR_ARTICULO_Result.cs">
@@ -286,12 +289,6 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UDP_CARGAR_FABRICASArtc_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UDP_CARGAR_MUNICIPIO_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UDP_ListaDeArticulosPorPedido_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UDP_MUNICIPIO_CON_DEPA_Result.cs">
@@ -3327,13 +3324,6 @@
     <Content Include="CodeTemplates\MvcView\List.cs.t4" />
     <Content Include="CodeTemplates\MvcView\ModelMetadataFunctions.cs.include.t4" />
     <Content Include="CodeTemplates\MvcView\Imports.include.t4" />
-    <EntityDeploy Include="Models\Model.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model.edmx.diagram">
-      <DependentUpon>Model.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\assets1\.DS_Store" />
     <Content Include="Content\assets1\css\.DS_Store" />
     <Content Include="Content\assets1\css\bootstrap.css.map" />
@@ -3507,6 +3497,13 @@
     <Content Include="Content\assets1\premium\icon-sets\icons\solid-icons\font\premium-solid-icons.woff2" />
     <Content Include="Content\assets1\premium\icon-sets\thumbs\.DS_Store" />
     <Content Include="Content\assets1\vendors\.DS_Store" />
+    <EntityDeploy Include="Models\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\CargosEditar.js" />
     <Content Include="Scripts\CiudadesEditar.js" />

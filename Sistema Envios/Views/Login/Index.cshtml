@@ -51,23 +51,23 @@
                                 <div class="col-sm-1"></div>
                                 <div class="col-sm-10">
                                     <label>Usuario</label>
-                                    <input type="text" name="txtUsuario" class="form-control" placeholder="Ingrese su usuario" />
+                                    <input type="text" name="txtUsuario" class="form-control" placeholder="Ingrese su usuario" style="border-color:black" />
                                     <label style="color:red">@Html.ValidationMessage("Validacion")</label> <br />
                                     <label>Contraseña</label>
-                                    <input type="password" name="txtPass" class="form-control" placeholder="Ingrese su contraseña" />
+                                    <input type="password" name="txtPass" class="form-control" placeholder="Ingrese su contraseña" style="border-color:black" />
                                     <label style="color:red">@Html.ValidationMessage("Validacion")</label> <br />
-                                    <div class="align-items-md-center">
-                                        <a>@Html.ActionLink("¿Olvidaste tu contraseña?", "OlvidarContraseña", "Login")</a>
-                                        <div class="pli-right-to-left">
-                                            <a>@Html.ActionLink("Cambiar contraseña", "CambiarContraseña", "Login")</a>
-                                        </div>
+                                    <div class="d-flex justify-content-center gap-2">
+                                    <button type="submit" class="btn btn-primary">Ingresar</button>
                                     </div>
                                 </div>
                                 <div class="col-sm-1"></div>
                             </div>
                             <br />
                             <div class="d-flex justify-content-center gap-2">
-                                <button type="submit" class="btn btn-warning">Ingresar</button>
+                                <a>@Html.ActionLink("¿Olvidaste tu contraseña?", "OlvidarContraseña", "Login", null, new { @class = "btn btn-warning btn-xs" })</a>
+                                <div class="pli-right-to-left">
+                                    <a>@Html.ActionLink("Cambiar contraseña", "CambiarContraseña", "Login", null, new { @class = "btn btn-warning btn-xs" })</a>
+                                </div>
                             </div>
                         </div>
                     </div>
