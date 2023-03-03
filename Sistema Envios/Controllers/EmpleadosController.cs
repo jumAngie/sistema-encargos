@@ -43,11 +43,18 @@ namespace Sistema_Envios.Controllers
             return View(tbEmpleados);
         }
 
+        [HttpPost]
+        public JsonResult CargarCargos()
+        {
+            var ddl = db.UDP_DDLCargos().ToList();
+            return Json(ddl, JsonRequestBehavior.AllowGet);
+        }
         // GET: Empleados/Create
         public ActionResult Create()
         {
             ViewBag.depto_ID = new SelectList(db.UDP_CargarDepartamentos(), "depto_ID", "depto_Descripcion");
             ViewBag.est_ID = new SelectList(db.UDP_CargarEstadosCiviles(), "est_ID", "est_Descripcion");
+            ViewBag.carg_Id = new SelectList(db.tbCargos, "carg_Id", "carg_Description");
             return View();
         }
 
@@ -56,19 +63,13 @@ namespace Sistema_Envios.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "emp_Id,emp_Name,emp_Apellido,emp_DNI,emp_FechaNac,depto_ID,ciu_ID,est_ID,emp_Sexo,carg_Id,emp_UsuarioCrea,emp_FechaCrea,emp_UsuModif,emp_FechaModif,emp_Estado")] tbEmpleados tbEmpleados)
+        public ActionResult Create(string emp_Name, string emp_Apellido, string emp_DNI, DateTime emp_FechaNac, string ciu_ID, string est_ID, string emp_Sexo, string carg_Id)
         {
-            ModelState.Remove("depto_ID");
-            ModelState.Remove("emp_Id");
-            ModelState.Remove("emp_UsuModif");
-            ModelState.Remove("emp_FechaCrea");
-            ModelState.Remove("emp_FechaModif");
-            ModelState.Remove("emp_Estado");
             try
             {
                 if (ModelState.IsValid)
                 {
-                    db.UDP_EMPLEADOS_INSERT(tbEmpleados.emp_Name, tbEmpleados.emp_Apellido, tbEmpleados.emp_DNI, tbEmpleados.emp_FechaNac, tbEmpleados.ciu_ID, tbEmpleados.est_ID, tbEmpleados.emp_Sexo, tbEmpleados.carg_Id, 1);
+                    db.UDP_EMPLEADOS_INSERT(emp_Name, emp_Apellido, emp_DNI, emp_FechaNac, Convert.ToInt32(ciu_ID), est_ID, emp_Sexo, Convert.ToInt32(carg_Id), 1);
                     return RedirectToAction("Index");
                 }
             }
@@ -77,12 +78,10 @@ namespace Sistema_Envios.Controllers
                 return RedirectToAction("Index");
                 throw;
             }
-            
-
-            ViewBag.depto_ID = new SelectList(db.UDP_CargarDepartamentos(), "depto_ID", "depto_Descripcion");
-            ViewBag.ciu_ID = new SelectList(db.tbCiudades, "ciu_ID", "ciu_Descripcion", tbEmpleados.ciu_ID);
-            ViewBag.est_ID = new SelectList(db.UDP_CargarEstadosCiviles(), "est_ID", "est_Descripcion");
-            return View(tbEmpleados);
+            //ViewBag.depto_ID = new SelectList(db.UDP_CargarDepartamentos(), "depto_ID", "depto_Descripcion");
+            //ViewBag.ciu_ID = new SelectList(db.tbCiudades, "ciu_ID", "ciu_Descripcion", tbEmpleados.ciu_ID);
+            //ViewBag.est_ID = new SelectList(db.UDP_CargarEstadosCiviles(), "est_ID", "est_Descripcion");
+            return View();
         }
 
         // GET: Empleados/Edit/5
