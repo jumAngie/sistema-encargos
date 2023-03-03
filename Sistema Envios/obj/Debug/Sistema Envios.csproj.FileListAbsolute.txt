@@ -446,3 +446,4 @@ C:\Users\LAB01\Documents\GitHub\sistema-encargos\Sistema Envios\obj\Debug\Sistem
 C:\Users\LAB01\Documents\GitHub\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.csproj.CopyComplete
 C:\Users\LAB01\Documents\GitHub\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.dll
 C:\Users\LAB01\Documents\GitHub\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.pdb
+C:\Users\LAB01\Documents\GitHub\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.csproj.AssemblyReference.cache

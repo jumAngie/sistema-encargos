@@ -21,29 +21,35 @@ $(function () {
     });
 });
 
-function AbrirM(PEDIDO) {
+$(function () {
+    $('#btnAbrir').click(function () {
+        $('#modal-insertar').modal('show');
+    });
+});
+
+//function AbrirM(PEDIDO) {
 
 
-    $.ajax({
-        url: "/Clientes/InsertarDetalles",
-        method: "POST",
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-        data: JSON.stringify({ PEDIDO: PEDIDO }),
-        success: function (data) {
-            console.log(data);
-            $('#FormModal').modal('show');
-            $.each(data, function (i, value) {
-                $("#carg_Id").val(value.carg_Id);
-                $("#txtCargo").val(value.carg_Description);
+//    $.ajax({
+//        url: "/Clientes/InsertarDetalles",
+//        method: "POST",
+//        dataType: "json",
+//        contentType: "application/json; charset=utf-8",
+//        data: JSON.stringify({ PEDIDO: PEDIDO }),
+//        success: function (data) {
+//            console.log(data);
+//            $('#FormModal').modal('show');
+//            $.each(data, function (i, value) {
+//                $("#carg_Id").val(value.carg_Id);
+//                $("#txtCargo").val(value.carg_Description);
 
 
-            })
+//            })
 
 
 
-        }
+//        }
 
-    })
-}
+//    })
+//}
 
