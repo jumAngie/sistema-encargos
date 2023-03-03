@@ -2211,3 +2211,13 @@ BEGIN
 							 1)
 END
 
+GO
+-----------------CARGAR DDL CARGO EN EMPLEADOS------------------
+CREATE OR ALTER PROCEDURE UDP_DDLCargos
+AS
+BEGIN
+	SELECT '0' AS carg_Id, ' Seleccione un cargo' AS carg_Description
+	UNION ALL
+	SELECT carg_Id, carg_Description FROM tbCargos WHERE rep_Estado = 1
+END
+GO
