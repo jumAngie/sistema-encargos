@@ -1904,7 +1904,7 @@ ADD CONSTRAINT CK_client_Saldo
 CHECK (client_Saldo > client_LimiteCredito OR client_Saldo = client_LimiteCredito)
 
 go
-CREATE TRIGGER tg_ActualizarSaldo ON tbPedidos
+CREATE OR ALTER TRIGGER tg_ActualizarSaldo ON tbPedidos
 AFTER INSERT 
 AS
 BEGIN
@@ -2052,7 +2052,7 @@ WHERE	clientes.client_ID = @ID
 END
 
 go
-CREATE FUNCTION UDF_PedidosPorCliente(@Cliente_ID INT)
+CREATE OR ALTER FUNCTION UDF_PedidosPorCliente(@Cliente_ID INT)
 RETURNS TABLE
 AS
 RETURN
@@ -2067,7 +2067,7 @@ WHERE	clientes.client_ID = @Cliente_ID
 GO
 
 GO
-CREATE FUNCTION UDF_ArticulosPorPedido(@PedidoCode VARCHAR(6))
+CREATE OR ALTER FUNCTION UDF_ArticulosPorPedido(@PedidoCode VARCHAR(6))
 RETURNS TABLE
 AS
 RETURN
