@@ -58,7 +58,7 @@ namespace Sistema_Envios.Controllers
             if (Depto == "0" || muni == "")
             {
 
-
+              //return  RedirectToAction("Error404", "Articulos");
             }
             else
             {
@@ -74,7 +74,7 @@ namespace Sistema_Envios.Controllers
                 }
                 catch (Exception)
                 {
-                    return RedirectToAction("Index");
+                    //return  RedirectToAction("Error404", "Articulos");
                 }
             }
 
