@@ -2954,6 +2954,7 @@
     <Content Include="Scripts\CrearDirecciones.js" />
     <Content Include="Scripts\CrearEstadoCivil.js" />
     <Content Include="Scripts\CrearFabrica.js" />
+    <Content Include="Scripts\CrearPedido.js" />
     <Content Include="Scripts\CrearUsuario.js" />
     <Content Include="Scripts\DepartamentosEditar.js" />
     <Content Include="Scripts\Detalles.js" />
