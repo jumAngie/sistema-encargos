@@ -2699,6 +2699,7 @@
     </Content>
     <Content Include="Scripts\Alertas\FuncionesAlertas.js" />
     <Content Include="Scripts\ArticulosEditar.js" />
+    <Content Include="Scripts\AñadirDetallePorPedido\DetPorPedi.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\assets\.DS_Store" />

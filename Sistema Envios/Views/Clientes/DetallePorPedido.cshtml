@@ -1,0 +1,40 @@
+﻿<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    .modal-header, h4 {
+        background-color: white;
+        /*color: white !important;*/
+        text-align: center;
+        font-size: 22px;
+    }
+
+    .modal-footer {
+        background-color: white;
+    }
+</style>
+<div class="modal fade" id="modal-insertar" tabindex="-1" role="dialog" aria-labelledby="miModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="padding:35px 50px;">
+                <h4 class="modal-title" id="miModalLabel">Añadir Articulos a este Pedido</h4>
+                <img src="https://fusabilbao.es/img/cms/Monigote-Cajas-81844.gif" width="150" />
+            </div>
+            <div class="modal-body" style="padding:35px 50px;">
+
+                <label id="lblArt" style="color:red; display:none">*</label>
+                <label style="color:black; font-size:15px">Ingrese el artículo</label>
+                <select id="txtArticulo" name="txtArticulo" class="form-control" style="border-color:black"></select>
+
+                <label id="lblCant" style="color:red; display:none">*</label>
+                <label style="color:black; font-size:15px">Ingrese la cantidad</label>
+                <input type="number" id="txtCant" name="txtCant" class="form-control" style="border-color:black" />
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnInsert" onclick="Insertar()" class="btn btn-danger"  >Insertar</button>
+                <button type="button" id="btnCerrar"  class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/AñadirDetallePorPedido/DetPorPedi.js"></script>
