@@ -1727,7 +1727,7 @@ END
 
 ------------------------------------ UDPS DEL LOGIN ---------------------------------------
 GO
-CREATE OR ALTER PROCEDURE UDP_VALIDAR_LOGIN
+CREATE or ALTER   PROCEDURE [dbo].[UDP_VALIDAR_LOGIN]
 @usu_Usuario NVARCHAR(200),
 @usu_Clave   NVARCHAR(MAX)
 
@@ -1735,8 +1735,9 @@ AS
 BEGIN
 DECLARE @Pass   NVARCHAR(MAX) = CONVERT(NVARCHAR(MAX), HASHBYTES('SHA2_512',@usu_Clave),2);
 
-SELECT [usu_ID],[usu_Usuario],[usu_Clave],[emp_Name] FROM [dbo].[tbUsuarios] usu
+SELECT [usu_ID],[usu_Usuario],[usu_Clave],[emp_Name]+' '+ emp.emp_Apellido AS emp_Nombre, usu.rol_ID, rol.rol_Descripcion FROM [dbo].[tbUsuarios] usu
 INNER JOIN [dbo].[tbEmpleados] emp ON emp.emp_Id = usu.emp_Id
+INNER JOIN [dbo].[tblRoles]    rol ON usu.rol_ID = rol.rol_ID
 WHERE [usu_Usuario] = @usu_Usuario
 AND
 [usu_Clave] = @Pass
@@ -2118,66 +2119,34 @@ WHERE [art_ID] = @Id
 END
 
 GO
-
-
-CREATE OR ALTER PROCEDURE UDP_CARGAR_ESTADOSCIV
+-------------------CARGAR EMPLEADOS EN PEDIDOS-------------------
+CREATE OR ALTER PROCEDURE UDP_CargarEmpleadosPedidos
 AS
 BEGIN
-SELECT [est_ID],[est_Descripcion] FROM [dbo].[tbEstadosCiviles]
-END
-
+SELECT '0' AS emp_Id, ' Seleccione un empleado' AS emp_Nombre
+UNION ALL
+SELECT emp_Id, emp_Name + ' ' + emp_Apellido emp_Nombre FROM tbEmpleados
+WHERE emp_Estado = 1;
+END;
 GO
 
---------------
- CREATE OR ALTER PROCEDURE [dbo].[UDP_CARGAR_MUNICIPIO]
+-------------------CARGAR DIRECCIONES EN PEDIDOS-------------------
+CREATE OR ALTER PROCEDURE UDP_CargarDireccionPedidos
 AS
 BEGIN
-SELECT [ciu_ID], [ciu_Descripcion] FROM [dbo].[tbCiudades]
-
-END
-
--------------------------
-
---SELECT*FROM [dbo].[tbClientes]
+SELECT '0' AS direc_ID, ' Seleccione una direccion' AS direc_DireccionExacta
+UNION ALL
+SELECT direc_ID, direc_DireccionExacta FROM tbDirecciones
+WHERE direc_Estado = 1;
+END;
 GO
 
-ALTER  PROCEDURE [dbo].[UDP_InsertClientes]
-	@client_Nombre			NVARCHAR (250), 
-	@client_Identidad		NVARCHAR(30), 
-	@client_EstadoCivil		CHAR(1), 
-	@client_Sexo			CHAR(1), 
-	@client_Telefono		NVARCHAR(50), 
-	@client_Saldo			NVARCHAR(100), 
-	@client_LimiteCredito	VARCHAR(200), 
-	@client_Descuento		NVARCHAR(100), 
-	@client_UsuarioCreador	INT
+-------------------CARGAR ESTADO DE ENVIO EN PEDIDOS-------------------
+CREATE OR ALTER PROCEDURE UDP_CargarEstadoDeEnvio
 AS
 BEGIN
-	INSERT INTO tbClientes (client_Nombre, 
-							client_Identidad, 
-							client_EstadoCivil, 
-							client_Sexo, 
-							client_Telefono, 
-							client_Saldo, 
-							client_LimiteCredito, 
-							client_Descuento, 
-							client_UsuarioCreador, 
-							client_FechaCreacion, 
-							client_UsuarioMod, 
-							client_FechaMod, 
-							client_Estado)
-	VALUES					(@client_Nombre, 
-							 @client_Identidad, 
-							 @client_EstadoCivil, 
-							 @client_Sexo, 
-							 @client_Telefono, 
-							 @client_Saldo, 
-							 @client_LimiteCredito, 
-							 @client_Descuento, 
-							 @client_UsuarioCreador, 
-							 GETDATE(), 
-							 NULL, 
-							 NULL, 
-							 1)
-END
-
+SELECT '0' AS estv_Id, ' Seleccione un estado' AS estv_Description
+UNION ALL
+SELECT estv_Id, estv_Description FROM tbEstadoEnvios
+END;
+GO

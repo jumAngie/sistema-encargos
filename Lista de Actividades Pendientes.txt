@@ -1,20 +1,11 @@
 ............................. Actividades Pendientes ..................................
-
--- Agregar los udps de INSERTAR (FALTA CIUDADES)
--- Agregar los udps de EDITAR 	(FALTA DIRECCIONES)
+-- TERMINAR LAS PANTALLAS DE EMPLEADOS, Y PEDIDOS
+-- METER VALIDACIONES
+-- HACER LA PÁGINA 404
 -- Editar los Create y Edit de las pantallas sin modales (COLOCAR LOS CAMPOS DE CLIENTE Y PEDIDOS EN 2 COLUMNAS)
 -- Hacer las Validaciones de los Roles. (HACER UN SESSION.COUNT > 0 EN EL INDEX DE CADA CONTROLADOR)
 -- Hacer las Validaciones de CADA CAMPO QUE NO PERMITE INGRESAR NULOS (EN JAVASCRIPT)
-
 -- EN EL FORMULARIO: VALIDAR 'ES ADMIN' Y 'ROL'
-	SI CHEKEA ES ADMIN, EL DDL DE ROL DEBE ESCONDERSE
-// ESCONDER EL CHECKBOX Y EL DDLg
-ck.EsAdmin.checked{
-		ddl.rol.hide()}
-
-ddl.rol.selected value != '0'{
-	ck.esAdmin.hide()
-}
 
 ........................................................................................
 
@@ -25,28 +16,9 @@ COLOCAR UNA CLASE DETERMINADA A CADA BOTON: 	'NUEVO' DEBE SER PRIMARY
 						'DETALLES' DEFAULT
 						'ELIMINAR' DANGER
 						'(EXTRAS)' WARNING
-...................................................................................
-CAMBIAR DISEÑO DE LOS MODALES: 
-<style>
-    .modal-header, h4, .close {
-        background-color: orangered;
-        color: white !important;
-        text-align: center;
-        font-size: 30px;
-    }
-
-    .modal-footer {
-        background-color: #f9f9f9;
-    }
-</style>
-  <div class="modal-header" style="padding:35px 50px;">
-                <h4><span class="glyphicon glyphicon-lock"></span>NOMBRE DEL MODAL</h4>
-            </div>
-            <div class="modal-body" style="padding:40px 50px;">
 .....................................................................................
 
-CAMBIAR DISEÑO DEL LAYOUT:  -- ACOMODAR EL MENU Y SI ES POSIBLE HACER SUB MENUS Y CLASFICAR LAS PANTALLAS.
-			    -- DEJAR UN SOLO COLOR EL LAYOUT.
+CAMBIAR DISEÑO DEL LAYOUT:  
 			    -- COLOCAR UN SLIDER EN LA PÁGINA PRINCIPAL.
 			    -- COLOCARLE TITULO A LAS TABLAS
 EDITAR EL BOTÓN LOG-OUT: LE HAREMOS UN REDIRECT TO LOGIN, Y DESTRUIREMOS LAS SESIONES

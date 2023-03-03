@@ -66,15 +66,25 @@ public class ArticulosController : Controller
         [HttpPost]
         public ActionResult Create(string txtArt, string fab_ID, string txtStock)
         {
+
             int Modi = 1;
             int fab = Int32.Parse(fab_ID);
             int stock = Int32.Parse(txtStock);
-            if (ModelState.IsValid)
+            try
             {
-                db.UDP_InsertArticulos(txtArt, fab, stock, Modi);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.UDP_InsertArticulos(txtArt, fab, stock, Modi);
+                    return RedirectToAction("Index");
+                }
+                return View();
             }
-            return View();
+            catch (Exception)
+            {
+
+                return RedirectToAction("Error404");
+            }
+            
         }
 
         [HttpPost]

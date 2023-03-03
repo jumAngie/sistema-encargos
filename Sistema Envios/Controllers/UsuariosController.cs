@@ -54,9 +54,9 @@ namespace Sistema_Envios.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.UDP_USUARIOS_INSERT(txtUsuario, Convert.ToInt32(emp_Id), Convert.ToInt32(rol_ID), txtClave, ckEsAdmin, Convert.ToInt32(Usu));
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                //db.UDP_USUARIOS_INSERT(txtUsuario, Convert.ToInt32(emp_Id), Convert.ToInt32(rol_ID), txtClave, ckEsAdmin, Convert.ToInt32(Usu));
+                //db.SaveChanges();
+                //return RedirectToAction("Index");
             }
 
             return View();
