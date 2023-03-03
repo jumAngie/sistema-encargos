@@ -2097,3 +2097,24 @@ UNION ALL
 SELECT rol_ID, rol_Descripcion FROM tblRoles
 END;
 GO
+
+
+----------------------- CARGAR FABRICA DROPDOWN EN ARTC
+
+CREATE OR ALTER PROCEDURE UDP_CARGAR_FABRICASArtc
+AS
+BEGIN
+SELECT [fab_ID],[fab_Descripcion] FROM [dbo].[tbFabricas]
+END
+GO
+
+CREATE OR ALTER  PROCEDURE [dbo].[UDP_CARGAR_ARTICULO]
+@Id   INT
+AS
+BEGIN
+SELECT [art_ID],[art_Descripcion], fa.[fab_ID], [art_Stock] FROM [dbo].[tbArticulos] art
+INNER JOIN [dbo].[tbFabricas] fa ON art.fab_ID = fa.fab_ID
+WHERE [art_ID] = @Id
+END
+
+GO

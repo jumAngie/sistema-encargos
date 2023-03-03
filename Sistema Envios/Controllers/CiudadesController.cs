@@ -17,7 +17,7 @@ namespace Sistema_Envios.Controllers
         // GET: Ciudades
         public ActionResult Index()
         {
-            if(Session.Count > 0)
+            if (Session.Count > 0)
             {
                 var tbCiudadesIndex = db.V_INDEX_CIUDADES;
                 return View(tbCiudadesIndex.ToList());
@@ -55,9 +55,9 @@ namespace Sistema_Envios.Controllers
         [HttpPost]
         public ActionResult Create(string Depto, string muni)
         {
-            if(Depto == "0" || muni == "")
+            if (Depto == "0" || muni == "")
             {
-                
+
 
             }
             else
@@ -77,7 +77,7 @@ namespace Sistema_Envios.Controllers
                     return RedirectToAction("Index");
                 }
             }
-            
+
             return RedirectToAction("Index");
         }
 
@@ -102,19 +102,32 @@ namespace Sistema_Envios.Controllers
         public ActionResult Edito(string ID, string Descripcion)
 
         {
-            if (ModelState.IsValid)
+            string usuario = Session["UsuarioID"].ToString();
+            try
             {
-                //string id = Session["IdUsuario"].ToString();
-                var Edit = db.UDP_Editar_Ciudades(int.Parse(ID), Descripcion, "1");
-
-
-                return RedirectToAction("Index");
-
+                if (ModelState.IsValid)
+                {
+                    if (Descripcion != "" || Descripcion != null)
+                    {
+                        //string id = Session["IdUsuario"].ToString();
+                        var Edit = db.UDP_Editar_Ciudades(int.Parse(ID), Descripcion, usuario);
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index");
+                    }
+                }
 
             }
-
+            catch (Exception)
+            {
+                return RedirectToAction("Index");
+            }
             return RedirectToAction("Index");
+
         }
+
 
         protected override void Dispose(bool disposing)
         {
@@ -124,5 +137,7 @@ namespace Sistema_Envios.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }
+

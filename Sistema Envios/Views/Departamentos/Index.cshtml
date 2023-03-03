@@ -45,7 +45,7 @@
                                         @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn btn-default btn-xs" })
 
 
-                                        <button class='btn btn-secondary btn-sm' type='submit' id="tbnModal" value="Editar" onclick="AbrirModal(@item.ID)"><i class='fas fa-pen'></i>Editar</button>
+                                        <button class='btn btn-secondary btn-xs' type='submit' id="tbnModal" value="Editar" onclick="AbrirModal(@item.ID)"><i class='fas fa-pen'></i>Editar</button>
 
                                         <form method="post">
                                             @Html.AntiForgeryToken()
@@ -53,17 +53,24 @@
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="crear-cargos">Articulos</h5>
+                                                            <h5 class="modal-title" id="crear-cargos">EDITAR DEPARTAMENTOS</h5>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <label> CARGO </label>
-                                                            <input type="text" name="txtDescripcion" id="txtDescripcion" class="form-control" />
-
+                                                            <div class="card">
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-8">
+                                                                            <label> DEPARTAMENTO </label> <label id="Mensaje" style="color:red">El campo no puede estar vcaio!!</label>
+                                                                            <input type="text" name="txtDescripcion" id="txtDescripcion" class="form-control" />
+                                                                        </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <input type="hidden" id="depto_ID" />
                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="Cerrar()">Close</button>
-                                                            <input type="submit" value="Editar" onclick="Editar(@item.ID)" class="btn btn-default" />
+                                                            <input type="button" value="Editar" onclick="Editar(@item.ID)" class="btn btn-warning" />
                                                         </div>
                                                     </div>
                                                 </div>

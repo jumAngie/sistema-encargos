@@ -1,5 +1,9 @@
-﻿function Cerrar() {
+﻿
+$("#Mensaje").hide();
+
+function Cerrar() {
     $('#FormModal').modal('hide');
+    $("#Mensaje").hide();
 }
 
 function AbrirModal(ciu_ID) {
@@ -55,7 +59,17 @@ function Editar(x) {
         }
 
     })
-    $('#FormModal').modal('hide');
 
+    if (Descripcion == "" || Descripcion == null) {
+        $("#Mensaje").show();
+        $("#txtDescripcion").focus();
+    }
+    else {
+
+        $("#Mensaje").hide();
+        $('#FormModal').modal('hide');
+        window.location.reload();
+
+    }
 }
 

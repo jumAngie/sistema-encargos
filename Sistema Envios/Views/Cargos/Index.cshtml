@@ -5,8 +5,22 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+@*<script src="https://code.jquery.com/jquery-3.5.1.js"></script>*@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+    .modal-header, h4, .close {
+        background-color: orangered;
+        color: white !important;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .modal-footer {
+        background-color: #f9f9f9;
+    }
+</style>
+
 
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
@@ -45,25 +59,34 @@
                                         <button class="btn-delete btn btn-secondary btn-xs" data-id="@item.ID">Eliminar</button>
 
 
-                                        <button class='btn btn-secondary btn-sm' type='submit' id="tbnModal" value="Editar" onclick="AbrirModal(@item.ID)"><i class='fas fa-pen'></i></button>
+                                        <button class='btn btn-secondary btn-xs' style="color:cyan"  type='submit' id="tbnModal" value="Editar" onclick="AbrirModal(@item.ID)"><i class='fas fa-pen'></i>Editar</button>
 
                                         <form method="post">
                                             @Html.AntiForgeryToken()
                                             <div class="modal fade" id="FormModal" tabindex="-1" role="dialog" aria-labelledby="Crear-Articulos" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="crear-cargos">Articulos</h5>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <label> CARGO </label>
-                                                            <input type="text" name="txtCargo" id="txtCargo" class="form-control" />
+                                                        <div class="modal-header" style="padding:35px 50px;">
+                                                            <br />
+                                                            <h4><span class="glyphicon glyphicon-lock"></span>EDITAR CARGOS</h4>
 
+                                                        </div>
+                                                        <div class="modal-body" style="padding:40px 50px;">
+                                                            <div class="card">
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-8">
+                                                                            <label> CARGO </label> <label id="lblMensaje1" style="color:red">El campo no puede estar vacio!!</label>
+                                                                            <input type="text" name="txtCargo" id="txtCargo" class="form-control" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <input type="hidden" id="carg_Id" />
                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="Cerrar()">Close</button>
-                                                            <input type="submit" value="Editar" onclick="Editar(@item.ID)" class="btn btn-default" />
+                                                            <input type="button" value="Editar" onclick="Editar(@item.ID)" class="btn btn-warning"/>
                                                         </div>
                                                     </div>
                                                 </div>

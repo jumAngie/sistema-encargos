@@ -1,4 +1,6 @@
-﻿function Cerrar() {
+﻿$("#lblMensaje1").hide();
+
+function Cerrar() {
     $('#FormModal').modal('hide');
 }
 
@@ -55,7 +57,19 @@ function Editar(x) {
         }
 
     })
-    $('#FormModal').modal('hide');
+
+
+    if (Descripcion == "" || null) {
+        $("#lblMensaje1").show();
+        $("#txtCargo").focus();
+    }
+    else {
+
+
+        $('#FormModal').modal('hide');
+        window.location.reload();
+    }
+
 
 }
 

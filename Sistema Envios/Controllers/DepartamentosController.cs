@@ -85,16 +85,29 @@ namespace Sistema_Envios.Controllers
         public ActionResult Edito(string ID, string Descripcion)
 
         {
-            if (ModelState.IsValid)
+           string usuario = Session["UsuarioID"].ToString();
+
+            try
             {
-                //string id = Session["IdUsuario"].ToString();
-                var Edit = db.UDP_Editar_Departamentos(int.Parse(ID), Descripcion, "1");
+                if (ModelState.IsValid)
+                {
+                    if (Descripcion != "" || Descripcion != null)
+                    {
+                        var Edit = db.UDP_Editar_Departamentos(int.Parse(ID), Descripcion, usuario);
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index");
+                    }
 
-
-                return RedirectToAction("Index");
-
-
+                }
             }
+            catch(Exception)
+            {
+                return RedirectToAction("Index");
+            }
+           
 
             return RedirectToAction("Index");
         }

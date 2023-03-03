@@ -447,3 +447,4 @@ C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sist
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.csproj.CopyComplete
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.pdb
+C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.csproj.AssemblyReference.cache
