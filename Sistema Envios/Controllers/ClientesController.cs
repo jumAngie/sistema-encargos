@@ -45,34 +45,86 @@ namespace Sistema_Envios.Controllers
             return View(tbClientes);
         }
 
+
+
+
+        [HttpPost]
+        public JsonResult CargarEstadosCiviles()
+        {
+            var EstadosCiv = db.UDP_CARGAR_ESTADOSCIV().ToList();
+            return Json(EstadosCiv, JsonRequestBehavior.AllowGet);
+        }
+
+
+
         // GET: Clientes/Create
         public ActionResult Create()
         {
-            ViewBag.client_EstadoCivil = new SelectList(db.tbEstadosCiviles, "est_ID", "est_Descripcion");
-            ViewBag.client_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario");
-            ViewBag.client_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario");
+            //ViewBag.client_EstadoCivil = new SelectList(db.tbEstadosCiviles, "est_ID", "est_Descripcion");
+            //ViewBag.client_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario");
+            //ViewBag.client_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario");
             return View();
         }
+
+
+
+        [HttpPost, ActionName("Creador")]
+
+        //[ValidateAntiForgeryToken]
+        public ActionResult Guardo( string nombre, string identidad, string EstadoCiv, string sexo, string telefono, string saldo, string limite_Credit, string descuento )
+            
+        {
+           string usuario = Session["UsuarioID"].ToString();
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    if (nombre != "" && descuento != "" && limite_Credit != "" && telefono != "" && identidad != "" && saldo != "" && sexo != null)
+                    {
+                        //string id = Session["IdUsuario"].ToString();
+                        var Edit = db.UDP_InsertClientes(nombre,identidad,EstadoCiv, sexo,telefono,saldo, decimal.Parse(limite_Credit),descuento,int.Parse(usuario));
+
+                    }
+                }
+                catch (Exception)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Index");
+        }
+
+
+
+
+
+
 
         // POST: Clientes/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "client_ID,client_Nombre,client_Identidad,client_EstadoCivil,client_Sexo,client_Telefono,client_Saldo,client_LimiteCredito,client_Descuento,client_UsuarioCreador,client_FechaCreacion,client_UsuarioMod,client_FechaMod,client_Estado")] tbClientes tbClientes)
-        {
-            if (ModelState.IsValid)
-            {
-                db.tbClientes.Add(tbClientes);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create([Bind(Include = "client_ID,client_Nombre,client_Identidad,client_EstadoCivil,client_Sexo,client_Telefono,client_Saldo,client_LimiteCredito,client_Descuento,client_UsuarioCreador,client_FechaCreacion,client_UsuarioMod,client_FechaMod,client_Estado")] tbClientes tbClientes)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.tbClientes.Add(tbClientes);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
 
-            ViewBag.client_EstadoCivil = new SelectList(db.tbEstadosCiviles, "est_ID", "est_Descripcion", tbClientes.client_EstadoCivil);
-            ViewBag.client_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbClientes.client_UsuarioCreador);
-            ViewBag.client_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbClientes.client_UsuarioMod);
-            return View(tbClientes);
-        }
+        //    ViewBag.client_EstadoCivil = new SelectList(db.tbEstadosCiviles, "est_ID", "est_Descripcion", tbClientes.client_EstadoCivil);
+        //    ViewBag.client_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbClientes.client_UsuarioCreador);
+        //    ViewBag.client_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbClientes.client_UsuarioMod);
+        //    return View(tbClientes);
+        //}
 
         // GET: Clientes/Edit/5
         public ActionResult Edit(int? id)

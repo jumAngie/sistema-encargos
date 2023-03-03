@@ -7,128 +7,78 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>tbClientes</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.client_Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.client_Nombre, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.client_Nombre, "", new { @class = "text-danger" })
-            </div>
-        </div>
+<form method="post">
+    <div class="card">
+        <div class="card-header">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.client_Identidad, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.client_Identidad, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.client_Identidad, "", new { @class = "text-danger" })
-            </div>
         </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label>NOMBRE</label> <label style="color:red" id="lblNombre">El campo es requerido!!</label>
+                    <input type="text" id="txtNombre" name="txtNombre" class="form-control" />
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.client_EstadoCivil, "client_EstadoCivil", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("client_EstadoCivil", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.client_EstadoCivil, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.client_Sexo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.client_Sexo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.client_Sexo, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="col-sm-6">
+                    <label>IDENTIDAD</label>  <label style="color:red" id="lblIdentidad">El campo es requerido!!</label>
+                    <input type="text" id="txtIdentidad" name="txtIdentidad" class="form-control" maxlength="15" />
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.client_Telefono, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.client_Telefono, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.client_Telefono, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="col-sm-6">
+                    <label>ESTADO CIVIL</label>
+                    <select id="Id_Estado" name="Id_Estado" class="form-control"> </select>
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.client_Saldo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.client_Saldo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.client_Saldo, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="col-sm-6">
+                    <label>SEXO</label>  <label style="color:red" id="lblSexo">El campo es requerido!!</label>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.client_LimiteCredito, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.client_LimiteCredito, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.client_LimiteCredito, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <br />
+                    <input type="radio" id="drf" name="drfm" value="F" />Femeino
+                    <input type="radio" id="drm" name="drfm" value="M" />Masculino
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.client_Descuento, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.client_Descuento, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.client_Descuento, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.client_UsuarioCreador, "client_UsuarioCreador", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("client_UsuarioCreador", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.client_UsuarioCreador, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.client_FechaCreacion, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.client_FechaCreacion, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.client_FechaCreacion, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.client_UsuarioMod, "client_UsuarioMod", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("client_UsuarioMod", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.client_UsuarioMod, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.client_FechaMod, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.client_FechaMod, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.client_FechaMod, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.client_Estado, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.client_Estado)
-                    @Html.ValidationMessageFor(model => model.client_Estado, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-6">
+                    <label>SALDO</label>  <label style="color:red" id="lblSaldo">El campo es requerido!!</label>
+                    <input type="text" id="txtSaldo" name="txtSaldo" class="form-control" />
+                </div>
+                <div class="col-sm-6">
+                    <label>CREDITO</label> <label style="color:red" id="lblCredito">El campo es requerido!!</label>
+                    <label style="color:red" id="lblAlertaCredito">Ha superado el limite de credito!!</label>
+                    <input type="text" id="txtCredito" name="txtCredito" class="form-control" />
+                </div>
+                <div class="col-sm-6">
+                    <label>DESCUENTO</label>  <label style="color:red" id="lblDescuento">El campo es requerido!!</label>
+                    <input type="text" id="txtDescuento" name="txtDescuento" class="form-control" />
+                </div>
+                <div class="col-sm-6">
+                    <label>TELEFONO</label>  <label style="color:red" id="lblTelefono">El campo es requerido!!</label>
+                    <input type="text" id="txtTelefono" name="txtTelefono" class="form-control" />
                 </div>
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+
+
+        <div class="card-footer" style="color:goldenrod">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="GUARDAR" class=" btn btn-success" onclick="Guardar()" />
+                </div>
             </div>
         </div>
     </div>
-}
+    <script src="~/Scripts/CrearClientes.js"></script>
+</form>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+
+        
+

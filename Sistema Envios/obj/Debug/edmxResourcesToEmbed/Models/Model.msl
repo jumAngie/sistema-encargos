@@ -409,6 +409,14 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_CARGAR_FABRICASArtc" FunctionName="DBArticulosEncargosModel.Store.UDP_CARGAR_FABRICASArtc">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CARGAR_FABRICASArtc_Result">
+          <ScalarProperty Name="fab_ID" ColumnName="fab_ID" />
+          <ScalarProperty Name="fab_Descripcion" ColumnName="fab_Descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="UDP_CARGAR_MUNICIPIO" FunctionName="DBArticulosEncargosModel.Store.UDP_CARGAR_MUNICIPIO">
       <ResultMapping>
         <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CARGAR_MUNICIPIO_Result">
@@ -603,11 +611,11 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="UDP_CARGAR_FABRICASArtc" FunctionName="DBArticulosEncargosModel.Store.UDP_CARGAR_FABRICASArtc">
+    <FunctionImportMapping FunctionImportName="UDP_CARGAR_ESTADOSCIV" FunctionName="DBArticulosEncargosModel.Store.UDP_CARGAR_ESTADOSCIV">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CARGAR_FABRICASArtc_Result">
-          <ScalarProperty Name="fab_ID" ColumnName="fab_ID" />
-          <ScalarProperty Name="fab_Descripcion" ColumnName="fab_Descripcion" />
+        <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CARGAR_ESTADOSCIV_Result">
+          <ScalarProperty Name="est_ID" ColumnName="est_ID" />
+          <ScalarProperty Name="est_Descripcion" ColumnName="est_Descripcion" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

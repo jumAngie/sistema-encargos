@@ -834,6 +834,7 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
   <Function Name="UDP_CARGAR_DIRECCIONESEdit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="direc_ID" Type="int" Mode="In" />
   </Function>
+  <Function Name="UDP_CARGAR_ESTADOSCIV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="UDP_CARGAR_ESTADOSCIVILES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="est_ID" Type="varchar" Mode="In" />
   </Function>

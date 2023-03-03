@@ -98,15 +98,6 @@ namespace Sistema_Envios.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_ARTICULO_Result>("UDP_CARGAR_ARTICULO", idParameter);
         }
     
-        public virtual ObjectResult<UDP_CARGAR_ARTICULOS_Result> UDP_CARGAR_ARTICULOS(Nullable<int> id)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("Id", id) :
-                new ObjectParameter("Id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_ARTICULOS_Result>("UDP_CARGAR_ARTICULOS", idParameter);
-        }
-    
         public virtual ObjectResult<UDP_CARGAR_CARGOS_Result> UDP_CARGAR_CARGOS(Nullable<int> carg_Id)
         {
             var carg_IdParameter = carg_Id.HasValue ?
@@ -150,6 +141,11 @@ namespace Sistema_Envios.Models
                 new ObjectParameter("est_ID", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_ESTADOSCIVILES_Result>("UDP_CARGAR_ESTADOSCIVILES", est_IDParameter);
+        }
+    
+        public virtual ObjectResult<UDP_CARGAR_FABRICASArtc_Result> UDP_CARGAR_FABRICASArtc()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_FABRICASArtc_Result>("UDP_CARGAR_FABRICASArtc");
         }
     
         public virtual ObjectResult<UDP_CARGAR_MUNICIPIO_Result> UDP_CARGAR_MUNICIPIO()
@@ -1014,9 +1010,9 @@ namespace Sistema_Envios.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<V_TICKET_PEDIDOSPORCLIENTE_Result>("V_TICKET_PEDIDOSPORCLIENTE", iDParameter);
         }
     
-        public virtual ObjectResult<UDP_CARGAR_FABRICASArtc_Result> UDP_CARGAR_FABRICASArtc()
+        public virtual ObjectResult<UDP_CARGAR_ESTADOSCIV_Result> UDP_CARGAR_ESTADOSCIV()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_FABRICASArtc_Result>("UDP_CARGAR_FABRICASArtc");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_ESTADOSCIV_Result>("UDP_CARGAR_ESTADOSCIV");
         }
     }
 }

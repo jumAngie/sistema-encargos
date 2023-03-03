@@ -33,6 +33,9 @@ $(document).ready(function () {
 //art_ID
 function Cerrar() {
     $('#FormModal').modal('hide');
+    $("#Mensaje").hide();
+    $("#artiMess").hide();
+    $("#CantidadMess").hide();
 }
 
 function AbrirModal(art_ID) {

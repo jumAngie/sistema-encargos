@@ -264,9 +264,6 @@
     <Compile Include="Models\UDP_CargarRol_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UDP_CARGAR_ARTICULOS_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\UDP_CARGAR_ARTICULO_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -283,6 +280,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UDP_CARGAR_ESTADOSCIVILES_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UDP_CARGAR_ESTADOSCIV_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UDP_CARGAR_FABRICASArtc_Result.cs">
@@ -2950,6 +2950,7 @@
     <Content Include="Scripts\CiudadesScript\CrearCiudades.js" />
     <Content Include="Scripts\CrearArticulos.js" />
     <Content Include="Scripts\CrearCargo.js" />
+    <Content Include="Scripts\CrearClientes.js" />
     <Content Include="Scripts\CrearDepartamentos.js" />
     <Content Include="Scripts\CrearDirecciones.js" />
     <Content Include="Scripts\CrearEstadoCivil.js" />

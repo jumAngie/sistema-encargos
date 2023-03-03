@@ -11,11 +11,9 @@ namespace Sistema_Envios.Models
 {
     using System;
     
-    public partial class UDP_CARGAR_ARTICULOS_Result
+    public partial class UDP_CARGAR_ESTADOSCIV_Result
     {
-        public int art_ID { get; set; }
-        public string art_Descripcion { get; set; }
-        public int fab_ID { get; set; }
-        public int art_Stock { get; set; }
+        public string est_ID { get; set; }
+        public string est_Descripcion { get; set; }
     }
 }

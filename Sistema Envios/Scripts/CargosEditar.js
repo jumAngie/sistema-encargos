@@ -2,6 +2,7 @@
 
 function Cerrar() {
     $('#FormModal').modal('hide');
+    $("#lblMensaje1").hide();
 }
 
 function AbrirModal(carg_Id) {
