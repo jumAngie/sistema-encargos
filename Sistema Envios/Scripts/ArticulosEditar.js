@@ -1,10 +1,18 @@
 ﻿
 
+
+
+$("#Mensaje").hide();
+$("#artiMess").hide();
+$("#CantidadMess").hide();
+
+
+
 $(document).ready(function () {
 
     var fab_ID = $("#fab_ID").val();
     $.ajax({
-        url: "/Articulos/CargarFabricas",
+        url: "/Articulos/CARGARFABRICAS",
         method: "POST",
         dataType: "json",
         contentType: "application/json; charset=utf-8",
@@ -19,6 +27,10 @@ $(document).ready(function () {
 })
 
 
+//txtArtiC
+//txtExistencia
+//fab_ID
+//art_ID
 function Cerrar() {
     $('#FormModal').modal('hide');
 }
@@ -36,9 +48,9 @@ function AbrirModal(art_ID) {
             $('#FormModal').modal('show');
             $.each(data, function (i, value) {
                 $("#art_ID").val(value.art_ID);
-                $("#txtArt").val(value.art_Descripcion);
+                $("#txtArtiC").val(value.art_Descripcion);
                 $("#fab_ID").val(value.fab_ID);
-                $("#txtStock").val(value.art_Stock);
+                $("#txtExistencia").val(value.art_Stock);
              
             })
 
@@ -54,14 +66,13 @@ function AbrirModal(art_ID) {
 function Editar(x) {
 
 
-    var articulo = $("#txtArt").val();
+    var articulo = $("#txtArtiC").val();
     var fabrica = $("#fab_ID").val();
-    var stock = $("#txtStock").val();
+    var stock = $("#txtExistencia").val();
     var ID = $("#art_ID").val();
 
-    //console.log(x);
-    //console.log(fabrica);
-/*    console.log(stock);*/
+    console.log(x);
+
     console.log(ID);
  
     $.ajax({
@@ -78,7 +89,28 @@ function Editar(x) {
         }
 
     })
-    $('#FormModal').modal('hide');
 
+    if (articulo == "" || articulo == null) {
+        $("#Mensaje").hide();
+        $("#artiMess").hide();
+        $("#txtArtiC").focus();
+        $("#CantidadMess").show();
+
+
+    }
+    if (stock == "" || stock == null) {
+        $("#Mensaje").hide();
+        $("#artiMess").hide();
+        $("#CantidadMess").show();
+        $("#txtExistencia").focus();
+
+
+    }
+    if ((stock != "" || stock != null) && (articulo != "" || articulo != null)) {
+        $("#Mensaje").show();
+        $('#FormModal').modal('hide');
+        window.location.reload();
+    }
+  
 }
 

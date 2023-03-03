@@ -1013,5 +1013,10 @@ namespace Sistema_Envios.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<V_TICKET_PEDIDOSPORCLIENTE_Result>("V_TICKET_PEDIDOSPORCLIENTE", iDParameter);
         }
+    
+        public virtual ObjectResult<UDP_CARGAR_FABRICASArtc_Result> UDP_CARGAR_FABRICASArtc()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_FABRICASArtc_Result>("UDP_CARGAR_FABRICASArtc");
+        }
     }
 }

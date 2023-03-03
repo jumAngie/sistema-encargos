@@ -77,19 +77,23 @@ public class ArticulosController : Controller
             return View();
         }
 
+        [HttpPost]
+        public JsonResult CARGARFABRICAS()
+        {
+            var Fabricas = db.UDP_CARGAR_FABRICASArtc().ToList();
 
-
+            return Json(Fabricas, JsonRequestBehavior.AllowGet);
+        }
 
 
         [HttpPost]
         public JsonResult Cargar(string art_Id)
         {
-
-            var tbArticulos = db.UDP_CARGAR_ARTICULO(int.Parse(art_Id)).ToList();
-            return Json(tbArticulos, JsonRequestBehavior.AllowGet);
+           
+                var tbArticulos = db.UDP_CARGAR_ARTICULO(int.Parse(art_Id)).ToList();
+                return Json(tbArticulos, JsonRequestBehavior.AllowGet);
+ 
         }
-
-
 
 
 
@@ -98,14 +102,28 @@ public class ArticulosController : Controller
         public ActionResult Edito(string ID, string articulo, string fabrica, string stock)
 
         {
-            if (ModelState.IsValid)
+           string UsuarioModi = Session["UsuarioID"].ToString();
+
+            try
             {
-                //string id = Session["IdUsuario"].ToString();
-                var Edit = db.UDP_Editar_Articulos(int.Parse(ID), articulo, int.Parse(fabrica), int.Parse(stock), "1");
+                if (ModelState.IsValid)
+                {
+                    if(articulo != "" && stock != "")
+                    {                
+                    //string id = Session["IdUsuario"].ToString();
+                    var Edit = db.UDP_Editar_Articulos(int.Parse(ID), articulo, int.Parse(fabrica), int.Parse(stock), UsuarioModi);
+                   
+                    }
 
-
+                }
+                else
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            catch(Exception)
+            {
                 return RedirectToAction("Index");
-
 
             }
 
