@@ -1,30 +1,44 @@
 ﻿<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    .modal-header, h4 {
+        background-color: #ffffff;
+        /*color: white !important;*/
+        text-align: center;
+        font-size: 22px;
+    }
+
+    .modal-footer {
+        background-color: white;
+    }
+</style>
 
 <div class="modal fade" id="Detalles" tabindex="-1" role="dialog" aria-labelledby="Crear-Detalles" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="@Url.Action("Create")" method="post" class="needs-validation" novalidate>
-                <div class="modal-header">
-                    <h5 class="modal-title" id="crear-Detalles">Pedidos Detalles</h5>
-                </div>
-                <div class="modal-body">
+            <div class="modal-header" style="padding:30px 50px;">
+                <h4 class="modal-title" id="crear-Detalles">Añadir Detalles</h4>
+                <img src="https://cdn.dribbble.com/users/1200451/screenshots/8759739/ezgif.com-optimize.gif" width="150" />
+            </div>
+            <div class="modal-body" style="padding:30px 50px;">
 
-                    <label>Ingrese el Código del pedido</label>
-                    <label id="lblPedido" style="color:orangered">*Campo Requerido</label>
-                    <label style="color:orangered">@Html.ValidationMessage("Vacio")</label>
-                    <select id="txtPedi" name="txtPedi" class="form-control"></select>
-                    <label>Ingrese el artículo</label>
-                    <select id="txtArticulo" name="txtArticulo" class="form-control"></select>
-                    <label>Ingrese la cantidad</label>
-                    <input type="number" id="txtCant" name="txtCant" class="form-control" />
+                <label id="lblCode" style="color:red; display:none">*</label>
+                <label style="color:black; font-size:15px">Ingrese el Código del pedido</label>
+                <select id="txtPedi" name="txtPedi" class="form-control" style="border-color:black"></select>
 
-                </div>
+                <label id="lblCode" style="color:red; display:none">*</label>
+                <label style="color:black; font-size:15px">Ingrese el artículo</label>
+                <select id="txtArticulo" name="txtArticulo" class="form-control" style="border-color:black"></select>
+
+                <label id="lblCode" style="color:red; display:none">*</label>
+                <label style="color:black; font-size:15px">Ingrese la cantidad</label>
+                <input type="number" id="txtCant" name="txtCant" class="form-control" style="border-color:black" />
+
+            </div>
                 <div class="modal-footer">
                     <button type="button" id="btnCancelar" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <a id="btn-insertar" role="button" onclick="Insertar()" class="btn btn-danger">Insertar</a>
+                    <a id="btn-insertar" role="button" onclick="Insertar()" class="btn btn-warning">Insertar</a>
                 </div>
-            </form>
             </div>
     </div>
 </div>
