@@ -125,6 +125,13 @@ namespace Sistema_Envios.Controllers
             return RedirectToAction("Index");
         }
 
+        //[HttpPost]
+        //public ActionResult InsertarDetalles(string id, string txtArticulo, string txtCant)
+        ////{
+        //    db.UDP_InsertarDetalle(id, Int32.Parse(txtArticulo), Int32.Parse(txtCant), "1");
+        //    return RedirectToAction("Index");
+        //}
+
         public ActionResult PedidosPorCliente(string id)
         {
             if (id == "")
@@ -172,6 +179,14 @@ namespace Sistema_Envios.Controllers
             }
             
             
+        }
+
+        public JsonResult CargarArticulos()
+        {
+            var ddl = db.UDP_CargarArticulos().ToList();
+
+            return Json(ddl, JsonRequestBehavior.AllowGet);
+
         }
 
 

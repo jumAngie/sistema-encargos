@@ -357,6 +357,7 @@ C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sist
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.csproj.CopyComplete
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.pdb
+C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.csproj.AssemblyReference.cache
 C:\Users\Usuario\Documents\GitHub\sistema-encargos\Sistema Envios\bin\Sistema Envios.dll.config
 C:\Users\Usuario\Documents\GitHub\sistema-encargos\Sistema Envios\bin\Sistema Envios.dll
 C:\Users\Usuario\Documents\GitHub\sistema-encargos\Sistema Envios\bin\Sistema Envios.pdb
@@ -447,4 +448,3 @@ C:\Users\Usuario\Documents\GitHub\sistema-encargos\Sistema Envios\obj\Debug\Sist
 C:\Users\Usuario\Documents\GitHub\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.csproj.CopyComplete
 C:\Users\Usuario\Documents\GitHub\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.dll
 C:\Users\Usuario\Documents\GitHub\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.pdb
-C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.csproj.AssemblyReference.cache

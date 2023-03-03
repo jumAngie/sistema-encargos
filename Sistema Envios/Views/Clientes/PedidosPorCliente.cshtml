@@ -15,53 +15,55 @@
                     <div class="ibox-tools">
                     </div>
                 </div>
-                  <br />
+                <br />
                 <div class="ibox-content">
-                  <table class="table table-responsive" id="DataTable">
-                    <thead>
-                        <tr role="row">
-                            <th>@Html.DisplayNameFor(model => model.PEDIDO)</th>
-                            <th>@Html.DisplayNameFor(model => model.COSTO_ENVÍO)</th>
-                            <th>@Html.DisplayNameFor(model => model.FECHA)</th>
-                            <th>@Html.DisplayNameFor(model => model.EMPLEADO)</th>
-                            <th>@Html.DisplayNameFor(model => model.ESTADO_ENVIO)</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                      @foreach (var item in Model) {
-                        <tr class="gradeA odd" role="row" data-id="@item.PEDIDO">
-                            <td>
-                                @Html.DisplayFor(modelItem => item.PEDIDO)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.COSTO_ENVÍO)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.FECHA)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.EMPLEADO)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ESTADO_ENVIO)
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-articulos" onclick="Abrir()" data-id="@item.PEDIDO">
-                                    Ver Artículos
-                                </button>
-                                <button type="button" class="btn btn-icon btn-sm btn-primary btn-hover" data-id="@item.PEDIDO">
-                                    <i class="demo-pli-pen-5 fs-5"></i>
-                                </button>
-                            </td>
-                        </tr>
-                      }
-                    </tbody>
-                  </table>
+                    <table class="table table-responsive" id="DataTable">
+                        <thead>
+                            <tr role="row">
+                                <th>@Html.DisplayNameFor(model => model.PEDIDO)</th>
+                                <th>@Html.DisplayNameFor(model => model.COSTO_ENVÍO)</th>
+                                <th>@Html.DisplayNameFor(model => model.FECHA)</th>
+                                <th>@Html.DisplayNameFor(model => model.EMPLEADO)</th>
+                                <th>@Html.DisplayNameFor(model => model.ESTADO_ENVIO)</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr class="gradeA odd" role="row" data-id="@item.PEDIDO">
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PEDIDO)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.COSTO_ENVÍO)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FECHA)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.EMPLEADO)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ESTADO_ENVIO)
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-articulos" onclick="Abrir()" data-id="@item.PEDIDO">
+                                            Ver Artículos
+                                        </button>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-insertar" onclick="AbrirM(@item.PEDIDO)">
+                                            <i class="demo-pli-pen-5 fs-5"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
- </div>
+</div>
 @Html.Partial("ModalArticulos")
-    
+@Html.Partial("DetallePorPedido")
+
