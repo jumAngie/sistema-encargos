@@ -1,19 +1,32 @@
 ﻿<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    .modal-header, h4 {
+        background-color: #ffffff;
+        /*color: white !important;*/
+        text-align: center;
+        font-size: 22px;
+    }
 
+    .modal-footer {
+        background-color: white;
+    }
+</style>
 <div class="modal fade" id="Departamentos" tabindex="-1" role="dialog" aria-labelledby="Crear-Departamentos" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="crear-Departamentos">Departamentos</h5>
+            <div class="modal-header" style="padding:30px 50px;">
+                <h4 class="modal-title" id="crear-Departamentos">Añadir Departamentos</h4>
+                <img src="https://cdn.dribbble.com/users/1200451/screenshots/8759739/ezgif.com-optimize.gif" width="150" />
             </div>
-            <div class="modal-body">
-                <label>Ingrese el Departamento</label>
-                <input type="text" name="txtDeptos" id="txtDeptos" class="form-control" />
+            <div class="modal-body" style="padding:40px 50px; background-color:white">
+                <label id="lbldepto" style="color:red; display:none">*</label>
+                <label style="color:black; font-size:15px">Ingrese el Departamento</label>
+                <input type="text" name="txtDeptos" id="txtDeptos" class="form-control" style="border-color:black"/>
             </div>
             <div class="modal-footer">
                 <button type="button" id="btnCancelar" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <a id="btn-insertar" onclick="Insertar()" class="btn btn-danger">Insertar</a>
+                <a id="btn-insertar" onclick="Insertar()" class="btn btn-warning">Insertar</a>
             </div>
         </div>
     </div>
