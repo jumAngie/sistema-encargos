@@ -557,6 +557,14 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="UDP_CARGOS_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_CARGOS_INSERT" />
     <FunctionImportMapping FunctionImportName="UDP_CIUDADES_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_CIUDADES_INSERT" />
+    <FunctionImportMapping FunctionImportName="UDP_DDLCargos" FunctionName="DBArticulosEncargosModel.Store.UDP_DDLCargos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_DDLCargos_Result">
+          <ScalarProperty Name="carg_Id" ColumnName="carg_Id" />
+          <ScalarProperty Name="carg_Description" ColumnName="carg_Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="UDP_DEPARTAMENTOS_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_DEPARTAMENTOS_INSERT" />
     <FunctionImportMapping FunctionImportName="UDP_DIRECCIONES_INSERT" FunctionName="DBArticulosEncargosModel.Store.UDP_DIRECCIONES_INSERT" />
     <FunctionImportMapping FunctionImportName="UDP_Editar_Articulos" FunctionName="DBArticulosEncargosModel.Store.UDP_Editar_Articulos" />

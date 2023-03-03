@@ -271,6 +271,11 @@ namespace Sistema_Envios.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_CIUDADES_INSERT", ciu_DecriptionParameter, ciu_IdDeptoParameter, usuCreaParameter);
         }
     
+        public virtual ObjectResult<UDP_DDLCargos_Result> UDP_DDLCargos()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_DDLCargos_Result>("UDP_DDLCargos");
+        }
+    
         public virtual int UDP_DEPARTAMENTOS_INSERT(string depto_Description, Nullable<int> depto_Usucrea)
         {
             var depto_DescriptionParameter = depto_Description != null ?

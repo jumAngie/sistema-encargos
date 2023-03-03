@@ -2221,3 +2221,4 @@ BEGIN
 	SELECT carg_Id, carg_Description FROM tbCargos WHERE rep_Estado = 1
 END
 GO
+
