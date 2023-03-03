@@ -44,8 +44,8 @@ function Guardar() {
 
 
     var nombre = $("#txtNombre").val();
-    var EstadoCiv = $("#txtTelefono").val();
-    var telefono = $("#Id_Estado").val();
+    var EstadoCiv = $("#Id_Estado").val();
+    var telefono = $("#txtTelefono").val();
     var limite_Credit = $("#txtCredito").val();
     var descuento = $("#txtDescuento").val();
     var identidad = $("#txtIdentidad").val();
@@ -62,6 +62,21 @@ function Guardar() {
     console.log(identidad);
     console.log(sexo);
     console.log(saldo);
+
+    $.ajax({
+        url: "/Clientes/Guardo",
+        method: "POST",
+        data: ({ nombre: nombre, identidad: identidad, EstadoCiv: EstadoCiv, sexo: sexo, telefono: telefono, saldo: saldo, limite_Credit: limite_Credit, descuento: descuento }),
+
+        success: function (data) {
+
+
+            /*   window.location.reload();*/
+
+        }
+
+    })
+
     if ($("#drf").prop('checked', false) && $("#drm").prop('checked', false)) {
 
         $("#lblSexo").show();
@@ -111,7 +126,7 @@ function Guardar() {
         $("#txtCredito").focus();
     }
     if ((nombre != "" || nombre != null) && (identidad != "" || identidad != null) && (telefono != "" || telefono != null) && (saldo != "" || saldo != null) && (limite_Credit != "" || limite_Credit != null) && (descuento != "" || descuento != null)) {
-
+       
         $("#lblAlertaCredito").hide();
         $("#lblNombre").hide();
         $("#lblIdentidad").hide();
@@ -126,28 +141,26 @@ function Guardar() {
 
         alert("Se guardo correctamente");
 
-
-
-        $.ajax({
-            url: "/Clientes/Creador",
-            method: "POST",
-            dataType: "json",
-            contentType: "application/json; charset=utf-8",
-            data: JSON.stringify({ nombre: nombre, identidad: identidad, EstadoCiv: EstadoCiv, sexo: sexo, telefono: telefono, saldo: saldo, limite_Credit: limite_Credit, descuento: descuento }),
-
-            success: function (data) {
-
-
-                window.location.reload();
-
-            }
-
-        })
+        
     }
 
 
 
 }
+
+
+
+//function Insertar() {
+//    var id = $("#txtDeptos").val()
+//    $.ajax({
+//        url: "/Departamentos/Create",
+//        method: "POST",
+//        data: { txtDeptos: id },
+//        success: function (data) {
+//            window.location.reload();
+//        }
+//    })
+//}
 
 
 

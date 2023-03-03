@@ -40,9 +40,9 @@ namespace Sistema_Envios.Controllers
                     {
                         Session["Usuario"] = item.usu_Usuario;
                         Session["UsuarioID"] = item.usu_ID;
-                        Session["Nombre"] = item.emp_Nombre;
-                        Session["Rol_ID"] = item.rol_ID;
-                        Session["Rol"] = item.rol_Descripcion;
+                        //Session["Nombre"] = item.emp_Nombre;
+                        //Session["Rol_ID"] = item.rol_ID;
+                        //Session["Rol"] = item.rol_Descripcion;
                         return RedirectToAction("Principal");
                     }
                 }

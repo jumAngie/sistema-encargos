@@ -1,16 +1,18 @@
-﻿@model Sistema_Envios.Models.tbClientes
+﻿@*@model Sistema_Envios.Models.tbClientes*@
 
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<h2>Create</h2>
+<h2> Create </h2>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-<form method="post">
+@*@using (Html.BeginForm())*@
+
+    @*@Html.AntiForgeryToken()*@
+
     <div class="card">
         <div class="card-header">
 
@@ -72,13 +74,10 @@
         </div>
     </div>
     <script src="~/Scripts/CrearClientes.js"></script>
-</form>
 
-        }
 
-        <div>
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+@*}*@
 
-        
-
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

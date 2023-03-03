@@ -11,16 +11,9 @@ namespace Sistema_Envios.Models
 {
     using System;
     
-<<<<<<<< HEAD:Sistema Envios/Models/UDP_CARGAR_ESTADOSCIV_Result.cs
     public partial class UDP_CARGAR_ESTADOSCIV_Result
     {
         public string est_ID { get; set; }
         public string est_Descripcion { get; set; }
-========
-    public partial class UDP_CargarDireccionPedidos_Result
-    {
-        public int direc_ID { get; set; }
-        public string direc_DireccionExacta { get; set; }
->>>>>>>> 359a911caf02999042293a69d59e58aeecb9ba5d:Sistema Envios/Models/UDP_CargarDireccionPedidos_Result.cs
     }
 }

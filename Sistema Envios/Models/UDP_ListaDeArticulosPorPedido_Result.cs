@@ -11,9 +11,10 @@ namespace Sistema_Envios.Models
 {
     using System;
     
-    public partial class UDP_CargarDireccionPedidos_Result
+    public partial class UDP_ListaDeArticulosPorPedido_Result
     {
-        public int direc_ID { get; set; }
-        public string direc_DireccionExacta { get; set; }
+        public string pedi_Code { get; set; }
+        public string art_Descripcion { get; set; }
+        public int det_Cantidad { get; set; }
     }
 }

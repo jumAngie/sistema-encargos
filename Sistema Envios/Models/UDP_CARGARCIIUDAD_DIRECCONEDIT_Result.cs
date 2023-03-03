@@ -11,9 +11,9 @@ namespace Sistema_Envios.Models
 {
     using System;
     
-    public partial class UDP_CargarDireccionPedidos_Result
+    public partial class UDP_CARGARCIIUDAD_DIRECCONEDIT_Result
     {
-        public int direc_ID { get; set; }
-        public string direc_DireccionExacta { get; set; }
+        public int ciu_ID { get; set; }
+        public string ciu_Descripcion { get; set; }
     }
 }

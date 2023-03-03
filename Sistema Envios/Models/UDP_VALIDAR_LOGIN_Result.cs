@@ -16,8 +16,6 @@ namespace Sistema_Envios.Models
         public int usu_ID { get; set; }
         public string usu_Usuario { get; set; }
         public string usu_Clave { get; set; }
-        public string emp_Nombre { get; set; }
-        public Nullable<int> rol_ID { get; set; }
-        public string rol_Descripcion { get; set; }
+        public string emp_Name { get; set; }
     }
 }

@@ -68,23 +68,40 @@ namespace Sistema_Envios.Controllers
 
 
 
-        [HttpPost, ActionName("Creador")]
+        //[HttpPost]
+        ////[ValidateAntiForgeryToken]
+        //public ActionResult Create(string txtDeptos)
+        //{
+        //    int Usuario = 1;
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.UDP_DEPARTAMENTOS_INSERT(txtDeptos, Usuario);
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View();
+        //}
+
+
+
+
+        //[HttpPost]
 
         //[ValidateAntiForgeryToken]
         public ActionResult Guardo( string nombre, string identidad, string EstadoCiv, string sexo, string telefono, string saldo, string limite_Credit, string descuento )
             
         {
-           string usuario = Session["UsuarioID"].ToString();
+         
 
             if (ModelState.IsValid)
             {
                 try
                 {
+                    string usuario = Session["UsuarioID"].ToString();
                     if (nombre != "" && descuento != "" && limite_Credit != "" && telefono != "" && identidad != "" && saldo != "" && sexo != null)
                     {
                         //string id = Session["IdUsuario"].ToString();
-                        var Edit = db.UDP_InsertClientes(nombre,identidad,EstadoCiv, sexo,telefono,saldo, decimal.Parse(limite_Credit),descuento,int.Parse(usuario));
-
+                         db.UDP_InsertClientes(nombre,identidad,EstadoCiv, sexo,telefono,saldo,limite_Credit,descuento,int.Parse(usuario));
+                        return RedirectToAction("Index");
                     }
                 }
                 catch (Exception)
