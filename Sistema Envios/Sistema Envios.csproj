@@ -2930,7 +2930,7 @@
     <Content Include="Scripts\CiudadesEditar.js" />
     <Content Include="Scripts\CiudadesScript\CrearCiudades.js" />
     <Content Include="Scripts\CrearArticulos.js" />
-    <Content Include="Scripts\CrearCargos.js" />
+    <Content Include="Scripts\CrearCargo.js" />
     <Content Include="Scripts\CrearDepartamentos.js" />
     <Content Include="Scripts\CrearDirecciones.js" />
     <Content Include="Scripts\CrearEstadoCivil.js" />

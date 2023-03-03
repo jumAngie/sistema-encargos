@@ -60,7 +60,7 @@ namespace Sistema_Envios.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public ActionResult Create(string txtCargo)
+        public ActionResult Create(string txtCargos)
         { 
             int UsuarioModi = 1;
 
@@ -68,7 +68,7 @@ namespace Sistema_Envios.Controllers
             {
                 try
                 {
-                    db.UDP_CARGOS_INSERT(txtCargo, UsuarioModi);
+                    db.UDP_CARGOS_INSERT(txtCargos, UsuarioModi);
                     return RedirectToAction("Index");
                 }
                 catch (Exception)
