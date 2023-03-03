@@ -1,32 +1,32 @@
 ﻿<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <style>
-    .modal-header, h4, .close {
-        background-color: #e46d26;
-        color: white !important;
+    .modal-header, h4 {
+        background-color: #ffffff;
+        /*color: white !important;*/
         text-align: center;
-        font-size: 30px;
+        font-size: 22px;
     }
 
     .modal-footer {
-        background-color: #f9f9f9;
+        background-color: white;
     }
 </style>
 <div class="modal fade" id="Ciudades" tabindex="-1" role="dialog" aria-labelledby="Crear-Ciudades" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header" style="padding:35px 50px;">
-                <h4><span class="glyphicon glyphicon-lock"></span>Ciudades</h4>
+            <div class="modal-header" style="padding:30px 50px;">
+                <h4>Añadir Ciudades</h4>
+                <img src="https://cdn.dribbble.com/users/1200451/screenshots/8759739/ezgif.com-optimize.gif" width="150" />
             </div>
-            <div class="modal-body" style="padding:40px 50px;">
-                <label>Ingrese el Departamento</label><br />
+            <div class="modal-body"  style="padding:40px 50px; background-color:white">
+                <label style="color:black; font-size:15px">Ingrese el Departamento</label><br />
                 <label id="lblDepto" style="color:orange; display:none">*Campo requerido</label>
-                <select id="Depto" name="Depto" class="form-control">
+                <select id="Depto" name="Depto" class="form-control" style="border-color:black">
                 </select>
-                <label>Ingrese la Ciudad</label><br />
+                <label style="color: black; font-size: 15px">Ingrese la Ciudad</label><br />
                 <label id="lblMunicipio" style="color:orange; display:none">*Campo requerido</label>
-                <select id="muni" name="muni" class="form-control">
-                </select>
+                <input type="text" id="muni" name="muni" class="form-control" style="border-color:black">
             </div>
             <div class="modal-footer">
                 <button type="button" id="btnCancelar" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
