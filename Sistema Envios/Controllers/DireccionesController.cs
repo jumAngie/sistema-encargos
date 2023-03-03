@@ -125,11 +125,12 @@ namespace Sistema_Envios.Controllers
         [HttpPost]
         public JsonResult Cargar(string direc_ID)
         {
+          
+                var direc = db.UDP_CARGAR_DIRECCIONESEdit(int.Parse(direc_ID)).ToList();
 
-
-            var direc= db.UDP_CARGAR_DIRECCIONESEdit(int.Parse(direc_ID)).ToList();
-
-            return Json(direc, JsonRequestBehavior.AllowGet);
+                return Json(direc, JsonRequestBehavior.AllowGet);
+            
+           
         }
 
 
