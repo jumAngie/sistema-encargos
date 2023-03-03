@@ -5,95 +5,121 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<div class="card">
+    <div class="card-header bg-warning">
+        <div class="text-center">
+            <h5 style="color:azure">Usuario</h5>
+        </div>
+    </div>
 
-<div>
-    <h4>tbUsuarios</h4>
-    <hr />
-    <dl class="dl-horizontal">
+    <dl class="card-body">
+        <div class="row">
+            <div class="col-sm-6">
         <dt>
-            @Html.DisplayNameFor(model => model.usu_Usuario)
+            Usuario
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.usu_Usuario)
         </dd>
+</div>
+<div class="col-sm-6">
+    <dt>
+        ID del Empleado
+    </dt>
 
+    <dd>
+        @Html.DisplayFor(model => model.emp_Id)
+    </dd>
+</div>
+        </div>
+<div class="row">
+    <div class="col-sm-6">
         <dt>
-            @Html.DisplayNameFor(model => model.emp_Id)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.emp_Id)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.usu_Clave)
+            Clave
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.usu_Clave)
         </dd>
-
+    </div>
+    <div class="col-sm-6">
         <dt>
-            @Html.DisplayNameFor(model => model.usu_UsuarioCreador)
+            ID del usuario creador
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.usu_UsuarioCreador)
         </dd>
-
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
         <dt>
-            @Html.DisplayNameFor(model => model.usu_FechaCreacion)
+            Fecha de creacion
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.usu_FechaCreacion)
         </dd>
-
+    </div>
+    <div class="col-sm-6">
         <dt>
-            @Html.DisplayNameFor(model => model.usu_UsuarioMod)
+            ID del usuario modificador
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.usu_UsuarioMod)
         </dd>
-
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
         <dt>
-            @Html.DisplayNameFor(model => model.usu_FechaMod)
+            Fecha de modificacion
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.usu_FechaMod)
         </dd>
-
+    </div>
+    <div class="col-sm-6">
         <dt>
-            @Html.DisplayNameFor(model => model.usu_Estado)
+            Estado
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.usu_Estado)
         </dd>
-
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
         <dt>
-            @Html.DisplayNameFor(model => model.usu_EsAdmin)
+            Es Admin
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.usu_EsAdmin)
         </dd>
-
+    </div>
+    <div class="col-sm-6">
         <dt>
-            @Html.DisplayNameFor(model => model.tblRoles.rol_Descripcion)
+            Descripcion
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.tblRoles.rol_Descripcion)
         </dd>
+    </div>
+</div>
 
     </dl>
+<br />
+<div class="text-center">
+    <button class="btn btn-warning">
+        @Html.ActionLink("Volver a la lista", "Index")
+    </button>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.usu_ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<br />
+</div>

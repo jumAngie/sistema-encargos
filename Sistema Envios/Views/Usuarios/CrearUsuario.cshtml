@@ -1,0 +1,49 @@
+﻿
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<div class="modal fade" id="Usuarios" tabindex="-1" role="dialog" aria-labelledby="Crear-Usuarios" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="crear-usuarios">Usuarios</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label>Nombre de usuario</label><label id="labelusu" name="labelusu" style="color:red"></label>
+                        <input type="text" name="txtUsuario" id="txtUsuario" class="form-control" />
+                    </div>
+                    <div class="col-sm-6">
+                        <label>Clave</label><label id="labelclave" name="labelclave" style="color:red"></label>
+                        <input type="text" id="txtClave" name="txtClave" class="form-control">
+                    </div>
+                </div> <br />
+                <div class="row">
+                    <div class="col-sm-5">
+                        <label>Empleado</label><label id="labelemp" name="labelemp" style="color:red"></label>
+                        <select id="emp_Id" name="emp_Id" class="form-control"></select>
+                    </div>
+                    <div class="col-sm-2">
+                        <label>Es Admin</label><label id="labeladmin" name="labeladmin" style="color:red"></label> <br /> <br />
+                        <div class="text-center">
+                            <input type="checkbox" name="ckEsAdmin" id="ckEsAdmin" />
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <label>Cargo</label><label id="labelcargo" name="labelcargo" style="color:red"></label>
+                        <select id="rol_ID" name="rol_ID" class="form-control"></select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnCancelar" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <a id="btn-insertar" onclick="Insertar()" class="btn btn-danger">Insertar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/CrearUsuario.js"></script>

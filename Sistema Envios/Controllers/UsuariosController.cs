@@ -40,6 +40,7 @@ namespace Sistema_Envios.Controllers
         // GET: Usuarios/Create
         public ActionResult Create()
         {
+            ViewBag.emp_Id = new SelectList(db.tbEmpleados, "emp_Id", "emp_Name");
             ViewBag.rol_ID = new SelectList(db.tblRoles, "rol_ID", "rol_Descripcion");
             return View();
         }
@@ -48,20 +49,17 @@ namespace Sistema_Envios.Controllers
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "usu_ID,usu_Usuario,emp_Id,rol_ID,usu_Clave,usu_UsuarioCreador,usu_FechaCreacion,usu_UsuarioMod,usu_FechaMod,usu_Estado,usu_EsAdmin")] tbUsuarios tbUsuarios)
+        //[ValidateAntiForgeryToken]
+        public ActionResult Create(string txtUsuario, string txtClave, string emp_Id, string ckEsAdmin, string rol_ID)
         {
-            
-
             if (ModelState.IsValid)
             {
-                db.tbUsuarios.Add(tbUsuarios);
+                db.UDP_USUARIOS_INSERT(txtUsuario, Convert.ToInt32(emp_Id), Convert.ToInt32(rol_ID), txtClave, ckEsAdmin, Convert.ToInt32(Usu));
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.rol_ID = new SelectList(db.tblRoles, "rol_ID", "rol_Descripcion", tbUsuarios.rol_ID);
-            return View(tbUsuarios);
+            return View();
         }
 
         // GET: Usuarios/Edit/5

@@ -2944,6 +2944,7 @@
     <Content Include="Scripts\CrearDirecciones.js" />
     <Content Include="Scripts\CrearEstadoCivil.js" />
     <Content Include="Scripts\CrearFabrica.js" />
+    <Content Include="Scripts\CrearUsuario.js" />
     <Content Include="Scripts\DepartamentosEditar.js" />
     <Content Include="Scripts\Detalles.js" />
     <Content Include="Scripts\DireccionesEditar.js" />
@@ -3055,6 +3056,7 @@
     <Content Include="Views\Articulos\EliminarArticulo.cshtml" />
     <Content Include="Views\Cargos\EliminarCargo.cshtml" />
     <Content Include="Views\Ciudades\CrearCiudades.cshtml" />
+    <Content Include="Views\Usuarios\CrearUsuario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
