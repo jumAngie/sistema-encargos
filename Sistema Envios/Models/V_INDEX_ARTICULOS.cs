@@ -16,5 +16,6 @@ namespace Sistema_Envios.Models
     {
         public int ID_ARTICULO { get; set; }
         public string DESCRIPCION { get; set; }
+        public int STOCK { get; set; }
     }
 }

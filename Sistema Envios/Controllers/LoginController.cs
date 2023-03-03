@@ -40,9 +40,9 @@ namespace Sistema_Envios.Controllers
                     {
                         Session["Usuario"] = item.usu_Usuario;
                         Session["UsuarioID"] = item.usu_ID;
-                        //Session["Nombre"] = item.emp_Nombre;
-                        //Session["Rol_ID"] = item.rol_ID;
-                        //Session["Rol"] = item.rol_Descripcion;
+                        Session["Nombre"] = item.emp_Nombre;
+                        Session["Rol_ID"] = item.rol_ID;
+                        Session["Rol"] = item.rol_Descripcion;
                         return RedirectToAction("Principal");
                     }
                 }
@@ -55,21 +55,6 @@ namespace Sistema_Envios.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
-
-        //public class AuthorizeAttribute : ActionFilterAttribute
-        //{
-        //    public override void OnActionExecuting(ActionExecutingContext filterContext)
-        //    {
-        //        // Aquí verificamos si el usuario ha iniciado sesión
-        //        if (filterContext.HttpContext.Session["IsAuthenticated"] == null)
-        //        {
-        //            // Si el usuario no ha iniciado sesión, redirigimos al usuario a la página de inicio de sesión
-        //            filterContext.Result = new RedirectResult("Login/Index");
-        //        }
-
-        //        base.OnActionExecuting(filterContext);
-        //    }
-        //}
 
         public ActionResult Principal()
         {

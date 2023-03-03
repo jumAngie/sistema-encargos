@@ -1291,7 +1291,7 @@ GO
 ------------------------------------------------------------------------------------
 CREATE OR ALTER VIEW V_INDEX_ARTICULOS
 AS
-SELECT	[art_ID] [ID ARTICULO], [art_Descripcion] DESCRIPCION FROM [dbo].[tbArticulos]
+SELECT	[art_ID] [ID ARTICULO], [art_Descripcion] DESCRIPCION, [art_Stock] STOCK  FROM [dbo].[tbArticulos]
 WHERE	[art_Estado] = 1
 
 
@@ -1730,10 +1730,10 @@ GO
 CREATE or ALTER   PROCEDURE [dbo].[UDP_VALIDAR_LOGIN]
 @usu_Usuario NVARCHAR(200),
 @usu_Clave   NVARCHAR(MAX)
-
 AS
 BEGIN
 DECLARE @Pass   NVARCHAR(MAX) = CONVERT(NVARCHAR(MAX), HASHBYTES('SHA2_512',@usu_Clave),2);
+
 
 SELECT [usu_ID],[usu_Usuario],[usu_Clave],[emp_Name]+' '+ emp.emp_Apellido AS emp_Nombre, usu.rol_ID, rol.rol_Descripcion FROM [dbo].[tbUsuarios] usu
 INNER JOIN [dbo].[tbEmpleados] emp ON emp.emp_Id = usu.emp_Id
@@ -1741,10 +1741,7 @@ INNER JOIN [dbo].[tblRoles]    rol ON usu.rol_ID = rol.rol_ID
 WHERE [usu_Usuario] = @usu_Usuario
 AND
 [usu_Clave] = @Pass
-
 END
- GO
-
 
  EXEC UDP_VALIDAR_LOGIN 'Gatita Mala', '1106'
 
@@ -1820,7 +1817,7 @@ END
 
 GO
 ------- TRIGGER DE STOCK ------------
-CREATE TRIGGER tg_ActualizarStock ON tbPedidoDetalles
+CREATE OR ALTER TRIGGER tg_ActualizarStock ON tbPedidoDetalles
 AFTER INSERT 
 AS
 BEGIN

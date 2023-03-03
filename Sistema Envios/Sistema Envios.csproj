@@ -228,9 +228,6 @@
     <Compile Include="Models\UDP_CargarArticulos_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UDP_CARGARCIIUDAD_DIRECCONEDIT_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\UDP_CargarCiudades_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
