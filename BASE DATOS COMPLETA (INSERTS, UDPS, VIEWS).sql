@@ -2118,3 +2118,34 @@ WHERE [art_ID] = @Id
 END
 
 GO
+-------------------CARGAR EMPLEADOS EN PEDIDOS-------------------
+CREATE OR ALTER PROCEDURE UDP_CargarEmpleadosPedidos
+AS
+BEGIN
+SELECT '0' AS emp_Id, ' Seleccione un empleado' AS emp_Nombre
+UNION ALL
+SELECT emp_Id, emp_Name + ' ' + emp_Apellido emp_Nombre FROM tbEmpleados
+WHERE emp_Estado = 1;
+END;
+GO
+
+-------------------CARGAR DIRECCIONES EN PEDIDOS-------------------
+CREATE OR ALTER PROCEDURE UDP_CargarDireccionPedidos
+AS
+BEGIN
+SELECT '0' AS direc_ID, ' Seleccione una direccion' AS direc_DireccionExacta
+UNION ALL
+SELECT direc_ID, direc_DireccionExacta FROM tbDirecciones
+WHERE direc_Estado = 1;
+END;
+GO
+
+-------------------CARGAR ESTADO DE ENVIO EN PEDIDOS-------------------
+CREATE OR ALTER PROCEDURE UDP_CargarEstadoDeEnvio
+AS
+BEGIN
+SELECT '0' AS estv_Id, ' Seleccione un estado' AS estv_Description
+UNION ALL
+SELECT estv_Id, estv_Description FROM tbEstadoEnvios
+END;
+GO

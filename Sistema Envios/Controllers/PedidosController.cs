@@ -57,21 +57,41 @@ namespace Sistema_Envios.Controllers
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "pedi_ID,pedi_Code,pedi_DireccionID,pedi_CostoEnvio,estv_Id,emp_Id,pedi_Fecha,pedi_UsuarioCreador,pedi_FechaCreacion,pedi_UsuarioMod,pedi_FechaMod,pedi_Estado")] tbPedidos tbPedidos)
+        //[ValidateAntiForgeryToken]
+        public ActionResult Create(string pedi_Code, string pedi_DireccionID, int pedi_CostoEnvio, string estv_Id, string emp_Id, DateTime pedi_Fecha)
         {
             if (ModelState.IsValid)
             {
-                db.tbPedidos.Add(tbPedidos);
+                db.UDP_PEDIDOS_INSERT(pedi_Code, Convert.ToInt32(pedi_DireccionID), pedi_CostoEnvio, Convert.ToInt32(estv_Id), Convert.ToInt32(emp_Id), pedi_Fecha, Convert.ToInt32(Usu));
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            //ViewBag.pedi_DireccionID = new SelectList(db.tbDirecciones, "direc_ID", "direc_DireccionExacta");
+            //ViewBag.estv_Id = new SelectList(db.tbEstadoEnvios, "estv_Id", "estv_Description");
+            //ViewBag.emp_Id = new SelectList(db.tbEmpleados, "emp_Id", "emp_Name");
+            return View();
+        }
 
-            ViewBag.pedi_DireccionID = new SelectList(db.tbDirecciones, "direc_ID", "direc_DireccionExacta", tbPedidos.pedi_DireccionID);
-            ViewBag.estv_Id = new SelectList(db.tbEstadoEnvios, "estv_Id", "estv_Description", tbPedidos.estv_Id);
-            ViewBag.pedi_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbPedidos.pedi_UsuarioCreador);
-            ViewBag.pedi_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbPedidos.pedi_UsuarioMod);
-            return View(tbPedidos);
+        public JsonResult CargarEmpleados()
+        {
+            var ddl = db.UDP_CargarEmpleadosPedidos().ToList();
+
+            return Json(ddl, JsonRequestBehavior.AllowGet);
+
+        }
+        public JsonResult CargarDirecciones()
+        {
+            var ddl = db.UDP_CargarDireccionPedidos().ToList();
+
+            return Json(ddl, JsonRequestBehavior.AllowGet);
+
+        }
+        public JsonResult CargarEstadoEnvio()
+        {
+            var ddl = db.UDP_CargarEstadoDeEnvio().ToList();
+
+            return Json(ddl, JsonRequestBehavior.AllowGet);
+
         }
 
         // GET: Pedidos/Edit/5
