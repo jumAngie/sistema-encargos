@@ -831,7 +831,7 @@ namespace Sistema_Envios.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_InsertArticulos", art_DescripcionParameter, fab_IDParameter, art_StockParameter, art_UsuarioCreadorParameter);
         }
     
-        public virtual int UDP_InsertClientes(string client_Nombre, string client_Identidad, string client_EstadoCivil, string client_Sexo, string client_Telefono, string client_Saldo, string client_LimiteCredito, string client_Descuento, Nullable<int> client_UsuarioCreador)
+        public virtual int UDP_InsertClientes(string client_Nombre, string client_Identidad, string client_EstadoCivil, string client_Sexo, string client_Telefono, string client_Saldo, Nullable<int> client_LimiteCredito, string client_Descuento, Nullable<int> client_UsuarioCreador)
         {
             var client_NombreParameter = client_Nombre != null ?
                 new ObjectParameter("client_Nombre", client_Nombre) :
@@ -857,9 +857,9 @@ namespace Sistema_Envios.Models
                 new ObjectParameter("client_Saldo", client_Saldo) :
                 new ObjectParameter("client_Saldo", typeof(string));
     
-            var client_LimiteCreditoParameter = client_LimiteCredito != null ?
+            var client_LimiteCreditoParameter = client_LimiteCredito.HasValue ?
                 new ObjectParameter("client_LimiteCredito", client_LimiteCredito) :
-                new ObjectParameter("client_LimiteCredito", typeof(string));
+                new ObjectParameter("client_LimiteCredito", typeof(int));
     
             var client_DescuentoParameter = client_Descuento != null ?
                 new ObjectParameter("client_Descuento", client_Descuento) :

@@ -9,8 +9,8 @@ $("#lblDescuento").hide();
 $("#lblTelefono").hide();
 $("#lblEstadoCiv").hide();
 
-$("#drf").prop("checked", false);
-$("#drf").prop("checked", false);
+
+$("drfm").prop("checked", false);
 
 //txtNombre    lblNombre
 //txtIdentidad lblIdentidad
@@ -44,84 +44,105 @@ $(document).ready(function () {
     })
 })
 
-var txtNombre = $("#txtNombre").val();
-var Id_Estado = $("#Id_Estado").val();
-var txtTelefono = $("#txtTelefono").val();
-var txtCredito = $("#txtCredito").val();
-var txtDescuento = $("#txtDescuento").val();
-var txtIdentidad = $("#txtIdentidad").val();
-var txtSaldo = $("#txtSaldo").val();
-var sexo = "";
-
 
 function Guardar() {
 
+    var txtNombre = $("#txtNombre").val();
+    var Id_Estado = $("#Id_Estado").val();
+    var txtTelefono = $("#txtTelefono").val();
+    var txtCredito = $("#txtCredito").val();
+    var txtDescuento = $("#txtDescuento").val();
+    var txtIdentidad = $("#txtIdentidad").val();
+    var txtSaldo = $("#txtSaldo").val();
+    var sexo = "";
+   
 
-  
-    if ($("#drf").prop("checked", true)) { sexo = "F"; }
-    if ($("#drm").prop("checked", true)) { sexo = "M"; }
-     if ($("#drf").prop("checked", false) && $("#drm").prop("checked", false)) {
-        sexo = "";
+
+    if ($('#drf').attr("checked", true))
+    {
+        sexo = $('#drf').val();
+    }
+    else if ($('#drm').attr("checked", true))
+            {
+                sexo = $('#drm').val();
+            }
+
+   else {
+
         $("#lblSexo").show();
+        sexo = "";
+          }
+
+    if ($("#Id_Estado").val() == "0") {
+        $("#lblEstadoCiv").show();
 
     }
 
-
-        if (Id_Estado == "0") {
-            $("#lblEstadoCiv").show();
-
-        }
-
-        if (txtNombre == "") {
-            /* $("#txtNombre").focus();*/
-            $("#lblNombre").show();
+    if (txtNombre == "") {
+        /* $("#txtNombre").focus();*/
+        $("#lblNombre").show();
 
 
-        }
-        if (txtIdentidad == "") {
+    }
+    if (txtIdentidad == "") {
 
-            $("#lblIdentidad").show();
-            /*   $("#txtIdentidad").focus();*/
-
-
-        }
-        if (txtTelefono == "") {
-
-            $("#lblTelefono").show();
-            /*    $("#txtTelefono").focus();*/
+        $("#lblIdentidad").show();
+        /*   $("#txtIdentidad").focus();*/
 
 
-        }
-        if (txtSaldo == "") {
+    }
+    if (txtTelefono == "") {
 
-            $("#lblSaldo").show();
-            /*   $("#txtSaldo").focus();*/
-
-
-        }
-        if (txtCredito == "") {
-            $("#lblCredito").show();
-            /*   $("#txtExistencia").focus();*/
+        $("#lblTelefono").show();
+        /*    $("#txtTelefono").focus();*/
 
 
-        }
-        if (txtDescuento == "") {
-            $("#lblDescuento").show();
-            /*    $("#txtDescuento").focus();*/
+    }
+    if (txtSaldo == "") {
+
+        $("#lblSaldo").show();
+        /*   $("#txtSaldo").focus();*/
 
 
-        }
+    }
+    if (txtCredito == "") {
+        $("#lblCredito").show();
+        $("#lblAlertaCredito").hide();
+        /*   $("#txtExistencia").focus();*/
 
-        if (txtCredito > 3000000) {
-            $("#lblAlertaCredito").show();
-            $("#txtCredito").focus();
-        }
+
+    }
+    if (txtDescuento == "") {
+        $("#lblDescuento").show();
+        /*    $("#txtDescuento").focus();*/
+
+
+    }
+
+    if (txtCredito > 3000000) {
+        $("#lblAlertaCredito").show();
+        $("#txtCredito").focus();
+    }
+
+    //else if ($("#drm").attr("checked", true)) { sexo = "M"; }
+
+
+  
+
+    console.log(txtNombre);
+    console.log(Id_Estado);
+    console.log(txtTelefono);
+    console.log(txtCredito);
+    console.log(txtDescuento);
+    console.log(txtIdentidad);
+    console.log(txtSaldo);
+    console.log(sexo);
+
     
 
-    if (txtNombre != "" && txtIdentidad != "" && txtTelefono != "" && txtSaldo != "" && txtCredito != "" && txtDescuento != "" && Id_Estado != "0" && sexo != "" )
+
+    if (txtNombre != "" && txtIdentidad != "" && txtTelefono != "" && txtSaldo != "" && txtCredito != "" && txtDescuento != "" && $("#Id_Estado").val() != "0" && sexo != "" && txtCredito < 3000000 )
     {
-
-
         $.ajax({
             url: "/Clientes/Guardo",
             method: "POST",
@@ -130,12 +151,16 @@ function Guardar() {
             success: function (data) {
 
 
-                   window.location.reload();
+                //window.location.reload();
 
             }
 
         })
-      /*  window.location.reload();*/
+
+        /*  window.location.reload();*/
+
+
+        window.location.reload();
 
         alert("Si esta entrando ??");
         $("#lblAlertaCredito").hide();
@@ -148,13 +173,8 @@ function Guardar() {
         $("#lblDescuento").hide();
         $("#lblTelefono").hide();
 
-        console.log(txtNombre);
-        console.log(Id_Estado);
-        console.log(txtTelefono);
-        console.log(txtCredito);
-        console.log(txtDescuento);
-        console.log(txtIdentidad);
-        console.log(txtSaldo);
+       
+
     }
 
 

@@ -9,75 +9,78 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 @*<form method="post">*@
-    @*@Html.AntiForgeryToken()*@
-    <h2> Create </h2>
+@*@Html.AntiForgeryToken()*@
+<h2> AGREGANDO NUEVO CLIENTE </h2>
 
-    <div class="card">
-        <div class="card-header">
-         
+    <div class="card-header bg-warning">
+        <div class="text-center">
+            <h4 style="color:azure">Empleados</h4>
         </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-sm-6">
-                    <label>NOMBRE</label> <label style="color:red" id="lblNombre" >El campo es requerido!!</label>
-                    <input type="text" id="txtNombre" name="txtNombre" class="form-control" />
-                </div>
-
-
-                <div class="col-sm-6">
-                    <label>IDENTIDAD</label>  <label style="color:red" id="lblIdentidad" >El campo es requerido!!</label>
-                    <input type="text" id="txtIdentidad" name="txtIdentidad" class="form-control" maxlength="15" />
-                </div>
-
-                <div class="col-sm-6">
-                    <label>ESTADO CIVIL</label><label style="color:red" id="lblEstadoCiv" >El campo es requerido!!</label>
-                    <select id="Id_Estado" name="Id_Estado" class="form-control"> </select>
-                </div>
-
-                <div class="col-sm-6">
-                    <label>SEXO</label>  <label style="color:red" id="lblSexo" >El campo es requerido!!</label>
-
-                    <br />
-                    <input type="radio" id="drf" name="drfm" value="F" />Femeino
-                    <input type="radio" id="drm" name="drfm" value="M" />Masculino
-
-                </div>
-                <div class="col-sm-6">
-                    <label>SALDO</label>  <label style="color:red" id="lblSaldo" >El campo es requerido!!</label>
-                    <input type="text" id="txtSaldo" name="txtSaldo" class="form-control" />
-                </div>
-                <div class="col-sm-6">
-                    <label>CREDITO</label> <label style="color:red" id="lblCredito" >El campo es requerido!!</label>
-                    <label style="color:red" id="lblAlertaCredito" >Ha superado el limite de credito!!</label>
-                    <input type="number" id="txtCredito" name="txtCredito" class="form-control" />
-                </div>
-                <div class="col-sm-6">
-                    <label>DESCUENTO</label>  <label style="color:red" id="lblDescuento" >El campo es requerido!!</label>
-                    <input type="text" id="txtDescuento" name="txtDescuento" class="form-control" />
-                </div>
-                <div class="col-sm-6">
-                    <label>TELEFONO</label>  <label style="color:red" id="lblTelefono" >El campo es requerido!!</label>
-                    <input type="text" id="txtTelefono" name="txtTelefono" class="form-control" />
-                </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <label>NOMBRE</label> <label style="color:red" id="lblNombre">El campo es requerido!!</label>
+                <input type="text" id="txtNombre" name="txtNombre" class="form-control" />
             </div>
-        </div>
 
 
+            <div class="col-sm-6">
+                <label>IDENTIDAD</label>  <label style="color:red" id="lblIdentidad">El campo es requerido!!</label>
+                <input type="text" id="txtIdentidad" name="txtIdentidad" class="form-control" maxlength="15" />
+            </div>
 
-        <div class="card-footer" style="color:goldenrod">
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="button" value="GUARDAR" class=" btn btn-success" onclick="Guardar()" />
-                </div>
+            <div class="col-sm-6">
+                <label>ESTADO CIVIL</label><label style="color:red" id="lblEstadoCiv">El campo es requerido!!</label>
+                <select id="Id_Estado" name="Id_Estado" class="form-control"> </select>
+            </div>
+
+            <div class="col-sm-6">
+                <label>SEXO</label>  <label style="color:red" id="lblSexo">El campo es requerido!!</label>
+
+                <br />
+                <input type="radio" id="drf" name="drfm" value="F" />Femeino
+                <input type="radio" id="drm" name="drfm" value="M" />Masculino
+
+            </div>
+            <div class="col-sm-6">
+                <label>SALDO</label>  <label style="color:red" id="lblSaldo">El campo es requerido!!</label>
+                <input type="text" id="txtSaldo" name="txtSaldo" class="form-control" />
+            </div>
+            <div class="col-sm-6">
+                <label>CREDITO</label> <label style="color:red" id="lblCredito">El campo es requerido!!</label>
+                <label style="color:red" id="lblAlertaCredito">Ha superado el limite de credito!!</label>
+                <input type="number" id="txtCredito" name="txtCredito" class="form-control" />
+            </div>
+            <div class="col-sm-6">
+                <label>DESCUENTO</label>  <label style="color:red" id="lblDescuento">El campo es requerido!!</label>
+                <input type="text" id="txtDescuento" name="txtDescuento" class="form-control" />
+            </div>
+            <div class="col-sm-6">
+                <label>TELEFONO</label>  <label style="color:red" id="lblTelefono">El campo es requerido!!</label>
+                <input type="text" id="txtTelefono" name="txtTelefono" class="form-control" />
             </div>
         </div>
     </div>
 
-    <script src="~/Scripts/CrearClientes.js"></script>
+
+
+      
+            <div class="col-sm-10">
+                <input type="button" value="GUARDAR" class=" btn btn-success" onclick="Guardar()" />
+                <br />
+                <div class="col-sm-6">
+                   
+                        @Html.ActionLink("Back to List", "Index")
+                    </div>
+
+                </div>
+            
+   
+
+
+<script src="~/Scripts/CrearClientes.js"></script>
 
 @*</form>*@
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 

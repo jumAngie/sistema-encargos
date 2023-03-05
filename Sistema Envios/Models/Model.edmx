@@ -1044,7 +1044,7 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <Parameter Name="client_Sexo" Type="char" Mode="In" />
           <Parameter Name="client_Telefono" Type="nvarchar" Mode="In" />
           <Parameter Name="client_Saldo" Type="nvarchar" Mode="In" />
-          <Parameter Name="client_LimiteCredito" Type="varchar" Mode="In" />
+          <Parameter Name="client_LimiteCredito" Type="int" Mode="In" />
           <Parameter Name="client_Descuento" Type="nvarchar" Mode="In" />
           <Parameter Name="client_UsuarioCreador" Type="int" Mode="In" />
         </Function>
@@ -2612,7 +2612,7 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
             <Parameter Name="client_Sexo" Mode="In" Type="String" />
             <Parameter Name="client_Telefono" Mode="In" Type="String" />
             <Parameter Name="client_Saldo" Mode="In" Type="String" />
-            <Parameter Name="client_LimiteCredito" Mode="In" Type="String" />
+            <Parameter Name="client_LimiteCredito" Mode="In" Type="Int32" />
             <Parameter Name="client_Descuento" Mode="In" Type="String" />
             <Parameter Name="client_UsuarioCreador" Mode="In" Type="Int32" />
           </FunctionImport>
