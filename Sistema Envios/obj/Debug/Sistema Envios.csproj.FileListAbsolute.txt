@@ -443,8 +443,8 @@ C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\es\System.
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\es\System.Web.WebPages.resources.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.csproj.AssemblyReference.cache
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.csproj.CoreCompileInputs.cache
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.csproj.CopyComplete
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.pdb
-C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.csproj.AssemblyReference.cache

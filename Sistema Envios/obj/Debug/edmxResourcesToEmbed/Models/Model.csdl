@@ -1250,7 +1250,7 @@
       <Parameter Name="client_Sexo" Mode="In" Type="String" />
       <Parameter Name="client_Telefono" Mode="In" Type="String" />
       <Parameter Name="client_Saldo" Mode="In" Type="String" />
-      <Parameter Name="client_LimiteCredito" Mode="In" Type="String" />
+      <Parameter Name="client_LimiteCredito" Mode="In" Type="Int32" />
       <Parameter Name="client_Descuento" Mode="In" Type="String" />
       <Parameter Name="client_UsuarioCreador" Mode="In" Type="Int32" />
     </FunctionImport>

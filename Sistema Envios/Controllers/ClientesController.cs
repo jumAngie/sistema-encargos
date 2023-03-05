@@ -92,6 +92,7 @@ namespace Sistema_Envios.Controllers
         [HttpPost]
         //[ValidateAntiForgeryToken]
 
+
         public ActionResult Guardo( string txtNombre, string txtIdentidad, string Id_Estado, string sexo, string txtTelefono, string txtSaldo, string txtCredito, string txtDescuento)
             
         {
@@ -101,10 +102,11 @@ namespace Sistema_Envios.Controllers
                 if (ModelState.IsValid)
                 {
                     string usuario = Session["UsuarioID"].ToString();
-                    if (txtNombre != null && txtDescuento != null && txtCredito != null && txtTelefono != null && txtIdentidad != null && txtSaldo != null && sexo != null && Id_Estado != null)
+                    if (txtNombre != "" && txtDescuento != "" && (int.Parse(txtCredito) <3000000) && txtTelefono != "" && txtIdentidad != "" && txtSaldo != "" && sexo != "" && Id_Estado != "" )
                     {
                         //string id = Session["IdUsuario"].ToString();
-                        db.UDP_InsertClientes(txtNombre, txtIdentidad, Id_Estado, sexo, txtTelefono, txtSaldo, txtCredito, txtDescuento, int.Parse(usuario));
+                        db.UDP_InsertClientes(txtNombre, txtIdentidad, Id_Estado, sexo, txtTelefono, txtSaldo, int.Parse(txtCredito), txtDescuento, int.Parse(usuario));
+
                         return RedirectToAction("Index");
                     }
                     else
@@ -124,13 +126,9 @@ namespace Sistema_Envios.Controllers
             {
                 return RedirectToAction("Index");
             }
-         
-            //return RedirectToAction("Index");
+
+            
         }
-
-
-
-
 
 
 
