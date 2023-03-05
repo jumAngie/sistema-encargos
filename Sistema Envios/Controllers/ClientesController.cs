@@ -48,7 +48,7 @@ namespace Sistema_Envios.Controllers
 
 
 
-        [HttpPost]
+        //[HttpPost]
         public JsonResult CargarEstadosCiviles()
         {
             var EstadosCiv = db.UDP_CARGAR_ESTADOSCIV().ToList();
@@ -58,13 +58,13 @@ namespace Sistema_Envios.Controllers
 
 
         // GET: Clientes/Create
-        public ActionResult Create()
-        {
-            //ViewBag.client_EstadoCivil = new SelectList(db.tbEstadosCiviles, "est_ID", "est_Descripcion");
-            //ViewBag.client_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario");
-            //ViewBag.client_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario");
-            return View();
-        }
+        //public ActionResult Create()
+        //{
+        //    //ViewBag.client_EstadoCivil = new SelectList(db.tbEstadosCiviles, "est_ID", "est_Descripcion");
+        //    //ViewBag.client_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario");
+        //    //ViewBag.client_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario");
+        //    return View();
+        //}
 
 
 
@@ -81,6 +81,11 @@ namespace Sistema_Envios.Controllers
         //    return View();
         //}
 
+
+        public ActionResult Crear()
+        {
+            return View();
+        }
 
 
 
