@@ -87,6 +87,7 @@ public class ArticulosController : Controller
             
         }
 
+
         [HttpPost]
         public JsonResult CARGARFABRICAS()
         {

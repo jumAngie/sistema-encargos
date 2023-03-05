@@ -92,18 +92,19 @@ namespace Sistema_Envios.Controllers
         [HttpPost]
         //[ValidateAntiForgeryToken]
 
-        public ActionResult Guardo( string nombre, string identidad, string EstadoCiv, string sexo, string telefono, string saldo, string limite_Credit, string descuento )
+        public ActionResult Guardo( string txtNombre, string txtIdentidad, string Id_Estado, string sexo, string txtTelefono, string txtSaldo, string txtCredito, string txtDescuento)
             
         {
+          
             try
             {
                 if (ModelState.IsValid)
                 {
                     string usuario = Session["UsuarioID"].ToString();
-                    if (nombre != "" && descuento != "" && limite_Credit != "" && telefono != "" && identidad != "" && saldo != "" && sexo != "" && EstadoCiv != "")
+                    if (txtNombre != null && txtDescuento != null && txtCredito != null && txtTelefono != null && txtIdentidad != null && txtSaldo != null && sexo != null && Id_Estado != null)
                     {
                         //string id = Session["IdUsuario"].ToString();
-                        var insert = db.UDP_InsertClientes(nombre, identidad, EstadoCiv, sexo, telefono, saldo, limite_Credit, descuento, int.Parse(usuario));
+                        db.UDP_InsertClientes(txtNombre, txtIdentidad, Id_Estado, sexo, txtTelefono, txtSaldo, txtCredito, txtDescuento, int.Parse(usuario));
                         return RedirectToAction("Index");
                     }
                     else
