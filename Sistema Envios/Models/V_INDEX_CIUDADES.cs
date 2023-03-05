@@ -15,6 +15,7 @@ namespace Sistema_Envios.Models
     public partial class V_INDEX_CIUDADES
     {
         public int ID { get; set; }
+        public string DEPARTAMENTO { get; set; }
         public string NOMBRE_CIUDAD { get; set; }
     }
 }

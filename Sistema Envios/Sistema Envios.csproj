@@ -3545,6 +3545,7 @@
     <Content Include="Scripts\EliminarUsuario.js" />
     <Content Include="Scripts\EmpleadosScript\CargarCiudades.js" />
     <Content Include="Scripts\EstadosCivilesEditar.js" />
+    <Content Include="Scripts\FlechasDeNav.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />

@@ -240,6 +240,7 @@
       <EntityTypeMapping TypeName="DBArticulosEncargosModel.V_INDEX_CIUDADES">
         <MappingFragment StoreEntitySet="V_INDEX_CIUDADES">
           <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DEPARTAMENTO" ColumnName="DEPARTAMENTO" />
           <ScalarProperty Name="NOMBRE_CIUDAD" ColumnName="NOMBRE CIUDAD" />
         </MappingFragment>
       </EntityTypeMapping>

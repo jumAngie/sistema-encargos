@@ -29,34 +29,45 @@ namespace Sistema_Envios.Controllers
         [HttpPost]
         public ActionResult Index(string txtUsuario, string txtPass)
         {
-            if (txtUsuario == "" && txtPass == "")
+            if (Session.Count > 0)
             {
-                ModelState.AddModelError("Validacion", "Los campos no deben estar vacios");
-                return View();
+                Session.RemoveAll();
+                return RedirectToAction("Index");
             }
             else
             {
-                var result = db.UDP_VALIDAR_LOGIN(txtUsuario, txtPass).ToList();
 
-                if (result.Count > 0)
+                if (txtUsuario == "" && txtPass == "")
                 {
-                    foreach (var item in result)
-                    {
-                        Session["Usuario"] = item.usu_Usuario;
-                        Session["UsuarioID"] = item.usu_ID;
-                        Session["Nombre"] = item.emp_Nombre;
-                        Session["Rol_ID"] = item.rol_ID;
-                        Session["Rol"] = item.rol_Descripcion;
-                        return RedirectToAction("Principal");
-                    }
+                    ModelState.AddModelError("Validacion", "Los campos no deben estar vacios");
+                    return View();
                 }
                 else
                 {
-                    ModelState.AddModelError("Validacion", "El usuario o la contraseña son incorrectos");
-                    return View();
-                }
+                    var result = db.UDP_VALIDAR_LOGIN(txtUsuario, txtPass).ToList();
 
-                return RedirectToAction("Index", "Home");
+                    if (result.Count > 0)
+                    {
+                        foreach (var item in result)
+                        {
+                            Session["Usuario"] = item.usu_Usuario;
+                            Session["UsuarioID"] = item.usu_ID;
+                            Session["Nombre"] = item.emp_Nombre;
+                            Session["Rol_ID"] = item.rol_ID;
+                            Session["Rol"] = item.rol_Descripcion;
+                            return RedirectToAction("Principal");
+                            txtUsuario = "";
+                            txtPass = "";
+                        }
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("Validacion", "El usuario o la contraseña son incorrectos");
+                        return View();
+                    }
+
+                    return RedirectToAction("Index", "Home");
+                }
             }
         }
 
