@@ -2291,3 +2291,69 @@ BEGIN
 END
 GO
 
+
+
+
+-----agregar en la base datos archivos
+
+ALTER PROCEDURE [dbo].[UDP_CARGAR_ESTADOSCIV]
+AS
+BEGIN
+SELECT '0' AS est_ID, ' Seleccione un Estado Civil' AS est_Descripcion
+	UNION ALL
+SELECT [est_ID],[est_Descripcion] FROM [dbo].[tbEstadosCiviles]
+END
+
+
+
+
+--select*from [dbo].[tbClientes]
+
+--select*from [dbo].[tbEstadosCiviles]
+
+--DElete from [dbo].[tbEstadosCiviles] where[est_Descripcion] = 'lll'
+
+--DElete from [dbo].[tbClientes] WHERE [client_ID] = 36
+
+
+
+GO
+ALTER  PROCEDURE [dbo].[UDP_InsertClientes]
+	@client_Nombre			NVARCHAR (250), 
+	@client_Identidad		NVARCHAR(30), 
+	@client_EstadoCivil		CHAR(1), 
+	@client_Sexo			CHAR(1), 
+	@client_Telefono		NVARCHAR(50), 
+	@client_Saldo			NVARCHAR(100), 
+	@client_LimiteCredito	INT, 
+	@client_Descuento		NVARCHAR(100), 
+	@client_UsuarioCreador	INT
+AS
+BEGIN
+	INSERT INTO tbClientes (client_Nombre, 
+							client_Identidad, 
+							client_EstadoCivil, 
+							client_Sexo, 
+							client_Telefono, 
+							client_Saldo, 
+							client_LimiteCredito, 
+							client_Descuento, 
+							client_UsuarioCreador, 
+							client_FechaCreacion, 
+							client_UsuarioMod, 
+							client_FechaMod, 
+							client_Estado)
+	VALUES					(@client_Nombre, 
+							 @client_Identidad, 
+							 @client_EstadoCivil, 
+							 @client_Sexo, 
+							 @client_Telefono, 
+							 @client_Saldo, 
+							 @client_LimiteCredito, 
+							 @client_Descuento, 
+							 @client_UsuarioCreador, 
+							 GETDATE(), 
+							 NULL, 
+							 NULL, 
+							 1)
+END
