@@ -1,13 +1,87 @@
-............................. Actividades Pendientes ..................................
--- TERMINAR LAS PANTALLAS DE EMPLEADOS, Y PEDIDOS
--- METER VALIDACIONES
--- HACER LA PÁGINA 404
--- Editar los Create y Edit de las pantallas sin modales (COLOCAR LOS CAMPOS DE CLIENTE Y PEDIDOS EN 2 COLUMNAS)
--- Hacer las Validaciones de los Roles. (HACER UN SESSION.COUNT > 0 EN EL INDEX DE CADA CONTROLADOR)
--- Hacer las Validaciones de CADA CAMPO QUE NO PERMITE INGRESAR NULOS (EN JAVASCRIPT)
--- EN EL FORMULARIO: VALIDAR 'ES ADMIN' Y 'ROL'
+LOGIN: 
+-- Los modelStateError tienen que ser diferentes.
+-- En el UDP agregar que el estado sea igual a 1
 
-........................................................................................
+EMPLEADOS:
+-- Validar los campos vacíos.
+-- Meter trycatch.
+-- TODO de Editar Empleados.
+
+CLIENTES:
+-- Falta el botón de Eliminar.
+-- Arreglar el diseño del Crear
+-- Falta TODO de editar Clientes
+-- Falta AÑADIR EXTRA (AÑADIR ARTICULO POR PEDIDO)
+
+PEDIDOS:
+-- Falta validar campos vacíos.
+-- Meter trycatch
+-- Editar Pedidos
+-- Eliminar
+-- Añadir botón a Pedidos Detalles
+
+DETALLES:
+-- Falta EDITAR.
+--- VALIDAR CAMPOS VACIOS
+
+ARTICULOS:
+-- ELIMINAR ARTICULOS
+-- VALIDAR CAMPOS
+-- DISEÑO DE EDITAR
+-- CUANDO SE VA A LA ULTIMA PAGINA SE ACTIVA LOS CAMPOS
+-- QUE CARGEN LAS FABRICAS
+-- TRY CATCH
+
+FABRICAS:
+-- QUITAR LOS CAMPOS EN DETALLES
+-- EL MISMO PROBLEMA EN EL MODAL CON LAS ÚLTIMAS PÁGINAS
+-- VALIDAR CAMPOS
+-- METER TRY CATCH
+
+ESTADOS CIVILES:
+-- VALIDAR LOS CAMPOS
+-- METER TRY CATCH
+-- HACERLE UN UPPERCASE AL ID
+-- EL MISMO PROBLEMA EN EL MODAL CON LAS ÚLTIMAS PÁGINAS.
+
+
+CIUDADES:
+-- PONER DEPARTAMENTO EN LA VISTA
+-- AÑADIR EL DDL DE DEPARTAMENTO EN EDITAR
+
+DEPTOS:
+-- VALIDAR CAMPOS
+-- TRY CATCH
+
+DIRECCIONES:
+-- TRY CACTCH
+--VALIDAR
+
+CARGOS:
+-- VALIDAR CAMPOS
+-- FUNCIONA HASTA EL 10.
+-- TRY CATCH
+-- ELIMINAR NO CARGA DESPUES DEL 10.
+
+USUARIOS:
+-- LOS CAMPOS DE USUARIOS.
+-- EDITAR USUARIO
+-- ELIMINAR CON CONDICIÓN.
+-- DETALLES DEL USUARIO.
+
+
+--DEJAR 9 INSERTS POR CADA TABLA.
+
+
+
+
+
+--------------------------------------------------------------GENERAL----------------------------------------------------------------
+
+
+-- ELIMINAR.
+	{SI ELIMINA UN CLIENTE: 	SE ELIMINAN LOS PEDIDOS Y DIRECCIONES}
+	{SI ELIMINA UN EMPLEADO: 	SE ELIMINAN EL USUARIO}
 
 CAMBIAR DISEÑO DE DETALLES: UTILIZAR EL DEFAULT Y ELIMINAR LOS CAMPOS EXTRAS
 
