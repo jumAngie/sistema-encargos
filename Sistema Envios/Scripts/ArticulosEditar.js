@@ -1,7 +1,4 @@
 ﻿
-
-
-
 $("#Mensaje").hide();
 $("#artiMess").hide();
 $("#CantidadMess").hide();
@@ -37,6 +34,7 @@ function Cerrar() {
     $("#artiMess").hide();
     $("#CantidadMess").hide();
 }
+
 
 function AbrirModal(art_ID) {
 
@@ -77,21 +75,30 @@ function Editar(x) {
     console.log(x);
 
     console.log(ID);
- 
-    $.ajax({
-        url: "/Articulos/Editores",
-        method: "POST",
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-        data: JSON.stringify({ ID: ID, articulo: articulo, fabrica: fabrica, stock: stock }),
-        success: function (data) {
+
+    if ((stock != "" || stock != null) && (articulo != "" || articulo != null)) {
+        
+        $.ajax({
+            url: "/Articulos/Editores",
+            method: "POST",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify({ ID: ID, articulo: articulo, fabrica: fabrica, stock: stock }),
+            success: function (data) {
 
 
-            window.location.reload();
+                window.location.reload();
 
-        }
+            }
 
-    })
+        })
+        $("#Mensaje").show();
+        $('#FormModal').modal('hide');
+
+         window.location.reload();
+    }
+
+   
 
     if (articulo == "" || articulo == null) {
         $("#Mensaje").hide();
@@ -109,11 +116,6 @@ function Editar(x) {
 
 
     }
-    if ((stock != "" || stock != null) && (articulo != "" || articulo != null)) {
-        $("#Mensaje").show();
-        $('#FormModal').modal('hide');
-        window.location.reload();
-    }
-  
+ 
 }
 

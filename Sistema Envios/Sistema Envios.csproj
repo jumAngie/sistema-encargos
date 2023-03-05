@@ -3643,7 +3643,6 @@
     <Content Include="Views\Usuarios\CrearUsuario.cshtml" />
     <Content Include="Views\Articulos\Error404.cshtml" />
     <Content Include="Views\Clientes\DetallePorPedido.cshtml" />
-    <Content Include="Views\Clientes\_Create.cshtml" />
     <Content Include="Views\Clientes\Crear.cshtml" />
   </ItemGroup>
   <ItemGroup>
