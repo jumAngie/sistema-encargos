@@ -1,6 +1,6 @@
 LOGIN: 
 -- Los modelStateError tienen que ser diferentes.
--- En el UDP agregar que el estado sea igual a 1
+-- En el UDP agregar que el estado sea igual a 1............................................ (ARREGLADO)
 
 EMPLEADOS:
 -- Validar los campos vacíos.
