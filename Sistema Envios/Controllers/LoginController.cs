@@ -13,12 +13,16 @@ namespace Sistema_Envios.Controllers
         // GET: Login
         public ActionResult Index()
         {
-            Session["Usuario"] = "";
-            Session["UsuarioID"] = "";
-            Session["Nombre"] = "";
-            Session["Rol_ID"] ="";
-            Session["Rol"] = "";
-            return View();
+            if (Session.Count > 0)
+            {
+                Session.RemoveAll();
+                return View();
+            }
+            else
+            {
+                return View();
+            }
+            
             
         }
         // POST: Login
