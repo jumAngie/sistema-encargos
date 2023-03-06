@@ -279,6 +279,9 @@
     <Compile Include="Models\UDP_CARGAR_CIUDAD_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UDP_CARGAR_DATOS_EMPLEADOS_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UDP_CARGAR_DEPARTAMENTO_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -3533,6 +3536,7 @@
     <Content Include="Scripts\DepartamentosEditar.js" />
     <Content Include="Scripts\Detalles.js" />
     <Content Include="Scripts\DireccionesEditar.js" />
+    <Content Include="Scripts\EditarEmpleados.js" />
     <Content Include="Scripts\EditarFabricas.js" />
     <Content Include="Scripts\EliminarArticulo.js" />
     <Content Include="Scripts\EliminarCargo.js" />
@@ -3570,7 +3574,6 @@
     <Content Include="Views\Empleados\Create.cshtml" />
     <Content Include="Views\Empleados\Delete.cshtml" />
     <Content Include="Views\Empleados\Details.cshtml" />
-    <Content Include="Views\Empleados\Edit.cshtml" />
     <Content Include="Views\Articulos\Delete.cshtml" />
     <Content Include="Views\Articulos\Details.cshtml" />
     <Content Include="Views\Cargos\Delete.cshtml" />
@@ -3645,6 +3648,7 @@
     <Content Include="Views\Articulos\Error404.cshtml" />
     <Content Include="Views\Clientes\DetallePorPedido.cshtml" />
     <Content Include="Views\Clientes\Crear.cshtml" />
+    <Content Include="Views\Empleados\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

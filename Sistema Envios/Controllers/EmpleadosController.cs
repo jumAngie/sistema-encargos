@@ -43,12 +43,7 @@ namespace Sistema_Envios.Controllers
             return View(tbEmpleados);
         }
 
-        [HttpPost]
-        public JsonResult CargarCargos()
-        {
-            var ddl = db.UDP_DDLCargos().ToList();
-            return Json(ddl, JsonRequestBehavior.AllowGet);
-        }
+      
         // GET: Empleados/Create
         public ActionResult Create()
         {
@@ -150,6 +145,13 @@ namespace Sistema_Envios.Controllers
             return RedirectToAction("Index");
         }
 
+
+        [HttpPost]
+        public JsonResult CargarCargos()
+        {
+            var ddl = db.UDP_DDLCargos().ToList();
+            return Json(ddl, JsonRequestBehavior.AllowGet);
+        }
         public JsonResult cargarDeptos()
         {
             var ddl = db.UDP_CargarDepartamentos().ToList();
@@ -172,6 +174,110 @@ namespace Sistema_Envios.Controllers
             var ddlEs = db.UDP_CargarEstadosCiviles().ToList();
             return Json(ddlEs, JsonRequestBehavior.AllowGet);
         }
+
+
+        //EDITAR
+
+        [HttpPost]
+        public JsonResult CargarCargosEdit()
+        {
+            var ddl = db.UDP_DDLCargos().ToList();
+            return Json(ddl, JsonRequestBehavior.AllowGet);
+        }
+
+        //[HttpPost]
+        //public JsonResult CargarCargosDescripcion(string cargo_Id)
+        //{
+        //    var des = db.CARGAR_DESCRIPCION_CARGO(int.Parse(cargo_Id)).ToList();
+        //    return Json(des, JsonRequestBehavior.AllowGet);
+        //}
+
+
+        public JsonResult CargarEstadosCivilesEdit()
+        {
+            var ddlEs = db.UDP_CargarEstadosCiviles().ToList();
+            return Json(ddlEs, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult CargarMUNIedit()
+        {
+            var ddlEs = db.UDP_CARGAR_MUNICIPIO().ToList();
+            return Json(ddlEs, JsonRequestBehavior.AllowGet);
+        }
+
+
+
+
+        public JsonResult cargarDeptosEdit()
+        {
+            var ddl = db.UDP_CargarDepartamentos().ToList();
+            return Json(ddl, JsonRequestBehavior.AllowGet);
+        }
+
+
+
+        public JsonResult CargarMunicipiosEdit(string depto_ID)
+        {
+            var ddl = db.UDP_CargarCiudades(depto_ID).ToList();
+
+            return Json(ddl, JsonRequestBehavior.AllowGet);
+
+        }
+
+
+
+        ////PENDDIEN.
+        //[HttpPost]
+        //public JsonResult Cargar(string emp_Id)
+        //{
+
+        //    var tbArticulos = db.UDP_CARGAR_DATOS_EMPLEADOS(int.Parse(emp_Id)).ToList();
+        //    return Json(tbArticulos, JsonRequestBehavior.AllowGet);
+
+        //}
+
+
+
+        //[HttpPost, ActionName("Editores")]
+        ////[ValidateAntiForgeryToken]
+        //public ActionResult Edito(string ID, string articulo, string fabrica, string stock)
+
+        //{
+        //    string UsuarioModi = Session["UsuarioID"].ToString();
+
+        //    try
+        //    {
+        //        if (ModelState.IsValid)
+        //        {
+        //            if (articulo != "" && stock != "")
+        //            {
+        //                //string id = Session["IdUsuario"].ToString();
+        //                var Edit = db.UDP_Editar_Articulos(int.Parse(ID), articulo, int.Parse(fabrica), int.Parse(stock), UsuarioModi);
+
+        //            }
+
+        //        }
+        //        else
+        //        {
+        //            return RedirectToAction("Index");
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return RedirectToAction("Index");
+
+        //    }
+
+        //    return RedirectToAction("Index");
+        //}
+
+
+
+
+
+
+
+
 
         protected override void Dispose(bool disposing)
         {
