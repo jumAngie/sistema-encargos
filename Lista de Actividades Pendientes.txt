@@ -1,6 +1,5 @@
 LOGIN: 
 -- Los modelStateError tienen que ser diferentes.
--- En el UDP agregar que el estado sea igual a 1............................................ (ARREGLADO)
 
 EMPLEADOS:
 -- Validar los campos vacíos.
@@ -25,19 +24,15 @@ DETALLES:
 --- VALIDAR CAMPOS VACIOS
 
 ARTICULOS:
-PANTALLA TERMINADA.
+...................................................PANTALLA TERMINADA....................................................
 
 FABRICAS:
--- QUITAR LOS CAMPOS EN DETALLES
--- EL MISMO PROBLEMA EN EL MODAL CON LAS ÚLTIMAS PÁGINAS
--- VALIDAR CAMPOS
--- METER TRY CATCH
+...................................................PANTALLA TERMINADA....................................................
+
 
 ESTADOS CIVILES:
--- VALIDAR LOS CAMPOS
--- METER TRY CATCH
--- HACERLE UN UPPERCASE AL ID
--- EL MISMO PROBLEMA EN EL MODAL CON LAS ÚLTIMAS PÁGINAS.
+...................................................PANTALLA TERMINADA....................................................
+
 
 
 CIUDADES:
@@ -53,10 +48,8 @@ DIRECCIONES:
 --VALIDAR
 
 CARGOS:
--- VALIDAR CAMPOS
--- FUNCIONA HASTA EL 10.
--- TRY CATCH
--- ELIMINAR NO CARGA DESPUES DEL 10.
+...................................................PANTALLA TERMINADA....................................................
+
 
 USUARIOS:
 -- LOS CAMPOS DE USUARIOS.
@@ -65,10 +58,7 @@ USUARIOS:
 -- DETALLES DEL USUARIO.
 
 
---DEJAR 9 INSERTS POR CADA TABLA.
-
-
-
+--DEJAR 8 INSERTS POR CADA TABLA.
 
 
 --------------------------------------------------------------GENERAL----------------------------------------------------------------

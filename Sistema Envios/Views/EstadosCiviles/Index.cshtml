@@ -8,7 +8,18 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    .modal-header, h4 {
+        background-color: #ffffff;
+        /*color: white !important;*/
+        text-align: center;
+        font-size: 22px;
+    }
 
+    .modal-footer {
+        background-color: white;
+    }
+</style>
 
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
@@ -43,9 +54,6 @@
                                     </td>
 
                                     <td>
-                                        @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn btn-default btn-xs" })
-
-
                                         <button class='btn btn-secondary btn-xs' type='submit' id="tbnModal" name="tbnModal" onclick="ObtenerId('@item.ID')"><i class='fas fa-pen'></i>Editar</button>
 
                                         <form method="POST">
@@ -53,25 +61,27 @@
                                             <div class="modal fade" id="FormModal" tabindex="-1" role="dialog" aria-labelledby="Crear-Articulos" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="crear-cargos">Estado</h5>
+                                                        <div class="modal-header" style="padding:30px 50px;">
+                                                            <h4 class="modal-title" id="crear-cargos">Editar Estado Civil</h4>
+                                                            <img src="https://cdn.dribbble.com/users/1200451/screenshots/8759739/ezgif.com-optimize.gif" width="150" />
                                                         </div>
-                                                        <div class="modal-body">
-                                                            <label> Estado</label>
-                                                            <input type="text" name="txtEstadoCivil" id="txtEstadoCivil" class="form-control" />
+                                                        <div class="modal-body" style="padding:40px 50px; background-color:white">
+                                                            <label id="lblName" style="color:red; display:none">*</label>
+                                                            <label   style="color:black; font-size:15px">Estado:</label>
+                                                            <input type="text" name="txtEstadoCivilC" id="txtEstadoCivilC" class="form-control" style="border-color:black" />
 
                                                         </div>
                                                         <div class="modal-footer">
                                                             <input type="hidden" id="est_ID" />
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="Cerrar()">Close</button>
-                                                            <input type="button" value="Editar" onclick="Editar()" class="btn btn-default" />
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="Cerrar()">Cancelar</button>
+                                                            <input type="button" value="Editar" onclick="Editar()" class="btn btn-warning" />
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-
+                                            <script src="~/Scripts/EditarEstadoC.js"></script>
                                         </form>
-                                        <script src="~/Scripts/EstadosCivilesEditar.js"></script>
+                                        
                                     </td>
                                 </tr>
                             }
@@ -82,7 +92,4 @@
         </div>
     </div>
 </div>
-@*@Html.Partial("_EditEstado")*@
-
-
 @Html.Partial("CrearEstadoCivil")

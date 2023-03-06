@@ -20,8 +20,6 @@ namespace Sistema_Envios.Controllers
            }
           return View();
             
-            
-            
         }
         // POST: Login
         [HttpPost]
