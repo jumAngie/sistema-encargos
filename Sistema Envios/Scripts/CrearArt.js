@@ -2,7 +2,7 @@
 
     var fabrica_ID = $("#fabrica_ID").val();
     $.ajax({
-        url: "/Articulos/CargarFabricas",
+        url: "/Articulos/CargarFabricasCrear",
         method: "POST",
         dataType: "json",
         contentType: "application/json; charset=utf-8",
@@ -30,42 +30,40 @@ $(function () {
 
 function Insertar() {
 
-    var articulo = $("#txtArt").val()
-    var fabrica = $("#fabrica_ID").val()
-    var stock = $("#txtStock").val()
+    var txtArt = $("#txtArt").val()
+    var fabrica_ID = $("#fabrica_ID").val()
+    var txtStock = $("#txtStock").val()
 
-    if (articulo == null || fabrica == "0" || stock == null) {
-        if (articulo == "") {
+    if ($("#txtArt").val() == "" || $("#fabrica_ID").val() == "0" || $("#txtStock").val() == "") {
+        if ($("#txtArt").val() == "") {
             document.getElementById("lblArticulo").style.display = "inline";
         }
-        else {
-            document.getElementById("lblArticulo").style.display = "none";
-        }
-
-        if (fabrica == "0") {
+        if ($("#fabrica_ID").val() == "0") {
             document.getElementById("lblfabrica").style.display = "inline";
         }
-        else {
-            document.getElementById("lblfabrica").style.display = "none";
-        }
-
-        if (stock == "") {
+        if ($("#txtStock").val() == "") {
             document.getElementById("lblStock").style.display = "inline";
-        }
-        else {
-            document.getElementById("lblStock").style.display = "none";
         }
         
     }
     else {
-        $.ajax({
-            url: "/Articulos/Create",
-            method: "POST",
-            data: { txtArt: articulo, fab_ID: fabrica, txtStock: stock },
-            success: function (data) {
-                window.location.reload();
-            }
-        })
-    }
 
-}
+        var Stock = parseInt($("#txtStock").val());
+        if (Stock < 0) {
+            document.getElementById("lblStock2").style.display = "inline";
+        }
+        else {
+            $.ajax({
+                url: "/Articulos/Create",
+                method: "POST",
+                data: { txtArt: txtArt, fabrica_ID: fabrica_ID, txtStock: txtStock },
+                success: function (data) {
+                    window.location.reload();
+                }
+            });
+        }
+            
+
+        }
+
+    }

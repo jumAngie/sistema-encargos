@@ -3097,7 +3097,6 @@
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\Alertas\FuncionesAlertas.js" />
-    <Content Include="Scripts\ArticulosEditar.js" />
     <Content Include="Scripts\AñadirDetallePorPedido\DetPorPedi.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -3520,7 +3519,7 @@
     <Content Include="Scripts\CargosEditar.js" />
     <Content Include="Scripts\CiudadesEditar.js" />
     <Content Include="Scripts\CiudadesScript\CrearCiudades.js" />
-    <Content Include="Scripts\CrearArticulos.js" />
+    <Content Include="Scripts\CrearArt.js" />
     <Content Include="Scripts\CrearCargo.js" />
     <Content Include="Scripts\CrearClientes.js" />
     <Content Include="Scripts\CrearDepartamentos.js" />
@@ -3533,6 +3532,7 @@
     <Content Include="Scripts\DepartamentosEditar.js" />
     <Content Include="Scripts\Detalles.js" />
     <Content Include="Scripts\DireccionesEditar.js" />
+    <Content Include="Scripts\EditarArt.js" />
     <Content Include="Scripts\EditarFabricas.js" />
     <Content Include="Scripts\EliminarArticulo.js" />
     <Content Include="Scripts\EliminarCargo.js" />
@@ -3571,7 +3571,6 @@
     <Content Include="Views\Empleados\Delete.cshtml" />
     <Content Include="Views\Empleados\Details.cshtml" />
     <Content Include="Views\Empleados\Edit.cshtml" />
-    <Content Include="Views\Articulos\Delete.cshtml" />
     <Content Include="Views\Articulos\Details.cshtml" />
     <Content Include="Views\Cargos\Delete.cshtml" />
     <Content Include="Views\Cargos\Details.cshtml" />
@@ -3642,7 +3641,6 @@
     <Content Include="Views\Cargos\EliminarCargo.cshtml" />
     <Content Include="Views\Ciudades\CrearCiudades.cshtml" />
     <Content Include="Views\Usuarios\CrearUsuario.cshtml" />
-    <Content Include="Views\Articulos\Error404.cshtml" />
     <Content Include="Views\Clientes\DetallePorPedido.cshtml" />
     <Content Include="Views\Clientes\Crear.cshtml" />
   </ItemGroup>

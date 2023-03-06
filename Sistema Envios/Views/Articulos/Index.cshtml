@@ -54,11 +54,9 @@
 
                                     <td>
                                         @Html.ActionLink("Detalles", "Details", new { id = item.ID_ARTICULO }, new { @class = "btn btn-default btn-xs" })
-                                        @*@Html.ActionLink("Editar", "Edit", new { id = item.ID_ARTICULO }, new { @class = "btn btn-primary btn-xs" })*@
-                                        <button class="btn-delete btn btn-secondary btn-xs" data-id="@item.ID_ARTICULO">Eliminar</button>
-
+                                        <button class="btn-delete btn-xs btn-danger" data-id="@item.ID_ARTICULO">Eliminar</button>
                                         <button class='btn btn-secondary btn-xs' type='submit' id="tbnModal" value="Editar" onclick="AbrirModal(@item.ID_ARTICULO)"><i class='fas fa-pen'></i>Editar</button>
-
+                                        
                                         <form method="post">
                                             @Html.AntiForgeryToken()
                                             <div class="modal fade" id="FormModal" tabindex="-1" role="dialog" aria-labelledby="Crear-Articulos" aria-hidden="true">
@@ -69,26 +67,24 @@
                                                             <img src="https://cdn.dribbble.com/users/1200451/screenshots/8759739/ezgif.com-optimize.gif" width="150" />
                                                         </div>
                                                         <div class="modal-body" style="padding:40px 50px;">
-                                                            <div class="card">
-                                                                <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-sm-6">
+                                                                    <label id="artiMess" style="color:red">*</label>
+                                                                    <label>Artículo</label>
+                                                                    <input type="text" name="txtArtiC" id="txtArtiC" class="form-control" style="border-color:black" />
+                                                                </div>
 
-                                                                    <div class="row">
-                                                                        <div class="col-sm-6">
-                                                                            <label> artículo</label><label id="artiMess" style="color:red">El campo es requerido!!</label>
-                                                                            <input type="text" name="txtArtiC" id="txtArtiC" class="form-control" />
-                                                                        </div>
+                                                                <div class="col-sm-6">
+                                                                    <label id="CantidadMess" style="color:red">*</label>
+                                                                    <label>Stock</label>
+                                                                    <label id="StockNegativo" style="color:red">* La cantidad no puede ser menor a 0.</label>
+                                                                    <input type="number" min="0" name="txtExistencia" id="txtExistencia" class="form-control" style="border-color:black" />
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <label>Fábrica</label>
+                                                                    <select id="fab_ID" name="fab_ID" class="form-control" style="border-color:black">
+                                                                    </select>
 
-                                                                        <div class="col-sm-6">
-                                                                            <label>stock</label><label id="CantidadMess" style="color:red">El campo es requerido!!</label>
-                                                                            <input type="number" name="txtExistencia" id="txtExistencia" class="form-control" />
-                                                                        </div>
-                                                                        <div class="col-sm-6">
-                                                                            <label>Fábrica</label>
-                                                                            <select id="fab_ID" name="fab_ID" class="form-control" style="border-color:black">
-                                                                            </select>
-
-                                                                        </div>
-                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -101,14 +97,16 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            
-                                            <script src="~/Scripts/ArticulosEditar.js"></script>
+
+                                            <script src="~/Scripts/EditarArt.js"></script>
+                                            @Html.Partial("EliminarArticulo")
                                         </form>
-                                        
+
 
                                     </td>
                                 </tr>
                             }
+                            
                         </tbody>
                     </table>
                 </div>
@@ -118,9 +116,4 @@
 </div>
 @Html.Partial("CrearArticulo")
 
-<script type="text/javascript">
-    function preventBack() { window.history.forward(); }
-    setTimeout("preventBack()", 0);
-    window.onunload = function () { null };
-</script>
 

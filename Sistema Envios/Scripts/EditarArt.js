@@ -2,6 +2,7 @@
 $("#Mensaje").hide();
 $("#artiMess").hide();
 $("#CantidadMess").hide();
+$("#StockNegativo").hide();
 
 
 
@@ -33,6 +34,8 @@ function Cerrar() {
     $("#Mensaje").hide();
     $("#artiMess").hide();
     $("#CantidadMess").hide();
+    $("#StockNegativo").hide();
+    window.location.reload();
 }
 
 
@@ -52,7 +55,11 @@ function AbrirModal(art_ID) {
                 $("#txtArtiC").val(value.art_Descripcion);
                 $("#fab_ID").val(value.fab_ID);
                 $("#txtExistencia").val(value.art_Stock);
-             
+
+                $("#artiMess").hide();
+                $("#CantidadMess").hide();
+                $("#StockNegativo").hide();
+
             })
 
 
@@ -76,46 +83,58 @@ function Editar(x) {
 
     console.log(ID);
 
-    if ((stock != "" || stock != null) && (articulo != "" || articulo != null)) {
+    if (stock != "" && articulo != "") {
+
+        var stocknegativo = parseInt(stock);
+        if (stocknegativo < 0) {
+            $("#StockNegativo").show();
+            $("#txtExistencia").focus();
+        }
+        else {
+            $.ajax({
+                url: "/Articulos/Editores",
+                method: "POST",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({ ID: ID, articulo: articulo, fabrica: fabrica, stock: stock }),
+                success: function (data) {
+
+                    $("#artiMess").hide();
+                    $("#CantidadMess").hide();
+                    $("#StockNegativo").hide();
+                    window.location.reload();
+                }
+
+            })
+            $("#artiMess").hide();
+            $("#CantidadMess").hide();
+            $("#StockNegativo").hide();
+            window.location.reload();
+        }
+
         
-        $.ajax({
-            url: "/Articulos/Editores",
-            method: "POST",
-            dataType: "json",
-            contentType: "application/json; charset=utf-8",
-            data: JSON.stringify({ ID: ID, articulo: articulo, fabrica: fabrica, stock: stock }),
-            success: function (data) {
+    }
+    else {
+
+        if (articulo == "" || articulo == null) {
+            $("#Mensaje").hide();
+            $("#txtArtiC").focus();
+            $("#artiMess").show();
 
 
-                window.location.reload();
+        }
+        if (stock == "" || stock == null) {
+            $("#Mensaje").hide();
+            $("#CantidadMess").show();
+            $("#txtExistencia").focus();
 
-            }
 
-        })
-        $("#Mensaje").show();
-        $('#FormModal').modal('hide');
+        }
 
-         window.location.reload();
     }
 
-   
-
-    if (articulo == "" || articulo == null) {
-        $("#Mensaje").hide();
-        $("#artiMess").hide();
-        $("#txtArtiC").focus();
-        $("#CantidadMess").show();
 
 
-    }
-    if (stock == "" || stock == null) {
-        $("#Mensaje").hide();
-        $("#artiMess").hide();
-        $("#CantidadMess").show();
-        $("#txtExistencia").focus();
 
 
-    }
- 
 }
-

@@ -19,26 +19,33 @@
                 <img src="https://cdn.dribbble.com/users/1200451/screenshots/8759739/ezgif.com-optimize.gif" width="150" />
             </div>
             <div class="modal-body" style="padding:40px 50px;">
-
-                <label id="lblArticulo" style="color:red; display:none">*</label>
-                <label style="color:black; font-size:15px">Ingrese el artículo</label><br />
-                <input type="text" name="txtArt" id="txtArt" class="form-control" style="border-color:black" />
-
-                <label id="lblStock" style="color:red; display:none">*</label>
-                <label style="color:black; font-size:15px">Ingrese el stock</label><br />
-                <input type="number" min="0" name="txtStock" id="txtStock" class="form-control" style="border-color:black" />
-
-                <label id="lblfabrica" style="color:red; display:none">*</label>
-                <label style="color:black; font-size:15px">Escoja la Fábrica</label>
-                <select id="fabrica_ID" name="fabrica_ID" class="form-control" style="border-color:black">
-                </select>
-
+                <div class="row">
+                    <div class="col-md-6">
+                        <label id="lblArticulo" style="color:red; display:none">*</label>
+                        <label style="color:black">Ingrese el artículo</label><br />
+                        <input type="text" name="txtArt" id="txtArt" class="form-control" style="border-color:black" />
+                    </div>
+                    <div class="col-md-6">
+                        <label id="lblStock" style="color:red; display:none">*</label>
+                        <label style="color:black">Ingrese el stock</label><br />
+                        <label id="lblStock2" style="color:red; display:none">* El valor no puede ser menor a 0.</label>
+                        <input type="number" min="0" name="txtStock" id="txtStock" class="form-control" style="border-color:black" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label id="lblfabrica" style="color:red; display:none">*</label>
+                        <label style="color:black">Escoja la Fábrica</label>
+                        <select id="fabrica_ID" name="fabrica_ID" class="form-control" style="border-color:black">
+                        </select>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" id="btnCancelar" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <a id="btn-insertar" onclick="Insertar()" class="btn btn-warning">Insertar</a>
+                <button type="button" id="btn-insertar" onclick="Insertar()" class="btn btn-warning">Insertar</button>
             </div>
         </div>
     </div>
 </div>
-<script src="~/Scripts/CrearArticulos.js"></script>
+<script src="~/Scripts/CrearArt.js"></script>
