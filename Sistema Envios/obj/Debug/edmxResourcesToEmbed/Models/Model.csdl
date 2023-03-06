@@ -307,9 +307,11 @@
   <EntityType Name="V_INDEX_CIUDADES">
     <Key>
       <PropertyRef Name="ID" />
+      <PropertyRef Name="DEPARTAMENTO" />
       <PropertyRef Name="NOMBRE_CIUDAD" />
     </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="DEPARTAMENTO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="NOMBRE_CIUDAD" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
   <EntityType Name="V_INDEX_CLIENTES">
