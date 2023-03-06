@@ -1,0 +1,126 @@
+﻿
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <h4>tbEmpleados</h4>
+    <hr />
+    @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.emp_Id)*@
+    <div class="card-header bg-warning">
+        <div class="text-center">
+            <h4 style="color:azure">Editar</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>Nombre</label>
+                @*@Html.LabelFor(model => model.emp_Name, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-10">
+                    <input type="text" id="emp_Name" name="empName" />
+                    @*@Html.EditorFor(model => model.emp_Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.emp_Name, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>Cargo</label>
+                <div class="col-md-10">
+                    <select id="cargo_Des" name="cargo_Des" class="form-control"></select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>Apellidos</label>
+                <div class="col-md-10">
+                    @*<input type="text" id="emp_Apellido" name="emp_Apellido" class="form-control" value="@Model.emp_Name" />*@
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>Identidad</label>
+                <div class="col-md-10">
+                    @*<input type="number" id="emp_Apellido" name="emp_Apellido" class="form-control" value="@Model.emp_DNI" />*@
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>Fecha Nacimiento</label>
+                <div class="col-md-10">
+                    @*<input type="datetime" id="emp_Apellido" name="emp_Apellido" class="form-control" value="@Model.emp_FechaNac" />*@
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>Ciudad Actual</label>
+                <div class="col-md-10">
+                    <select id="ciudad_Act" name="ciudad_Act" class="form-control">
+                    </select>
+                    @*<input type="text" id="ciudad_II" name="ciudad_II" disabled value="@Model.ciu_ID" />*@
+
+                    @*@Html.DropDownList("ciu_ID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ciu_ID, "", new { @class = "text-danger" })*@
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.est_ID, "est_ID", htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-10">
+                    @*@Html.DropDownList("est_ID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.est_ID, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-6">
+
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.emp_Sexo, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-10">
+                    @*@Html.EditorFor(model => model.emp_Sexo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.emp_Sexo, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.carg_Id, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-10">
+                    @*@Html.EditorFor(model => model.carg_Id, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.carg_Id, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+        <script src="~/Scripts/EditarEmpleados.js"></script>
+    </div>
+
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

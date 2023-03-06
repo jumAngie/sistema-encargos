@@ -2373,5 +2373,19 @@ GO
 
 ----------------------------
 
+----------------- ADD
+GO
+CREATE OR ALTER PROCEDURE UDP_CargarCiudad_Empleados
+@ciu_ID    INT
+AS
+BEGIN
+SELECT [ciu_ID], [ciu_Descripcion] FROM [dbo].[tbCiudades]
+WHERE [ciu_ID] = @ciu_ID
+
+END
+
+GO
+
+--EXEC UDP_CargarCiudad_Empleados 10
 
 

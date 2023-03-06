@@ -663,5 +663,13 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="CARGAR_DESCRIPCION_CARGO" FunctionName="DBArticulosEncargosModel.Store.CARGAR_DESCRIPCION_CARGO" />
+    <FunctionImportMapping FunctionImportName="UDP_CargarCiudad_Empleados" FunctionName="DBArticulosEncargosModel.Store.UDP_CargarCiudad_Empleados">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CargarCiudad_Empleados_Result">
+          <ScalarProperty Name="ciu_ID" ColumnName="ciu_ID" />
+          <ScalarProperty Name="ciu_Descripcion" ColumnName="ciu_Descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

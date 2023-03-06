@@ -111,6 +111,8 @@ namespace Sistema_Envios.Controllers
 
             ViewBag.ciu_ID = new SelectList(db.tbCiudades, "ciu_ID", "ciu_Descripcion", tbEmpleados.ciu_ID);
             ViewBag.est_ID = new SelectList(db.tbEstadosCiviles, "est_ID", "est_Descripcion", tbEmpleados.est_ID);
+            ViewBag.carg_Id = new SelectList(db.tbCargos, "carg_Id", "carg_Description", tbEmpleados.carg_Id);
+
             return View(tbEmpleados);
         }
 
@@ -126,17 +128,21 @@ namespace Sistema_Envios.Controllers
             ModelState.Remove("emp_FechaCrea");
             ModelState.Remove("emp_FechaModif");
             ModelState.Remove("emp_Estado");
-           
+
 
             if (ModelState.IsValid)
             {
                 db.UDP_Editar_Empleados(tbEmpleados.emp_Id, tbEmpleados.emp_Name, tbEmpleados.emp_Apellido, tbEmpleados.emp_DNI, tbEmpleados.emp_FechaNac, tbEmpleados.ciu_ID, tbEmpleados.est_ID, tbEmpleados.emp_Sexo, tbEmpleados.carg_Id, Usu).ToString();
                 return RedirectToAction("Index");
             }
-            //ViewBag.ciu_ID = new SelectList(db.tbCiudades, "ciu_ID", "ciu_Descripcion", tbEmpleados.ciu_ID);
+            ViewBag.ciu_ID = new SelectList(db.tbCiudades, "ciu_ID", "ciu_Descripcion", tbEmpleados.ciu_ID);
             ViewBag.est_ID = new SelectList(db.tbEstadosCiviles, "est_ID", "est_Descripcion", tbEmpleados.est_ID);
-            return View(tbEmpleados);
+            ViewBag.carg_Id = new SelectList(db.tbCargos, "carg_Id", "carg_Description", tbEmpleados.carg_Id);
+            return RedirectToAction("Index");
         }
+
+
+
 
         // GET: Empleados/Delete/5
         public ActionResult Delete(int id)
@@ -185,12 +191,13 @@ namespace Sistema_Envios.Controllers
             return Json(ddl, JsonRequestBehavior.AllowGet);
         }
 
-        //[HttpPost]
-        //public JsonResult CargarCargosDescripcion(string cargo_Id)
-        //{
-        //    var des = db.CARGAR_DESCRIPCION_CARGO(int.Parse(cargo_Id)).ToList();
-        //    return Json(des, JsonRequestBehavior.AllowGet);
-        //}
+
+        [HttpPost]
+        public JsonResult CargarCiudadDescripcion(string ciu_Id)
+        {
+            var des = db.UDP_CargarCiudad_Empleados(int.Parse(ciu_Id)).ToList();
+            return Json(des, JsonRequestBehavior.AllowGet);
+        }
 
 
         public JsonResult CargarEstadosCivilesEdit()
@@ -224,9 +231,13 @@ namespace Sistema_Envios.Controllers
 
         }
 
+        //public ActionResult Editando()
+        //{
+        //    return View();
+        //}
 
 
-        ////PENDDIEN.
+        //PENDDIEN.
         //[HttpPost]
         //public JsonResult Cargar(string emp_Id)
         //{
