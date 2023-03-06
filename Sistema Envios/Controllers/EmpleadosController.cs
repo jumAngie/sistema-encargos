@@ -61,16 +61,33 @@ namespace Sistema_Envios.Controllers
         // POST: Empleados/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(string emp_Name, string emp_Apellido, string emp_DNI, DateTime emp_FechaNac, string ciu_ID, string est_ID, string emp_Sexo, string carg_Id)
+        public ActionResult Create(string emp_Name, string emp_Apellido, string emp_DNI, DateTime? emp_FechaNac, string ciu_ID, string depto_ID, string emp_Sexo, string carg_Id, string Id_Estado)
         {
+            int UsuCrea = int.Parse(Session["UsuarioID"].ToString());
             try
             {
                 if (ModelState.IsValid)
                 {
-                    db.UDP_EMPLEADOS_INSERT(emp_Name, emp_Apellido, emp_DNI, emp_FechaNac, Convert.ToInt32(ciu_ID), est_ID, emp_Sexo, Convert.ToInt32(carg_Id), 1);
-                    return RedirectToAction("Index");
+                   
+
+                    if (emp_Name    == ""){ ModelState.AddModelError("ValidacionN", "El Campo Nombre no debe estar vacio!");}
+                    if (emp_Apellido  == "") { ModelState.AddModelError("ValidacionA", "El Campo Apellido no debe estar vacio!"); }
+                    if (emp_DNI   == "") { ModelState.AddModelError("ValidacionD", "El Campo Identidad no debe estar vacio!"); }
+                    if (emp_FechaNac == null) { ModelState.AddModelError("ValidacionF", "El Campo Fecha Nacimiento no debe estar vacio!"); }
+                    if (ciu_ID  == "0") { ModelState.AddModelError("ValidacionCIU", "El Campo Ciudad no debe estar vacio!"); }
+                    if (emp_Sexo == "") { ModelState.AddModelError("ValidacionSEX", "El Campo no debe estar vacio1"); }
+                    if (carg_Id  == "0") { ModelState.AddModelError("ValidacionCARG", "El Campo Cargo no debe estar vacio!"); }
+                    if (Id_Estado  == "0") { ModelState.AddModelError("ValidacionEST", "El Campo EStado Civil no debe estar vacio!"); }
+                    if(depto_ID == "0") { ModelState.AddModelError("ValidacionDEP", "El Campo Departamento es requerido!"); }
+                    if(emp_Name != "" && emp_Apellido != "" && emp_FechaNac != null && emp_DNI != "" && ciu_ID != "0" && carg_Id != "0" && Id_Estado != "0" && emp_Sexo != "" && depto_ID != "0")
+                    {
+                        db.UDP_EMPLEADOS_INSERT(emp_Name, emp_Apellido, emp_DNI, emp_FechaNac, Convert.ToInt32(ciu_ID), Id_Estado, emp_Sexo, Convert.ToInt32(carg_Id), UsuCrea);
+                        return RedirectToAction("Index");
+                        
+                    }
                 }
             }
             catch (Exception)
@@ -133,12 +150,27 @@ namespace Sistema_Envios.Controllers
             return RedirectToAction("Index");
         }
 
+        public JsonResult cargarDeptos()
+        {
+            var ddl = db.UDP_CargarDepartamentos().ToList();
+            return Json(ddl, JsonRequestBehavior.AllowGet);
+        }
+
+
+
         public JsonResult CargarMunicipios (string depto_ID)
         {
             var ddl = db.UDP_CargarCiudades(depto_ID).ToList();
 
             return Json(ddl, JsonRequestBehavior.AllowGet);
 
+        }
+
+
+        public JsonResult CargarEstadosCiviles()
+        {
+            var ddlEs = db.UDP_CargarEstadosCiviles().ToList();
+            return Json(ddlEs, JsonRequestBehavior.AllowGet);
         }
 
         protected override void Dispose(bool disposing)
