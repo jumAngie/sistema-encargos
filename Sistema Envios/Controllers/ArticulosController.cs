@@ -20,31 +20,51 @@ public class ArticulosController : Controller
     // GET: Articulos
     public ActionResult Index()
         {
-            if(Session.Count > 0)
+            try
             {
-                var tbArticulosIndex = db.V_INDEX_ARTICULOS;
-                return View(tbArticulosIndex.ToList());
+                if (Session.Count > 0)
+                {
+                    var tbArticulosIndex = db.V_INDEX_ARTICULOS;
+                    return View(tbArticulosIndex.ToList());
 
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Login");
+                }
             }
-            else
+            catch (Exception)
             {
-                return RedirectToAction("Index", "Login");
+
+                return RedirectToAction("Index", "Login"); // acá va la pagina del 404
             }
+            
+
         }
 
         // GET: Articulos/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            try
             {
-                return RedirectToAction("Index", "Articulos");
+                if (id == null)
+                {
+                    return RedirectToAction("Index", "Articulos");
+                }
+                tbArticulos tbArticulosDetails = db.tbArticulos.Find(id);
+                if (tbArticulosDetails == null)
+                {
+                    return HttpNotFound(); // acá vamos a redireccionar a la pagina 404
+                }
+                return View(tbArticulosDetails);
+
             }
-            tbArticulos tbArticulosDetails = db.tbArticulos.Find(id);
-            if (tbArticulosDetails == null)
+            catch (Exception)
             {
-                return HttpNotFound(); // acá vamos a redireccionar a la pagina 404
+                return RedirectToAction("Index", "Articulos"); // acá iria la pagina 404
+
             }
-            return View(tbArticulosDetails);
+            
         }
         
 
@@ -97,15 +117,13 @@ public class ArticulosController : Controller
         public ActionResult Edito(string ID, string articulo, string fabrica, string stock)
 
         {
-           string UsuarioModi = Session["UsuarioID"].ToString();
-
             try
             {
+                string UsuarioModi = Session["UsuarioID"].ToString();
                 if (ModelState.IsValid)
                 {
                     if(articulo != "" && stock != "")
                     {                
-                    //string id = Session["IdUsuario"].ToString();
                     var Edit = db.UDP_Editar_Articulos(int.Parse(ID), articulo, int.Parse(fabrica), int.Parse(stock), UsuarioModi);
                    
                     }
@@ -124,10 +142,20 @@ public class ArticulosController : Controller
 
             return RedirectToAction("Index");
         }
+
          public ActionResult Delete(int id)
         {
-            db.UDP_Eliminar_Articulos(id, Session["UsuarioID"].ToString());
-            return RedirectToAction("Index");
+            try
+            {
+                db.UDP_Eliminar_Articulos(id, Session["UsuarioID"].ToString());
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Index");
+
+            }
+            
         }
 
         public JsonResult CargarFabricasCrear()
