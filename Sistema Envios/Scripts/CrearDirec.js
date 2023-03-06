@@ -1,4 +1,11 @@
-﻿$(document).ready(function () {
+﻿$("#lblClienteID").hide();
+$("#lblDirec").hide();
+$("#lblDep_ID").hide();
+$("#lblCiu_ID").hide();
+
+
+
+$(document).ready(function () {
     var client_ID = $("#client_ID").val();
     $.ajax({
         url: "/Direcciones/CargarCliente",
@@ -57,6 +64,10 @@ $("#dep_ID").change(function () {
 
 $(function () {
     $('#btnCancelar').click(function () {
+        $("#lblClienteID").hide();
+        $("#lblDirec").hide();
+        $("#lblDep_ID").hide();
+        $("#lblCiu_ID").hide();
         $('#Direc').modal('hide');
     });
 });
@@ -67,14 +78,60 @@ $(function () {
     });
 });
 
-//function Insertar() {
-//    var id = $("#txtCargo").val()
-//    $.ajax({
-//        url: "/Cargos/Create",
-//        method: "POST",
-//        data: { txtCargo: id },
-//        success: function (data) {
-//            window.location.reload();
-//        }
-//    })
-//}
+function Insertar() {
+    var client_ID = $("#client_ID").val();
+    var txtDirec = $("#txtDirec").val();
+    var dep_ID = $("#dep_ID").val();
+    var ciu_ID = $("#ciu_ID").val();
+
+    if (client_ID != "0" && txtDirec != "" && dep_ID != "0" && ciu_ID != "0") {
+
+        $("#lblClienteID").hide();
+        $("#lblDirec").hide();
+        $("#lblDep_ID").hide();
+        $("#lblCiu_ID").hide();
+
+        $.ajax({
+            url: "/Direcciones/Create",
+            method: "POST",
+            data: { client_ID: client_ID, txtDirec: txtDirec, dep_ID: dep_ID, ciu_ID: ciu_ID },
+            success: function (data) {
+                window.location.reload();
+            }
+        })
+    }
+    else {
+
+        if (client_ID == "0") {
+            $("#lblClienteID").show();
+        }
+        if (dep_ID == "0") {
+            $("#lblDep_ID").show();
+        }
+        if (ciu_ID == "0" || ciu_ID == "" || ciu_ID == null) {
+            $("#lblCiu_ID").show();
+        }
+        if (txtDirec == "") {
+            $("#lblDirec").show();
+        }
+
+
+        if (client_ID != "0") {
+            $("#lblClienteID").hide();
+        }
+        if (dep_ID != "0") {
+            $("#lblDep_ID").hide();
+        }
+        if (ciu_ID != "0" && ciu_ID != null) {
+            $("#lblCiu_ID").hide();
+        }
+        if (txtDirec != "") {
+            $("#lblDirec").hide();
+        }
+
+    }
+
+
+
+
+}

@@ -1,3 +1,6 @@
+
+AÑADIR: // PANTALLA DE 404 (TIENEN Q SER PERSONALIZADAS) PARA COLOCARLA EN LOS TRY CATCH //
+
 LOGIN: 
 -- Los modelStateError tienen que ser diferentes.
 

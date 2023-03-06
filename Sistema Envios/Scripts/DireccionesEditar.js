@@ -115,7 +115,7 @@ function ObtenerId(direc_ID) {
         data: JSON.stringify({ direc_ID: direc_ID }),
         success: function (data) {
             console.log(data);
-
+            $("#mensaje1").hide();
             $('#FormModal').modal('show');
 
             $.each(data, function (i, value) {
@@ -159,7 +159,7 @@ function Editar(x) {
         data: JSON.stringify({ ID: ID, cliente: cliente, direccion: direccion, ciudad: ciudad }),
         success: function (data) {
 
-
+            $("#mensaje1").show();
             window.location.reload();
 
         }
@@ -171,7 +171,6 @@ function Editar(x) {
         $("#txtDireccion").focus();
     }
     else {
-
 
         $('#FormModal').modal('hide');
         window.location.reload();

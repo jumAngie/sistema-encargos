@@ -3528,7 +3528,7 @@
     <Content Include="Scripts\CrearCarg.js" />
     <Content Include="Scripts\CrearClientes.js" />
     <Content Include="Scripts\CrearDepartamentos.js" />
-    <Content Include="Scripts\CrearDirecciones.js" />
+    <Content Include="Scripts\CrearDirec.js" />
     <Content Include="Scripts\CrearEmpleado.js" />
     <Content Include="Scripts\CrearEstadoC.js" />
     <Content Include="Scripts\CrearFab.js" />
@@ -3586,10 +3586,7 @@
     <Content Include="Views\Departamentos\Create.cshtml" />
     <Content Include="Views\Departamentos\Delete.cshtml" />
     <Content Include="Views\Departamentos\Details.cshtml" />
-    <Content Include="Views\Direcciones\Create.cshtml" />
-    <Content Include="Views\Direcciones\Delete.cshtml" />
     <Content Include="Views\Direcciones\Details.cshtml" />
-    <Content Include="Views\Direcciones\Edit.cshtml" />
     <Content Include="Views\Fabricas\Details.cshtml" />
     <Content Include="Views\PedidoDetalles\Delete.cshtml" />
     <Content Include="Views\PedidoDetalles\Details.cshtml" />
