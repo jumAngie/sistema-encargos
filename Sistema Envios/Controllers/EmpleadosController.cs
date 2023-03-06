@@ -121,7 +121,7 @@ namespace Sistema_Envios.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "emp_Id,emp_Name,emp_Apellido,emp_DNI,emp_FechaNac,depto_ID,ciu_ID,est_ID,emp_Sexo,carg_Id,emp_UsuarioCrea,emp_FechaCrea,emp_UsuModif,emp_FechaModif,emp_Estado")] tbEmpleados tbEmpleados)
         {
-
+            int UsuModif = int.Parse(Session["UsuarioID"].ToString());
             ModelState.Remove("emp_UsuarioCrea");
             ModelState.Remove("emp_FechaCrea");
             ModelState.Remove("emp_FechaModif");
@@ -133,7 +133,7 @@ namespace Sistema_Envios.Controllers
                 db.UDP_Editar_Empleados(tbEmpleados.emp_Id, tbEmpleados.emp_Name, tbEmpleados.emp_Apellido, tbEmpleados.emp_DNI, tbEmpleados.emp_FechaNac, tbEmpleados.ciu_ID, tbEmpleados.est_ID, tbEmpleados.emp_Sexo, tbEmpleados.carg_Id, Usu).ToString();
                 return RedirectToAction("Index");
             }
-            ViewBag.ciu_ID = new SelectList(db.tbCiudades, "ciu_ID", "ciu_Descripcion", tbEmpleados.ciu_ID);
+            //ViewBag.ciu_ID = new SelectList(db.tbCiudades, "ciu_ID", "ciu_Descripcion", tbEmpleados.ciu_ID);
             ViewBag.est_ID = new SelectList(db.tbEstadosCiviles, "est_ID", "est_Descripcion", tbEmpleados.est_ID);
             return View(tbEmpleados);
         }
