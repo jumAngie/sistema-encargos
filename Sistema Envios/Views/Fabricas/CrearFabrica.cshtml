@@ -1,24 +1,43 @@
 ﻿<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    .modal-header, h4 {
+        background-color: #ffffff;
+        text-align: center;
+        font-size: 22px;
+    }
 
+    .modal-footer {
+        background-color: white;
+    }
+</style>
 <div class="modal fade" id="Fabricas" tabindex="-1" role="dialog" aria-labelledby="Crear-Fabricas" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="crear-fabricas">Fabricas</h5>
+            <div class="modal-header" style="padding:35px 50px;">
+                <h3 class="modal-title" id="crear-fabricas">Añadir Fábricas</h3>
+                <img src="https://cdn.dribbble.com/users/1200451/screenshots/8759739/ezgif.com-optimize.gif" width="150" />
             </div>
-            <div class="modal-body">
-                <label>Ingrese el nombre de la fábrica</label>
-                <input type="text" name="txtFabrica" id="txtFabrica" class="form-control" />
-                <label>Ingrese el teléfono de la fábrica</label>
-                <input type="text" name="txtTelefono" id="txtTelefono" class="form-control" />
-            </div>
-            <div class="modal-footer">
-                <button type="button" id="btnCancelar" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <a id="btn-insertar" onclick="Insertar()" class="btn btn-danger">Insertar</a>
+            <div class="modal-body" style="padding:40px 50px;">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label id="lblNombre" style="color:red; display:none">*</label>
+                        <label>Nombre de la fábrica</label>
+                        <input type="text" name="txtFab" id="txtFab" class="form-control" style="border-color:black" />
+                    </div>
+                    <div class="col-md-6">
+                        <label id="lblTelefono" style="color:red; display:none">*</label>
+                        <label>Teléfono de la fábrica</label>
+                        <label id="lblTeleLetra" style="color:red">Formato incorrecto.</label>
+                        <input type="text" name="txtTel" id="txtTel" class="form-control" style="border-color:black" />
+                    </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnCancelar" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <a id="btn-insertar" onclick=" Insertar()" class="btn btn-warning">Insertar</a>
+                </div>
             </div>
         </div>
-    </div>
 </div>
-
-<script src="~/Scripts/CrearFabrica.js"></script>
+<script src="~/Scripts/CrearFab.js"></script>
