@@ -850,6 +850,9 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
         <Function Name="UDP_CARGAR_FABRICASArtc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="UDP_CARGAR_MUNICIPIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="UDP_CargarArticulos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="UDP_CargarCiudad_Empleados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ciu_ID" Type="int" Mode="In" />
+        </Function>
         <Function Name="UDP_CargarCiudades" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ciu_DeptoID" Type="varchar" Mode="In" />
         </Function>
@@ -2418,6 +2421,9 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <FunctionImport Name="UDP_CARGAR_FABRICASArtc" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGAR_FABRICASArtc_Result)" />
           <FunctionImport Name="UDP_CARGAR_MUNICIPIO" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGAR_MUNICIPIO_Result)" />
           <FunctionImport Name="UDP_CargarArticulos" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarArticulos_Result)" />
+          <FunctionImport Name="UDP_CargarCiudad_Empleados" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarCiudad_Empleados_Result)">
+            <Parameter Name="ciu_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="UDP_CargarCiudades" ReturnType="Collection(DBArticulosEncargosModel.UDP_CargarCiudades_Result)">
             <Parameter Name="ciu_DeptoID" Mode="In" Type="String" />
           </FunctionImport>
@@ -2714,6 +2720,10 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
         <ComplexType Name="UDP_CargarArticulos_Result">
           <Property Type="Int32" Name="art_ID" Nullable="false" />
           <Property Type="String" Name="art_Descripcion" Nullable="false" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="UDP_CargarCiudad_Empleados_Result">
+          <Property Type="Int32" Name="ciu_ID" Nullable="false" />
+          <Property Type="String" Name="ciu_Descripcion" Nullable="false" MaxLength="255" />
         </ComplexType>
         <ComplexType Name="UDP_CargarCiudades_Result">
           <Property Type="Int32" Name="ciu_ID" Nullable="false" />
@@ -3249,6 +3259,14 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
               <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CargarArticulos_Result">
                 <ScalarProperty Name="art_ID" ColumnName="art_ID" />
                 <ScalarProperty Name="art_Descripcion" ColumnName="art_Descripcion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_CargarCiudad_Empleados" FunctionName="DBArticulosEncargosModel.Store.UDP_CargarCiudad_Empleados">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CargarCiudad_Empleados_Result">
+                <ScalarProperty Name="ciu_ID" ColumnName="ciu_ID" />
+                <ScalarProperty Name="ciu_Descripcion" ColumnName="ciu_Descripcion" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

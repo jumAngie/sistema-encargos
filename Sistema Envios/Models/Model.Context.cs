@@ -163,6 +163,15 @@ namespace Sistema_Envios.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CargarArticulos_Result>("UDP_CargarArticulos");
         }
     
+        public virtual ObjectResult<UDP_CargarCiudad_Empleados_Result> UDP_CargarCiudad_Empleados(Nullable<int> ciu_ID)
+        {
+            var ciu_IDParameter = ciu_ID.HasValue ?
+                new ObjectParameter("ciu_ID", ciu_ID) :
+                new ObjectParameter("ciu_ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CargarCiudad_Empleados_Result>("UDP_CargarCiudad_Empleados", ciu_IDParameter);
+        }
+    
         public virtual ObjectResult<UDP_CargarCiudades_Result> UDP_CargarCiudades(string ciu_DeptoID)
         {
             var ciu_DeptoIDParameter = ciu_DeptoID != null ?
