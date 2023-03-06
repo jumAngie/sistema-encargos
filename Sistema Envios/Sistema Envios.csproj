@@ -231,6 +231,9 @@
     <Compile Include="Models\UDP_CargarCiudades_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UDP_CargarCiudad_Empleados_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UDP_CARGARCLIENTES_DIRECCIONESEdit_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -277,6 +280,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UDP_CARGAR_CIUDAD_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UDP_CARGAR_DATOS_EMPLEADOS_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UDP_CARGAR_DEPARTAMENTO_Result.cs">
@@ -3640,6 +3646,7 @@
     <Content Include="Views\Usuarios\CrearUsuario.cshtml" />
     <Content Include="Views\Clientes\DetallePorPedido.cshtml" />
     <Content Include="Views\Clientes\Crear.cshtml" />
+    <Content Include="Views\Empleados\Editando.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

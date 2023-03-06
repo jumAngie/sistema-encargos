@@ -1,5 +1,28 @@
 ﻿
 
+console.log($("#ciu_Id").val());
+
+$(document).ready(function () {
+    var ciu_Id = $("#ciu_Id").val();
+    $.ajax({
+        url: "/Empleados/CargarCiudadDescripcion",
+        method: "POST",
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({ ciu_Id: ciu_Id }),
+        success: function (data) {
+            $.each(data, function (i, value) {
+
+                $("#Ciudad").append("<option value='" + value.ciu_ID + "'>" + value.ciu_Descripcion + "</option>")
+            })
+        }
+    })
+
+})
+
+
+
+
 //$(document).ready(function () {
 //    var carg_Id = $("#cargo").val();
 //    $.ajax({
@@ -20,88 +43,97 @@
 
 
 
-$(document).ready(function () {
-    var ciudad_Act = $("#ciudad_Act").val();
-    $.ajax({
-        url: "/Empleados/CargarMUNIedit",
-        method: "POST",
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-        data: JSON.stringify({ ciudad_Act: ciudad_Act }),
-        success: function (data) {
-            $.each(data, function (i, value) {
+//$(document).ready(function () {
+//    var ciudad_Act = $("#ciudad_Act").val();
+//    $.ajax({
+//        url: "/Empleados/CargarMUNIedit",
+//        method: "POST",
+//        dataType: "json",
+//        contentType: "application/json; charset=utf-8",
+//        data: JSON.stringify({ ciudad_Act: ciudad_Act }),
+//        success: function (data) {
+//            $.each(data, function (i, value) {
 
-                $("#ciudad_Act").append("<option value='" + value.ciu_ID + "'>" + value.ciu_Descripcion + "</option>")
-            })
-        }
-    })
-})
+//                $("#ciudad_Act").append("<option value='" + value.ciu_ID + "'>" + value.ciu_Descripcion + "</option>")
+//            })
+//        }
+//    })
+//})
 
-var ciudad = $("#ciudad_II").val();
+//var ciudad = $("#ciudad_II").val();
 
-$("#ciudad_Act").val(ciudad);
+//$("#ciudad_Act").val(ciudad);
 
-console.log(ciudad);
+//console.log(ciudad);
 
 
 
-$(document).ready(function () {
+//$(document).ready(function () {
 
-    var cargo_Des = $("#cargo_Des").val();
-    $.ajax({
-        url: "/Empleados/CargarCargosEdit",
-        method: "POST",
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-        data: JSON.stringify({ cargo_Des: cargo_Des }),
-        success: function (data) {
-            $.each(data, function (i, value) {
+//    var cargo_Des = $("#cargo_Des").val();
+//    $.ajax({
+//        url: "/Empleados/CargarCargosEdit",
+//        method: "POST",
+//        dataType: "json",
+//        contentType: "application/json; charset=utf-8",
+//        data: JSON.stringify({ cargo_Des: cargo_Des }),
+//        success: function (data) {
+//            $.each(data, function (i, value) {
 
-                $("#cargo_Des").append("<option value='" + value.carg_Id + "'>" + value.carg_Description + "</option>")
-            })
+//                $("#cargo_Des").append("<option value='" + value.carg_Id + "'>" + value.carg_Description + "</option>")
+//            })
           
-        }
-    })
+//        }
+//    })
 
-})
+//})
 
-//$("#cargo_Des").val() = $("#cargo_Id").val();
+////$("#cargo_Des").val() = $("#cargo_Id").val();
 
-$(document).ready(function () {
-    var depa = $("#depa").val();
-    $.ajax({
-        url: "/Empleados/cargarDeptosEdit",
-        method: "POST",
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-        data: JSON.stringify({ depa: depa }),
-        success: function (data) {
-            $.each(data, function (i, value) {
+//$(document).ready(function () {
+//    var depa = $("#depa").val();
+//    $.ajax({
+//        url: "/Empleados/cargarDeptosEdit",
+//        method: "POST",
+//        dataType: "json",
+//        contentType: "application/json; charset=utf-8",
+//        data: JSON.stringify({ depa: depa }),
+//        success: function (data) {
+//            $.each(data, function (i, value) {
 
-                $("#depa").append("<option value='" + value.depa + "'>" + value.depto_Descripcion + "</option>")
-            })
-        }
-    })
-})
+//                $("#depa").append("<option value='" + value.depa + "'>" + value.depto_Descripcion + "</option>")
+//            })
+//        }
+//    })
+//})
 
-$("#depa").change(function () {
+//$("#depa").change(function () {
 
-    var depa = $("#depa").val();
-    $.ajax({
-        url: "/Empleados/CargarMunicipiosEdit",
-        method: "POST",
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-        data: JSON.stringify({ depa: depa }),
-        success: function (data) {
-            $("#ciudad").empty();
+//    var depa = $("#depa").val();
+//    $.ajax({
+//        url: "/Empleados/CargarMunicipiosEdit",
+//        method: "POST",
+//        dataType: "json",
+//        contentType: "application/json; charset=utf-8",
+//        data: JSON.stringify({ depa: depa }),
+//        success: function (data) {
+//            $("#ciudad").empty();
 
-            $.each(data, function (i, value) {
-                $("#ciudad").append("<option value='" + value.ciu_ID + "'>" + value.ciu_Descripcion + "</option>")
-            })
-        }
-    })
-})
+//            $.each(data, function (i, value) {
+//                $("#ciudad").append("<option value='" + value.ciu_ID + "'>" + value.ciu_Descripcion + "</option>")
+//            })
+//        }
+//    })
+//})
+
+
+
+
+
+
+
+
+
 
 
 //$(document).ready(function () {
@@ -124,22 +156,22 @@ $("#depa").change(function () {
 
 
 
-//function cargar(art_ID) {
+//function cargar(emp_Id) {
 
 //    $.ajax({
-//        url: "/Articulos/Cargar",
+//        url: "/Empleados/Cargar",
 //        method: "POST",
 //        dataType: "json",
 //        contentType: "application/json; charset=utf-8",
 //        data: JSON.stringify({ art_ID: art_ID }),
 //        success: function (data) {
 //            console.log(data);
-//            $('#FormModal').modal('show');
+//         /*   $('#FormModal').modal('show');*/
 //            $.each(data, function (i, value) {
-//                $("#art_ID").val(value.art_ID);
-//                $("#txtArtiC").val(value.art_Descripcion);
-//                $("#fab_ID").val(value.fab_ID);
-//                $("#txtExistencia").val(value.art_Stock);
+//                $("#emp_Name").val(value.emp_Name);
+//                //$("#txtArtiC").val(value.art_Descripcion);
+//                //$("#fab_ID").val(value.fab_ID);
+//                //$("#txtExistencia").val(value.art_Stock);
 
 //            })
 
