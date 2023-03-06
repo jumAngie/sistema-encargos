@@ -102,17 +102,17 @@ namespace Sistema_Envios.Controllers
                 if (ModelState.IsValid)
                 {
                     string usuario = Session["UsuarioID"].ToString();
-                    if (txtNombre != "" && txtDescuento != "" && (int.Parse(txtCredito) <3000000) && txtTelefono != "" && txtIdentidad != "" && txtSaldo != "" && sexo != "" && Id_Estado != "" )
-                    {
+                    //if (txtNombre != "" && txtDescuento != "" && (int.Parse(txtCredito) <3000000) && txtTelefono != "" && txtIdentidad != "" && txtSaldo != "" && sexo != "" && Id_Estado != "" )
+                    //{
                         //string id = Session["IdUsuario"].ToString();
                         db.UDP_InsertClientes(txtNombre, txtIdentidad, Id_Estado, sexo, txtTelefono, txtSaldo, int.Parse(txtCredito), txtDescuento, int.Parse(usuario));
 
                         return RedirectToAction("Index");
-                    }
-                    else
-                    {
-                        return RedirectToAction("Index");
-                    }
+                    //}
+                    //else
+                    //{
+                    //    return RedirectToAction("Index");
+                    //}
                 }
                 else
                 {

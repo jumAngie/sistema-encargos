@@ -2357,3 +2357,18 @@ BEGIN
 							 NULL, 
 							 1)
 END
+
+
+
+------------------- anadir base de datos
+GO
+   ALTER   PROCEDURE [dbo].[UDP_CargarCiudades]
+	@ciu_DeptoID		VARCHAR(30)
+   AS
+   BEGIN
+   SELECT '0' AS ciu_ID, ' Seleccione una ciudad' AS ciu_Descripcion
+	UNION ALL
+	SELECT ciu_ID, ciu_Descripcion FROM tbCiudades WHERE ciu_DeptoID = @ciu_DeptoID
+   END
+
+----------------------------

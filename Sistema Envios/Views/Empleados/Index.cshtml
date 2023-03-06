@@ -6,12 +6,14 @@
 }
 
 
-
+<h5>EMPLEADOS</h5>
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-lg-12">
             <div class="float-e-margins">
                 <div class="ibox-title">
+
+                    <br />
                     <div class="ibox-tools">
                         @Html.ActionLink("Nuevo", "Create", null, new { @class = "btn btn-primary" })
                     </div>
@@ -57,7 +59,10 @@
                                     <td>
                                         @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn btn-default btn-xs" })
                                         @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn btn-primary btn-xs" })
+
+                                      @*<button class="btn btn-primary btn-xs" id="btnEditar" onclick="Cargar(@item.ID)">Editar</button>*@
                                         <button class="btn-delete btn btn-secondary btn-xs" data-id="@item.ID">Eliminar</button>
+                                        <script src="~/Scripts/EditarEmpleados.js"></script>
                                     </td>
                                 </tr>
                             }
@@ -69,4 +74,5 @@
     </div>
 </div>
 
-@Html.Partial("EliminarEmpleado");
+@Html.Partial("EliminarEmpleado")
+

@@ -229,11 +229,9 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_CIUDADES' no
   <EntityType Name="V_INDEX_CIUDADES">
     <Key>
       <PropertyRef Name="ID" />
-      <PropertyRef Name="DEPARTAMENTO" />
       <PropertyRef Name="NOMBRE CIUDAD" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
-    <Property Name="DEPARTAMENTO" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NOMBRE CIUDAD" Type="nvarchar" MaxLength="255" Nullable="false" />
   </EntityType>
   <!--Errores durante la generación:
@@ -793,6 +791,9 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="CARGAR_DESCRIPCION_CARGO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="carg_Id" Type="int" Mode="In" />
+  </Function>
   <Function Name="UDF_ArticulosPorPedido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="PedidoCode" Type="varchar" Mode="In" />
     <ReturnType>
@@ -831,6 +832,9 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
   </Function>
   <Function Name="UDP_CARGAR_CIUDAD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ciu_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_CARGAR_DATOS_EMPLEADOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="emp_Id" Type="int" Mode="In" />
   </Function>
   <Function Name="UDP_CARGAR_DEPARTAMENTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="depto_ID" Type="int" Mode="In" />
@@ -1128,7 +1132,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
     <EntitySet Name="V_INDEX_CIUDADES" EntityType="Self.V_INDEX_CIUDADES" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [V_INDEX_CIUDADES].[ID] AS [ID], 
-    [V_INDEX_CIUDADES].[DEPARTAMENTO] AS [DEPARTAMENTO], 
     [V_INDEX_CIUDADES].[NOMBRE CIUDAD] AS [NOMBRE CIUDAD]
     FROM [dbo].[V_INDEX_CIUDADES] AS [V_INDEX_CIUDADES]</DefiningQuery>
     </EntitySet>
