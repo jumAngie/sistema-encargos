@@ -13,15 +13,13 @@ namespace Sistema_Envios.Controllers
         // GET: Login
         public ActionResult Index()
         {
-            if (Session.Count > 0)
-            {
+          if (Session.Count > 0)
+          {
                 Session.RemoveAll();
-                return View();
-            }
-            else
-            {
-                return View();
-            }
+                
+           }
+          return View();
+            
             
             
         }
@@ -56,8 +54,6 @@ namespace Sistema_Envios.Controllers
                             Session["Rol_ID"] = item.rol_ID;
                             Session["Rol"] = item.rol_Descripcion;
                             return RedirectToAction("Principal");
-                            txtUsuario = "";
-                            txtPass = "";
                         }
                     }
                     else

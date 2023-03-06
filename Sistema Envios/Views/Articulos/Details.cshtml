@@ -8,97 +8,41 @@
 <div class="card">
     <div class="card-header bg-warning">
         <div class="text-center">
-            <h4 style="color:azure">Articulos</h4>
+            <h4 style="color:white">Detalles: Articulos</h4>
         </div>
     </div>
     <div class="card-body">
-        <dl>
-            <div class="row">
-                <div class="col-sm-3">
-            <dt>
-                @Html.DisplayNameFor(model => model.art_Descripcion)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.art_Descripcion)
-            </dd>
+        <div class="row">
+            <div class="col-md-4">
+                <dt>
+                    <label>Articulo</label>
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.art_Descripcion)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.tbFabricas.fab_Descripcion)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.tbFabricas.fab_Descripcion)
+                </dd>
+            </div>
+            <div class="col-md-4">
+                <dt>
+                    <label>Stock</label>
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.art_Stock)
+                </dd>
+            </div>
+        </div>
     </div>
-    <div class="col-sm-3">
-        <dt>
-            @Html.DisplayNameFor(model => model.art_Stock)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.art_Stock)
-        </dd>
-    </div>
-    <div class="col-sm-3">
-        <dt>
-            @Html.DisplayNameFor(model => model.art_FechaCreacion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.art_FechaCreacion)
-        </dd>
-    </div>
-    <div class="col-sm-3">
-        <dt>
-            @Html.DisplayNameFor(model => model.art_FechaMod)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.art_FechaMod)
-        </dd>
+<div class="card-footer" style="background-color:floralwhite">
+    <div class="text-center">
+        @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-primary" })
     </div>
 </div>
-<div class="row">
-    <div class="col-sm-3">
-        <dt>
-            @Html.DisplayNameFor(model => model.art_Estado)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.art_Estado)
-        </dd>
+        
     </div>
-    <div class="col-sm-3">
-        <dt>
-            @Html.DisplayNameFor(model => model.tbFabricas.fab_Descripcion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.tbFabricas.fab_Descripcion)
-        </dd>
-    </div>
-    <div class="col-sm-3">
-        <dt>
-            @Html.DisplayNameFor(model => model.tbUsuarios.usu_Usuario)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.tbUsuarios.usu_Usuario)
-        </dd>
-    </div>
-    <div class="col-sm-3">
-
-        <dt>
-            @Html.DisplayNameFor(model => model.tbUsuarios1.usu_Usuario)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.tbUsuarios1.usu_Usuario)
-        </dd>
-    </div>
-</div>
-        </dl>
-<div class="text-center">
-    <button class="btn btn-warning">
-        @Html.ActionLink("Editar", "Edit", new { id = Model.art_ID })
-    </button>
-    <button class="btn btn-warning">
-        @Html.ActionLink("Volver a la lista", "Index")
-    </button>
-</div>
-    </div>
-</div>
-

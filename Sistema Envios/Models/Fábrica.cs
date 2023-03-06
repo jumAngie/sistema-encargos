@@ -16,7 +16,7 @@ namespace Sistema_Envios.Models
         [Display(Name = "Fábrica ID")]
         public int fab_ID { get; set; }
 
-        [Display(Name = "Nombr de la Fábrica")]
+        [Display(Name = "Nombre de la Fábrica")]
         [Required(ErrorMessage = "Este campo {0} es requerido.")]
         public string fab_Descripcion { get; set; }
 
