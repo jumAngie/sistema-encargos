@@ -51,20 +51,27 @@ namespace Sistema_Envios.Controllers
             return View();
         }
 
-        // POST: Fabricas/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        //[ValidateAntiForgeryToken]
-        public ActionResult Create(string txtFabrica, string txtTelefono)
-        {   int UsuarioModi = 1;
-            if (ModelState.IsValid)
+        public ActionResult Create(string txtFab, string txtTel)
+        {
+            try
             {
-                db.UDP_InsertFabrica(txtFabrica, txtTelefono, UsuarioModi);
-                return RedirectToAction("Index");
+                int UsuarioModi = Int32.Parse(Session["UsuarioID"].ToString());
+                if (ModelState.IsValid)
+                {
+                    db.UDP_InsertFabrica(txtFab, txtTel, UsuarioModi);
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View(); // VISTA 404
+                }
             }
+            catch (Exception)
+            {
+                return RedirectToAction("Index");
 
-            return View();
+            }
         }
 
 

@@ -3526,14 +3526,14 @@
     <Content Include="Scripts\CrearDirecciones.js" />
     <Content Include="Scripts\CrearEmpleado.js" />
     <Content Include="Scripts\CrearEstadoCivil.js" />
-    <Content Include="Scripts\CrearFabrica.js" />
+    <Content Include="Scripts\CrearFab.js" />
     <Content Include="Scripts\CrearPedido.js" />
     <Content Include="Scripts\CrearUsuario.js" />
     <Content Include="Scripts\DepartamentosEditar.js" />
     <Content Include="Scripts\Detalles.js" />
     <Content Include="Scripts\DireccionesEditar.js" />
     <Content Include="Scripts\EditarArt.js" />
-    <Content Include="Scripts\EditarFabricas.js" />
+    <Content Include="Scripts\EditarFab.js" />
     <Content Include="Scripts\EliminarArticulo.js" />
     <Content Include="Scripts\EliminarCargo.js" />
     <Content Include="Scripts\EliminarCliente.js" />
@@ -3590,10 +3590,7 @@
     <Content Include="Views\EstadosCiviles\Create.cshtml" />
     <Content Include="Views\EstadosCiviles\Delete.cshtml" />
     <Content Include="Views\EstadosCiviles\Details.cshtml" />
-    <Content Include="Views\Fabricas\Create.cshtml" />
-    <Content Include="Views\Fabricas\Delete.cshtml" />
     <Content Include="Views\Fabricas\Details.cshtml" />
-    <Content Include="Views\Fabricas\Edit.cshtml" />
     <Content Include="Views\PedidoDetalles\Delete.cshtml" />
     <Content Include="Views\PedidoDetalles\Details.cshtml" />
     <Content Include="Views\PedidoDetalles\Edit.cshtml" />
