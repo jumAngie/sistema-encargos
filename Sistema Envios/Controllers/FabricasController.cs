@@ -76,9 +76,9 @@ namespace Sistema_Envios.Controllers
 
 
         [HttpPost]
-        public JsonResult Cargar(string fab_ID)
+        public JsonResult Cargar(string fabri_ID)
         {
-            var tbEstadosCiviles1 = db.UDP_CARGARDATOS_FABRICA(int.Parse(fab_ID)).ToList();
+            var tbEstadosCiviles1 = db.UDP_CARGARDATOS_FABRICA(int.Parse(fabri_ID)).ToList();
             return Json(tbEstadosCiviles1, JsonRequestBehavior.AllowGet);
         }
 

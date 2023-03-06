@@ -3533,7 +3533,7 @@
     <Content Include="Scripts\Detalles.js" />
     <Content Include="Scripts\DireccionesEditar.js" />
     <Content Include="Scripts\EditarArt.js" />
-    <Content Include="Scripts\EditarFab.js" />
+    <Content Include="Scripts\EditarFabri.js" />
     <Content Include="Scripts\EliminarArticulo.js" />
     <Content Include="Scripts\EliminarCargo.js" />
     <Content Include="Scripts\EliminarCliente.js" />
