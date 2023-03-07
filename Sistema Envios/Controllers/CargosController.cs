@@ -24,8 +24,16 @@ namespace Sistema_Envios.Controllers
             {
                 if (Session.Count > 0)
                 {
-                    var tbCargosIndex = db.V_INDEX_CARGOS;
-                    return View(tbCargosIndex.ToList());
+                    if (Session["Rol_ID"].ToString() == "2")
+                    {
+                        return RedirectToAction("Principal", "Login");
+                    }
+                    else
+                    {
+                        var tbCargosIndex = db.V_INDEX_CARGOS;
+                        return View(tbCargosIndex.ToList());
+                    }
+                        
                 }
                 else
                 {
@@ -44,18 +52,27 @@ namespace Sistema_Envios.Controllers
         // GET: Cargos/Details/5
         public ActionResult Details(int? id)
         {
+
             try
             {
-                if (id == null)
+                if (Session["Rol_ID"].ToString() == "2")
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Principal", "Login");
                 }
-                tbCargos tbCargos = db.tbCargos.Find(id);
-                if (tbCargos == null)
+                else
                 {
-                    return HttpNotFound(); // pagina 404
+                    if (id == null)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    tbCargos tbCargos = db.tbCargos.Find(id);
+                    if (tbCargos == null)
+                    {
+                        return HttpNotFound(); // pagina 404
+                    }
+                    return View(tbCargos);
                 }
-                return View(tbCargos);
+              
             }
             catch (Exception)
             {

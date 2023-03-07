@@ -20,8 +20,15 @@ namespace Sistema_Envios.Controllers
         {
             if(Session.Count > 0)
             {
-                var tbClientesIndex = db.V_INDEX_CLIENTES;
-                return View(tbClientesIndex.ToList());
+                if (Session["Rol_ID"].ToString() == "2")
+                {
+                    return RedirectToAction("Principal", "Login");
+                }
+                else
+                {
+                    var tbClientesIndex = db.V_INDEX_CLIENTES;
+                    return View(tbClientesIndex.ToList());
+                }
             }
             else
             {

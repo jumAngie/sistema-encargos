@@ -20,8 +20,15 @@ namespace Sistema_Envios.Controllers
         public ActionResult Index()
         {if (Session.Count > 0)
             {
-                var tbEmpleadosIndex = db.V_INDEX_EMPLEADOS;
-                return View(tbEmpleadosIndex.ToList());
+                if (Session["Rol_ID"].ToString() == "2")
+                {
+                    return RedirectToAction("Principal", "Login");
+                }
+                else
+                {
+                    var tbEmpleadosIndex = db.V_INDEX_EMPLEADOS;
+                    return View(tbEmpleadosIndex.ToList());
+                }
             }
             else
             {
@@ -32,16 +39,32 @@ namespace Sistema_Envios.Controllers
         // GET: Empleados/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            try
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (Session["Rol_ID"].ToString() == "2")
+                {
+                    return RedirectToAction("Principal", "Login");
+                }
+                else
+                {
+                    if (id == null)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    tbEmpleados tbEmpleados = db.tbEmpleados.Find(id);
+                    if (tbEmpleados == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    return View(tbEmpleados);
+                }
             }
-            tbEmpleados tbEmpleados = db.tbEmpleados.Find(id);
-            if (tbEmpleados == null)
+            catch (Exception)
             {
-                return HttpNotFound();
+
+                return RedirectToAction("Index"); // 404
             }
-            return View(tbEmpleados);
+            
         }
 
       

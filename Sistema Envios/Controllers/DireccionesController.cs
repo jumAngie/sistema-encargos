@@ -19,8 +19,15 @@ namespace Sistema_Envios.Controllers
         {
             if (Session.Count > 0)
             {
-                var tbDireccionesIndex = db.V_INDEX_DIRECCIONES;
-                return View(tbDireccionesIndex.ToList());
+                if (Session["Rol_ID"].ToString() == "2")
+                {
+                    return RedirectToAction("Principal", "Login");
+                }
+                else
+                {
+                    var tbDireccionesIndex = db.V_INDEX_DIRECCIONES;
+                    return View(tbDireccionesIndex.ToList());
+                }
             }
             else
             {
@@ -33,23 +40,29 @@ namespace Sistema_Envios.Controllers
         {
             try
             {
-                if (id == null)
+                if (Session["Rol_ID"].ToString() == "2")
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Principal", "Login");
                 }
-                tbDirecciones tbDirecciones = db.tbDirecciones.Find(id);
-                if (tbDirecciones == null)
+                else
                 {
-                    return HttpNotFound(); // pagina 404
+                    if (id == null)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    tbDirecciones tbDirecciones = db.tbDirecciones.Find(id);
+                    if (tbDirecciones == null)
+                    {
+                        return HttpNotFound(); // pagina 404
+                    }
+                    return View(tbDirecciones);
                 }
-                return View(tbDirecciones);
             }
             catch (Exception)
             {
 
                 return RedirectToAction("Index"); //pagina 404
             }
-            
         }
 
         [HttpPost]

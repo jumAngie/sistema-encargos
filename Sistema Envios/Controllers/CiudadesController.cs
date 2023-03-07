@@ -18,8 +18,15 @@ namespace Sistema_Envios.Controllers
         {
             if (Session.Count > 0)
             {
-                var tbCiudadesIndex = db.V_INDEX_CIUDADES;
-                return View(tbCiudadesIndex.ToList());
+                if (Session["Rol_ID"].ToString() == "2")
+                {
+                    return RedirectToAction("Principal", "Login");
+                }
+                else
+                {
+                    var tbCiudadesIndex = db.V_INDEX_CIUDADES;
+                    return View(tbCiudadesIndex.ToList());
+                }
             }
             else
             {

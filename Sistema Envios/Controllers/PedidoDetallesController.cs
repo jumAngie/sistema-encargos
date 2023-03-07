@@ -18,8 +18,15 @@ namespace Sistema_Envios.Controllers
         public ActionResult Index()
         {   if (Session.Count > 0)
             {
-                var tbPedidoDetallesIndex = db.V_INDEX_PEDIDOS_DETALLES;
-                return View(tbPedidoDetallesIndex.ToList());
+                if (Session["Rol_ID"].ToString() == "2")
+                {
+                    return RedirectToAction("Principal", "Login");
+                }
+                else
+                {
+                    var tbPedidoDetallesIndex = db.V_INDEX_PEDIDOS_DETALLES;
+                    return View(tbPedidoDetallesIndex.ToList());
+                }
             }
             else
             {
@@ -32,16 +39,23 @@ namespace Sistema_Envios.Controllers
         {
             try
             {
-                if (id == null)
+                if (Session["Rol_ID"].ToString() == "2")
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Principal", "Login");
                 }
-                tbPedidoDetalles tbPedidoDetalles = db.tbPedidoDetalles.Find(id);
-                if (tbPedidoDetalles == null)
+                else
                 {
-                    return HttpNotFound(); // página 404
+                    if (id == null)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    tbPedidoDetalles tbPedidoDetalles = db.tbPedidoDetalles.Find(id);
+                    if (tbPedidoDetalles == null)
+                    {
+                        return HttpNotFound(); // página 404
+                    }
+                    return View(tbPedidoDetalles);
                 }
-                return View(tbPedidoDetalles);
             }
             catch (Exception)
             {

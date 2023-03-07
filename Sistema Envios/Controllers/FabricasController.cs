@@ -19,8 +19,15 @@ namespace Sistema_Envios.Controllers
         public ActionResult Index()
         {if (Session.Count > 0)
             {
-                var tbFabricasIndex = db.V_INDEX_FABRICAS;
-                return View(tbFabricasIndex.ToList());
+                if (Session["Rol_ID"].ToString() == "2")
+                {
+                    return RedirectToAction("Principal", "Login");
+                }
+                else
+                {
+                    var tbFabricasIndex = db.V_INDEX_FABRICAS;
+                    return View(tbFabricasIndex.ToList());
+                }
             }
             else
             {
@@ -33,16 +40,23 @@ namespace Sistema_Envios.Controllers
         {
             try
             {
-                if (id == null)
+                if (Session["Rol_ID"].ToString() == "2")
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Principal", "Login");
                 }
-                tbFabricas tbFabricas = db.tbFabricas.Find(id);
-                if (tbFabricas == null)
+                else
                 {
-                    return HttpNotFound(); // pagina 404 NOT FOUND
+                    if (id == null)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    tbFabricas tbFabricas = db.tbFabricas.Find(id);
+                    if (tbFabricas == null)
+                    {
+                        return HttpNotFound(); // pagina 404 NOT FOUND
+                    }
+                    return View(tbFabricas);
                 }
-                return View(tbFabricas);
             }
             catch (Exception)
             {

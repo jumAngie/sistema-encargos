@@ -24,8 +24,15 @@ namespace Sistema_Envios.Controllers
         {
            if (Session.Count > 0)
             {
-                var tbEstadosCivilesIndex = db.V_INDEX_ESTADOS_CIVILES;
-                return View(tbEstadosCivilesIndex.ToList());
+                if (Session["Rol_ID"].ToString() == "2")
+                {
+                    return RedirectToAction("Principal", "Login");
+                }
+                else
+                {
+                    var tbEstadosCivilesIndex = db.V_INDEX_ESTADOS_CIVILES;
+                    return View(tbEstadosCivilesIndex.ToList());
+                }
             }
            else
             {
@@ -39,16 +46,23 @@ namespace Sistema_Envios.Controllers
         {
             try
             {
-                if (id == null)
+                if (Session["Rol_ID"].ToString() == "2")
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Principal", "Login");
                 }
-                tbEstadosCiviles tbEstadosCiviles = db.tbEstadosCiviles.Find(id);
-                if (tbEstadosCiviles == null)
+                else
                 {
-                    return HttpNotFound(); // 404 page not found
+                    if (id == null)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    tbEstadosCiviles tbEstadosCiviles = db.tbEstadosCiviles.Find(id);
+                    if (tbEstadosCiviles == null)
+                    {
+                        return HttpNotFound(); // 404 page not found
+                    }
+                    return View(tbEstadosCiviles);
                 }
-                return View(tbEstadosCiviles);
             }
             catch (Exception)
             {

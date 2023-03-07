@@ -18,8 +18,15 @@ namespace Sistema_Envios.Controllers
         public ActionResult Index()
         {if (Session.Count > 0)
             {
-                var tbDepartamentosIndex = db.V_INDEX_DEPARTAMENTOS;
-                return View(tbDepartamentosIndex.ToList());
+                if (Session["Rol_ID"].ToString() == "2")
+                {
+                    return RedirectToAction("Principal", "Login");
+                }
+                else
+                {
+                    var tbDepartamentosIndex = db.V_INDEX_DEPARTAMENTOS;
+                    return View(tbDepartamentosIndex.ToList());
+                }
             }
             else
             {
