@@ -13,7 +13,6 @@ namespace Sistema_Envios.Controllers
     public class CiudadesController : Controller
     {
         private DBArticulosEncargosEntities1 db = new DBArticulosEncargosEntities1();
-        public string UsuarioModi = "1";
         // GET: Ciudades
         public ActionResult Index()
         {
@@ -31,55 +30,53 @@ namespace Sistema_Envios.Controllers
         // GET: Ciudades/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            try
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return RedirectToAction("Index");
+                }
+                tbCiudades tbCiudades = db.tbCiudades.Find(id);
+                if (tbCiudades == null)
+                {
+                    return HttpNotFound(); // pagina 404
+                }
+                return View(tbCiudades);
             }
-            tbCiudades tbCiudades = db.tbCiudades.Find(id);
-            if (tbCiudades == null)
+            catch (Exception)
             {
-                return HttpNotFound();
-            }
-            return View(tbCiudades);
-        }
 
-        // GET: Ciudades/Create
-        public ActionResult Create()
-        {
-            ViewBag.ciu_DeptoID = new SelectList(db.tbDepartamentos, "depto_ID", "depto_Descripcion");
-            ViewBag.ciu_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario");
-            ViewBag.ciu_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario");
-            return View();
+                return RedirectToAction("Index"); // pagina 404
+            }
+            
         }
 
         [HttpPost]
         public ActionResult Create(string Depto, string muni)
         {
-            if (Depto == "0" || muni == "")
-            {
-
-              //return  RedirectToAction("Error404", "Articulos");
-            }
-            else
-            {
                 try
                 {
                     if (ModelState.IsValid)
                     {
                         int DepId = Int32.Parse(Depto);
-                        int Usu = Int32.Parse(UsuarioModi);
+                        int Usu = Int32.Parse(Session["UsuarioID"].ToString());
                         db.UDP_CIUDADES_INSERT(muni, DepId, Usu);
+                        //TempData["Mensaje"] = "El registro se ha guardado correctamente.";
                         return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        //TempData["Mensaje"] = "El registro no se ha guardado.";
+                        return RedirectToAction("Index");
+
                     }
                 }
                 catch (Exception)
                 {
-                    //return  RedirectToAction("Error404", "Articulos");
+                    //TempData["Mensaje"] = "El registro no se ha guardado.";
+                    return RedirectToAction("Index"); // pagina 404
                 }
             }
-
-            return RedirectToAction("Index");
-        }
 
 
         public JsonResult CargarDepto()
@@ -98,7 +95,6 @@ namespace Sistema_Envios.Controllers
         }
 
         [HttpPost, ActionName("Editores")]
-        //[ValidateAntiForgeryToken]
         public ActionResult Edito(string ID, string Descripcion)
 
         {
@@ -107,22 +103,24 @@ namespace Sistema_Envios.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    if (Descripcion != "" || Descripcion != null)
-                    {
-                        //string id = Session["IdUsuario"].ToString();
+                    if (Descripcion != "" && Descripcion != null)
+                    { 
                         var Edit = db.UDP_Editar_Ciudades(int.Parse(ID), Descripcion, usuario);
+                        //TempData["Mensaje"] = "El registro se ha guardado correctamente.";
                         return RedirectToAction("Index");
                     }
                     else
                     {
-                        return RedirectToAction("Index");
+                        //TempData["Mensaje"] = "El registro no se ha guardado.";
+                        return RedirectToAction("Index"); // pagina 404
                     }
                 }
 
             }
             catch (Exception)
             {
-                return RedirectToAction("Index");
+                //TempData["Mensaje"] = "El registro no se ha guardado.";
+                return RedirectToAction("Index"); // pagina 404
             }
             return RedirectToAction("Index");
 

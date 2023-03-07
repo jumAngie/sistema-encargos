@@ -16,6 +16,12 @@
             <div class="float-e-margins">
                 <div class="ibox-title">
                     <div class="ibox-tools">
+                        @*@if (TempData["Mensaje"] != null)
+                        {
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>@TempData["Mensaje"]</strong>
+                            </div>
+                        }*@
                         <input type="button" class="btn btn-primary" value="Nuevo" />
                     </div>
                 </div>
@@ -52,24 +58,22 @@
                                             <div class="modal fade" id="FormModal" tabindex="-1" role="dialog" aria-labelledby="Crear-Articulos" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="crear-cargos">EDITAR CIUDADES</h5>
+                                                        <div class="modal-header" style="padding:30px 50px;">
+                                                            <h4 class="modal-title" id="crear-cargos">Editar Ciudades</h4>
+                                                            <img src="https://cdn.dribbble.com/users/1200451/screenshots/8759739/ezgif.com-optimize.gif" width="150" />
                                                         </div>
-                                                        <div class="modal-body">
-                                                            <div class="card">
-                                                                <div class="card-body">
-                                                                    <div class="row">
-                                                                        <div class="col-sm-8">
-                                                                            <label> CIUDAD </label> <label id="Mensaje" style="color:red">El campo es requerido!</label>
-                                                                            <input type="text" name="txtDescripcion" id="txtDescripcion" class="form-control" />
-                                                                        </div>
-                                                                    </div>
+                                                        <div class="modal-body" style="padding:40px 50px; background-color:white">
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+                                                                    <label id="Mensaje" style="color:red">*</label>
+                                                                    <label style="color:black; font-size:15px"> Ciudad: </label>
+                                                                    <input type="text" name="txtDescripcion" id="txtDescripcion" class="form-control" style="border-color:black" />
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <input type="hidden" id="ciu_ID" />
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="Cerrar()">Close</button>
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="Cerrar()">Cancelar</button>
                                                             <input type="button" value="Editar" onclick="Editar(@item.ID)" class="btn btn-warning" />
                                                         </div>
                                                     </div>
@@ -77,9 +81,7 @@
                                             </div>
 
                                         </form>
-
-                                        <script src="~/Scripts/CiudadesEditar.js"></script>
-
+                                        <script src="~/Scripts/CiudadesScript/EditarCiu.js"></script>
                                     </td>
                                 </tr>
                             }

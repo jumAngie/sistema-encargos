@@ -8,90 +8,30 @@
 <div class="card">
     <div class="card-header bg-warning">
         <div class="text-center">
-            <h4 style="color:azure">Fabricas</h4>
+            <h4 style="color:azure">Detalles: Fabricas</h4>
         </div>
     </div>
     <div class="card-body">
-        <dl>
-            <div class="row">
-                <div class="col-sm-3">
-            <dt>
-                @Html.DisplayNameFor(model => model.fab_Descripcion)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.fab_Descripcion)
-            </dd>
-    </div>
-    <div class="col-sm-3">
-        <dt>
-            @Html.DisplayNameFor(model => model.fab_Telefono)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.fab_Telefono)
-        </dd>
-    </div>
-    <div class="col-sm-3">
-        <dt>
-            @Html.DisplayNameFor(model => model.fab_FechaCreacion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.fab_FechaCreacion)
-        </dd>
-    </div>
-    <div class="col-sm-3">
-        <dt>
-            @Html.DisplayNameFor(model => model.fab_FechaMod)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.fab_FechaMod)
-        </dd>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-3">
-        <dt>
-            @Html.DisplayNameFor(model => model.fab_Estado)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.fab_Estado)
-        </dd>
-    </div>
-    <div class="col-sm-3">
-        <dt>
-            @Html.DisplayNameFor(model => model.tbUsuarios.usu_Usuario)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.tbUsuarios.usu_Usuario)
-        </dd>
-    </div>
-    <div class="col-sm-3">
-        <dt>
-            @Html.DisplayNameFor(model => model.tbUsuarios1.usu_Usuario)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.tbUsuarios1.usu_Usuario)
-        </dd>
-    </div>
-    <div class="col-sm-3">
-
-    </div>
-</div>
+        <div class="row">
+            <div class="col-sm-6">
+                <dl>
+                    <div class="row">
+                        <div class="col-sm-6">
+                    <dt>@Html.DisplayNameFor(model => model.fab_Descripcion)</dt>
+                    <dd>@Html.DisplayFor(model => model.fab_Descripcion)</dd>
+            </div>
+            <div class="col-sm-6">
+                <dt>@Html.DisplayNameFor(model => model.fab_Telefono)</dt>
+                <dd>@Html.DisplayFor(model => model.fab_Telefono)</dd>
+            </div>
+        </div>
         </dl>
-<div class="text-center">
-    <button class="btn btn-warning">
-        @Html.ActionLink("Edit", "Edit", new { id = Model.fab_ID })
-    </button>
-    <button class="btn btn-warning">
-        @Html.ActionLink("Back to List", "Index")
-    </button>
-</div>
     </div>
+<div class="card-footer">
+    <div class="text-center">
 
+        @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-warning" })
+
+    </div>
+</div>
 </div>

@@ -8,77 +8,30 @@
 <div class="card">
     <div class="card-header bg-warning">
         <div class="text-center">
-            <h4 style="color:azure">Ciudades</h4>
+            <h4 style="color:azure">Detalles: Ciudades</h4>
         </div>
     </div>
     <div class="card-body">
-        <dl>
-            <div class="row">
-                <div class="col-sm-4">
-            <dt>
-                @Html.DisplayNameFor(model => model.ciu_Descripcion)
-            </dt>
+        <div class="row">
+            <div class="col-sm-6">
+                <dl>
+                    <dt>@Html.DisplayNameFor(model => model.ciu_Descripcion)</dt>
+                    <dd>@Html.DisplayFor(model => model.ciu_Descripcion)</dd>
+                </dl>
+            </div>
+            <div class="col-sm-6">
+                <dl>
+                    <dt>@Html.DisplayNameFor(model => model.tbDepartamentos.depto_Descripcion)</dt>
+                    <dd>@Html.DisplayFor(model => model.tbDepartamentos.depto_Descripcion)</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+        <div class="card-footer">
+            <div class="text-center">
 
-            <dd>
-                @Html.DisplayFor(model => model.ciu_Descripcion)
-            </dd>
-    </div>
-    <div class="col-sm-4">
-        <dt>
-            @Html.DisplayNameFor(model => model.ciu_FechaCreacion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ciu_FechaCreacion)
-        </dd>
-    </div>
-    <div class="col-sm-4">
-        <dt>
-            @Html.DisplayNameFor(model => model.ciu_FechaMod)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ciu_FechaMod)
-        </dd>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-4">
-        <dt>
-            @Html.DisplayNameFor(model => model.tbDepartamentos.depto_Descripcion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.tbDepartamentos.depto_Descripcion)
-        </dd>
-    </div>
-    <div class="col-sm-4">
-        <dt>
-            @Html.DisplayNameFor(model => model.tbUsuarios.usu_Usuario)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.tbUsuarios.usu_Usuario)
-        </dd>
-    </div>
-    <div class="col-sm-4">
-        <dt>
-            @Html.DisplayNameFor(model => model.tbUsuarios1.usu_Usuario)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.tbUsuarios1.usu_Usuario)
-        </dd>
-    </div>
-</div>
-        </dl>
-<div class="text-center">
-    <button class="btn btn-warning">
-        @Html.ActionLink("Edit", "Edit", new { id = Model.ciu_ID })
-    </button>
-    <button class="btn btn-warning">
-        @Html.ActionLink("Back to List", "Index")
-    </button>
-</div>
-    </div>
+                @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-warning" })
+            </div>
+        </div>
+    
 </div>

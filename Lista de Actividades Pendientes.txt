@@ -39,16 +39,17 @@ ESTADOS CIVILES:
 
 
 CIUDADES:
--- PONER DEPARTAMENTO EN LA VISTA
--- AÑADIR EL DDL DE DEPARTAMENTO EN EDITAR
+...................................................PANTALLA TERMINADA....................................................
 
 DEPTOS:
+-- botones
+-- arreglar campos
+-- arreglar editar
 -- VALIDAR CAMPOS
 -- TRY CATCH
 
 DIRECCIONES:
--- TRY CACTCH
---VALIDAR
+...................................................PANTALLA TERMINADA....................................................
 
 CARGOS:
 ...................................................PANTALLA TERMINADA....................................................

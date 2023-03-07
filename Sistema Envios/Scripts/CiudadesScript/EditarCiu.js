@@ -7,7 +7,7 @@ function Cerrar() {
 }
 
 function AbrirModal(ciu_ID) {
-
+    $("#Mensaje").hide();
     $.ajax({
         url: "/Ciudades/Cargar",
         method: "POST",
@@ -39,37 +39,34 @@ function Editar(x) {
     var ID = $("#ciu_ID").val();
     var Descripcion = $("#txtDescripcion").val();
 
-    console.log(ID);
-    console.log(Descripcion);
-    console.log(x);
 
+  
+        $.ajax({
+            url: "/Ciudades/Editores",
+            method: "POST",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify({ ID: ID, Descripcion: Descripcion }),
+            success: function (data) {
 
+                $("#Mensaje").hide();
+                window.location.reload();
 
-    $.ajax({
-        url: "/Ciudades/Editores",
-        method: "POST",
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-        data: JSON.stringify({ ID: ID, Descripcion: Descripcion }),
-        success: function (data) {
+            }
 
+        })
+    
 
+        if (Descripcion == "" || Descripcion == null) {
+            $("#Mensaje").show();
+            $("#txtDescripcion").focus();
+        }
+        else {
+
+            $("#Mensaje").hide();
+            $('#FormModal').modal('hide');
             window.location.reload();
 
         }
 
-    })
-
-    if (Descripcion == "" || Descripcion == null) {
-        $("#Mensaje").show();
-        $("#txtDescripcion").focus();
     }
-    else {
-
-        $("#Mensaje").hide();
-        $('#FormModal').modal('hide');
-        window.location.reload();
-
-    }
-}
-

@@ -1,4 +1,7 @@
-﻿$(document).ready(function () {
+﻿$("#lblMunicipio").hide();
+$("#lblDepto").hide();
+
+$(document).ready(function () {
 
     var Depto = $("#Depto").val();
     $.ajax({
@@ -18,7 +21,10 @@
 
 $(function () {
     $('#btnCancelar').click(function () {
+        $("#lblMunicipio").hide();
+        $("#lblDepto").hide();
         $('#Ciudades').modal('hide');
+        window.location.reload();
     });
 });
 
@@ -33,19 +39,19 @@ function Insertar() {
     var Depto = $("#Depto").val()
     var muni = $("#muni").val()
 
-    if (muni == null || Depto == "0") {
+    if (muni == "" || Depto == "0") {
         if (muni == "") {
-            document.getElementById("lblDepto").style.display = "inline";
-        }
-        else {
-            document.getElementById("lblDepto").style.display = "none";
-        }
-
-        if (Depto == "0") {
             document.getElementById("lblMunicipio").style.display = "inline";
         }
         else {
-            document.getElementById("lblMunicipio").style.display = "none";
+            $("#lblMunicipio").hide();
+        }
+
+        if (Depto == "0") {
+            document.getElementById("lblDepto").style.display = "inline";
+        }
+        else {
+            $("#lblDepto").hide();
         }
 
     }
@@ -53,8 +59,10 @@ function Insertar() {
         $.ajax({
             url: "/Ciudades/Create",
             method: "POST",
-            data: { Depto: Depto, muni: muni},
+            data: { Depto: Depto, muni: muni },
             success: function (data) {
+                $("#lblMunicipio").hide();
+                $("#lblDepto").hide();
                 window.location.reload();
             }
         })

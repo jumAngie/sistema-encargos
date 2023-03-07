@@ -7,7 +7,7 @@ function Cerrar() {
 }
 
 function AbrirModal(depto_ID) {
-
+    $("#Mensaje").hide();
     $.ajax({
         url: "/Departamentos/Cargar",
         method: "POST",
@@ -69,6 +69,5 @@ function Editar(x) {
         $("#Mensaje").hide();
         window.location.reload();
     }
-   
-}
 
+}
