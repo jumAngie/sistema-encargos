@@ -2594,3 +2594,27 @@ AS
 BEGIN
 	SELECT art_ID, art_Descripcion FROM tbArticulos WHERE art_Estado = 1
 END
+GO
+
+CREATE OR ALTER PROCEDURE UDP_CargarRolParaEditar
+AS
+BEGIN
+SELECT '0' AS rol_ID, ' Seleccione un rol' AS rol_Descripcion
+UNION ALL
+SELECT rol_ID, rol_Descripcion FROM tblRoles
+END;
+GO
+GO
+CREATE OR ALTER PROCEDURE UDP_Obtener_Usuario
+		(@usu_ID INT)
+AS
+BEGIN
+		SELECT usu_Usuario, emp_Id, rol_ID, usu_Clave, usu_EsAdmin FROM tbUsuarios WHERE usu_ID = @usu_ID
+END
+go
+CREATE OR ALTER PROCEDURE UDP_CargarEmpleados_EditUsuarios
+AS
+BEGIN
+		SELECT emp_Id, emp_Name + ' ' + emp_Apellido as emp_Nombre FROM tbEmpleados
+END
+go
