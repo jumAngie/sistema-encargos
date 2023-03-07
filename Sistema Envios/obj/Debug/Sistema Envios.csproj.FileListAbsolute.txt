@@ -358,7 +358,11 @@ C:\Users\Usuario\Documents\GitHub\sistema-encargos\Sistema Envios\obj\Debug\Sist
 C:\Users\Usuario\Documents\GitHub\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.dll
 C:\Users\Usuario\Documents\GitHub\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.pdb
 C:\Users\Usuario\Documents\GitHub\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.csproj.AssemblyReference.cache
-C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.csproj.CoreCompileInputs.cache
+C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\System.Text.Encoding.CodePages.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\Sistema Envios.dll.config
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\Sistema Envios.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\Sistema Envios.pdb
@@ -373,7 +377,6 @@ C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\Mic
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\Microsoft.CodeAnalysis.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\Microsoft.CSharp.Core.targets
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
@@ -394,12 +397,8 @@ C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\Sys
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\System.Net.Http.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\System.Net.Sockets.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\System.Security.Cryptography.Encoding.dll
-C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\System.Security.Cryptography.Primitives.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\System.Text.Encoding.CodePages.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\System.Threading.Tasks.Extensions.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\System.ValueTuple.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\roslyn\System.Xml.ReaderWriter.dll
@@ -444,7 +443,7 @@ C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\es\System.
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\es\System.Web.WebPages.resources.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.csproj.CoreCompileInputs.cache
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.csproj.CopyComplete
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.dll
 C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.pdb
-C:\Users\karla\OneDrive\Documents\sistema-encargos\Sistema Envios\obj\Debug\Sistema Envios.csproj.AssemblyReference.cache

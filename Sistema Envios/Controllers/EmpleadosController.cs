@@ -13,7 +13,8 @@ namespace Sistema_Envios.Controllers
     public class EmpleadosController : Controller
     {
         private DBArticulosEncargosEntities1 db = new DBArticulosEncargosEntities1();
-        public string Usu = "1";
+       
+        //Usu = "1";
 
         // GET: Empleados
         public ActionResult Index()
@@ -109,7 +110,7 @@ namespace Sistema_Envios.Controllers
                 return HttpNotFound();
             }
 
-            ViewBag.ciu_ID = new SelectList(db.tbCiudades, "ciu_ID", "ciu_Descripcion", tbEmpleados.ciu_ID);
+            //ViewBag.ciu_ID = new SelectList(db.tbCiudades, "ciu_ID", "ciu_Descripcion", tbEmpleados.ciu_ID);
             ViewBag.est_ID = new SelectList(db.tbEstadosCiviles, "est_ID", "est_Descripcion", tbEmpleados.est_ID);
             ViewBag.carg_Id = new SelectList(db.tbCargos, "carg_Id", "carg_Description", tbEmpleados.carg_Id);
 
@@ -119,26 +120,41 @@ namespace Sistema_Envios.Controllers
         // POST: Empleados/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
+
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "emp_Id,emp_Name,emp_Apellido,emp_DNI,emp_FechaNac,depto_ID,ciu_ID,est_ID,emp_Sexo,carg_Id,emp_UsuarioCrea,emp_FechaCrea,emp_UsuModif,emp_FechaModif,emp_Estado")] tbEmpleados tbEmpleados)
         {
-            int UsuModif = int.Parse(Session["UsuarioID"].ToString());
+            string Usu = Session["UsuarioID"].ToString();
+
             ModelState.Remove("emp_UsuarioCrea");
             ModelState.Remove("emp_FechaCrea");
             ModelState.Remove("emp_FechaModif");
             ModelState.Remove("emp_Estado");
-
-
-            if (ModelState.IsValid)
+          
+            try
             {
-                db.UDP_Editar_Empleados(tbEmpleados.emp_Id, tbEmpleados.emp_Name, tbEmpleados.emp_Apellido, tbEmpleados.emp_DNI, tbEmpleados.emp_FechaNac, tbEmpleados.ciu_ID, tbEmpleados.est_ID, tbEmpleados.emp_Sexo, tbEmpleados.carg_Id, Usu).ToString();
+                if (ModelState.IsValid)
+                {
+                    
+                        db.UDP_Editar_Empleados(tbEmpleados.emp_Id, tbEmpleados.emp_Name, tbEmpleados.emp_Apellido, tbEmpleados.emp_DNI, tbEmpleados.emp_FechaNac, tbEmpleados.ciu_ID, tbEmpleados.est_ID, tbEmpleados.emp_Sexo, tbEmpleados.carg_Id, Usu).ToString();
+                        return RedirectToAction("Index");
+                    
+
+                }  
+
+            }
+            catch(Exception)
+            {
                 return RedirectToAction("Index");
             }
-            ViewBag.ciu_ID = new SelectList(db.tbCiudades, "ciu_ID", "ciu_Descripcion", tbEmpleados.ciu_ID);
+            //ViewBag.ciu_ID = new SelectList(db.tbCiudades, "ciu_ID", "ciu_Descripcion", tbEmpleados.ciu_ID);
             ViewBag.est_ID = new SelectList(db.tbEstadosCiviles, "est_ID", "est_Descripcion", tbEmpleados.est_ID);
             ViewBag.carg_Id = new SelectList(db.tbCargos, "carg_Id", "carg_Description", tbEmpleados.carg_Id);
-            return RedirectToAction("Index");
+            return View(tbEmpleados);
+
         }
 
 
@@ -147,6 +163,8 @@ namespace Sistema_Envios.Controllers
         // GET: Empleados/Delete/5
         public ActionResult Delete(int id)
         {
+            string Usu = Session["UsuarioID"].ToString();
+
             db.UDP_Eliminar_Empleados(id, Usu);
             return RedirectToAction("Index");
         }
@@ -184,12 +202,6 @@ namespace Sistema_Envios.Controllers
 
         //EDITAR
 
-        [HttpPost]
-        public JsonResult CargarCargosEdit()
-        {
-            var ddl = db.UDP_DDLCargos().ToList();
-            return Json(ddl, JsonRequestBehavior.AllowGet);
-        }
 
 
         [HttpPost]
@@ -200,21 +212,9 @@ namespace Sistema_Envios.Controllers
         }
 
 
-        public JsonResult CargarEstadosCivilesEdit()
-        {
-            var ddlEs = db.UDP_CargarEstadosCiviles().ToList();
-            return Json(ddlEs, JsonRequestBehavior.AllowGet);
-        }
-
-        public JsonResult CargarMUNIedit()
-        {
-            var ddlEs = db.UDP_CARGAR_MUNICIPIO().ToList();
-            return Json(ddlEs, JsonRequestBehavior.AllowGet);
-        }
 
 
-
-
+        //[HttpPost]
         public JsonResult cargarDeptosEdit()
         {
             var ddl = db.UDP_CargarDepartamentos().ToList();
@@ -222,69 +222,14 @@ namespace Sistema_Envios.Controllers
         }
 
 
-
-        public JsonResult CargarMunicipiosEdit(string depto_ID)
+        //[HttpPost]
+        public JsonResult CargarMunicipiosEdit(string depto)
         {
-            var ddl = db.UDP_CargarCiudades(depto_ID).ToList();
+            var ddl = db.UDP_CargarCiudades(depto).ToList();
 
             return Json(ddl, JsonRequestBehavior.AllowGet);
 
         }
-
-        //public ActionResult Editando()
-        //{
-        //    return View();
-        //}
-
-
-        //PENDDIEN.
-        //[HttpPost]
-        //public JsonResult Cargar(string emp_Id)
-        //{
-
-        //    var tbArticulos = db.UDP_CARGAR_DATOS_EMPLEADOS(int.Parse(emp_Id)).ToList();
-        //    return Json(tbArticulos, JsonRequestBehavior.AllowGet);
-
-        //}
-
-
-
-        //[HttpPost, ActionName("Editores")]
-        ////[ValidateAntiForgeryToken]
-        //public ActionResult Edito(string ID, string articulo, string fabrica, string stock)
-
-        //{
-        //    string UsuarioModi = Session["UsuarioID"].ToString();
-
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            if (articulo != "" && stock != "")
-        //            {
-        //                //string id = Session["IdUsuario"].ToString();
-        //                var Edit = db.UDP_Editar_Articulos(int.Parse(ID), articulo, int.Parse(fabrica), int.Parse(stock), UsuarioModi);
-
-        //            }
-
-        //        }
-        //        else
-        //        {
-        //            return RedirectToAction("Index");
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return RedirectToAction("Index");
-
-        //    }
-
-        //    return RedirectToAction("Index");
-        //}
-
-
-
-
 
 
 

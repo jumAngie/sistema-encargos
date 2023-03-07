@@ -284,6 +284,9 @@
           <ScalarProperty Name="IDENTIDAD" ColumnName="IDENTIDAD" />
           <ScalarProperty Name="SEXO" ColumnName="SEXO" />
           <ScalarProperty Name="CARGO" ColumnName="CARGO" />
+          <ScalarProperty Name="FECHA_NACIMIENTO" ColumnName="FECHA_NACIMIENTO" />
+          <ScalarProperty Name="CIUDAD_RESIDENCIA" ColumnName="CIUDAD_RESIDENCIA" />
+          <ScalarProperty Name="ESTADO_CIVIL" ColumnName="ESTADO_CIVIL" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -355,6 +358,14 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CARGAR_DESCRIPCION_CARGO" FunctionName="DBArticulosEncargosModel.Store.CARGAR_DESCRIPCION_CARGO">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBArticulosEncargosModel.CARGAR_DESCRIPCION_CARGO_Result">
+          <ScalarProperty Name="carg_Id" ColumnName="carg_Id" />
+          <ScalarProperty Name="carg_Description" ColumnName="carg_Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="UDP_CambiarContraOlvidada" FunctionName="DBArticulosEncargosModel.Store.UDP_CambiarContraOlvidada" />
     <FunctionImportMapping FunctionImportName="UDP_CARGAR_ARTICULO" FunctionName="DBArticulosEncargosModel.Store.UDP_CARGAR_ARTICULO">
       <ResultMapping>
@@ -391,6 +402,7 @@
           <ScalarProperty Name="emp_DNI" ColumnName="emp_DNI" />
           <ScalarProperty Name="emp_FechaNac" ColumnName="emp_FechaNac" />
           <ScalarProperty Name="ciu_ID" ColumnName="ciu_ID" />
+          <ScalarProperty Name="depto_ID" ColumnName="depto_ID" />
           <ScalarProperty Name="est_ID" ColumnName="est_ID" />
           <ScalarProperty Name="emp_Sexo" ColumnName="emp_Sexo" />
           <ScalarProperty Name="carg_Id" ColumnName="carg_Id" />
@@ -454,6 +466,14 @@
         <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CargarArticulos_Result">
           <ScalarProperty Name="art_ID" ColumnName="art_ID" />
           <ScalarProperty Name="art_Descripcion" ColumnName="art_Descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_CargarCiudad_Empleados" FunctionName="DBArticulosEncargosModel.Store.UDP_CargarCiudad_Empleados">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CargarCiudad_Empleados_Result">
+          <ScalarProperty Name="ciu_ID" ColumnName="ciu_ID" />
+          <ScalarProperty Name="ciu_Descripcion" ColumnName="ciu_Descripcion" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
@@ -659,15 +679,6 @@
           <ScalarProperty Name="FECHA" ColumnName="FECHA" />
           <ScalarProperty Name="EMPLEADO" ColumnName="EMPLEADO" />
           <ScalarProperty Name="ESTADO_ENVIO" ColumnName="ESTADO_ENVIO" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="CARGAR_DESCRIPCION_CARGO" FunctionName="DBArticulosEncargosModel.Store.CARGAR_DESCRIPCION_CARGO" />
-    <FunctionImportMapping FunctionImportName="UDP_CargarCiudad_Empleados" FunctionName="DBArticulosEncargosModel.Store.UDP_CargarCiudad_Empleados">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="DBArticulosEncargosModel.UDP_CargarCiudad_Empleados_Result">
-          <ScalarProperty Name="ciu_ID" ColumnName="ciu_ID" />
-          <ScalarProperty Name="ciu_Descripcion" ColumnName="ciu_Descripcion" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

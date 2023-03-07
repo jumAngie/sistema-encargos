@@ -2,23 +2,6 @@
 
 console.log($("#ciu_Id").val());
 
-$(document).ready(function () {
-    var ciu_Id = $("#ciu_Id").val();
-    $.ajax({
-        url: "/Empleados/CargarCiudadDescripcion",
-        method: "POST",
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-        data: JSON.stringify({ ciu_Id: ciu_Id }),
-        success: function (data) {
-            $.each(data, function (i, value) {
-
-                $("#Ciudad").append("<option value='" + value.ciu_ID + "'>" + value.ciu_Descripcion + "</option>")
-            })
-        }
-    })
-
-})
 
 
 
@@ -90,41 +73,83 @@ $(document).ready(function () {
 
 ////$("#cargo_Des").val() = $("#cargo_Id").val();
 
+$(document).ready(function () {
+    var ciu_Id = $("#ciu_Id").val();
+    $.ajax({
+        url: "/Empleados/CargarCiudadDescripcion",
+        method: "POST",
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({ ciu_Id: ciu_Id }),
+        success: function (data) {
+            $.each(data, function (i, value) {
+
+                $("#Ciudad").append("<option value='" + value.ciu_ID + "'>" + value.ciu_Descripcion + "</option>")
+            })
+        }
+    })
+
+})
+
+
+$(document).ready(function () {
+
+    var depto = $("#depto").val();
+    $.ajax({
+        url: "/Empleados/cargarDeptosEdit",
+        method: "POST",
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({ depto: depto }),
+        success: function (data) {
+            $.each(data, function (i, value) {
+
+                $("#depto").append("<option value='" + value.depto_ID + "'>" + value.depto_Descripcion + "</option>")
+            })
+        }
+    })
+})
+
+$("#depto").change(function () {
+
+    var depto = $("#depto").val();
+    $.ajax({
+        url: "/Empleados/CargarMunicipiosEdit",
+        method: "POST",
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({ depto: depto }),
+        success: function (data) {
+            $("#ciu_ID").empty();
+
+            $.each(data, function (i, value) {
+                $("#ciu_ID").append("<option value='" + value.ciu_ID + "'>" + value.ciu_Descripcion + "</option>")
+            })
+        }
+    })
+})
+
+
 //$(document).ready(function () {
-//    var depa = $("#depa").val();
+
+//    var est_ID = $("#est_ID").val();
 //    $.ajax({
-//        url: "/Empleados/cargarDeptosEdit",
+//        url: "/Empleados/CargarEstadosCiviles",
 //        method: "POST",
 //        dataType: "json",
 //        contentType: "application/json; charset=utf-8",
-//        data: JSON.stringify({ depa: depa }),
+//        data: JSON.stringify({ est_ID: est_ID }),
 //        success: function (data) {
 //            $.each(data, function (i, value) {
 
-//                $("#depa").append("<option value='" + value.depa + "'>" + value.depto_Descripcion + "</option>")
+//                $("#est_ID").append("<option value='" + value.est_ID + "'>" + value.est_Descripcion + "</option>")
 //            })
 //        }
 //    })
 //})
 
-//$("#depa").change(function () {
-
-//    var depa = $("#depa").val();
-//    $.ajax({
-//        url: "/Empleados/CargarMunicipiosEdit",
-//        method: "POST",
-//        dataType: "json",
-//        contentType: "application/json; charset=utf-8",
-//        data: JSON.stringify({ depa: depa }),
-//        success: function (data) {
-//            $("#ciudad").empty();
-
-//            $.each(data, function (i, value) {
-//                $("#ciudad").append("<option value='" + value.ciu_ID + "'>" + value.ciu_Descripcion + "</option>")
-//            })
-//        }
-//    })
-//})
+//var estado = $("#est").val();
+//$("#est_ID").val() = estado;
 
 
 
@@ -132,27 +157,60 @@ $(document).ready(function () {
 
 
 
+//$("#MensajeName").hide();
+//$("#MensajeApe").hide();
+//$("#MensajeDNI").hide();
+//$("#MensajeNac").hide();
+//$("#MensajeSexo").hide();
+
+//function validar() {
+
+
+//    if ($("#emp_Name").val() == "") {
+//        $("#MensajeName").show();
+
+//    }
+//    if ($("#emp_Apellido").val() == "") {
+//        $("#MensajeApe").show();
+//    }
+//    if ($("#emp_FechaNac").val() == "") {
+//        $("#MensajeNac").show();
+
+//    }
+//    if ($("#emp_DNI").val() == "") {
+//        $("#MensajeDNI").show();
+//    }
+
+//    if ($("#emp_DNI").val() != "" && $("#emp_FechaNac").val() != "" && $("#emp_Apellido").val() != "" && $("#emp_Name").val() != "") {
+//        var name = $("#emp_Name").val();
+//        var ape = $("#emp_Apellido").val();
+//        var dni = $("#emp_DNI").val();
+//        var fecha = $("#emp_FechaNac").val();
+//        var ciudad = $("#ciu_ID").val();
+//        var ID = $("#id").val();
+//        $.ajax({
+//            url: "/Empleados/Edito",
+//            method: "POST",
+//            dataType: "json",
+//            contentType: "application/json; charset=utf-8",
+//            data: JSON.stringify({ ID: ID,name: name, ape: ape, dni: dni, fecha: fecha }),
+//            success: function (data) {
+
+//                //$("#artiMess").hide();
+//                //$("#CantidadMess").hide();
+//                //$("#StockNegativo").hide();
+//                window.location.reload();
+//            }
+
+//        })
+//    }
+
+//}
 
 
 
 
-//$(document).ready(function () {
 
-//    var Id_Estado = $("#Id_Estado").val();
-//    $.ajax({
-//        url: "/Empleados/CargarEstadosCivilesEdit",
-//        method: "POST",
-//        dataType: "json",
-//        contentType: "application/json; charset=utf-8",
-//        data: JSON.stringify({ Id_Estado: Id_Estado }),
-//        success: function (data) {
-//            $.each(data, function (i, value) {
-
-//                $("#Id_Estado").append("<option value='" + value.est_ID + "'>" + value.est_Descripcion + "</option>")
-//            })
-//        }
-//    })
-//})
 
 
 

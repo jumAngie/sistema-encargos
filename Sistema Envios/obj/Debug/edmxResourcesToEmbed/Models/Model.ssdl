@@ -286,6 +286,7 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_EMPLEADOS' n
       <PropertyRef Name="IDENTIDAD" />
       <PropertyRef Name="SEXO" />
       <PropertyRef Name="CARGO" />
+      <PropertyRef Name="CIUDAD_RESIDENCIA" />
     </Key>
     <Property Name="ID" Type="int" Nullable="false" />
     <Property Name="NOMBRE" Type="nvarchar" MaxLength="150" Nullable="false" />
@@ -293,6 +294,9 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_EMPLEADOS' n
     <Property Name="IDENTIDAD" Type="varchar" MaxLength="13" Nullable="false" />
     <Property Name="SEXO" Type="varchar" MaxLength="9" Nullable="false" />
     <Property Name="CARGO" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="FECHA_NACIMIENTO" Type="date" />
+    <Property Name="CIUDAD_RESIDENCIA" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ESTADO_CIVIL" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_ESTADOS_CIVILES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -359,6 +363,18 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
     <Property Name="NOMBRE" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="ROL" Type="nvarchar" MaxLength="100" Nullable="false" />
   </EntityType>
+  <Association Name="FK_CARGOS_tbEmpleados">
+    <End Role="tbCargos" Type="Self.tbCargos" Multiplicity="1" />
+    <End Role="tbEmpleados" Type="Self.tbEmpleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbCargos">
+        <PropertyRef Name="carg_Id" />
+      </Principal>
+      <Dependent Role="tbEmpleados">
+        <PropertyRef Name="carg_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_dbo_tbCiudades_dbo_tbDepartamentos_depto_ID">
     <End Role="tbDepartamentos" Type="Self.tbDepartamentos" Multiplicity="1" />
     <End Role="tbCiudades" Type="Self.tbCiudades" Multiplicity="*" />
@@ -1170,7 +1186,10 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
     [V_INDEX_EMPLEADOS].[APELLIDO] AS [APELLIDO], 
     [V_INDEX_EMPLEADOS].[IDENTIDAD] AS [IDENTIDAD], 
     [V_INDEX_EMPLEADOS].[SEXO] AS [SEXO], 
-    [V_INDEX_EMPLEADOS].[CARGO] AS [CARGO]
+    [V_INDEX_EMPLEADOS].[CARGO] AS [CARGO], 
+    [V_INDEX_EMPLEADOS].[FECHA_NACIMIENTO] AS [FECHA_NACIMIENTO], 
+    [V_INDEX_EMPLEADOS].[CIUDAD_RESIDENCIA] AS [CIUDAD_RESIDENCIA], 
+    [V_INDEX_EMPLEADOS].[ESTADO_CIVIL] AS [ESTADO_CIVIL]
     FROM [dbo].[V_INDEX_EMPLEADOS] AS [V_INDEX_EMPLEADOS]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="V_INDEX_ESTADOS_CIVILES" EntityType="Self.V_INDEX_ESTADOS_CIVILES" store:Type="Views" store:Schema="dbo">
@@ -1211,6 +1230,10 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
     [V_INDEX_USUARIOS].[ROL] AS [ROL]
     FROM [dbo].[V_INDEX_USUARIOS] AS [V_INDEX_USUARIOS]</DefiningQuery>
     </EntitySet>
+    <AssociationSet Name="FK_CARGOS_tbEmpleados" Association="Self.FK_CARGOS_tbEmpleados">
+      <End Role="tbCargos" EntitySet="tbCargos" />
+      <End Role="tbEmpleados" EntitySet="tbEmpleados" />
+    </AssociationSet>
     <AssociationSet Name="FK_dbo_tbCiudades_dbo_tbDepartamentos_depto_ID" Association="Self.FK_dbo_tbCiudades_dbo_tbDepartamentos_depto_ID">
       <End Role="tbDepartamentos" EntitySet="tbDepartamentos" />
       <End Role="tbCiudades" EntitySet="tbCiudades" />
