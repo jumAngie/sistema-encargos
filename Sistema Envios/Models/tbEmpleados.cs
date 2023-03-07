@@ -41,5 +41,6 @@ namespace Sistema_Envios.Models
         public virtual tbUsuarios tbUsuarios1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbUsuarios> tbUsuarios2 { get; set; }
+        public virtual tbCargos tbCargos { get; set; }
     }
 }

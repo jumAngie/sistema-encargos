@@ -1,0 +1,167 @@
+﻿@model Sistema_Envios.Models.tbEmpleados
+
+@{
+    ViewBag.Title = "Editooo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @*<form action="@Url.Action("Edit")" method="get" class="needs-validation" novalidate>*@
+        <div class="card-header bg-warning">
+            <div class="text-center">
+                <h4 style="color:azure">EDITANDO EMPELADOS</h4>
+                <hr />
+                @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+                @Html.HiddenFor(model => model.emp_Id)
+                <input type="text"  id="id" value="@Model.emp_Id" disabled />
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Nombre</label> <label id="MensajeName" style="color:red">Requerido!</label>
+                    <div class="col-md-10">
+                        <input id="emp_Name" name="emp_Name" value="@Model.emp_Name" class="form-control"/>
+                        @*@Html.EditorFor(model => model.emp_Name, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @*@Html.ValidationMessageFor(model => model.emp_Name, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Apellidos</label> <label id="MensajeApe" style="color:red">Requerido!</label>
+                    <div class="col-md-10">
+                        <input type="text" id="emp_Apellido" name="emp_Apellido" class="form-control" value="@Model.emp_Apellido" />                   
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Identidad</label> <label id="MensajeDNI" style="color:red">Requerido!</label>
+                    <div class="col-md-10">
+                        <input type="number" id="emp_DNI" name="emp_DNI" class="form-control" value="@Model.emp_DNI" />
+                      
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Fecha Nacimiento</label>  <label id="MensajeNac" style="color:red">Requerido!</label>
+                    <div class="col-md-10">
+                        <input type="datetime" id="emp_FechaNac" name="emp_FechaNac" class="form-control" value="@Model.emp_FechaNac" />
+
+                    </div>
+                </div>
+            </div>
+            <!--<div class="col-sm-6">
+            <div class="form-group">
+                <label>Ciudad</label>
+                <div class="col-md-10">-->
+            @*@Html.DropDownList("ciu_ID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ciu_ID, "", new { @class = "text-danger" })*@
+
+            <!--</div>
+                </div>
+            </div>-->
+
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Estado Civil</label>
+                    <div class="col-md-10">
+                        <input type="text" hidden disabled id="est" value="@Model.est_ID" />
+                        @*@Html.DropDownList("est_ID", null, htmlAttributes: new { @class = "form-control", @id="est_Id" })*@
+                        <select id="est_ID" name="est_ID" class="form-control">
+
+                        </select>
+                      
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6">
+
+                <div class="form-group">
+                    <label>Sexo Actual ("F" Femenino, "M" Masculino)</label> <label id="MensajeSexo" style="color:red">Requerido!</label>
+                    <div class="col-md-10">
+                        <input type="text" id="sexo" name="emp_Sexo" value="@Model.emp_Sexo" disabled/>
+                        <br />
+                         <label>Actualizar </label>
+                        @*<input type="radio"  id="rdF" name="emp_sexo" value="F"/> Femenino
+                        <input type="radio" id="rdM" name="emp_sexo" value="M"/> Masculino*@
+
+                        @*@Html.EditorFor(model => model.emp_Sexo, new { htmlAttributes = new { @class = "form-control", @maxlength = "1" } })*@
+                      
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Cargo</label>
+
+                    <div class="col-md-10">
+
+                        @Html.DropDownList("carg_Id", null, htmlAttributes: new { @class = "form-control" })
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Ciudad Actual</label>
+                    <div class="col-md-10">
+                        <input type="text" id="ciu_Id" hidden name="ciu_Id" value="@Model.ciu_ID" disabled />
+                        <select id="Ciudad" name="Ciudad" class="form-control" disabled>
+                        </select>
+                        @*@Html.DropDownList("ciu_ID", null, htmlAttributes: new { @class = "form-control"})*@
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>ELIGA UNA NUEVA CIUDAD</label> 
+                    <div class="col-md-10">
+                        <select id="depto" name="depto" class="form-control"></select>
+
+                        <select id="ciu_ID" name="ciu_ID" class="form-control"></select>
+                       
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="Save" class="btn btn-default"  onclick="validar()" />
+                </div>
+            </div>
+        </div>
+
+
+        @*</form>*@
+
+
+        }
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+
+
+        <script src="~/Scripts/EditarEmpleados.js"></script>

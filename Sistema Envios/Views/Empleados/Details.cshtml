@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="card">
+
     <div class="card-header bg-warning">
         <div class="text-center">
-            <h4 style="color:azure">Empleados</h4>
+            <h4 style="color:azure">Empleados Detalles</h4>
         </div>
     </div>
     <div class="card-body">
@@ -32,7 +32,7 @@
             @Html.DisplayFor(model => model.emp_Apellido)
         </dd>
     </div>
-</div>
+
 <div class="row">
     <div class="col-sm-6">
         <dt>
@@ -65,11 +65,11 @@
     </div>
     <div class="col-sm-6">
         <dt>
-            @Html.DisplayNameFor(model => model.carg_Id)
+            @Html.DisplayNameFor(model => model.tbCargos.carg_Description)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.carg_Id)
+            @Html.DisplayFor(model => model.tbCargos.carg_Description)
         </dd>
     </div>
 </div>

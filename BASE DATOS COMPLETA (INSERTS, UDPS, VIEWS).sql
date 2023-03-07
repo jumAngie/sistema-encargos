@@ -2383,4 +2383,6 @@ GO
 
 --EXEC UDP_CargarCiudad_Empleados 10
 
-
+---- en mi base no estaba 
+ALTER TABLE [dbo].[tbEmpleados]
+ADD CONSTRAINT FK_CARGOS_tbEmpleados FOREIGN KEY(carg_Id) REFERENCES [dbo].[tbCargos] (carg_Id)

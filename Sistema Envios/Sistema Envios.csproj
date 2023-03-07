@@ -146,6 +146,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Articulos.cs" />
+    <Compile Include="Models\CARGAR_DESCRIPCION_CARGO_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Cargos.cs" />
     <Compile Include="Models\Ciudades.cs" />
     <Compile Include="Models\Clientes.cs" />
@@ -3575,7 +3578,7 @@
     <Content Include="Views\Empleados\Create.cshtml" />
     <Content Include="Views\Empleados\Delete.cshtml" />
     <Content Include="Views\Empleados\Details.cshtml" />
-    <Content Include="Views\Empleados\Edit.cshtml" />
+    <Content Include="Views\Empleados\Editooo.cshtml" />
     <Content Include="Views\Articulos\Details.cshtml" />
     <Content Include="Views\Ciudades\Details.cshtml" />
     <Content Include="Views\Clientes\Delete.cshtml" />
@@ -3632,7 +3635,7 @@
     <Content Include="Views\Usuarios\CrearUsuario.cshtml" />
     <Content Include="Views\Clientes\DetallePorPedido.cshtml" />
     <Content Include="Views\Clientes\Crear.cshtml" />
-    <Content Include="Views\Empleados\Editando.cshtml" />
+    <Content Include="Views\Empleados\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
