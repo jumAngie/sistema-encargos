@@ -116,15 +116,6 @@ namespace Sistema_Envios.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_CIUDAD_Result>("UDP_CARGAR_CIUDAD", ciu_IDParameter);
         }
     
-        public virtual ObjectResult<UDP_CARGAR_DATOS_EMPLEADOS_Result> UDP_CARGAR_DATOS_EMPLEADOS(Nullable<int> emp_Id)
-        {
-            var emp_IdParameter = emp_Id.HasValue ?
-                new ObjectParameter("emp_Id", emp_Id) :
-                new ObjectParameter("emp_Id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_DATOS_EMPLEADOS_Result>("UDP_CARGAR_DATOS_EMPLEADOS", emp_IdParameter);
-        }
-    
         public virtual ObjectResult<UDP_CARGAR_DEPA_CIUDADES_Result> UDP_CARGAR_DEPA_CIUDADES()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_DEPA_CIUDADES_Result>("UDP_CARGAR_DEPA_CIUDADES");
@@ -1072,6 +1063,25 @@ namespace Sistema_Envios.Models
                 new ObjectParameter("ID", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<V_TICKET_PEDIDOSPORCLIENTE_Result>("V_TICKET_PEDIDOSPORCLIENTE", iDParameter);
+        }
+    
+        public virtual ObjectResult<UDP_CARGARCODIGOSDet_Result> UDP_CARGARCODIGOSDet()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGARCODIGOSDet_Result>("UDP_CARGARCODIGOSDet");
+        }
+    
+        public virtual ObjectResult<UDP_CARGARDETALLE_Result> UDP_CARGARDETALLE(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGARDETALLE_Result>("UDP_CARGARDETALLE", iDParameter);
+        }
+    
+        public virtual ObjectResult<UDP_CARGARARTICULOSDet_Result> UDP_CARGARARTICULOSDet()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGARARTICULOSDet_Result>("UDP_CARGARARTICULOSDet");
         }
     }
 }

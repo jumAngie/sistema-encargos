@@ -51,9 +51,32 @@ namespace Sistema_Envios.Controllers
             
         }
 
-        
         [HttpPost]
-       
+        public JsonResult CARGARCODIGOS()
+        {
+            var Codigos = db.UDP_CARGARCODIGOSDet().ToList();
+
+            return Json(Codigos, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult CARGARARTICULOSdet()
+        {
+            var Articulos = db.UDP_CARGARARTICULOSDet().ToList();
+
+            return Json(Articulos, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult Cargar(string det_ID)
+        {
+
+            var tbArticulos = db.UDP_CARGARDETALLE(int.Parse(det_ID)).ToList();
+            return Json(tbArticulos, JsonRequestBehavior.AllowGet);
+
+        }
+
+        [HttpPost]
         public ActionResult Create(string txtPedi, string txtArticulo, string txtCant)
         {
 
@@ -78,6 +101,38 @@ namespace Sistema_Envios.Controllers
             return RedirectToAction("Index");
 
 
+        }
+
+        [HttpPost, ActionName("Editores")]
+     
+        public ActionResult Edito(string det_ID, string txtCantid, string txtArticuloID, string txtPedidoCode)
+
+        {
+            try
+            {
+                
+                if (ModelState.IsValid)
+                {
+                    if (txtCantid != "")
+                    {
+                        string UsuarioModi = Session["UsuarioID"].ToString();
+                        var Edit = db.UDP_Editar_PedidosDetalles(int.Parse(det_ID), int.Parse(txtPedidoCode), int.Parse(txtArticuloID), int.Parse(txtCantid), UsuarioModi);
+
+                    }
+
+                }
+                else
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Index");
+
+            }
+
+            return RedirectToAction("Index");
         }
 
 

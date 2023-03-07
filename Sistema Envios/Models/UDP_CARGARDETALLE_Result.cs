@@ -11,17 +11,12 @@ namespace Sistema_Envios.Models
 {
     using System;
     
-    public partial class UDP_CARGAR_DATOS_EMPLEADOS_Result
+    public partial class UDP_CARGARDETALLE_Result
     {
-        public int emp_Id { get; set; }
-        public string emp_Name { get; set; }
-        public string emp_Apellido { get; set; }
-        public string emp_DNI { get; set; }
-        public Nullable<System.DateTime> emp_FechaNac { get; set; }
-        public int ciu_ID { get; set; }
-        public int depto_ID { get; set; }
-        public string est_ID { get; set; }
-        public string emp_Sexo { get; set; }
-        public int carg_Id { get; set; }
+        public int pedi_ID { get; set; }
+        public string pedi_Code { get; set; }
+        public int art_ID { get; set; }
+        public string art_Descripcion { get; set; }
+        public int det_Cantidad { get; set; }
     }
 }
