@@ -11,10 +11,8 @@ namespace Sistema_Envios.Models
 {
     using System;
     
-    public partial class UDP_CARGAR_CIUDAD_Result
+    public partial class UDP_CARGAR_DEPA_CIUDADES_Result
     {
-        public int ciu_ID { get; set; }
-        public string ciu_Descripcion { get; set; }
         public int depto_ID { get; set; }
         public string depto_Descripcion { get; set; }
     }

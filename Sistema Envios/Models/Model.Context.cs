@@ -125,6 +125,20 @@ namespace Sistema_Envios.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_CIUDAD_Result>("UDP_CARGAR_CIUDAD", ciu_IDParameter);
         }
     
+        public virtual ObjectResult<UDP_CARGAR_DATOS_EMPLEADOS_Result> UDP_CARGAR_DATOS_EMPLEADOS(Nullable<int> emp_Id)
+        {
+            var emp_IdParameter = emp_Id.HasValue ?
+                new ObjectParameter("emp_Id", emp_Id) :
+                new ObjectParameter("emp_Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_DATOS_EMPLEADOS_Result>("UDP_CARGAR_DATOS_EMPLEADOS", emp_IdParameter);
+        }
+    
+        public virtual ObjectResult<UDP_CARGAR_DEPA_CIUDADES_Result> UDP_CARGAR_DEPA_CIUDADES()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UDP_CARGAR_DEPA_CIUDADES_Result>("UDP_CARGAR_DEPA_CIUDADES");
+        }
+    
         public virtual ObjectResult<UDP_CARGAR_DEPARTAMENTO_Result> UDP_CARGAR_DEPARTAMENTO(Nullable<int> depto_ID)
         {
             var depto_IDParameter = depto_ID.HasValue ?
@@ -370,7 +384,7 @@ namespace Sistema_Envios.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Editar_Cargos", carg_IdParameter, carg_DescriptionParameter, rep_UsuarioModParameter);
         }
     
-        public virtual int UDP_Editar_Ciudades(Nullable<int> ciu_ID, string ciu_Descripcion, string ciu_UsuarioMod)
+        public virtual int UDP_Editar_Ciudades(Nullable<int> ciu_ID, string ciu_Descripcion, Nullable<int> ciu_DeptoID, string ciu_UsuarioMod)
         {
             var ciu_IDParameter = ciu_ID.HasValue ?
                 new ObjectParameter("ciu_ID", ciu_ID) :
@@ -380,11 +394,15 @@ namespace Sistema_Envios.Models
                 new ObjectParameter("ciu_Descripcion", ciu_Descripcion) :
                 new ObjectParameter("ciu_Descripcion", typeof(string));
     
+            var ciu_DeptoIDParameter = ciu_DeptoID.HasValue ?
+                new ObjectParameter("ciu_DeptoID", ciu_DeptoID) :
+                new ObjectParameter("ciu_DeptoID", typeof(int));
+    
             var ciu_UsuarioModParameter = ciu_UsuarioMod != null ?
                 new ObjectParameter("ciu_UsuarioMod", ciu_UsuarioMod) :
                 new ObjectParameter("ciu_UsuarioMod", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Editar_Ciudades", ciu_IDParameter, ciu_DescripcionParameter, ciu_UsuarioModParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDP_Editar_Ciudades", ciu_IDParameter, ciu_DescripcionParameter, ciu_DeptoIDParameter, ciu_UsuarioModParameter);
         }
     
         public virtual int UDP_Editar_Clientes(Nullable<int> client_ID, string client_Nombre, string client_Identidad, string client_EstadoCivil, string client_Sexo, string client_Telefono, string client_Saldo, Nullable<decimal> client_LimiteCredito, string client_Descuento, string client_UsuarioMod)

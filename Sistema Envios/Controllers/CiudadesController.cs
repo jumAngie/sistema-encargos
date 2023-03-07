@@ -95,7 +95,7 @@ namespace Sistema_Envios.Controllers
         }
 
         [HttpPost, ActionName("Editores")]
-        public ActionResult Edito(string ID, string Descripcion)
+        public ActionResult Edito(string ID, string Descripcion, string Departamento)
 
         {
             string usuario = Session["UsuarioID"].ToString();
@@ -105,7 +105,7 @@ namespace Sistema_Envios.Controllers
                 {
                     if (Descripcion != "" && Descripcion != null)
                     { 
-                        var Edit = db.UDP_Editar_Ciudades(int.Parse(ID), Descripcion, usuario);
+                        var Edit = db.UDP_Editar_Ciudades(int.Parse(ID), Descripcion,int.Parse(Departamento) ,usuario);
                         //TempData["Mensaje"] = "El registro se ha guardado correctamente.";
                         return RedirectToAction("Index");
                     }
@@ -126,6 +126,12 @@ namespace Sistema_Envios.Controllers
 
         }
 
+        //[HttpPost]
+        public JsonResult CargarDeptosEdit()
+        {
+            var dep = db.UDP_CARGAR_DEPA_CIUDADES().ToList();
+            return Json(dep, JsonRequestBehavior.AllowGet);
+        }
 
         protected override void Dispose(bool disposing)
         {

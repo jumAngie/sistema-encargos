@@ -809,6 +809,9 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="CARGAR_DESCRIPCION_CARGO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="carg_Id" Type="int" Mode="In" />
+  </Function>
   <Function Name="UDF_ArticulosPorPedido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="PedidoCode" Type="varchar" Mode="In" />
     <ReturnType>
@@ -848,6 +851,10 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
   <Function Name="UDP_CARGAR_CIUDAD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ciu_ID" Type="int" Mode="In" />
   </Function>
+  <Function Name="UDP_CARGAR_DATOS_EMPLEADOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="emp_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_CARGAR_DEPA_CIUDADES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="UDP_CARGAR_DEPARTAMENTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="depto_ID" Type="int" Mode="In" />
   </Function>
@@ -917,6 +924,7 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
   <Function Name="UDP_Editar_Ciudades" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ciu_ID" Type="int" Mode="In" />
     <Parameter Name="ciu_Descripcion" Type="nvarchar" Mode="In" />
+    <Parameter Name="ciu_DeptoID" Type="int" Mode="In" />
     <Parameter Name="ciu_UsuarioMod" Type="varchar" Mode="In" />
   </Function>
   <Function Name="UDP_Editar_Clientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">

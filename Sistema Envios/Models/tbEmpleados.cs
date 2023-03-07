@@ -35,12 +35,12 @@ namespace Sistema_Envios.Models
         public Nullable<System.DateTime> emp_FechaModif { get; set; }
         public Nullable<bool> emp_Estado { get; set; }
     
+        public virtual tbCargos tbCargos { get; set; }
         public virtual tbCiudades tbCiudades { get; set; }
         public virtual tbEstadosCiviles tbEstadosCiviles { get; set; }
         public virtual tbUsuarios tbUsuarios { get; set; }
         public virtual tbUsuarios tbUsuarios1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbUsuarios> tbUsuarios2 { get; set; }
-        public virtual tbCargos tbCargos { get; set; }
     }
 }
