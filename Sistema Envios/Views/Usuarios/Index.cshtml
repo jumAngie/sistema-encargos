@@ -13,7 +13,7 @@
             <div class="float-e-margins">
                 <div class="ibox-title">
                     <div class="ibox-tools">
-                        <input type="button" value="Nuevo" class="btn btn-primary" />
+                        <input type="button" value="Nuevo" class="btn btn-primary" onclick="AbrirNuevo" />
                     </div>
                 </div>
                 <br />
@@ -48,8 +48,59 @@
 
                                     <td>
                                         @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn btn-default btn-xs" })
-                                        @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn btn-primary btn-xs" })
+                                        <button class="btn-edit btn btn-warning btn-xs" onclick="AbrirEditar(@item.ID)">Editar</button>
                                         <button class="btn-delete btn btn-secondary btn-xs" data-id="@item.ID">Eliminar</button>
+                                        <form method="post">
+                                            <style>
+                                                .modal-header, h4 {
+                                                    background-color: #ffffff;
+                                                    /*color: white !important;*/
+                                                    text-align: center;
+                                                    font-size: 22px;
+                                                }
+
+                                                .modal-footer {
+                                                    background-color: white;
+                                                }
+                                            </style>
+                                            @Html.AntiForgeryToken()
+                                            <div class="modal fade" id="EditUsuarios" tabindex="-1" role="dialog" aria-labelledby="Edit-Usuarios" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title" id="edit-usuarios">Editar Usuario</h4>
+                                                            <img src="https://cdn.dribbble.com/users/1200451/screenshots/8759739/ezgif.com-optimize.gif" width="150" />
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="row">
+                                                                <div class="col-sm-5">
+                                                                    <label style="color:black">Nombre de usuario</label><label id="labelusuE" name="labelusuE" style="color:red">@Html.ValidationMessage("ValUsuario")</label>
+                                                                    <input type="text" name="txtUsuarioE" id="txtUsuarioE" class="form-control" style="border-color:black" />
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <label style="color:black">Es Admin</label><label id="labeladminE" name="labeladminE" style="color:red"></label> <br /> <br />
+                                                                    <div class="text-center">
+                                                                        <input type="checkbox" name="ckEsAdminE" id="ckEsAdminE" style="border-color:black" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-5">
+                                                                    <label style="color:black">Cargo</label><label id="labelcargoE" name="labelcargoE" style="color:red"></label>
+                                                                    <select id="rol_IDE" name="rol_IDE" class="form-control" style="border-color:black"></select>
+                                                                </div>
+                                                            </div> <br />
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" id="Cancelar" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                            <input type="button" value="Editar" id="btnEditar" name="btnEditar" onclick="Editar(@item.ID)" class="btn btn-warning" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <script src="~/Scripts/EditarUsuario.js"></script>
+
+                                        </form>
                                     </td>
                                 </tr>
                             }
@@ -64,3 +115,5 @@
 @Html.Partial("EliminarUsuario")
 
 @Html.Partial("CrearUsuario")
+
+@Html.Partial("EditarUsuario")

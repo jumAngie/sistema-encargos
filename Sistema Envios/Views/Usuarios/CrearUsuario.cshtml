@@ -14,6 +14,7 @@
         background-color: white;
     }
 </style>
+@Html.AntiForgeryToken();
 <div class="modal fade" id="Usuarios" tabindex="-1" role="dialog" aria-labelledby="Crear-Usuarios" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -25,11 +26,11 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <label style="color:black">Nombre de usuario</label><label id="labelusu" name="labelusu" style="color:red"></label>
-                        <input type="text" name="txtUsuario" id="txtUsuario" class="form-control" style="border-color:black"/>
+                        <input type="text" name="txtUsuario" id="txtUsuario" class="form-control" style="border-color:black" />
                     </div>
                     <div class="col-sm-6">
                         <label style="color:black">Clave</label><label id="labelclave" name="labelclave" style="color:red"></label>
-                        <input type="text" id="txtClave" name="txtClave" class="form-control" style="border-color:black" >
+                        <input type="text" id="txtClave" name="txtClave" class="form-control" style="border-color:black">
                     </div>
                 </div> <br />
                 <div class="row">

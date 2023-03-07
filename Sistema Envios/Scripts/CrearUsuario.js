@@ -1,10 +1,10 @@
-﻿$(function Ocultar() {
-    $("#labelusu").text('');
-    $("#labelclave").text('');
-    $("#labelemp").text('');
-    $("#labeladmin").text('');
-    $("#labelcargo").text('');
-})
+﻿////$(function Ocultar() {
+////    $("#labelusu").text('');
+////    $("#labelclave").text('');
+////    $("#labelemp").text('');
+////    $("#labeladmin").text('');
+////    $("#labelcargo").text('');
+////});
 
 $(document).ready(function () {
     var emp_Id = $("#emp_Id").val();
@@ -35,12 +35,16 @@ $(document).ready(function () {
             })
         }
     })
-    Ocultar();
 })
 
 
 $(function () {
     $('#btnCancelar').click(function () {
+        $("#labelusu").hide();
+        $("#labelclave").hide();
+        $("#labelemp").hide();
+        $("#labeladmin").hide();
+        $("#labelcargo").hide();
         $('#Usuarios').modal('hide');
     });
 });
@@ -62,31 +66,61 @@ function Insertar() {
     if ($('#ckEsAdmin').prop("checked") == false) {
         adm = 0;
     }
+
     var rol = $("#rol_ID").val()
     if (usuario == "") {
         $("#labelusu").text('*');
     }
+    if (usuario != "") {
+        $("#labelusu").hide();
+    }
+
     if (clave == "") {
         $("#labelclave").text('*');
     }
+    if (clave != "") {
+        $("#labelclave").hide();
+    }
+
     if (empleado == 0) {
         $("#labelemp").text('*');
     }
-    if (rol == 0) {
-        $("#labelcargo").text('*');
+    if (empleado != 0) {
+        $("#labelemp").hide();
     }
-    if (usuario == "" || clave == "" || empleado == 0 || rol == 0) {
+
+    if ($('#ckEsAdmin').prop("checked") == true) {
+        rol.disabled = true;
+    }
+    if ($('#ckEsAdmin').prop("checked") == true) {
+        if (rol == 0) {
+            $("#labelcargo").text('*');
+        }
+        if (rol != 0) {
+
+        } {
+            $("#labelcargo").hide();
+        }
+    }
+    if (usuario == "" || clave == "" || empleado == 0) {
     }
     else {
-        $.ajax({
-            url: "/Usuarios/Create",
-            method: "POST",
-            data: { txtUsuario: usuario, txtClave: clave, emp_Id: empleado, ckEsAdmin: adm, rol_ID: rol },
-            success: function (data) {
-                window.location.reload();
-            }
-        })
-        Ocultar();
+        if (rol == 0 && adm == "" || rol != 0 && adm != "") {
+            $("#labeladmin").text('Debe escoger uno solo');
+        }
+        else {
+            $.ajax({
+                url: "/Usuarios/Create",
+                method: "POST",
+                data: { txtUsuario: usuario, txtClave: clave, emp_Id: empleado, ckEsAdmin: adm, rol_ID: rol },
+                success: function (data) {
+                    window.location.reload();
+
+                }
+            })
+
+        }
+
     }
 
 }

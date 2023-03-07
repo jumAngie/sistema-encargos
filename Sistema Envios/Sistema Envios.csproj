@@ -3578,6 +3578,7 @@
     <Content Include="Scripts\EditarEmpleados.js" />
     <Content Include="Scripts\EditarEstadoC.js" />
     <Content Include="Scripts\EditarFabri.js" />
+    <Content Include="Scripts\EditarUsuario.js" />
     <Content Include="Scripts\EliminarArticulo.js" />
     <Content Include="Scripts\EliminarCargo.js" />
     <Content Include="Scripts\EliminarCliente.js" />
