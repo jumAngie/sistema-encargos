@@ -119,7 +119,7 @@ function Guardar() {
 
     }
 
-    if (txtCredito > 3000000) {
+    if (txtCredito > 300000) {
         $("#lblAlertaCredito").show();
         $("#txtCredito").focus();
     }
@@ -141,7 +141,7 @@ function Guardar() {
     
 
 
-    if (txtNombre != "" && txtIdentidad != "" && txtTelefono != "" && txtSaldo != "" && txtCredito != "" && txtDescuento != "" && $("#Id_Estado").val() != "0" && sexo != "" && txtCredito < 3000000 )
+    if (txtNombre != "" && txtIdentidad != "" && txtTelefono != "" && txtSaldo != "" && txtCredito != "" && txtDescuento != "" && $("#Id_Estado").val() != "0" && sexo != "" && txtCredito < 300000 )
     {
         $.ajax({
             url: "/Clientes/Guardo",

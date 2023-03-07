@@ -40,20 +40,26 @@ namespace Sistema_Envios.Controllers
         // GET: Clientes/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            try
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return RedirectToAction("Index");
+                }
+                tbClientes tbClientes = db.tbClientes.Find(id);
+                if (tbClientes == null)
+                {
+                    return RedirectToAction("Error", "Login");
+                }
+                return View(tbClientes);
             }
-            tbClientes tbClientes = db.tbClientes.Find(id);
-            if (tbClientes == null)
+            catch (Exception)
             {
-                return HttpNotFound();
+                return RedirectToAction("Error", "Login");
+
             }
-            return View(tbClientes);
+            
         }
-
-
-
 
         //[HttpPost]
         public JsonResult CargarEstadosCiviles()
@@ -64,34 +70,25 @@ namespace Sistema_Envios.Controllers
 
 
 
-        // GET: Clientes/Create
-        //public ActionResult Create()
-        //{
-        //    //ViewBag.client_EstadoCivil = new SelectList(db.tbEstadosCiviles, "est_ID", "est_Descripcion");
-        //    //ViewBag.client_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario");
-        //    //ViewBag.client_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario");
-        //    return View();
-        //}
-
-
-
-        //[HttpPost]
-        ////[ValidateAntiForgeryToken]
-        //public ActionResult Create(string txtDeptos)
-        //{
-        //    int Usuario = 1;
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.UDP_DEPARTAMENTOS_INSERT(txtDeptos, Usuario);
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View();
-        //}
-
-
         public ActionResult Crear()
         {
-            return View();
+            try
+            {
+                if (Session["Rol_ID"].ToString() == "2")
+                {
+                    return RedirectToAction("Principal", "Login");
+                }
+                else
+                {
+                    return View();
+                }
+            }
+            catch (Exception)
+            {
+
+                return RedirectToAction("Index");
+            }
+           
         }
 
 
@@ -160,19 +157,29 @@ namespace Sistema_Envios.Controllers
         // GET: Clientes/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            try
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+                if (id == null)
+                {
+                    return RedirectToAction("Index");
+                }
+                tbClientes tbClientes = db.tbClientes.Find(id);
+                if (tbClientes == null)
+                {
+                    return HttpNotFound(); // pagina de error
+                }
+                ViewBag.client_EstadoCivil = new SelectList(db.tbEstadosCiviles, "est_ID", "est_Descripcion", tbClientes.client_EstadoCivil);
+                ViewBag.client_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbClientes.client_UsuarioCreador);
+                ViewBag.client_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbClientes.client_UsuarioMod);
+                return View(tbClientes);
             }
-            tbClientes tbClientes = db.tbClientes.Find(id);
-            if (tbClientes == null)
+            catch (Exception)
             {
-                return HttpNotFound();
+
+                return RedirectToAction("Index");
             }
-            ViewBag.client_EstadoCivil = new SelectList(db.tbEstadosCiviles, "est_ID", "est_Descripcion", tbClientes.client_EstadoCivil);
-            ViewBag.client_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbClientes.client_UsuarioCreador);
-            ViewBag.client_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbClientes.client_UsuarioMod);
-            return View(tbClientes);
+            
         }
 
         // POST: Clientes/Edit/5
@@ -203,17 +210,11 @@ namespace Sistema_Envios.Controllers
         // GET: Clientes/Delete/
         public ActionResult Delete(int id)
         {
-            string UsuModi = "1";
-            db.UDP_Eliminar_Cliente(id, UsuModi);
+            
+            db.UDP_Eliminar_Cliente(id, Session["UsuarioID"].ToString());
             return RedirectToAction("Index");
         }
-
-        //[HttpPost]
-        //public ActionResult InsertarDetalles(string id, string txtArticulo, string txtCant)
-        ////{
-        //    db.UDP_InsertarDetalle(id, Int32.Parse(txtArticulo), Int32.Parse(txtCant), "1");
-        //    return RedirectToAction("Index");
-        //}
+        
 
         public ActionResult PedidosPorCliente(string id)
         {

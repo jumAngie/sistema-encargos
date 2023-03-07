@@ -24,7 +24,7 @@ namespace Sistema_Envios.Models
         [Required(ErrorMessage = "Este campo {0} es requerido.")]
         public int pedi_DireccionID { get; set; }
 
-        [Display(Name = "Costro del Envío")]
+        [Display(Name = "Costo del Envío")]
         [Required(ErrorMessage = "Este campo {0} es requerido.")]
         public decimal pedi_CostoEnvio { get; set; }
 

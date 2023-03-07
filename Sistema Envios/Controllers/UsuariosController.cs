@@ -18,8 +18,30 @@ namespace Sistema_Envios.Controllers
         // GET: Usuarios
         public ActionResult Index()
         {
-            var tbUsuarios = db.V_INDEX_USUARIOS;
-            return View(tbUsuarios.ToList());
+            try
+            {
+                if (Session.Count > 0)
+                {
+                    if (Session["Rol_ID"].ToString() == "2")
+                    {
+                        return RedirectToAction("Principal", "Login");
+                    }
+                    else
+                    {
+                        var tbUsuarios = db.V_INDEX_USUARIOS;
+                        return View(tbUsuarios.ToList());
+                    }
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Login");
+                }
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Error", "Login");
+            }
+            
         }
 
         // GET: Usuarios/Details/5

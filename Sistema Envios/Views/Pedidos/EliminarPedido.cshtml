@@ -3,14 +3,12 @@
 <div class="modal fade" id="confirm-delete-modal" tabindex="-1" role="dialog" aria-labelledby="confirm-delete-modal-label" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="confirm-delete-modal-label">Arrepientase de su decisión</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+            <div class="modal-header" style="background-color:orange">
+                <h5 class="modal-title" id="confirm-delete-modal-label" style="color:white"><strong>Advertencia</strong></h5>
             </div>
-            <div class="modal-body">
-                ¿Desea eliminar este pedido?
+            <div class="modal-body" style="text-align:center">
+                <h3><strong>Si elimina este registro, eliminará todos los detalles relacionados a este.</strong></h3>
+                <img src="~/Content/iMG/ALERTAAA.png" width="100" />
             </div>
             <div class="modal-footer">
                 <button type="button" id="btn-close-modal" class="btn btn-secondary">Cancelar</button>

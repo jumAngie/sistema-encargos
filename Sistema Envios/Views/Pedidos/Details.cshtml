@@ -13,126 +13,72 @@
     </div>
 
     <div class="card-body">
-        <dl>
-            <div class="row">
-                <div class="col-sm-4">
-            <dt>
-                @Html.DisplayNameFor(model => model.pedi_Code)
-            </dt>
+        <div class="row">
+            <div class="col-sm-4">
+                <dl>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.pedi_Code)
+                    </dt>
+                    less
+                    Copy code
+                    <dd>
+                        @Html.DisplayFor(model => model.pedi_Code)
+                    </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.pedi_Code)
-            </dd>
-    </div>
-    <div class="col-sm-4">
-        <dt>
-            @Html.DisplayNameFor(model => model.pedi_CostoEnvio)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.pedi_CostoEnvio)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.pedi_CostoEnvio)
-        </dd>
-    </div>
-    <div class="col-sm-4">
-        <dt>
-            @Html.DisplayNameFor(model => model.emp_Id)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.pedi_CostoEnvio)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.emp_Id)
-        </dd>
-    </div>
-</div>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.emp_Id)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.emp_Id)
+                    </dd>
+                </dl>
+            </div>
+            <div class="col-sm-4">
+                <dl>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.pedi_Fecha)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.pedi_Fecha)
+                    </dd>
+                </dl>
+            </div>
+            <div class="col-sm-4">
+                <dl>
+                    <dt>
+                        <label>Estado del Envío</label>
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.tbEstadoEnvios.estv_Description)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.tbDirecciones.direc_DireccionExacta)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.tbDirecciones.direc_DireccionExacta)
+                    </dd>
+                </dl>
+            </div>
+        </div>
 <br />
-<div class="row">
-    <div class="col-sm-4">
-        <dt>
-            @Html.DisplayNameFor(model => model.pedi_Fecha)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.pedi_Fecha)
-        </dd>
-    </div>
-    <div class="col-sm-4">
-        <dt>
-            @Html.DisplayNameFor(model => model.pedi_FechaCreacion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.pedi_FechaCreacion)
-        </dd>
-    </div>
-    <div class="col-sm-4">
-        <dt>
-            @Html.DisplayNameFor(model => model.pedi_FechaMod)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.pedi_FechaMod)
-        </dd>
-    </div>
-</div>
-<br />
-<div class="row">
-    <div class="col-sm-4">
-        <dt>
-            @Html.DisplayNameFor(model => model.tbEstadoEnvios.estv_Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.tbEstadoEnvios.estv_Description)
-        </dd>
-    </div>
-    <div class="col-sm-4">
-        <dt>
-            @Html.DisplayNameFor(model => model.tbDirecciones.direc_DireccionExacta)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.tbDirecciones.direc_DireccionExacta)
-        </dd>
-    </div>
-    <div class="col-sm-4">
-        <dt>
-            @Html.DisplayNameFor(model => model.tbEstadoEnvios.estv_Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.tbEstadoEnvios.estv_Description)
-        </dd>
-    </div>
-</div>
-<br />
-<div class="row">
-    <div class="col-sm-4">
-        <dt>
-            @Html.DisplayNameFor(model => model.tbUsuarios.usu_Usuario)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.tbUsuarios.usu_Usuario)
-        </dd>
-    </div>
-    <div class="col-sm-4">
-        <dt>
-            @Html.DisplayNameFor(model => model.tbUsuarios1.usu_Usuario)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.tbUsuarios1.usu_Usuario)
-        </dd>
-    </div>
-</div>
         </dl>
 </div>
-<div class="text-center">
-    <button class="btn btn-warning">
-        @Html.ActionLink("Edit", "Edit", new { id = Model.pedi_ID })
-    </button>
-    <button class="btn btn-warning">
-        @Html.ActionLink("Back to List", "Index")
-    </button>
+<div class="card-footer">
+    <div class="text-center">
+        @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-warning" })
+    </div>
 </div>
-
-<br />
+</div>

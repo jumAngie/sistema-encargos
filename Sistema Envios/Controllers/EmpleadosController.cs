@@ -18,7 +18,8 @@ namespace Sistema_Envios.Controllers
 
         // GET: Empleados
         public ActionResult Index()
-        {if (Session.Count > 0)
+        {
+            if (Session.Count > 0)
             {
                 if (Session["Rol_ID"].ToString() == "2")
                 {
@@ -71,10 +72,32 @@ namespace Sistema_Envios.Controllers
         // GET: Empleados/Create
         public ActionResult Create()
         {
-            ViewBag.depto_ID = new SelectList(db.UDP_CargarDepartamentos(), "depto_ID", "depto_Descripcion");
-            ViewBag.est_ID = new SelectList(db.UDP_CargarEstadosCiviles(), "est_ID", "est_Descripcion");
-            ViewBag.carg_Id = new SelectList(db.tbCargos, "carg_Id", "carg_Description");
-            return View();
+            try
+            {
+                if (Session.Count > 0)
+                {
+                    if (Session["Rol_ID"].ToString() == "2")
+                    {
+                        return RedirectToAction("Principal", "Login");
+                    }
+                    else
+                    {
+                        //ViewBag.depto_ID = new SelectList(db.UDP_CargarDepartamentos(), "depto_ID", "depto_Descripcion");
+                        //ViewBag.est_ID = new SelectList(db.UDP_CargarEstadosCiviles(), "est_ID", "est_Descripcion");
+                        ViewBag.carg_Id = new SelectList(db.tbCargos, "carg_Id", "carg_Description");
+                        return View();
+                    }
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Login");
+                }
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Index");
+            }
+            
         }
 
         // POST: Empleados/Create
@@ -85,6 +108,7 @@ namespace Sistema_Envios.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(string emp_Name, string emp_Apellido, string emp_DNI, DateTime? emp_FechaNac, string ciu_ID, string depto_ID, string emp_Sexo, string carg_Id, string Id_Estado)
         {
+
             int UsuCrea = int.Parse(Session["UsuarioID"].ToString());
             try
             {
@@ -96,7 +120,7 @@ namespace Sistema_Envios.Controllers
                     if (emp_Apellido  == "") { ModelState.AddModelError("ValidacionA", "El Campo Apellido no debe estar vacio!"); }
                     if (emp_DNI   == "") { ModelState.AddModelError("ValidacionD", "El Campo Identidad no debe estar vacio!"); }
                     if (emp_FechaNac == null) { ModelState.AddModelError("ValidacionF", "El Campo Fecha Nacimiento no debe estar vacio!"); }
-                    if (ciu_ID  == "0") { ModelState.AddModelError("ValidacionCIU", "El Campo Ciudad no debe estar vacio!"); }
+                    if (ciu_ID  == "0" || ciu_ID == null) { ModelState.AddModelError("ValidacionCIU", "El Campo Ciudad no debe estar vacio!"); }
                     if (emp_Sexo == "") { ModelState.AddModelError("ValidacionSEX", "El Campo no debe estar vacio1"); }
                     if (carg_Id  == "0") { ModelState.AddModelError("ValidacionCARG", "El Campo Cargo no debe estar vacio!"); }
                     if (Id_Estado  == "0") { ModelState.AddModelError("ValidacionEST", "El Campo EStado Civil no debe estar vacio!"); }
@@ -206,7 +230,7 @@ namespace Sistema_Envios.Controllers
         }
 
 
-
+        //[HttpPost]
         public JsonResult CargarMunicipios (string depto_ID)
         {
             var ddl = db.UDP_CargarCiudades(depto_ID).ToList();
