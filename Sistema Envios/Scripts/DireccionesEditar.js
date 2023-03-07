@@ -24,7 +24,7 @@ $(document).ready(function () {
 
 
 $(document).ready(function () {
-    var Id_depto = $("#Id_depto").val();
+    var Id_depto = $("#Id_depto").val();3
     $.ajax({
         url: "/Direcciones/CargarDepartamentosEdit",
         method: "POST",

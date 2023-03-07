@@ -2386,3 +2386,46 @@ GO
 ---- en mi base no estaba 
 ALTER TABLE [dbo].[tbEmpleados]
 ADD CONSTRAINT FK_CARGOS_tbEmpleados FOREIGN KEY(carg_Id) REFERENCES [dbo].[tbCargos] (carg_Id)
+
+---------------------- CIUDADES
+GO
+CREATE OR ALTER PROCEDURE UDP_CARGAR_DEPA_CIUDADES
+
+AS
+BEGIN
+SELECT [depto_ID],[depto_Descripcion] FROM [dbo].[tbDepartamentos]
+END
+
+GO
+
+
+CREATE OR ALTER PROCEDURE [dbo].[UDP_Editar_Ciudades]
+		@ciu_ID				INT, 
+		@ciu_Descripcion	NVARCHAR(200),
+		@ciu_DeptoID		INT,
+		@ciu_UsuarioMod		VARCHAR(50)
+AS
+BEGIN
+		UPDATE	tbCiudades
+		SET		ciu_Descripcion = @ciu_Descripcion, [ciu_UsuarioMod] = @ciu_UsuarioMod, [ciu_DeptoID] = @ciu_DeptoID,
+				[ciu_FechaMod] = GETDATE()		
+		WHERE	[ciu_ID] = @ciu_ID
+END
+
+
+
+GO
+
+CREATE OR ALTER   PROCEDURE [dbo].[UDP_CARGAR_CIUDAD]
+ @ciu_ID  INT
+ AS
+ BEGIN
+ SELECT [ciu_ID], [ciu_Descripcion], [depto_ID],[depto_Descripcion]  FROM [dbo].[tbCiudades] c
+ INNER JOIN [dbo].[tbDepartamentos] dep ON c.ciu_DeptoID = dep.depto_ID
+ WHERE [ciu_ID] = @ciu_ID
+
+ END
+ ---------------------- CIUDADES
+
+
+
