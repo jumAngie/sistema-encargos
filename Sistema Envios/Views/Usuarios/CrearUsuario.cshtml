@@ -33,19 +33,23 @@
                         <input type="text" id="txtClave" name="txtClave" class="form-control" style="border-color:black">
                     </div>
                 </div> <br />
-                <div class="row">
+                       <div class="row">
+                           <div class="col-sm-5">
+                               <label style="color:black">Empleado</label><label id="labelemp" name="labelemp" style="color:red"></label>
+                               <select id="emp_Id" name="emp_Id" class="form-control" style="border-color:black"></select>
+                           </div>
+                           <div class="col-sm-2">
+                               <label style="color:black" hidden >Es Admin</label><label hidden id="labeladmin" name="labeladmin" style="color:red"></label> <br /> <br />
+                               <div class="text-center">
+                                   <input type="checkbox" name="ckEsAdmin" id="ckEsAdmin" style="border-color:black" hidden />
+                               </div>
+                           </div>
+
+                         
+
+
                     <div class="col-sm-5">
-                        <label style="color:black">Empleado</label><label id="labelemp" name="labelemp" style="color:red"></label>
-                        <select id="emp_Id" name="emp_Id" class="form-control" style="border-color:black"></select>
-                    </div>
-                    <div class="col-sm-2">
-                        <label style="color:black" hidden="hidden">Es Admin</label><label id="labeladmin" name="labeladmin" style="color:red"></label> <br /> <br />
-                        <div class="text-center">
-                            <input type="checkbox" name="ckEsAdmin" id="ckEsAdmin" style="border-color:black"  hidden="hidden" />
-                        </div>
-                    </div>
-                    <div class="col-sm-5">
-                        <label style="color:black">Cargo</label><label id="labelcargo" name="labelcargo" style="color:red"></label>
+                        <label style="color:black">Rol</label><label id="labelcargo" name="labelcargo" style="color:red"></label>
                         <select id="rol_ID" name="rol_ID" class="form-control" style="border-color:black"></select>
                     </div>
                 </div>
