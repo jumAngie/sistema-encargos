@@ -20,8 +20,5 @@ namespace Sistema_Envios.Models
         public string IDENTIDAD { get; set; }
         public string SEXO { get; set; }
         public string CARGO { get; set; }
-        public Nullable<System.DateTime> FECHA_NACIMIENTO { get; set; }
-        public string CIUDAD_RESIDENCIA { get; set; }
-        public string ESTADO_CIVIL { get; set; }
     }
 }

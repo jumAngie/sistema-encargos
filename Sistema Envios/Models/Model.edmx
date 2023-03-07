@@ -366,6 +366,18 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <Property Name="NOMBRE" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="ROL" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
+        <Association Name="FK_CARGOS_tbEmpleados">
+          <End Role="tbCargos" Type="Self.tbCargos" Multiplicity="1" />
+          <End Role="tbEmpleados" Type="Self.tbEmpleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbCargos">
+              <PropertyRef Name="carg_Id" />
+            </Principal>
+            <Dependent Role="tbEmpleados">
+              <PropertyRef Name="carg_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_dbo_tbCiudades_dbo_tbDepartamentos_depto_ID">
           <End Role="tbDepartamentos" Type="Self.tbDepartamentos" Multiplicity="1" />
           <End Role="tbCiudades" Type="Self.tbCiudades" Multiplicity="*" />
@@ -1213,6 +1225,10 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
     [V_INDEX_USUARIOS].[ROL] AS [ROL]
     FROM [dbo].[V_INDEX_USUARIOS] AS [V_INDEX_USUARIOS]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK_CARGOS_tbEmpleados" Association="Self.FK_CARGOS_tbEmpleados">
+            <End Role="tbCargos" EntitySet="tbCargos" />
+            <End Role="tbEmpleados" EntitySet="tbEmpleados" />
+          </AssociationSet>
           <AssociationSet Name="FK_dbo_tbCiudades_dbo_tbDepartamentos_depto_ID" Association="Self.FK_dbo_tbCiudades_dbo_tbDepartamentos_depto_ID">
             <End Role="tbDepartamentos" EntitySet="tbDepartamentos" />
             <End Role="tbCiudades" EntitySet="tbCiudades" />
@@ -1403,6 +1419,7 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <Property Name="rep_UsuarioMod" Type="Int32" />
           <Property Name="rep_FechaMod" Type="DateTime" Precision="3" />
           <Property Name="rep_Estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tbEmpleados" Relationship="Self.FK_CARGOS_tbEmpleados" FromRole="tbCargos" ToRole="tbEmpleados" />
           <NavigationProperty Name="tbUsuarios" Relationship="Self.FK_tbCargos_UsuarioCrea" FromRole="tbCargos" ToRole="tbUsuarios" />
           <NavigationProperty Name="tbUsuarios1" Relationship="Self.FK_tbCargos_UsuarioModif" FromRole="tbCargos" ToRole="tbUsuarios" />
         </EntityType>
@@ -1497,6 +1514,7 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <Property Name="emp_UsuModif" Type="Int32" />
           <Property Name="emp_FechaModif" Type="DateTime" Precision="3" />
           <Property Name="emp_Estado" Type="Boolean" />
+          <NavigationProperty Name="tbCargos" Relationship="Self.FK_CARGOS_tbEmpleados" FromRole="tbEmpleados" ToRole="tbCargos" />
           <NavigationProperty Name="tbCiudades" Relationship="Self.FK_Empleados_Ciudad" FromRole="tbEmpleados" ToRole="tbCiudades" />
           <NavigationProperty Name="tbEstadosCiviles" Relationship="Self.FK_Empleados_EstadoCivil" FromRole="tbEmpleados" ToRole="tbEstadosCiviles" />
           <NavigationProperty Name="tbUsuarios" Relationship="Self.FK_tbEmpleados_UsuCrea" FromRole="tbEmpleados" ToRole="tbUsuarios" />
@@ -1817,6 +1835,18 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
             </Principal>
             <Dependent Role="tbArticulos">
               <PropertyRef Name="art_UsuarioMod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CARGOS_tbEmpleados">
+          <End Role="tbCargos" Type="Self.tbCargos" Multiplicity="1" />
+          <End Role="tbEmpleados" Type="Self.tbEmpleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbCargos">
+              <PropertyRef Name="carg_Id" />
+            </Principal>
+            <Dependent Role="tbEmpleados">
+              <PropertyRef Name="carg_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2256,6 +2286,10 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
           <AssociationSet Name="FK_tbArticulos_UsuarioModif" Association="Self.FK_tbArticulos_UsuarioModif">
             <End Role="tbUsuarios" EntitySet="tbUsuarios" />
             <End Role="tbArticulos" EntitySet="tbArticulos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CARGOS_tbEmpleados" Association="Self.FK_CARGOS_tbEmpleados">
+            <End Role="tbCargos" EntitySet="tbCargos" />
+            <End Role="tbEmpleados" EntitySet="tbEmpleados" />
           </AssociationSet>
           <AssociationSet Name="FK_tbCargos_UsuarioCrea" Association="Self.FK_tbCargos_UsuarioCrea">
             <End Role="tbUsuarios" EntitySet="tbUsuarios" />

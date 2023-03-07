@@ -20,24 +20,26 @@ public class ArticulosController : Controller
     // GET: Articulos
     public ActionResult Index()
         {
-            try
-            {
+           
                 if (Session.Count > 0)
                 {
-                    var tbArticulosIndex = db.V_INDEX_ARTICULOS;
-                    return View(tbArticulosIndex.ToList());
+                    if (Session["Rol_ID"].ToString() == "2")
+                    {
+                        return RedirectToAction("Principal", "Login");
+                    }
+                    else
+                    {
+                        var tbArticulosIndex = db.V_INDEX_ARTICULOS;
+                        return View(tbArticulosIndex.ToList());
+
+                    }
+                   
 
                 }
                 else
                 {
                     return RedirectToAction("Index", "Login");
                 }
-            }
-            catch (Exception)
-            {
-
-                return RedirectToAction("Index", "Login"); // acá va la pagina del 404
-            }
             
 
         }
@@ -45,24 +47,31 @@ public class ArticulosController : Controller
         // GET: Articulos/Details/5
         public ActionResult Details(int? id)
         {
-            try
+            if (Session["Rol_ID"].ToString() == "2")
             {
-                if (id == null)
-                {
-                    return RedirectToAction("Index", "Articulos");
-                }
-                tbArticulos tbArticulosDetails = db.tbArticulos.Find(id);
-                if (tbArticulosDetails == null)
-                {
-                    return HttpNotFound(); // acá vamos a redireccionar a la pagina 404
-                }
-                return View(tbArticulosDetails);
-
+                return RedirectToAction("Principal", "Login");
             }
-            catch (Exception)
+            else
             {
-                return RedirectToAction("Index", "Articulos"); // acá iria la pagina 404
+                try
+                {
+                    if (id == null)
+                    {
+                        return RedirectToAction("Index", "Articulos");
+                    }
+                    tbArticulos tbArticulosDetails = db.tbArticulos.Find(id);
+                    if (tbArticulosDetails == null)
+                    {
+                        return HttpNotFound(); // acá vamos a redireccionar a la pagina 404
+                    }
+                    return View(tbArticulosDetails);
 
+                }
+                catch (Exception)
+                {
+                    return RedirectToAction("Index", "Articulos"); // acá iria la pagina 404
+
+                }
             }
             
         }

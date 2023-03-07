@@ -4,23 +4,23 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="852b9a6c3e744224bb45b51f5ebdb0e3" Name="Diagram1">
-        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbArticulos" Width="1.5" PointX="10.5" PointY="27.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbCargos" Width="1.5" PointX="8.25" PointY="18" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbCiudades" Width="1.5" PointX="10.5" PointY="22.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbClientes" Width="1.5" PointX="13.5" PointY="26" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbDepartamentos" Width="1.5" PointX="8.25" PointY="30.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbDirecciones" Width="1.5" PointX="15.75" PointY="21.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbEmpleados" Width="1.5" PointX="15.75" PointY="26.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbEstadoEnvios" Width="1.5" PointX="15.75" PointY="19.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbEstadosCiviles" Width="1.5" PointX="8.25" PointY="34.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbFabricas" Width="1.5" PointX="8.25" PointY="38.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBArticulosEncargosModel.tblPantallas" Width="1.5" PointX="0.75" PointY="17.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBArticulosEncargosModel.tblRoles" Width="1.5" PointX="0.75" PointY="20" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBArticulosEncargosModel.tblRolPantallas" Width="1.5" PointX="3" PointY="19.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbPedidoDetalles" Width="1.5" PointX="20.25" PointY="19.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbPedidos" Width="1.5" PointX="18" PointY="19.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbUsuarios" Width="1.5" PointX="6" PointY="17" IsExpanded="true" />
+      <Diagram DiagramId="2e4a9cca15054359bebe86538efe660e" Name="Diagram1">
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbArticulos" Width="1.5" PointX="10.5" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbCargos" Width="1.5" PointX="8.25" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbCiudades" Width="1.5" PointX="13.5" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbClientes" Width="1.5" PointX="13.5" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbDepartamentos" Width="1.5" PointX="8.25" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbDirecciones" Width="1.5" PointX="15.75" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbEmpleados" Width="1.5" PointX="10.5" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbEstadoEnvios" Width="1.5" PointX="15.75" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbEstadosCiviles" Width="1.5" PointX="8.25" PointY="32.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbFabricas" Width="1.5" PointX="8.25" PointY="36.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tblPantallas" Width="1.5" PointX="0.75" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tblRoles" Width="1.5" PointX="0.75" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tblRolPantallas" Width="1.5" PointX="3" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbPedidoDetalles" Width="1.5" PointX="20.25" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbPedidos" Width="1.5" PointX="18" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArticulosEncargosModel.tbUsuarios" Width="1.5" PointX="6" PointY="15.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_ARTICULOS" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_CARGOS" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBArticulosEncargosModel.V_INDEX_CIUDADES" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
@@ -36,6 +36,7 @@
         <AssociationConnector Association="DBArticulosEncargosModel.FK_tbArticulos_tbFabrica" ManuallyRouted="false" />
         <AssociationConnector Association="DBArticulosEncargosModel.FK_tbArticulos_UsuarioCrea" ManuallyRouted="false" />
         <AssociationConnector Association="DBArticulosEncargosModel.FK_tbArticulos_UsuarioModif" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArticulosEncargosModel.FK_CARGOS_tbEmpleados" ManuallyRouted="false" />
         <AssociationConnector Association="DBArticulosEncargosModel.FK_tbCargos_UsuarioCrea" ManuallyRouted="false" />
         <AssociationConnector Association="DBArticulosEncargosModel.FK_tbCargos_UsuarioModif" ManuallyRouted="false" />
         <AssociationConnector Association="DBArticulosEncargosModel.FK_dbo_tbCiudades_dbo_tbDepartamentos_depto_ID" ManuallyRouted="false" />

@@ -76,15 +76,6 @@ namespace Sistema_Envios.Models
             return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<UDF_PedidosPorCliente_Result>("[DBArticulosEncargosEntities1].[UDF_PedidosPorCliente](@Cliente_ID)", cliente_IDParameter);
         }
     
-        public virtual ObjectResult<CARGAR_DESCRIPCION_CARGO_Result> CARGAR_DESCRIPCION_CARGO(Nullable<int> carg_Id)
-        {
-            var carg_IdParameter = carg_Id.HasValue ?
-                new ObjectParameter("carg_Id", carg_Id) :
-                new ObjectParameter("carg_Id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CARGAR_DESCRIPCION_CARGO_Result>("CARGAR_DESCRIPCION_CARGO", carg_IdParameter);
-        }
-    
         public virtual int UDP_CambiarContraOlvidada(string usu_Usuario, string usu_NewClave)
         {
             var usu_UsuarioParameter = usu_Usuario != null ?

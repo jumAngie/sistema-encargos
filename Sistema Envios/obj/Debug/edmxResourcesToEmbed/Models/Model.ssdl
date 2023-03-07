@@ -288,7 +288,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_EMPLEADOS' n
       <PropertyRef Name="IDENTIDAD" />
       <PropertyRef Name="SEXO" />
       <PropertyRef Name="CARGO" />
-      <PropertyRef Name="CIUDAD_RESIDENCIA" />
     </Key>
     <Property Name="ID" Type="int" Nullable="false" />
     <Property Name="NOMBRE" Type="nvarchar" MaxLength="150" Nullable="false" />
@@ -296,9 +295,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_EMPLEADOS' n
     <Property Name="IDENTIDAD" Type="varchar" MaxLength="13" Nullable="false" />
     <Property Name="SEXO" Type="varchar" MaxLength="9" Nullable="false" />
     <Property Name="CARGO" Type="nvarchar" MaxLength="200" Nullable="false" />
-    <Property Name="FECHA_NACIMIENTO" Type="date" />
-    <Property Name="CIUDAD_RESIDENCIA" Type="nvarchar" MaxLength="255" Nullable="false" />
-    <Property Name="ESTADO_CIVIL" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_ESTADOS_CIVILES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -1183,10 +1179,7 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
     [V_INDEX_EMPLEADOS].[APELLIDO] AS [APELLIDO], 
     [V_INDEX_EMPLEADOS].[IDENTIDAD] AS [IDENTIDAD], 
     [V_INDEX_EMPLEADOS].[SEXO] AS [SEXO], 
-    [V_INDEX_EMPLEADOS].[CARGO] AS [CARGO], 
-    [V_INDEX_EMPLEADOS].[FECHA_NACIMIENTO] AS [FECHA_NACIMIENTO], 
-    [V_INDEX_EMPLEADOS].[CIUDAD_RESIDENCIA] AS [CIUDAD_RESIDENCIA], 
-    [V_INDEX_EMPLEADOS].[ESTADO_CIVIL] AS [ESTADO_CIVIL]
+    [V_INDEX_EMPLEADOS].[CARGO] AS [CARGO]
     FROM [dbo].[V_INDEX_EMPLEADOS] AS [V_INDEX_EMPLEADOS]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="V_INDEX_ESTADOS_CIVILES" EntityType="Self.V_INDEX_ESTADOS_CIVILES" store:Type="Views" store:Schema="dbo">

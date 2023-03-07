@@ -43,8 +43,7 @@
                          
                             <td>
                                 @Html.ActionLink("Detalles", "Details", new { id = item.ID_DETALLE }, new { @class = "btn btn-default btn-xs" })
-                                @Html.ActionLink("Editar", "Edit", new { id = item.ID_DETALLE }, new { @class = "btn btn-primary btn-xs" })
-                                <button class="btn-delete btn btn-secondary btn-xs" data-id="@item.ID_DETALLE">Eliminar</button>
+                                <button class="btn-delete btn btn-danger btn-xs" data-id="@item.ID_DETALLE">Eliminar</button>
                             </td>
                         </tr>
                       }

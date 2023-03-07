@@ -146,9 +146,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Articulos.cs" />
-    <Compile Include="Models\CARGAR_DESCRIPCION_CARGO_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Cargos.cs" />
     <Compile Include="Models\Ciudades.cs" />
     <Compile Include="Models\Clientes.cs" />
@@ -3531,16 +3528,17 @@
     <Content Include="Scripts\CrearCarg.js" />
     <Content Include="Scripts\CrearClientes.js" />
     <Content Include="Scripts\CrearDeptos.js" />
+    <Content Include="Scripts\CrearDetalles.js" />
     <Content Include="Scripts\CrearDirec.js" />
     <Content Include="Scripts\CrearEmpleado.js" />
     <Content Include="Scripts\CrearEstadoC.js" />
     <Content Include="Scripts\CrearFab.js" />
     <Content Include="Scripts\CrearPedido.js" />
     <Content Include="Scripts\CrearUsuario.js" />
-    <Content Include="Scripts\Detalles.js" />
     <Content Include="Scripts\DireccionesEditar.js" />
     <Content Include="Scripts\EditarArt.js" />
     <Content Include="Scripts\EditarDeptos.js" />
+    <Content Include="Scripts\EditarEmpleados.js" />
     <Content Include="Scripts\EditarEstadoC.js" />
     <Content Include="Scripts\EditarFabri.js" />
     <Content Include="Scripts\EliminarArticulo.js" />

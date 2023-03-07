@@ -22,17 +22,28 @@
             </div>
             <div class="modal-body" style="padding:30px 50px;">
 
-                <label id="lblCode" style="color:red; display:none">*</label>
-                <label style="color:black; font-size:15px">Ingrese el Código del pedido</label>
-                <select id="txtPedi" name="txtPedi" class="form-control" style="border-color:black"></select>
+                <div style="display:flex; flex-direction: row;">
+                    <div style="flex-basis:50%; margin-right:10px;">
+                        <label id="lblCode" style="color:red; display:none">*</label>
+                        <label style="color:black; font-size:15px">Código del pedido</label>
+                        <select id="txtPedi" name="txtPedi" class="form-control" style="border-color:black"></select>
+                    </div>
+                    <div style="flex-basis:50%;">
+                        <label id="lblArt" style="color:red; display:none">*</label>
+                        <label style="color:black; font-size:15px">Ingrese el artículo</label>
+                        <select id="txtArticulo" name="txtArticulo" class="form-control" style="border-color:black"></select>
+                    </div>
+                </div>
 
-                <label id="lblArt" style="color:red; display:none">*</label>
-                <label style="color:black; font-size:15px">Ingrese el artículo</label>
-                <select id="txtArticulo" name="txtArticulo" class="form-control" style="border-color:black"></select>
+                <div style="display:flex; flex-direction: row; margin-top:10px;">
+                    <div style="flex-basis:50%; margin-right:10px;">
+                        <label id="lblCant" style="color:red; display:none">*</label>
+                        <label style="color:black; font-size:15px">Ingrese la cantidad</label>
+                        <label id="lblStockNegativo" style="color:red; display:none">Formato Incorrecto</label>
+                        <input type="number" min="0" id="txtCant" name="txtCant" class="form-control" style="border-color:black" />
+                    </div>
+                </div>
 
-                <label id="lblCant" style="color:red; display:none">*</label>
-                <label style="color:black; font-size:15px">Ingrese la cantidad</label>
-                <input type="number" id="txtCant" name="txtCant" class="form-control" style="border-color:black" />
 
             </div>
                 <div class="modal-footer">
@@ -42,5 +53,5 @@
             </div>
     </div>
 </div>
-<script src="~/Scripts/Detalles.js"></script>
+<script src="~/Scripts/CrearDetalles.js"></script>
 
