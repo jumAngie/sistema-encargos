@@ -1849,7 +1849,7 @@ BEGIN
 		
 		UPDATE	tbPedidos
 		SET		pedi_Estado = 0, [pedi_UsuarioMod] = (SELECT [client_UsuarioMod] FROM inserted),  [pedi_FechaMod]= GETDATE()
-		WHERE	pedi_DireccionID = (SELECT direc_ID FROM tbDirecciones WHERE direc_ClienteID = 
+		WHERE	pedi_DireccionID IN (SELECT direc_ID FROM tbDirecciones WHERE direc_ClienteID = 
 				(SELECT client_ID FROM inserted))
 		AND		(SELECT client_Estado from inserted) = 0
 	END
@@ -1867,6 +1867,21 @@ BEGIN
 		UPDATE	tbPedidoDetalles
 		SET		[det_Estado] = 0
 		WHERE   pedi_ID IN (SELECT pedi_ID from inserted)
+		END
+END
+
+GO
+CREATE OR ALTER TRIGGER tg_EliminarDirecciones 
+ON tbClientes
+FOR UPDATE
+AS
+BEGIN
+	SET NOCOUNT ON;
+	IF UPDATE(client_Estado)
+	BEGIN
+			UPDATE tbDirecciones
+			SET direc_Estado = 0
+			WHERE direc_ClienteID IN (SELECT client_ID from inserted)
 	END
 END
 
@@ -2552,3 +2567,30 @@ WHERE emp_Estado = 1
 AND  [carg_Id] = 17
 END
 GO
+
+CREATE OR ALTER PROCEDURE UDP_CARGARCODIGOSDet
+AS
+BEGIN
+SELECT pedi_ID, pedi_Code FROM tbPedidos WHERE pedi_Estado = 1
+END
+
+EXEC UDP_CARGARCODIGOSDet
+
+go
+CREATE OR ALTER PROCEDURE UDP_CARGARDETALLE
+		@ID INT
+AS
+BEGIN
+	SELECT det.pedi_ID, pedi.pedi_Code, det.art_ID, arti.art_Descripcion, det.det_Cantidad  FROM tbPedidoDetalles det INNER JOIN tbPedidos pedi
+	ON	det.pedi_ID = pedi.pedi_ID INNER JOIN tbArticulos arti
+	ON  det.art_ID = arti.art_ID
+	WHERE det.det_Id = @ID AND det_Estado = 1
+END
+
+GO
+
+CREATE OR ALTER PROCEDURE UDP_CARGARARTICULOSDet
+AS
+BEGIN
+	SELECT art_ID, art_Descripcion FROM tbArticulos WHERE art_Estado = 1
+END
