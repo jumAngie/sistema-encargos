@@ -1,11 +1,13 @@
 ﻿$("#lblMensaje1").hide();
 
 function Cerrar() {
-    $('#FormModal').modal('hide');
     $("#lblMensaje1").hide();
+    $('#FormModal').modal('hide');
 }
 
 function AbrirModal(carg_Id) {
+
+    $("#lblMensaje1").hide();
 
     $.ajax({
         url: "/Cargos/Cargar",
@@ -19,7 +21,6 @@ function AbrirModal(carg_Id) {
             $.each(data, function (i, value) {
                 $("#carg_Id").val(value.carg_Id);
                 $("#txtCargo").val(value.carg_Description);
-            
 
             })
 
@@ -52,7 +53,7 @@ function Editar(x) {
         data: JSON.stringify({ ID: ID, Descripcion: Descripcion }),
         success: function (data) {
 
-
+            $("#lblMensaje1").hide();
             window.location.reload();
 
         }
@@ -65,7 +66,6 @@ function Editar(x) {
         $("#txtCargo").focus();
     }
     else {
-
 
         $('#FormModal').modal('hide');
         window.location.reload();

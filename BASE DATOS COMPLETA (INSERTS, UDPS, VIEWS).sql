@@ -1865,13 +1865,8 @@ BEGIN
 	IF UPDATE([pedi_Estado])
 	BEGIN
 		UPDATE	tbPedidoDetalles
-		SET		[det_Estado] = 0, 
-				[det_UsuModif] = (select distinct [pedi_UsuarioMod] FROM inserted), 
-				[det_FechaModif] = GETDATE()
-		FROM	tbPedidoDetalles
-		INNER JOIN inserted ON tbPedidoDetalles.pedi_ID = inserted.pedi_ID
-		WHERE	tbPedidoDetalles.pedi_ID IN (SELECT pedi_ID FROM inserted)
-		AND		(SELECT pedi_Estado FROM inserted) = 0
+		SET		[det_Estado] = 0
+		WHERE   pedi_ID IN (SELECT pedi_ID from inserted)
 	END
 END
 
@@ -1894,7 +1889,7 @@ BEGIN
 		AND		inserted.emp_Estado = 0
 	END
 END
-GO
+go
 -- UDPS PARA LISTAR --
 CREATE OR ALTER PROCEDURE UDP_ListaDeArticulosPorPedido
 		@ID	INT

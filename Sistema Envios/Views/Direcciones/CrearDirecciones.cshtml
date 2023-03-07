@@ -20,25 +20,31 @@
                 <h3 class="modal-title" id="crear-Direc">Añadir Direcciones</h3>
                 <img src="https://cdn.dribbble.com/users/1200451/screenshots/8759739/ezgif.com-optimize.gif" width="150" />
             </div>
-            <div class="modal-body" style="padding:40px 50px; background-color:white">
+            <div class="modal-body" style="padding:40px 50px; background-color:white; column-count: 2">
+                <div>
+                    <label id="lblClienteID" style="color:red; display:none">*</label>
+                    <label style="color:black">Escoga el cliente</label>
+                    <select id="client_ID" name="client_ID" class="form-control" style="border-color:black"></select>
 
-                <label style="color:black; font-size:15px">Escoga el cliente</label>
-                <select id="client_ID" name="client_ID" class="form-control" style="border-color:black"></select>
+                    <label id="lblDirec" style="color:red; display:none">*</label>
+                    <label style="color:black">Ingrese la dirección exacta</label>
+                    <input type="text" name="txtDirec" id="txtDirec" class="form-control" style="border-color:black" />
+                </div>
+                <div>
+                    <label id="lblDep_ID" style="color:red; display:none">*</label>
+                    <label style="color:black">Escoja el Departamento</label>
+                    <select id="dep_ID" name="dep_ID" class="form-control" style="border-color:black"></select>
 
-                <label style="color:black; font-size:15px">Ingrese la dirección exacta</label>
-                <input type="text" name="txtDirec" id="txtDirec" class="form-control" style="border-color:black" />
-
-                <label style="color:black; font-size:15px">Escoga el Departamento</label>
-                <select id="dep_ID" name="dep_ID" class="form-control" style="border-color:black"></select>
-
-                <label style="color:black; font-size:15px">Escoga la Ciudad</label>
-                <select id="ciu_ID" name="ciu_ID" class="form-control" style="border-color:black"></select>
+                    <label id="lblCiu_ID" style="color:red; display:none">*</label>
+                    <label style="color:black">Escoja la Ciudad</label>
+                    <select id="ciu_ID" name="ciu_ID" class="form-control" style="border-color:black"></select>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" id="btnCancelar" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <a id="btn-insertar"  class="btn btn-warning">Insertar</a>
+                <a id="btn-insertar" onclick="Insertar()"  class="btn btn-warning">Insertar</a>
             </div>
         </div>
     </div>
 </div>
-<script src="~/Scripts/CrearDirecciones.js"></script>
+<script src="~/Scripts/CrearDirec.js"></script>

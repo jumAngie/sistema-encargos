@@ -285,9 +285,6 @@
     <Compile Include="Models\UDP_CARGAR_CIUDAD_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UDP_CARGAR_DATOS_EMPLEADOS_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\UDP_CARGAR_DEPARTAMENTO_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -3091,6 +3088,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fondodelcolordelaimagen.css" />
+    <Content Include="Content\iMG\ALERTAAA.png" />
+    <Content Include="Content\iMG\BOTE-DE-BASURA.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -3529,12 +3528,12 @@
     <Content Include="Scripts\CiudadesEditar.js" />
     <Content Include="Scripts\CiudadesScript\CrearCiudades.js" />
     <Content Include="Scripts\CrearArt.js" />
-    <Content Include="Scripts\CrearCargo.js" />
+    <Content Include="Scripts\CrearCarg.js" />
     <Content Include="Scripts\CrearClientes.js" />
     <Content Include="Scripts\CrearDepartamentos.js" />
-    <Content Include="Scripts\CrearDirecciones.js" />
+    <Content Include="Scripts\CrearDirec.js" />
     <Content Include="Scripts\CrearEmpleado.js" />
-    <Content Include="Scripts\CrearEstadoCivil.js" />
+    <Content Include="Scripts\CrearEstadoC.js" />
     <Content Include="Scripts\CrearFab.js" />
     <Content Include="Scripts\CrearPedido.js" />
     <Content Include="Scripts\CrearUsuario.js" />
@@ -3542,7 +3541,8 @@
     <Content Include="Scripts\Detalles.js" />
     <Content Include="Scripts\DireccionesEditar.js" />
     <Content Include="Scripts\EditarArt.js" />
-    <Content Include="Scripts\EditarFab.js" />
+    <Content Include="Scripts\EditarEstadoC.js" />
+    <Content Include="Scripts\EditarFabri.js" />
     <Content Include="Scripts\EliminarArticulo.js" />
     <Content Include="Scripts\EliminarCargo.js" />
     <Content Include="Scripts\EliminarCliente.js" />
@@ -3553,7 +3553,6 @@
     <Content Include="Scripts\EliminarPedidoDetalle.js" />
     <Content Include="Scripts\EliminarUsuario.js" />
     <Content Include="Scripts\EmpleadosScript\CargarCiudades.js" />
-    <Content Include="Scripts\EstadosCivilesEditar.js" />
     <Content Include="Scripts\FlechasDeNav.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3581,8 +3580,6 @@
     <Content Include="Views\Empleados\Details.cshtml" />
     <Content Include="Views\Empleados\Editooo.cshtml" />
     <Content Include="Views\Articulos\Details.cshtml" />
-    <Content Include="Views\Cargos\Delete.cshtml" />
-    <Content Include="Views\Cargos\Details.cshtml" />
     <Content Include="Views\Ciudades\Create.cshtml" />
     <Content Include="Views\Ciudades\Delete.cshtml" />
     <Content Include="Views\Ciudades\Details.cshtml" />
@@ -3592,13 +3589,7 @@
     <Content Include="Views\Departamentos\Create.cshtml" />
     <Content Include="Views\Departamentos\Delete.cshtml" />
     <Content Include="Views\Departamentos\Details.cshtml" />
-    <Content Include="Views\Direcciones\Create.cshtml" />
-    <Content Include="Views\Direcciones\Delete.cshtml" />
     <Content Include="Views\Direcciones\Details.cshtml" />
-    <Content Include="Views\Direcciones\Edit.cshtml" />
-    <Content Include="Views\EstadosCiviles\Create.cshtml" />
-    <Content Include="Views\EstadosCiviles\Delete.cshtml" />
-    <Content Include="Views\EstadosCiviles\Details.cshtml" />
     <Content Include="Views\Fabricas\Details.cshtml" />
     <Content Include="Views\PedidoDetalles\Delete.cshtml" />
     <Content Include="Views\PedidoDetalles\Details.cshtml" />

@@ -18,161 +18,103 @@ namespace Sistema_Envios.Controllers
     {
         
         private DBArticulosEncargosEntities1 db = new DBArticulosEncargosEntities1();
-        public string Usu = "1";
+        
 
-        // GET: EstadosCiviles
         public ActionResult Index()
         {
-           
-            var tbEstadosCivilesIndex = db.V_INDEX_ESTADOS_CIVILES;
-            return View(tbEstadosCivilesIndex.ToList());
+           if (Session.Count > 0)
+            {
+                var tbEstadosCivilesIndex = db.V_INDEX_ESTADOS_CIVILES;
+                return View(tbEstadosCivilesIndex.ToList());
+            }
+           else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            
         }
 
         // GET: EstadosCiviles/Details/5
         public ActionResult Details(string id)
         {
-            if (id == null)
+            try
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return RedirectToAction("Index");
+                }
+                tbEstadosCiviles tbEstadosCiviles = db.tbEstadosCiviles.Find(id);
+                if (tbEstadosCiviles == null)
+                {
+                    return HttpNotFound(); // 404 page not found
+                }
+                return View(tbEstadosCiviles);
             }
-            tbEstadosCiviles tbEstadosCiviles = db.tbEstadosCiviles.Find(id);
-            if (tbEstadosCiviles == null)
+            catch (Exception)
             {
-                return HttpNotFound();
+
+                return RedirectToAction("Index"); // 404 page not foun
             }
-            return View(tbEstadosCiviles);
+            
         }
 
-        // GET: EstadosCiviles/Create
-        public ActionResult Create()
-        {
-            ViewBag.est_UsuCrea = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario");
-            ViewBag.est_UsuMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario");
-            return View();
-        }
-
-        // POST: EstadosCiviles/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        //[ValidateAntiForgeryToken]
         public ActionResult Create(string txtEstadoCivil)
         {
-            int UsuarioCrea = 1;
-            if (ModelState.IsValid)
+            try
             {
-                db.UDP_EstadosCiviles_INSERT(txtEstadoCivil, UsuarioCrea);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.UDP_EstadosCiviles_INSERT(txtEstadoCivil, Int32.Parse(Session["UsuarioID"].ToString()));
+                    return RedirectToAction("Index");
+                }
+                return View();
+                
             }
-            return View();
+            catch (Exception)
+            {
+                return RedirectToAction("Index"); // pagna 404 no se puede insertar un estado civil con la misma Letraaaa
+            }
+            
         }
-
-
 
         [HttpPost]
 
         public JsonResult Cargar (string est_ID)
         {
 
-
             var jso = db.UDP_CARGAR_ESTADOSCIVILES(est_ID).ToList();
 
             return Json(jso, JsonRequestBehavior.AllowGet);
         }
 
-
-
-
         [HttpPost, ActionName("Editores")]
-        //[ValidateAntiForgeryToken]
         public ActionResult Edito(string ID, string estado)
 
         {
-            if (ModelState.IsValid)
+            try
             {
-                if (estado != "")
+                if (ModelState.IsValid)
                 {
-                    //string id = Session["IdUsuario"].ToString();
-                    db.UDP_Editar_EstadosCiviles(ID, estado, "1");
+                    if (estado != "")
+                    {
+                        db.UDP_Editar_EstadosCiviles(ID, estado, Session["UsuarioID"].ToString());
 
 
-                    return RedirectToAction("Index");
+                        return RedirectToAction("Index");
+                    }
+
                 }
 
+                return RedirectToAction("Index");
             }
+            catch (Exception)
+            {
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index"); // pagina 404
+            }
+            
         }
-
-
-
-
-        // GET: EstadosCiviles/Edit/5
-        //public ActionResult _EditEstado(string id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    tbEstadosCiviles tbEstadosCiviles = db.tbEstadosCiviles.Find(id);
-        //    if (tbEstadosCiviles == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    ViewBag.est_UsuCrea = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbEstadosCiviles.est_UsuCrea);
-        //    ViewBag.est_UsuMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbEstadosCiviles.est_UsuMod);
-        //    return View(tbEstadosCiviles);
-        //}
-
-        ////POST: EstadosCiviles/Edit/5
-        //// Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse.Para obtener
-        //// más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult _EditEstado([Bind(Include = "est_ID,est_Descripcion,est_UsuCrea,est_FechaCrea,est_UsuMod,est_FechaMod")] tbEstadosCiviles tbEstadosCiviles)
-        //{
-
-        //    ModelState.Remove("est_UsuCrea");
-        //    ModelState.Remove("est_FechaCrea");
-        //    ModelState.Remove("est_FechaMod");
-
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.UDP_Editar_EstadosCiviles(tbEstadosCiviles.est_ID, tbEstadosCiviles.est_Descripcion, Usu).ToString();
-        //        return RedirectToAction("Index");
-        //    }
-        //    //ViewBag.est_UsuCrea = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbEstadosCiviles.est_UsuCrea);
-        //    //ViewBag.est_UsuMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario", tbEstadosCiviles.est_UsuMod);
-        //    return View(tbEstadosCiviles);
-        //}
-
-
-
-        // GET: EstadosCiviles/Delete/5
-        //public ActionResult Delete(string id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    tbEstadosCiviles tbEstadosCiviles = db.tbEstadosCiviles.Find(id);
-        //    if (tbEstadosCiviles == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(tbEstadosCiviles);
-        //}
-
-        //// POST: EstadosCiviles/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(string id)
-        //{
-        //    tbEstadosCiviles tbEstadosCiviles = db.tbEstadosCiviles.Find(id);
-        //    db.tbEstadosCiviles.Remove(tbEstadosCiviles);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
 
         protected override void Dispose(bool disposing)
         {

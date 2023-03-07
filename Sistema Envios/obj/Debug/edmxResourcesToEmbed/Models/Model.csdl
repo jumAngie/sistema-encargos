@@ -42,7 +42,6 @@
     <Property Name="rep_Estado" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="tbUsuarios" Relationship="Self.FK_tbCargos_UsuarioCrea" FromRole="tbCargos" ToRole="tbUsuarios" />
     <NavigationProperty Name="tbUsuarios1" Relationship="Self.FK_tbCargos_UsuarioModif" FromRole="tbCargos" ToRole="tbUsuarios" />
-    <NavigationProperty Name="tbEmpleados" Relationship="DBArticulosEncargosModel.FK_CARGOS_tbEmpleados" FromRole="tbCargos" ToRole="tbEmpleados" />
   </EntityType>
   <EntityType Name="tbCiudades">
     <Key>
@@ -140,7 +139,6 @@
     <NavigationProperty Name="tbUsuarios" Relationship="Self.FK_tbEmpleados_UsuCrea" FromRole="tbEmpleados" ToRole="tbUsuarios" />
     <NavigationProperty Name="tbUsuarios1" Relationship="Self.FK_tbEmpleados_UsuModif" FromRole="tbEmpleados" ToRole="tbUsuarios" />
     <NavigationProperty Name="tbUsuarios2" Relationship="Self.FK_tbUsuarios_tbEmpleados" FromRole="tbEmpleados" ToRole="tbUsuarios" />
-    <NavigationProperty Name="tbCargos" Relationship="DBArticulosEncargosModel.FK_CARGOS_tbEmpleados" FromRole="tbEmpleados" ToRole="tbCargos" />
   </EntityType>
   <EntityType Name="tbEstadoEnvios">
     <Key>
@@ -309,9 +307,11 @@
   <EntityType Name="V_INDEX_CIUDADES">
     <Key>
       <PropertyRef Name="ID" />
+      <PropertyRef Name="DEPARTAMENTO" />
       <PropertyRef Name="NOMBRE_CIUDAD" />
     </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="DEPARTAMENTO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="NOMBRE_CIUDAD" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
   <EntityType Name="V_INDEX_CLIENTES">
@@ -358,7 +358,6 @@
       <PropertyRef Name="IDENTIDAD" />
       <PropertyRef Name="SEXO" />
       <PropertyRef Name="CARGO" />
-      <PropertyRef Name="CIUDAD_RESIDENCIA" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" />
     <Property Name="NOMBRE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
@@ -366,9 +365,6 @@
     <Property Name="IDENTIDAD" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="SEXO" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CARGO" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="FECHA_NACIMIENTO" Type="DateTime" Precision="0" />
-    <Property Name="CIUDAD_RESIDENCIA" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ESTADO_CIVIL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="V_INDEX_ESTADOS_CIVILES">
     <Key>
@@ -1036,9 +1032,6 @@
     <FunctionImport Name="UDF_PedidosPorCliente" IsComposable="true" ReturnType="Collection(DBArticulosEncargosModel.UDF_PedidosPorCliente_Result)">
       <Parameter Name="Cliente_ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="CARGAR_DESCRIPCION_CARGO" ReturnType="Collection(DBArticulosEncargosModel.CARGAR_DESCRIPCION_CARGO_Result)">
-      <Parameter Name="carg_Id" Mode="In" Type="Int32" />
-    </FunctionImport>
     <FunctionImport Name="UDP_CambiarContraOlvidada">
       <Parameter Name="usu_Usuario" Mode="In" Type="String" />
       <Parameter Name="usu_NewClave" Mode="In" Type="String" />
@@ -1051,9 +1044,6 @@
     </FunctionImport>
     <FunctionImport Name="UDP_CARGAR_CIUDAD" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGAR_CIUDAD_Result)">
       <Parameter Name="ciu_ID" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="UDP_CARGAR_DATOS_EMPLEADOS" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGAR_DATOS_EMPLEADOS_Result)">
-      <Parameter Name="emp_Id" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="UDP_CARGAR_DEPARTAMENTO" ReturnType="Collection(DBArticulosEncargosModel.UDP_CARGAR_DEPARTAMENTO_Result)">
       <Parameter Name="depto_ID" Mode="In" Type="Int32" />
@@ -1321,15 +1311,7 @@
     <FunctionImport Name="V_TICKET_PEDIDOSPORCLIENTE" ReturnType="Collection(DBArticulosEncargosModel.V_TICKET_PEDIDOSPORCLIENTE_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <AssociationSet Name="FK_CARGOS_tbEmpleados" Association="DBArticulosEncargosModel.FK_CARGOS_tbEmpleados">
-      <End Role="tbCargos" EntitySet="tbCargos" />
-      <End Role="tbEmpleados" EntitySet="tbEmpleados" />
-    </AssociationSet>
   </EntityContainer>
-  <ComplexType Name="CARGAR_DESCRIPCION_CARGO_Result">
-    <Property Type="Int32" Name="carg_Id" Nullable="false" />
-    <Property Type="String" Name="carg_Description" Nullable="false" MaxLength="200" />
-  </ComplexType>
   <ComplexType Name="UDP_CARGAR_ARTICULO_Result">
     <Property Type="Int32" Name="art_ID" Nullable="false" />
     <Property Type="String" Name="art_Descripcion" Nullable="false" MaxLength="200" />
@@ -1343,18 +1325,6 @@
   <ComplexType Name="UDP_CARGAR_CIUDAD_Result">
     <Property Type="Int32" Name="ciu_ID" Nullable="false" />
     <Property Type="String" Name="ciu_Descripcion" Nullable="false" MaxLength="255" />
-  </ComplexType>
-  <ComplexType Name="UDP_CARGAR_DATOS_EMPLEADOS_Result">
-    <Property Type="Int32" Name="emp_Id" Nullable="false" />
-    <Property Type="String" Name="emp_Name" Nullable="false" MaxLength="150" />
-    <Property Type="String" Name="emp_Apellido" Nullable="false" MaxLength="150" />
-    <Property Type="String" Name="emp_DNI" Nullable="false" MaxLength="13" />
-    <Property Type="DateTime" Name="emp_FechaNac" Nullable="true" />
-    <Property Type="Int32" Name="ciu_ID" Nullable="false" />
-    <Property Type="Int32" Name="depto_ID" Nullable="false" />
-    <Property Type="String" Name="est_ID" Nullable="false" MaxLength="1" />
-    <Property Type="String" Name="emp_Sexo" Nullable="false" MaxLength="1" />
-    <Property Type="Int32" Name="carg_Id" Nullable="false" />
   </ComplexType>
   <ComplexType Name="UDP_CARGAR_DEPARTAMENTO_Result">
     <Property Type="Int32" Name="depto_ID" Nullable="false" />
@@ -1481,16 +1451,4 @@
     <Property Type="String" Name="EMPLEADO" Nullable="false" MaxLength="301" />
     <Property Type="String" Name="ESTADO_ENVIO" Nullable="false" MaxLength="150" />
   </ComplexType>
-  <Association Name="FK_CARGOS_tbEmpleados">
-    <End Type="DBArticulosEncargosModel.tbCargos" Role="tbCargos" Multiplicity="1" />
-    <End Type="DBArticulosEncargosModel.tbEmpleados" Role="tbEmpleados" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tbCargos">
-        <PropertyRef Name="carg_Id" />
-      </Principal>
-      <Dependent Role="tbEmpleados">
-        <PropertyRef Name="carg_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema>
