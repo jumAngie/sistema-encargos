@@ -170,11 +170,11 @@ emp_Estado			 BIT,
 CONSTRAINT FK_Empleados_EstadoCivil  FOREIGN KEY(est_ID)  REFERENCES  tbEstadosCiviles(est_ID),
 CONSTRAINT FK_Empleados_Ciudad		 FOREIGN KEY(ciu_ID) REFERENCES tbCiudades(ciu_ID),
 CONSTRAINT CK_Empleados_Sexo		 CHECK (emp_Sexo IN ('F', 'M')),
-CONSTRAINT UQ_Empleados_DNI			 UNIQUE(emp_DNI)
+CONSTRAINT UQ_Empleados_DNI			 UNIQUE(emp_DNI),
+CONSTRAINT FK_CARGOS_tbEmpleados FOREIGN KEY(carg_Id) REFERENCES [dbo].[tbCargos] (carg_Id)
 --CONSTRAINT FK_tbEmpleados_UsuarioCrea			FOREIGN KEY  REFERENCES tbUsuarios(usu_ID),
 --CONSTRAINT FK_tbEmpleados_UsuarioModif		FOREIGN KEY  REFERENCES tbUsuarios(usu_ID)
 );
-
 
 
 
@@ -780,33 +780,34 @@ EXEC UDP_CARGOS_INSERT 'Jefe de carga',1
 EXEC UDP_CARGOS_INSERT 'Jefe de Empaques',1
 EXEC UDP_CARGOS_INSERT 'Empacador',1
 EXEC UDP_CARGOS_INSERT 'Supervisor de Operaciones SR.',1
-EXEC UDP_CARGOS_INSERT 'Supervisor Sr. de Entrenamiento',1
+EXEC UDP_CARGOS_INSERT 'Chofer Repartidor',1
+EXEC UDP_CARGOS_INSERT 'Coordinador de Inventarios',1
 EXEC UDP_CARGOS_INSERT 'Coordinador de Transporte',1
 EXEC UDP_CARGOS_INSERT 'Supervisor de Operaciones Logísticas',1
 EXEC UDP_CARGOS_INSERT 'Analista de Servicio al Cliente',1
-EXEC UDP_CARGOS_INSERT 'Supervisor de Recursos Humanos',1
-EXEC UDP_CARGOS_INSERT 'Becario (Admón. o Psicología Organizacional)',1
-EXEC UDP_CARGOS_INSERT 'Analista de Transporte',1
-EXEC UDP_CARGOS_INSERT 'Coordinador de Logística (e-commerce)',1
-EXEC UDP_CARGOS_INSERT 'Almacenista',1
-EXEC UDP_CARGOS_INSERT 'Coordinador de Inventarios',1
-EXEC UDP_CARGOS_INSERT 'Ayudante General',1
-EXEC UDP_CARGOS_INSERT 'Auxiliar de Rampa',1
-EXEC UDP_CARGOS_INSERT 'Chofer Repartidor',1
-EXEC UDP_CARGOS_INSERT 'Especialista en Marketing',1
-EXEC UDP_CARGOS_INSERT 'Coordinador de Logística y Distribución',1
-EXEC UDP_CARGOS_INSERT 'Ejecutivo de Ventas',1
-EXEC UDP_CARGOS_INSERT 'Gerente de Operaciones Logísticas',1
-EXEC UDP_CARGOS_INSERT 'Programador Java',1
-EXEC UDP_CARGOS_INSERT 'Auxiliar de Almacén',1
-EXEC UDP_CARGOS_INSERT 'Ejecutivo de Cuentas por Cobrar',1
-EXEC UDP_CARGOS_INSERT 'Analista Financiero',1
-EXEC UDP_CARGOS_INSERT 'Delivery Station Manager',1
-EXEC UDP_CARGOS_INSERT 'IT Support Associate',1
-EXEC UDP_CARGOS_INSERT 'Global Trade HTS Classification Program Manager',1
-EXEC UDP_CARGOS_INSERT 'Supervisor de Aduanas',1
-EXEC UDP_CARGOS_INSERT 'Ejecutivo de Ventas',1
-EXEC UDP_CARGOS_INSERT 'Ejecutivo de Tráfico Internacional',1
+
+--EXEC UDP_CARGOS_INSERT 'Supervisor de Recursos Humanos',1
+--EXEC UDP_CARGOS_INSERT 'Becario (Admón. o Psicología Organizacional)',1
+--EXEC UDP_CARGOS_INSERT 'Analista de Transporte',1
+--EXEC UDP_CARGOS_INSERT 'Coordinador de Logística (e-commerce)',1
+--EXEC UDP_CARGOS_INSERT 'Almacenista',1
+--EXEC UDP_CARGOS_INSERT 'Supervisor Sr. de Entrenamiento',1
+--EXEC UDP_CARGOS_INSERT 'Ayudante General',1
+--EXEC UDP_CARGOS_INSERT 'Auxiliar de Rampa',1
+--EXEC UDP_CARGOS_INSERT 'Especialista en Marketing',1
+--EXEC UDP_CARGOS_INSERT 'Coordinador de Logística y Distribución',1
+--EXEC UDP_CARGOS_INSERT 'Ejecutivo de Ventas',1
+--EXEC UDP_CARGOS_INSERT 'Gerente de Operaciones Logísticas',1
+--EXEC UDP_CARGOS_INSERT 'Programador Java',1
+--EXEC UDP_CARGOS_INSERT 'Auxiliar de Almacén',1
+--EXEC UDP_CARGOS_INSERT 'Ejecutivo de Cuentas por Cobrar',1
+--EXEC UDP_CARGOS_INSERT 'Analista Financiero',1
+--EXEC UDP_CARGOS_INSERT 'Delivery Station Manager',1
+--EXEC UDP_CARGOS_INSERT 'IT Support Associate',1
+--EXEC UDP_CARGOS_INSERT 'Global Trade HTS Classification Program Manager',1
+--EXEC UDP_CARGOS_INSERT 'Supervisor de Aduanas',1
+--EXEC UDP_CARGOS_INSERT 'Ejecutivo de Ventas',1
+--EXEC UDP_CARGOS_INSERT 'Ejecutivo de Tráfico Internacional',1
 
 GO
 
@@ -848,15 +849,17 @@ GO
 
 EXEC UDP_EMPLEADOS_INSERT 'Karla','Alejandro','0502200302729','01-12-2003',1,'C','F',1,1
 EXEC UDP_EMPLEADOS_INSERT 'Dania','Baca','0502200001459','01-12-2003',1,'S','F',2,1
-EXEC UDP_EMPLEADOS_INSERT 'Andrea','Paz','0502200189657','01-12-2002',2,'S','F',3,1
+EXEC UDP_EMPLEADOS_INSERT 'Juan','Sagastume','0502200189657','01-12-2002',2,'S','F',3,1
 EXEC UDP_EMPLEADOS_INSERT 'Katerin','Rivas','0501200385476','02-12-2001',3,'S','F',4,1
 EXEC UDP_EMPLEADOS_INSERT 'Amelia','Gomez','0501199512346','03-12-2000',4,'S','F',5,1
-EXEC UDP_EMPLEADOS_INSERT 'Genifer','Lopez','0502200069874','05-05-2002',5,'S','F',10,1
-EXEC UDP_EMPLEADOS_INSERT 'Carlos','Umanzor','0502200136547','10-10-2001',6,'D','M',9,1
-EXEC UDP_EMPLEADOS_INSERT 'Allam','Sosa','050274128','01-10-1998',7,'D','M',11,1
-EXEC UDP_EMPLEADOS_INSERT 'Daniel','Perdomo','05011999369125','12-10-1999',8,'D','M',17,1
-EXEC UDP_EMPLEADOS_INSERT 'Oscar','Gutierrez','05012001789102','07-11-2001',20,'D','M',13,1
-EXEC UDP_EMPLEADOS_INSERT 'Marvin','Amaya','05031998562471','11-11-2000',35,'D','M',17,1
+EXEC UDP_EMPLEADOS_INSERT 'Genifer','Lopez','0502200069874','05-05-2002',5,'S','F',6,1
+EXEC UDP_EMPLEADOS_INSERT 'Carlos','Umanzor','0502200136547','10-10-2001',6,'D','M',5,1
+EXEC UDP_EMPLEADOS_INSERT 'Allam','Sosa','050274128','01-10-1998',7,'D','M',5,1
+
+
+--EXEC UDP_EMPLEADOS_INSERT 'Daniel','Perdomo','05011999369125','12-10-1999',8,'D','M',17,1
+--EXEC UDP_EMPLEADOS_INSERT 'Oscar','Gutierrez','05012001789102','07-11-2001',20,'D','M',13,1
+--EXEC UDP_EMPLEADOS_INSERT 'Marvin','Amaya','05031998562471','11-11-2000',35,'D','M',17,1
 
 
 
@@ -973,11 +976,11 @@ VALUES					('Planta manufacturera',		'80902090', 1, '02-02-2023', NULL, NULL, 1 
 						('G & K Bicycle Corp.',			'33322222', 1, '02-02-2023', NULL, NULL, 1 ),
 						('Australia Bike Retailer',		'99809980', 1, '02-02-2023', NULL, NULL, 1 ),
 						('Compete Enterprises, Inc',	'97809980', 1, '02-02-2023', NULL, NULL, 1 ),
-						('SUPERSALES INC.',				'92803980', 1, '02-02-2023', NULL, NULL, 1 ),
-						('Litware, Inc.',				'93463980', 1, '02-02-2023', NULL, NULL, 1 ),
-						('Electronic Bike Co.',			'33433380', 1, '02-02-2023', NULL, NULL, 1 ),
-						('Business Equipment Center',	'88488383', 1, '02-02-2023', NULL, NULL, 1 ),
-						('Touring Equipment Center',	'33488384', 1, '02-02-2023', NULL, NULL, 1 )
+						('SUPERSALES INC.',				'92803980', 1, '02-02-2023', NULL, NULL, 1 )
+						--('Litware, Inc.',				'93463980', 1, '02-02-2023', NULL, NULL, 1 ),
+						--('Electronic Bike Co.',			'33433380', 1, '02-02-2023', NULL, NULL, 1 ),
+						--('Business Equipment Center',	'88488383', 1, '02-02-2023', NULL, NULL, 1 ),
+						--('Touring Equipment Center',	'33488384', 1, '02-02-2023', NULL, NULL, 1 )
 ---------------------------------------- UDP_DE FABRICA (INSERT) ----------------------------------------
 GO
 CREATE OR ALTER PROCEDURE UDP_InsertFabrica
@@ -1007,47 +1010,47 @@ END
 
 INSERT INTO tbArticulos (art_Descripcion, fab_ID, art_Stock, art_UsuarioCreador, art_FechaCreacion, art_UsuarioMod, art_FechaMod, art_Estado)
 VALUES				('Guantes',						'1',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Lentes',						'1',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Cascos',						'1',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Pantaloncillos',				'1',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Lavaplatos',					'2',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Refrigerador',				'2',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Lavadora',					'2',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Secadora',					'2',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Bicicletas de Montaña',		'3',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Bicicletas de Carretera',		'3',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Bicicletas de Turismo',		'3',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Chalecos',					'4',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Headsets',					'4',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Cadenas',						'4',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Ruedas',						'4',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Camisetas',					'5',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Shorts',						'5',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Gorras',						'5',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Calcetines',					'5',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Manillas',					'6',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Frenos',						'6',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Sillones',					'6',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Pedales',						'6',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Sillas',						'7',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Escritorios',					'7',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Archiveros',					'7',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Tijeras',						'7',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Estantes',					'7',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Platos',						'8',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Cucharas',					'8',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Tenedores',					'8',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Cuchillos',					'8',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Laptop',						'9',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Computadora Escritorio',		'9',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Computadora Personal',		'9',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Tabletas',					'9',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Jarrones',					'10',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Canastas',					'10',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Botellas',					'11',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Bolsones',					'11',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Sneakers',					'12',	150, 1, '02-02-2023', NULL, NULL, 1),
-					('Abrigos',						'12',	150, 1, '02-02-2023', NULL, NULL, 1)
+					('Lentes',						'2',	150, 1, '02-02-2023', NULL, NULL, 1),
+					('Cascos',						'3',	150, 1, '02-02-2023', NULL, NULL, 1),
+					('Pantaloncillos',				'4',	150, 1, '02-02-2023', NULL, NULL, 1),
+					('Lavaplatos',					'5',	150, 1, '02-02-2023', NULL, NULL, 1),
+					('Refrigerador',				'6',	150, 1, '02-02-2023', NULL, NULL, 1),
+					('Lavadora',					'7',	150, 1, '02-02-2023', NULL, NULL, 1),
+					('Secadora',					'8',	150, 1, '02-02-2023', NULL, NULL, 1)
+					--('Bicicletas de Montaña',		'3',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Bicicletas de Carretera',		'3',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Bicicletas de Turismo',		'3',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Chalecos',					'4',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Headsets',					'4',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Cadenas',						'4',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Ruedas',						'4',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Camisetas',					'4',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Shorts',						'4',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Gorras',						'4',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Calcetines',					'4',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Manillas',					'5',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Frenos',						'5',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Sillones',					'5',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Pedales',						'5',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Sillas',						'5',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Escritorios',					'5',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Archiveros',					'5',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Tijeras',						'5',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Estantes',					'5',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Platos',						'6',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Cucharas',					'8',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Tenedores',					'8',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Cuchillos',					'8',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Laptop',						'9',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Computadora Escritorio',		'9',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Computadora Personal',		'9',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Tabletas',					'9',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Jarrones',					'10',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Canastas',					'10',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Botellas',					'11',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Bolsones',					'11',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Sneakers',					'12',	150, 1, '02-02-2023', NULL, NULL, 1),
+					--('Abrigos',						'12',	150, 1, '02-02-2023', NULL, NULL, 1)
 
 ---------------------------------------- UDP_DE ARTICULO (INSERT) ----------------------------------------
 GO
@@ -1225,17 +1228,18 @@ EXEC UDP_PEDIDOS_INSERT 'CSA012',1,350.00, 2, 11,'02-12-2023',1
 EXEC UDP_PEDIDOS_INSERT 'CSA013',2,350.00, 1, 11,'02-12-2023',1
 EXEC UDP_PEDIDOS_INSERT 'CSA014',3,500.00, 1,11,'02-12-2023',1
 EXEC UDP_PEDIDOS_INSERT 'CSA015',4,400.00, 2, 11,'02-12-2023',1
-EXEC UDP_PEDIDOS_INSERT 'CSA016',6,1000.00,2,11,'02-12-2023',1
-EXEC UDP_PEDIDOS_INSERT 'CSA017',1,500.00, 3, 11,'02-12-2023',1
-EXEC UDP_PEDIDOS_INSERT 'CSA018',2,400.00, 3, 11,'02-12-2023',1
+EXEC UDP_PEDIDOS_INSERT 'CSA016',5,1000.00,2,11,'02-12-2023',1
+EXEC UDP_PEDIDOS_INSERT 'CSA017',6,500.00, 3, 11,'02-12-2023',1
+EXEC UDP_PEDIDOS_INSERT 'CSA018',1,400.00, 3, 11,'02-12-2023',1
 EXEC UDP_PEDIDOS_INSERT 'CSA019',3,1000.00,1,11,'02-12-2023',1
-EXEC UDP_PEDIDOS_INSERT 'CSA021',4,500.00, 1, 11,'02-12-2023',1
-EXEC UDP_PEDIDOS_INSERT 'CSA022',5,400.00, 2, 11,'02-12-2023',1
-EXEC UDP_PEDIDOS_INSERT 'CSA023',6,1000.0, 2, 11,'02-12-2023',1
-EXEC UDP_PEDIDOS_INSERT 'CSA024',5,500.00, 2, 11,'02-12-2023',1
-EXEC UDP_PEDIDOS_INSERT 'CSA025',2,400.00, 2, 11,'02-12-2023',1
-EXEC UDP_PEDIDOS_INSERT 'CSA026',3,1000.00,2, 11,'02-12-2023',1
-EXEC UDP_PEDIDOS_INSERT 'CSA027',4,350.00, 2, 11,'02-12-2023',1
+
+--EXEC UDP_PEDIDOS_INSERT 'CSA021',4,500.00, 1, 11,'02-12-2023',1
+--EXEC UDP_PEDIDOS_INSERT 'CSA022',5,400.00, 2, 11,'02-12-2023',1
+--EXEC UDP_PEDIDOS_INSERT 'CSA023',6,1000.0, 2, 11,'02-12-2023',1
+--EXEC UDP_PEDIDOS_INSERT 'CSA024',5,500.00, 2, 11,'02-12-2023',1
+--EXEC UDP_PEDIDOS_INSERT 'CSA025',2,400.00, 2, 11,'02-12-2023',1
+--EXEC UDP_PEDIDOS_INSERT 'CSA026',3,1000.00,2, 11,'02-12-2023',1
+--EXEC UDP_PEDIDOS_INSERT 'CSA027',4,350.00, 2, 11,'02-12-2023',1
 
 
  GO
@@ -1273,22 +1277,23 @@ VALUES								 (@pedi_ID, @art_ID, @det_Cantidad, @det_UsuarioCrea, @det_FechaCr
 END
 
 
-EXEC UDP_PEDIDO_DETALLE 2,3,5,1
+EXEC UDP_PEDIDO_DETALLE 1,3,5,1
 EXEC UDP_PEDIDO_DETALLE 2,4,10,1
-EXEC UDP_PEDIDO_DETALLE 3,10,10,1
-EXEC UDP_PEDIDO_DETALLE 4,21,5,1
-EXEC UDP_PEDIDO_DETALLE 5,31,9,1
-EXEC UDP_PEDIDO_DETALLE 5,28,7,1
-EXEC UDP_PEDIDO_DETALLE 4,9,1,1
-EXEC UDP_PEDIDO_DETALLE 5,24,20,1
-EXEC UDP_PEDIDO_DETALLE 7,14,5,1
-EXEC UDP_PEDIDO_DETALLE 8,11,10,1
-EXEC UDP_PEDIDO_DETALLE 9,13,4,1
-EXEC UDP_PEDIDO_DETALLE 10,23,14,2
-EXEC UDP_PEDIDO_DETALLE 11,29,15,2
-EXEC UDP_PEDIDO_DETALLE 15,15,17,2
-EXEC UDP_PEDIDO_DETALLE 13,7,7,1
-EXEC UDP_PEDIDO_DETALLE 1,2,56,7
+EXEC UDP_PEDIDO_DETALLE 3,8,10,1
+EXEC UDP_PEDIDO_DETALLE 4,2,5,1
+EXEC UDP_PEDIDO_DETALLE 5,1,9,1
+EXEC UDP_PEDIDO_DETALLE 6,3,7,1
+EXEC UDP_PEDIDO_DETALLE 1,7,1,1
+EXEC UDP_PEDIDO_DETALLE 5,5,20,1
+
+--EXEC UDP_PEDIDO_DETALLE 7,14,5,1
+--EXEC UDP_PEDIDO_DETALLE 8,11,10,1
+--EXEC UDP_PEDIDO_DETALLE 9,13,4,1
+--EXEC UDP_PEDIDO_DETALLE 10,23,14,2
+--EXEC UDP_PEDIDO_DETALLE 11,29,15,2
+--EXEC UDP_PEDIDO_DETALLE 15,15,17,2
+--EXEC UDP_PEDIDO_DETALLE 13,7,7,1
+--EXEC UDP_PEDIDO_DETALLE 1,2,56,7
 
 
 GO
@@ -2399,8 +2404,6 @@ GO
 --EXEC UDP_CargarCiudad_Empleados 10
 
 ---- en mi base no estaba 
-ALTER TABLE [dbo].[tbEmpleados]
-ADD CONSTRAINT FK_CARGOS_tbEmpleados FOREIGN KEY(carg_Id) REFERENCES [dbo].[tbCargos] (carg_Id)
 
 ---------------------- CIUDADES
 GO
@@ -2541,7 +2544,7 @@ SELECT '0' AS emp_Id, ' Seleccione un empleado' AS emp_Nombre
 UNION ALL
 SELECT emp_Id, emp_Name + ' ' + emp_Apellido emp_Nombre FROM tbEmpleados
 WHERE emp_Estado = 1
-AND  [carg_Id] = 17
+AND  [carg_Id] = 5
 END
 GO
 
@@ -2564,7 +2567,7 @@ BEGIN
 SELECT DISTINCT e.emp_Id, emp_Name + ' ' + emp_Apellido emp_Nombre FROM tbEmpleados e
 INNER JOIN [dbo].[tbPedidos] p ON p.emp_Id = e.emp_Id
 WHERE emp_Estado = 1
-AND  [carg_Id] = 17
+AND  [carg_Id] = 5
 END
 GO
 
