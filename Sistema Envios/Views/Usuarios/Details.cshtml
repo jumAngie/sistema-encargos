@@ -34,64 +34,6 @@
 </div>
         </div>
 <div class="row">
-    <div class="col-sm-6">
-        <dt>
-            Clave
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.usu_Clave)
-        </dd>
-    </div>
-    <div class="col-sm-6">
-        <dt>
-            ID del usuario creador
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.usu_UsuarioCreador)
-        </dd>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-6">
-        <dt>
-            Fecha de creacion
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.usu_FechaCreacion)
-        </dd>
-    </div>
-    <div class="col-sm-6">
-        <dt>
-            ID del usuario modificador
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.usu_UsuarioMod)
-        </dd>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-6">
-        <dt>
-            Fecha de modificacion
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.usu_FechaMod)
-        </dd>
-    </div>
-    <div class="col-sm-6">
-        <dt>
-            Estado
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.usu_Estado)
-        </dd>
-    </div>
 </div>
 <div class="row">
     <div class="col-sm-6">
@@ -117,9 +59,7 @@
     </dl>
 <br />
 <div class="text-center">
-    <button class="btn btn-warning">
-        @Html.ActionLink("Volver a la lista", "Index")
-    </button>
+        @Html.ActionLink("Volver", "Index", null, new { @class="btn btn-warning"})
 </div>
 <br />
 </div>

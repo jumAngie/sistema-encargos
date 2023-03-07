@@ -86,36 +86,9 @@
             @Html.DisplayFor(model => model.client_Descuento)
         </dd>
     </div>
-    <div class="col-sm-4">
-        <dt>
-            @Html.DisplayNameFor(model => model.client_FechaCreacion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.client_FechaCreacion)
-        </dd>
-    </div>
-    <div class="col-sm-4">
-        <dt>
-            @Html.DisplayNameFor(model => model.client_FechaMod)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.client_FechaMod)
-        </dd>
-    </div>
 </div>
 <br />
 <div class="row">
-    <div class="col-sm-3">
-        <dt>
-            @Html.DisplayNameFor(model => model.client_Estado)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.client_Estado)
-        </dd>
-    </div>
     <div class="col-sm-3">
         <dt>
             @Html.DisplayNameFor(model => model.tbEstadosCiviles.est_Descripcion)
@@ -125,34 +98,13 @@
             @Html.DisplayFor(model => model.tbEstadosCiviles.est_Descripcion)
         </dd>
     </div>
-    <div class="col-sm-3">
-        <dt>
-            @Html.DisplayNameFor(model => model.tbUsuarios.usu_Usuario)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.tbUsuarios.usu_Usuario)
-        </dd>
-    </div>
-    <div class="col-sm-3">
-        <dt>
-            @Html.DisplayNameFor(model => model.tbUsuarios1.usu_Usuario)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.tbUsuarios1.usu_Usuario)
-        </dd>
-    </div>
 </div>
         </dl>
 </div>
-<div class="text-center">
-    <button class="btn btn-warning">
-        @Html.ActionLink("Edit", "Edit", new { id = Model.client_ID })
-    </button>
-    <button class="btn btn-warning">
-        @Html.ActionLink("Back to List", "Index")
-    </button>
+<div class="card-footer">
+    <div class="text-center">
+        @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-warning" })
+    </div>
 </div>
 
 <br />

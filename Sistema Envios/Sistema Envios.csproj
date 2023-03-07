@@ -273,6 +273,9 @@
     <Compile Include="Models\UDP_CargarEmpleadosPedidos_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UDP_CargarEmpleados_EditUsuarios_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UDP_CargarEmpleados_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -286,6 +289,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UDP_CargarPedidos_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UDP_CargarRolParaEditar_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UDP_CargarRol_Result.cs">
@@ -343,6 +349,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UDP_MUNICIPIO_CON_DEPA_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UDP_Obtener_Usuario_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UDP_USUARIO_VALIDAR_Result.cs">
@@ -3673,6 +3682,7 @@
     <Content Include="Views\Clientes\Crear.cshtml" />
     <Content Include="Views\Empleados\Edit.cshtml" />
     <Content Include="Views\Login\paginaError.cshtml" />
+    <Content Include="Views\Login\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

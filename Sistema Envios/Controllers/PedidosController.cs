@@ -17,22 +17,32 @@ namespace Sistema_Envios.Controllers
 
         // GET: Pedidos
         public ActionResult Index()
-        {if (Session.Count > 0)
+        {
+            try
             {
-                if (Session["Rol_ID"].ToString() == "2")
+                if (Session.Count > 0)
                 {
-                    return RedirectToAction("Principal", "Login");
+                    if (Session["Rol_ID"].ToString() == "2")
+                    {
+                        return RedirectToAction("Principal", "Login");
+                    }
+                    else
+                    {
+                        var tbPedidos = db.V_INDEX_PEDIDOS;
+                        return View(tbPedidos.ToList());
+                    }
                 }
                 else
                 {
-                    var tbPedidos = db.V_INDEX_PEDIDOS;
-                    return View(tbPedidos.ToList());
+                    return RedirectToAction("Index", "Login");
                 }
+
             }
-            else
+            catch (Exception)
             {
-                return RedirectToAction("Index", "Login");
+                return RedirectToAction("Error", "Login");
             }
+            
         }
 
         // GET: Pedidos/Details/5
@@ -40,22 +50,29 @@ namespace Sistema_Envios.Controllers
         {
             try
             {
-                if (Session["Rol_ID"].ToString() == "2")
+                if (Session.Count > 0)
                 {
-                    return RedirectToAction("Principal", "Login");
+                    if (Session["Rol_ID"].ToString() == "2")
+                    {
+                        return RedirectToAction("Principal", "Login");
+                    }
+                    else
+                    {
+                        if (id == null)
+                        {
+                            return RedirectToAction("Index");
+                        }
+                        tbPedidos tbPedidos = db.tbPedidos.Find(id);
+                        if (tbPedidos == null)
+                        {
+                            return HttpNotFound(); // 404
+                        }
+                        return View(tbPedidos);
+                    }
                 }
                 else
                 {
-                    if (id == null)
-                    {
-                        return RedirectToAction("Index");
-                    }
-                    tbPedidos tbPedidos = db.tbPedidos.Find(id);
-                    if (tbPedidos == null)
-                    {
-                        return HttpNotFound(); // 404
-                    }
-                    return View(tbPedidos);
+                    return RedirectToAction("Index", "Login");
                 }
             }
             catch (Exception)
@@ -69,11 +86,28 @@ namespace Sistema_Envios.Controllers
         // GET: Pedidos/Create
         public ActionResult Create()
         {
-            //ViewBag.pedi_DireccionID = new SelectList(db.tbDirecciones, "direc_ID", "direc_DireccionExacta");
-            //ViewBag.estv_Id = new SelectList(db.tbEstadoEnvios, "estv_Id", "estv_Description");
-            //ViewBag.pedi_UsuarioCreador = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario");
-            //ViewBag.pedi_UsuarioMod = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario");
-            return View();
+            try
+            {
+                if (Session.Count > 0)
+                {
+                    if (Session["Rol_ID"].ToString() == "2")
+                    {
+                        return RedirectToAction("Principal", "Login");
+                    }
+                    else
+                    {
+                        return View();
+                    }
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Login");
+                }
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Index");
+            }
         }
 
         // POST: Pedidos/Create
@@ -95,7 +129,7 @@ namespace Sistema_Envios.Controllers
             }
             catch(Exception)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Error", "Login");
             }
 
             //ViewBag.pedi_DireccionID = new SelectList(db.tbDirecciones, "direc_ID", "direc_DireccionExacta");

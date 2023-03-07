@@ -122,6 +122,20 @@ namespace Sistema_Envios.Controllers
             }
         }
 
+        public ActionResult Error()
+        {
+            if (Session.Count > 0)
+            {
+                return View();
+
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            
+        }
+
         //GET: Cambiar Contra
         public ActionResult CambiarContraseña()
         {

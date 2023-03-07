@@ -14,7 +14,7 @@
 
     <div class="card-header bg-warning">
         <div class="text-center">
-            <h4 style="color:azure">Empleados</h4>
+            <h4 style="color:azure">Clientes</h4>
         </div>
     </div>
     <div class="card-body">
@@ -45,7 +45,7 @@
             </div>
             <div class="col-sm-6">
                 <label>SALDO</label>  <label style="color:red" id="lblSaldo">El campo es requerido!!</label>
-                <input type="text" id="txtSaldo" name="txtSaldo" class="form-control" />
+                <input type="number" id="txtSaldo" name="txtSaldo" class="form-control" />
             </div>
             <div class="col-sm-6">
                 <label>CREDITO</label> <label style="color:red" id="lblCredito">El campo es requerido!!</label>
@@ -54,11 +54,11 @@
             </div>
             <div class="col-sm-6">
                 <label>DESCUENTO</label>  <label style="color:red" id="lblDescuento">El campo es requerido!!</label>
-                <input type="text" id="txtDescuento" name="txtDescuento" class="form-control" />
+                <input type="number" id="txtDescuento" name="txtDescuento" class="form-control" />
             </div>
             <div class="col-sm-6">
                 <label>TELEFONO</label>  <label style="color:red" id="lblTelefono">El campo es requerido!!</label>
-                <input type="text" id="txtTelefono" name="txtTelefono" class="form-control" />
+                <input type="number" id="txtTelefono" name="txtTelefono" class="form-control" />
             </div>
         </div>
     </div>
@@ -66,15 +66,13 @@
 
 
       
-            <div class="col-sm-10">
-                <input type="button" value="GUARDAR" class=" btn btn-success" onclick="Guardar()" />
-                <br />
-                <div class="col-sm-6">
-                   
-                        @Html.ActionLink("Back to List", "Index")
-                    </div>
-
-                </div>
+    <div class="col-sm-10">
+         <div class="text-center">
+        <input type="button" value="GUARDAR" class=" btn btn-warning" onclick="Guardar()" />
+        @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-default" })
+        <br />
+    </div>
+    </div>
             
    
 
