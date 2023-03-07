@@ -91,8 +91,6 @@ namespace Sistema_Envios.Controllers
 
         [HttpPost]
         //[ValidateAntiForgeryToken]
-
-
         public ActionResult Guardo( string txtNombre, string txtIdentidad, string Id_Estado, string sexo, string txtTelefono, string txtSaldo, string txtCredito, string txtDescuento)
             
         {

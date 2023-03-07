@@ -2429,3 +2429,126 @@ CREATE OR ALTER   PROCEDURE [dbo].[UDP_CARGAR_CIUDAD]
 
 
 
+ ---- EDITAR
+ GO
+CREATE OR ALTER PROCEDURE UDP_CARGAR_CLIENTESPOR_PEDIDO --VISTA EDITAR (CLIENTE DEPENDE LA DIRECCION... POST)
+@direc_ID     INT
+AS
+BEGIN
+
+SELECT [client_ID],[client_Nombre] FROM [dbo].[tbClientes] cli
+INNER JOIN [dbo].[tbDirecciones] d ON d.direc_ClienteID = cli.client_ID
+WHERE [direc_ID] = @direc_ID
+
+END
+
+GO
+
+--EXEC UDP_CARGAR_CLIENTESPOR_PEDIDO 1
+
+CREATE OR ALTER PROCEDURE UDP_CARGARCLIENTES_EDITAR_PEDIDOS --- CARGAR EL DDL CLIENTE DEPENDE DEL ID_CLIENTE DE LA DIRECCION
+AS
+BEGIN
+SELECT [client_ID],[client_Nombre] FROM [dbo].[tbClientes] cli
+INNER JOIN [dbo].[tbDirecciones] d ON d.direc_ClienteID = cli.client_ID
+END
+GO
+
+CREATE OR ALTER PROCEDURE UDP_ddl_DIRECPORCLIENTE_EDITAR_PEDIDO --- CARGAR LAS DIRECCIONES SHANGE
+@client_ID   INT
+AS
+BEGIN
+SELECT [direc_ID],[direc_DireccionExacta] FROM [dbo].[tbDirecciones] direc
+INNER JOIN [dbo].[tbClientes] c ON c.client_ID = direc.direc_ClienteID
+INNER JOIN [dbo].[tbPedidos] p ON p.pedi_DireccionID = direc.direc_ID
+WHERE [direc_ClienteID] = @client_ID
+
+END
+GO
+
+
+------ AGREGAR
+
+CREATE OR ALTER PROCEDURE UDP_DDL_CLIENTE_PEDIDO ---En vista Agregar
+AS
+BEGIN
+SELECT '0' AS client_ID, ' Seleccione un Cliente' AS client_Nombre
+	UNION ALL
+SELECT [client_ID],[client_Nombre] FROM [dbo].[tbClientes]
+
+END
+GO
+
+CREATE OR ALTER PROCEDURE UDP_CARGAR_DIRECCIONES_PORCLIENTE_PEDIDO --- CARGAR LAS DIRECCIONES SHANGE
+@client_ID   INT
+AS
+BEGIN
+SELECT '0' AS direc_ID, ' Seleccione una Direccion' AS direc_DireccionExacta
+	UNION ALL
+SELECT [direc_ID],[direc_DireccionExacta] FROM [dbo].[tbDirecciones] direc
+INNER JOIN [dbo].[tbClientes] c ON c.client_ID = direc.direc_ClienteID
+WHERE [direc_ClienteID] = @client_ID
+
+END
+GO
+
+
+--EXEC UDP_CARGAR_DIRECCIONES_PORCLIENTE_PEDIDO 1
+
+SELECT*FROM tbDirecciones
+
+--exec [UDP_DIRECCIONES_INSERT] 1,'Sps, lomas de samora',5,1
+
+
+--------------- CARGAR TODOS LOS DATOS
+GO
+CREATE OR ALTER PROCEDURE UDP_CARGARDATA_editar_PEDIDOS
+@pedi_ID    INT
+AS
+BEGIN
+
+SELECT [pedi_ID],pedi_Code,[direc_ID],[client_ID],[client_Nombre], [pedi_CostoEnvio], env.[estv_Id], emp.[emp_Id], [pedi_Fecha]
+FROM [dbo].[tbPedidos] p
+INNER JOIN [dbo].[tbDirecciones] d ON p.pedi_DireccionID = d.direc_ID
+INNER JOIN [dbo].[tbClientes] c ON d.direc_ClienteID = c.client_ID
+INNER JOIN [dbo].[tbEstadoEnvios] env ON p.estv_Id = env.estv_Id
+INNER JOIN [dbo].[tbEmpleados] emp ON p.emp_Id = emp.emp_Id
+WHERE [pedi_ID] = @pedi_ID
+
+END
+GO
+
+-------------------- MODIFICAR-----------------
+CREATE OR ALTER   PROCEDURE [dbo].[UDP_CargarEmpleadosPedidos]
+AS
+BEGIN
+SELECT '0' AS emp_Id, ' Seleccione un empleado' AS emp_Nombre
+UNION ALL
+SELECT emp_Id, emp_Name + ' ' + emp_Apellido emp_Nombre FROM tbEmpleados
+WHERE emp_Estado = 1
+AND  [carg_Id] = 17
+END
+GO
+
+
+CREATE OR ALTER PROCEDURE UDP_CARGAR_NOMBREEMP_PEDIDOS
+@emp_Id   INT
+AS
+BEGIN
+SELECT emp_Id, emp_Name FROM tbEmpleados 
+WHERE emp_Id = @emp_Id
+END
+
+GO
+
+
+
+CREATE OR ALTER PROCEDURE UDP_CargarEmpleadosPedidosEdit
+AS
+BEGIN
+SELECT DISTINCT e.emp_Id, emp_Name + ' ' + emp_Apellido emp_Nombre FROM tbEmpleados e
+INNER JOIN [dbo].[tbPedidos] p ON p.emp_Id = e.emp_Id
+WHERE emp_Estado = 1
+AND  [carg_Id] = 17
+END
+GO

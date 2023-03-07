@@ -7,66 +7,70 @@
 
 
 
-<div class="wrapper wrapper-content animated fadeInRight">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="float-e-margins">
-                <div class="ibox-title">
-                    <div class="ibox-tools">
-                        @Html.ActionLink("Nuevo", "Create", null, new { @class = "btn btn-primary" })
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="float-e-margins">
+                    <div class="ibox-title">
+                     
+                        <div class="ibox-tools">
+                            <div class="text-center">
+                                <h5>PEDIDOS</h5>
+                            </div>
+                            @Html.ActionLink("Nuevo", "Create", null, new { @class = "btn btn-primary" })
+                        </div>
                     </div>
-                </div>
-                <br />
-                <div class="ibox-content">
-                    <table class="table table-responsive" id="DataTable">
-                        <thead>
-                            <tr role="row">
-                                <th>@Html.DisplayNameFor(model => model.ID)</th>
-                                <th>@Html.DisplayNameFor(model => model.ESTADO)</th>
-                                <th>@Html.DisplayNameFor(model => model.CODIGO)</th>
-                                <th>@Html.DisplayNameFor(model => model.DIRECCION)</th>
-                                <th>@Html.DisplayNameFor(model => model.CLIENTE)</th>
-                                <th>@Html.DisplayNameFor(model => model.ENCARGADO)</th>
+                    <br />
+                    <div class="ibox-content">
+                        <table class="table table-responsive" id="DataTable">
+                            <thead>
+                                <tr role="row">
+                                    <th>@Html.DisplayNameFor(model => model.ID)</th>
+                                    <th>@Html.DisplayNameFor(model => model.ESTADO)</th>
+                                    <th>@Html.DisplayNameFor(model => model.CODIGO)</th>
+                                    <th>@Html.DisplayNameFor(model => model.DIRECCION)</th>
+                                    <th>@Html.DisplayNameFor(model => model.CLIENTE)</th>
+                                    <th>@Html.DisplayNameFor(model => model.ENCARGADO)</th>
 
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
-                                <tr class="gradeA odd" role="row" data-id="@item.ID">
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.ID)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.ESTADO)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.CODIGO)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.DIRECCION)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.CLIENTE)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.ENCARGADO)
-                                    </td>
-
-                                    <td>
-                                        @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn btn-default btn-xs" })
-                                        @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn btn-primary btn-xs" })
-                                        <button class="btn-delete btn btn-secondary btn-xs" data-id="@item.ID">Eliminar</button>
-                                    </td>
+                                    <th>Acciones</th>
                                 </tr>
-                            }
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr class="gradeA odd" role="row" data-id="@item.ID">
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ID)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ESTADO)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CODIGO)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DIRECCION)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CLIENTE)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ENCARGADO)
+                                        </td>
+
+                                        <td>
+                                            @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn btn-default btn-xs" })
+                                            @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn btn-primary btn-xs" })
+                                            <button class="btn-delete btn btn-secondary btn-xs" data-id="@item.ID">Eliminar</button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-@Html.Partial("EliminarPedido")
+    @Html.Partial("EliminarPedido")

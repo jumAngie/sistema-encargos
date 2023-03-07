@@ -5,116 +5,129 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+<h2>Editando...</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>tbPedidos</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.pedi_ID)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.pedi_Code, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.pedi_Code, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.pedi_Code, "", new { @class = "text-danger" })
-            </div>
+
+    <div class="card-header bg-warning">
+        <div class="text-center">
+            <h4 style="color:azure">EDITAR PEDIDO</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.pedi_ID)
+
         </div>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.pedi_DireccionID, "pedi_DireccionID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("pedi_DireccionID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.pedi_DireccionID, "", new { @class = "text-danger" })
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <br />
+                <div class="form-group">
+                    <label>Codigo del Pedido</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.pedi_Code, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.pedi_Code, "", new { @class = "text-danger" })
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.pedi_CostoEnvio, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.pedi_CostoEnvio, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.pedi_CostoEnvio, "", new { @class = "text-danger" })
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Costo de Envio</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.pedi_CostoEnvio, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.pedi_CostoEnvio, "", new { @class = "text-danger" })
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.estv_Id, "estv_Id", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("estv_Id", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.estv_Id, "", new { @class = "text-danger" })
+            <div class="col-sm-6">
+                <br />
+                <div class="form-group">
+                    <label>Direccion Actual</label>
+                    <div class="col-md-10">
+                        <input type="text" id="direc" name="direc" class="form-control" value="@Model.pedi_DireccionID" disabled />
+
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.emp_Id, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.emp_Id, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.emp_Id, "", new { @class = "text-danger" })
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Cliente Actual</label>
+                    <div class="col-md-10">
+                        <select disabled id="clien" name="clien" class="form-control"></select>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.pedi_Fecha, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.pedi_Fecha, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.pedi_Fecha, "", new { @class = "text-danger" })
+            <div class="col-sm-6">
+                <br />
+                <div class="form-group">
+                    <label>Estado del envio</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("estv_Id", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.estv_Id, "", new { @class = "text-danger" })
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.pedi_UsuarioCreador, "pedi_UsuarioCreador", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("pedi_UsuarioCreador", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.pedi_UsuarioCreador, "", new { @class = "text-danger" })
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Nueva Direccion</label>
+                    <div class="col-md-10">
+                        <select id="client_Id" name="client_Id" class="form-control"></select>
+                        <select id="pedi_DireccionID" name="pedi_DireccionID" class="form-control"></select>
+
+                        @Html.ValidationMessageFor(model => model.pedi_DireccionID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.pedi_FechaCreacion, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.pedi_FechaCreacion, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.pedi_FechaCreacion, "", new { @class = "text-danger" })
+            <div class="col-sm-6">
+                <br />
+                <div class="form-group">
+                    <label>Encargado Actual del Pedido</label>
+                    <div class="col-md-10">
+                        <input type="text" hidden id="emp" name="emp" value="@Model.emp_Id" disabled />
+                        <select id="emp_Des" name="emp_Id" class="form-control" disabled> </select>
+                        <br />
+                        <label>Nuevo Encargado</label>
+                        <select id="emp_Id" name="emp_Id" class="form-control"></select>
+
+                        @Html.ValidationMessageFor(model => model.emp_Id, "", new { @class = "text-danger" })
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.pedi_UsuarioMod, "pedi_UsuarioMod", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("pedi_UsuarioMod", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.pedi_UsuarioMod, "", new { @class = "text-danger" })
+            <div class="col-sm-6">
+                <br />
+                <div class="form-group">
+                    <label>Fecha del pedido</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.pedi_Fecha, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.pedi_Fecha, "", new { @class = "text-danger" })
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.pedi_FechaMod, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.pedi_FechaMod, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.pedi_FechaMod, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.pedi_Estado, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.pedi_Estado)
-                    @Html.ValidationMessageFor(model => model.pedi_Estado, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
                 </div>
             </div>
         </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
     </div>
-}
 
+
+
+}
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volver a la Lista", "Index")
 </div>
+<script src="~/Scripts/PedidoEditar.js"></script>
