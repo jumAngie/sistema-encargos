@@ -105,7 +105,7 @@ function Insertar() {
     if (usuario == "" || clave == "" || empleado == 0) {
     }
     else {
-        if (rol == 0 && adm == "" || rol != 0 && adm != "") {
+        if (rol == 0 && adm == "") {
             $("#labeladmin").text('Debe escoger uno solo');
         }
         else {

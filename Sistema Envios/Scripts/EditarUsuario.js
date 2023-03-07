@@ -1,35 +1,4 @@
 ﻿
-$(document).ready(function (ID) {
-    //var emp_Id = $("#emp_Id").val();
-    var rol_ID = $("#rol_ID").val();
-    //$.ajax({
-    //    url: "/Usuarios/CargarEmpleado",
-    //    method: "POST",
-    //    dataType: "json",
-    //    contentType: "application/json; charset=utf-8",
-    //    data: JSON.stringify({ emp_Id: emp_Id }),
-    //    success: function (data) {
-    //        $.each(data, function (i, value) {
-
-    //            $("#emp_Id").append("<option value='" + value.emp_Id + "'>" + value.emp_Nombre + "</option>")
-    //        })
-    //    }
-    //})
-    //$.ajax({
-    //    url: "/Usuarios/CargarRol",
-    //    method: "POST",
-    //    dataType: "json",
-    //    contentType: "application/json; charset=utf-8",
-    //    data: JSON.stringify({ rol_ID: rol_ID }),
-    //    success: function (data) {
-    //        $.each(data, function (i, value) {
-
-    //            $("#rol_ID").append("<option value='" + value.rol_ID + "'>" + value.rol_Descripcion + "</option>")
-    //        })
-    //    }
-    //})
-})
-
 
 $(function () {
     $('#Cancelar').click(function () {
@@ -132,8 +101,8 @@ function Editar(ID) {
     if (usuarioE == "" /*|| clave == "" || empleado == 0*/) {
     }
     else {
-        if (rolE == 0 && admE == "" || rolE != 0 && admE != "") {
-            $("#labeladminE").text('Debe escoger uno solo');
+        if (rolE == 0 && admE == "") {
+
         }
         else {
             $.ajax({

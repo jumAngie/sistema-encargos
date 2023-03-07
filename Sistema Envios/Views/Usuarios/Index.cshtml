@@ -13,7 +13,7 @@
             <div class="float-e-margins">
                 <div class="ibox-title">
                     <div class="ibox-tools">
-                        <input type="button" value="Nuevo" class="btn btn-primary" onclick="AbrirNuevo" />
+                        <input type="button" value="Nuevo" class="btn btn-primary" onclick="AbrirNuevo()" />
                     </div>
                 </div>
                 <br />
@@ -78,9 +78,9 @@
                                                                     <input type="text" name="txtUsuarioE" id="txtUsuarioE" class="form-control" style="border-color:black" />
                                                                 </div>
                                                                 <div class="col-sm-2">
-                                                                    <label style="color:black">Es Admin</label><label id="labeladminE" name="labeladminE" style="color:red"></label> <br /> <br />
+                                                                    <label style="color:black" hidden="hidden">Es Admin</label><label id="labeladminE" name="labeladminE" style="color:red"></label> <br /> <br />
                                                                     <div class="text-center">
-                                                                        <input type="checkbox" name="ckEsAdminE" id="ckEsAdminE" style="border-color:black" />
+                                                                        <input type="checkbox" hidden="hidden" name="ckEsAdminE" id="ckEsAdminE" style="border-color:black" />
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-5">
@@ -115,5 +115,3 @@
 @Html.Partial("EliminarUsuario")
 
 @Html.Partial("CrearUsuario")
-
-@*@Html.Partial("EditarUsuario")*@

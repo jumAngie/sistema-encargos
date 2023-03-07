@@ -83,6 +83,7 @@ namespace Sistema_Envios.Controllers
                     else
                     {
                         //ViewBag.depto_ID = new SelectList(db.UDP_CargarDepartamentos(), "depto_ID", "depto_Descripcion");
+                        //ViewBag.ciu_ID = new SelectList(db.tbCiudades, "ciu_ID", "ciu_Descripcion");
                         //ViewBag.est_ID = new SelectList(db.UDP_CargarEstadosCiviles(), "est_ID", "est_Descripcion");
                         ViewBag.carg_Id = new SelectList(db.tbCargos, "carg_Id", "carg_Description");
                         return View();
@@ -139,7 +140,7 @@ namespace Sistema_Envios.Controllers
                 throw;
             }
             //ViewBag.depto_ID = new SelectList(db.UDP_CargarDepartamentos(), "depto_ID", "depto_Descripcion");
-            //ViewBag.ciu_ID = new SelectList(db.tbCiudades, "ciu_ID", "ciu_Descripcion", tbEmpleados.ciu_ID);
+            //ViewBag.ciu_ID = new SelectList(db.tbCiudades, "ciu_ID", "ciu_Descripcion");
             //ViewBag.est_ID = new SelectList(db.UDP_CargarEstadosCiviles(), "est_ID", "est_Descripcion");
             return View();
         }
@@ -230,7 +231,7 @@ namespace Sistema_Envios.Controllers
         }
 
 
-        //[HttpPost]
+        [HttpPost]
         public JsonResult CargarMunicipios (string depto_ID)
         {
             var ddl = db.UDP_CargarCiudades(depto_ID).ToList();
