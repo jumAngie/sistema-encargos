@@ -42,11 +42,7 @@ CIUDADES:
 ...................................................PANTALLA TERMINADA....................................................
 
 DEPTOS:
--- botones
--- arreglar campos
--- arreglar editar
--- VALIDAR CAMPOS
--- TRY CATCH
+...................................................PANTALLA TERMINADA....................................................
 
 DIRECCIONES:
 ...................................................PANTALLA TERMINADA....................................................
@@ -63,7 +59,7 @@ USUARIOS:
 
 
 --DEJAR 8 INSERTS POR CADA TABLA.
-
+-- TITULOS
 
 --------------------------------------------------------------GENERAL----------------------------------------------------------------
 CAMBIAR DISEÑO DE DETALLES: UTILIZAR EL DEFAULT Y ELIMINAR LOS CAMPOS EXTRAS
