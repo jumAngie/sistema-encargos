@@ -146,9 +146,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Articulos.cs" />
-    <Compile Include="Models\CARGAR_DESCRIPCION_CARGO_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Cargos.cs" />
     <Compile Include="Models\Ciudades.cs" />
     <Compile Include="Models\Clientes.cs" />
@@ -228,6 +225,9 @@
     <Compile Include="Models\UDF_PedidosPorCliente_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UDP_CARGARARTICULOSDet_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UDP_CargarArticulos_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -240,13 +240,10 @@
     <Compile Include="Models\UDP_CARGARCLIENTES_DIRECCIONESEdit_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UDP_CARGARCLIENTES_EDITAR_PEDIDOS_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\UDP_CargarCliente_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UDP_CARGARDATA_editar_PEDIDOS_Result.cs">
+    <Compile Include="Models\UDP_CARGARCODIGOSDet_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UDP_CARGARDATOS_FABRICA_Result.cs">
@@ -258,10 +255,10 @@
     <Compile Include="Models\UDP_CARGARDEPTOS_DIRECCIONEDIT_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UDP_CargarDireccionPedidos_Result.cs">
+    <Compile Include="Models\UDP_CARGARDETALLE_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UDP_CargarEmpleadosPedidosEdit_Result.cs">
+    <Compile Include="Models\UDP_CargarDireccionPedidos_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UDP_CargarEmpleadosPedidos_Result.cs">
@@ -294,15 +291,6 @@
     <Compile Include="Models\UDP_CARGAR_CIUDAD_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UDP_CARGAR_CLIENTESPOR_PEDIDO_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UDP_CARGAR_CLIENTES_PEDIDO_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UDP_CARGAR_DATOS_EMPLEADOS_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\UDP_CARGAR_DEPARTAMENTO_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -310,9 +298,6 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UDP_CARGAR_DIRECCIONESEdit_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UDP_CARGAR_DIRECCIONES_PORCLIENTE_PEDIDO_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UDP_CARGAR_ESTADOSCIVILES_Result.cs">
@@ -327,19 +312,7 @@
     <Compile Include="Models\UDP_CARGAR_MUNICIPIO_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UDP_CARGAR_NOMBREEMP_PEDIDOS_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\UDP_DDLCargos_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UDP_DDL_CLIENTE_PEDIDO_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UDP_DDL_CLIENTE_PEIDO_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UDP_ddl_DIRECPORCLIENTE_EDITAR_PEDIDO_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UDP_ListaDeArticulosPorPedido_Result.cs">
@@ -3567,16 +3540,18 @@
     <Content Include="Scripts\CrearCarg.js" />
     <Content Include="Scripts\CrearClientes.js" />
     <Content Include="Scripts\CrearDeptos.js" />
+    <Content Include="Scripts\CrearDetalles.js" />
     <Content Include="Scripts\CrearDirec.js" />
     <Content Include="Scripts\CrearEmpleado.js" />
     <Content Include="Scripts\CrearEstadoC.js" />
     <Content Include="Scripts\CrearFab.js" />
     <Content Include="Scripts\CrearPedido.js" />
     <Content Include="Scripts\CrearUsuario.js" />
-    <Content Include="Scripts\Detalles.js" />
     <Content Include="Scripts\DireccionesEditar.js" />
     <Content Include="Scripts\EditarArt.js" />
     <Content Include="Scripts\EditarDeptos.js" />
+    <Content Include="Scripts\EditarDetalles.js" />
+    <Content Include="Scripts\EditarEmpleados.js" />
     <Content Include="Scripts\EditarEstadoC.js" />
     <Content Include="Scripts\EditarFabri.js" />
     <Content Include="Scripts\EliminarArticulo.js" />
@@ -3600,7 +3575,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\PedidoEditar.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

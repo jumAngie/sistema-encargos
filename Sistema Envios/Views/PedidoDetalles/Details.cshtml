@@ -8,89 +8,37 @@
 <div class="card">
     <div class="card-header bg-warning">
         <div class="text-center">
-            <h4 style="color:azure">Pedido Detalles</h4>
+            <h4 style="color:azure">Detalles: Pedido Detalles</h4>
         </div>
     </div>
     <div class="card-body">
-        <dl>
-            <div class="row">
-                <div class="col-sm-3">
-            <dt>
-                @Html.DisplayNameFor(model => model.art_ID)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.art_ID)
-            </dd>
+        <div class="row">
+            <div class="col-sm-4">
+                <!-- This is the third column -->
+                <dl>
+                    <dt>@Html.DisplayNameFor(model => model.pedi_ID)</dt>
+                    <dd>@Html.DisplayFor(model => model.pedi_ID)</dd>
+                </dl>
+            </div>
+            <div class="col-sm-4">
+                <!-- This is the first column -->
+                <dl>
+                    <dt>@Html.DisplayNameFor(model => model.art_ID)</dt>
+                    <dd>@Html.DisplayFor(model => model.art_ID)</dd>
+                </dl>
+            </div>
+            <div class="col-sm-4">
+                <!-- This is the second column -->
+                <dl>
+                    <dt>@Html.DisplayNameFor(model => model.det_Cantidad)</dt>
+                    <dd>@Html.DisplayFor(model => model.det_Cantidad)</dd>
+                </dl>
+            </div>
+        </div>
     </div>
-    <div class="col-sm-3">
-        <dt>
-            @Html.DisplayNameFor(model => model.det_Cantidad)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.det_Cantidad)
-        </dd>
-    </div>
-    <div class="col-sm-3">
-        <dt>
-            @Html.DisplayNameFor(model => model.det_FechaCrea)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.det_FechaCrea)
-        </dd>
-    </div>
-    <div class="col-sm-3">
-        <dt>
-            @Html.DisplayNameFor(model => model.det_FechaModif)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.det_FechaModif)
-        </dd>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-3">
-        <dt>
-            @Html.DisplayNameFor(model => model.det_Estado)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.det_Estado)
-        </dd>
-    </div>
-    <div class="col-sm-3">
-        <dt>
-            @Html.DisplayNameFor(model => model.tbUsuarios.usu_Usuario)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.tbUsuarios.usu_Usuario)
-        </dd>
-    </div>
-    <div class="col-sm-3">
-        <dt>
-            @Html.DisplayNameFor(model => model.tbUsuarios1.usu_Usuario)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.tbUsuarios1.usu_Usuario)
-        </dd>
-    </div>
-    <div class="col-sm-3">
-
-    </div>
-</div>
-        </dl>
-<div class="text-center">
-    <button class="btn btn-warning">
-        @Html.ActionLink("Edit", "Edit", new { id = Model.det_Id })
-    </button>
-    <button class="btn btn-warning">
-        @Html.ActionLink("Back to List", "Index")
-    </button>
-</div>
+    <div class="card-footer">
+        <div class="text-center">
+            @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-warning" })
+        </div>
     </div>
 </div>

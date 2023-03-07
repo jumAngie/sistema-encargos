@@ -288,7 +288,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_EMPLEADOS' n
       <PropertyRef Name="IDENTIDAD" />
       <PropertyRef Name="SEXO" />
       <PropertyRef Name="CARGO" />
-      <PropertyRef Name="CIUDAD_RESIDENCIA" />
     </Key>
     <Property Name="ID" Type="int" Nullable="false" />
     <Property Name="NOMBRE" Type="nvarchar" MaxLength="150" Nullable="false" />
@@ -296,9 +295,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_EMPLEADOS' n
     <Property Name="IDENTIDAD" Type="varchar" MaxLength="13" Nullable="false" />
     <Property Name="SEXO" Type="varchar" MaxLength="9" Nullable="false" />
     <Property Name="CARGO" Type="nvarchar" MaxLength="200" Nullable="false" />
-    <Property Name="FECHA_NACIMIENTO" Type="date" />
-    <Property Name="CIUDAD_RESIDENCIA" Type="nvarchar" MaxLength="255" Nullable="false" />
-    <Property Name="ESTADO_CIVIL" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_ESTADOS_CIVILES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -809,9 +805,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Function Name="CARGAR_DESCRIPCION_CARGO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="carg_Id" Type="int" Mode="In" />
-  </Function>
   <Function Name="UDF_ArticulosPorPedido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="PedidoCode" Type="varchar" Mode="In" />
     <ReturnType>
@@ -851,21 +844,9 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
   <Function Name="UDP_CARGAR_CIUDAD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ciu_ID" Type="int" Mode="In" />
   </Function>
-  <Function Name="UDP_CARGAR_CLIENTES_PEDIDO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="direc_ID" Type="int" Mode="In" />
-  </Function>
-  <Function Name="UDP_CARGAR_CLIENTESPOR_PEDIDO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="direc_ID" Type="int" Mode="In" />
-  </Function>
-  <Function Name="UDP_CARGAR_DATOS_EMPLEADOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="emp_Id" Type="int" Mode="In" />
-  </Function>
   <Function Name="UDP_CARGAR_DEPA_CIUDADES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="UDP_CARGAR_DEPARTAMENTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="depto_ID" Type="int" Mode="In" />
-  </Function>
-  <Function Name="UDP_CARGAR_DIRECCIONES_PORCLIENTE_PEDIDO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="client_ID" Type="int" Mode="In" />
   </Function>
   <Function Name="UDP_CARGAR_DIRECCIONESEdit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="direc_ID" Type="int" Mode="In" />
@@ -876,10 +857,8 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
   </Function>
   <Function Name="UDP_CARGAR_FABRICASArtc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="UDP_CARGAR_MUNICIPIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="UDP_CARGAR_NOMBREEMP_PEDIDOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="emp_Id" Type="int" Mode="In" />
-  </Function>
   <Function Name="UDP_CargarArticulos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="UDP_CARGARARTICULOSDet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="UDP_CargarCiudad_Empleados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ciu_ID" Type="int" Mode="In" />
   </Function>
@@ -888,19 +867,18 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
   </Function>
   <Function Name="UDP_CargarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="UDP_CARGARCLIENTES_DIRECCIONESEdit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="UDP_CARGARCLIENTES_EDITAR_PEDIDOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="UDP_CARGARDATA_editar_PEDIDOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="pedi_ID" Type="int" Mode="In" />
-  </Function>
+  <Function Name="UDP_CARGARCODIGOSDet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="UDP_CARGARDATOS_FABRICA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="fab_ID" Type="int" Mode="In" />
   </Function>
   <Function Name="UDP_CargarDepartamentos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="UDP_CARGARDEPTOS_DIRECCIONEDIT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="UDP_CARGARDETALLE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
   <Function Name="UDP_CargarDireccionPedidos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="UDP_CargarEmpleados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="UDP_CargarEmpleadosPedidos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="UDP_CargarEmpleadosPedidosEdit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="UDP_CargarEstadoDeEnvio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="UDP_CargarEstadosCiviles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="UDP_CargarFabricas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -914,11 +892,6 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
     <Parameter Name="ciu_Decription" Type="nvarchar" Mode="In" />
     <Parameter Name="ciu_IdDepto" Type="int" Mode="In" />
     <Parameter Name="UsuCrea" Type="int" Mode="In" />
-  </Function>
-  <Function Name="UDP_DDL_CLIENTE_PEDIDO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="UDP_DDL_CLIENTE_PEIDO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="UDP_ddl_DIRECPORCLIENTE_EDITAR_PEDIDO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="client_ID" Type="int" Mode="In" />
   </Function>
   <Function Name="UDP_DDLCargos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="UDP_DEPARTAMENTOS_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -1213,10 +1186,7 @@ advertencia 6002: La tabla o vista 'DBArticulosEncargos.dbo.V_INDEX_USUARIOS' no
     [V_INDEX_EMPLEADOS].[APELLIDO] AS [APELLIDO], 
     [V_INDEX_EMPLEADOS].[IDENTIDAD] AS [IDENTIDAD], 
     [V_INDEX_EMPLEADOS].[SEXO] AS [SEXO], 
-    [V_INDEX_EMPLEADOS].[CARGO] AS [CARGO], 
-    [V_INDEX_EMPLEADOS].[FECHA_NACIMIENTO] AS [FECHA_NACIMIENTO], 
-    [V_INDEX_EMPLEADOS].[CIUDAD_RESIDENCIA] AS [CIUDAD_RESIDENCIA], 
-    [V_INDEX_EMPLEADOS].[ESTADO_CIVIL] AS [ESTADO_CIVIL]
+    [V_INDEX_EMPLEADOS].[CARGO] AS [CARGO]
     FROM [dbo].[V_INDEX_EMPLEADOS] AS [V_INDEX_EMPLEADOS]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="V_INDEX_ESTADOS_CIVILES" EntityType="Self.V_INDEX_ESTADOS_CIVILES" store:Type="Views" store:Schema="dbo">

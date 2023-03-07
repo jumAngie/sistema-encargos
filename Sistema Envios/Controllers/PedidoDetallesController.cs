@@ -13,11 +13,10 @@ namespace Sistema_Envios.Controllers
     public class PedidoDetallesController : Controller
     {
         private DBArticulosEncargosEntities1 db = new DBArticulosEncargosEntities1();
-        public string Usu = "1";
 
         // GET: PedidoDetalles
         public ActionResult Index()
-        {if (Session.Count > 0)
+        {   if (Session.Count > 0)
             {
                 var tbPedidoDetallesIndex = db.V_INDEX_PEDIDOS_DETALLES;
                 return View(tbPedidoDetallesIndex.ToList());
@@ -31,69 +30,126 @@ namespace Sistema_Envios.Controllers
         // GET: PedidoDetalles/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            try
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return RedirectToAction("Index");
+                }
+                tbPedidoDetalles tbPedidoDetalles = db.tbPedidoDetalles.Find(id);
+                if (tbPedidoDetalles == null)
+                {
+                    return HttpNotFound(); // página 404
+                }
+                return View(tbPedidoDetalles);
             }
-            tbPedidoDetalles tbPedidoDetalles = db.tbPedidoDetalles.Find(id);
-            if (tbPedidoDetalles == null)
+            catch (Exception)
             {
-                return HttpNotFound();
+
+                return RedirectToAction("Index");
             }
-            return View(tbPedidoDetalles);
+            
         }
 
-        // GET: PedidoDetalles/Create
-        public ActionResult Create()
-        {
-            ViewBag.pedi_ID = new SelectList(db.tbPedidos, "pedi_ID", "pedi_Code");
-            ViewBag.det_UsuarioCrea = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario");
-            ViewBag.det_UsuModif = new SelectList(db.tbUsuarios, "usu_ID", "usu_Usuario");
-            return View();
-        }
-
-        // POST: PedidoDetalles/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        //[ValidateAntiForgeryToken]
+        public JsonResult CARGARCODIGOS()
+        {
+            var Codigos = db.UDP_CARGARCODIGOSDet().ToList();
+
+            return Json(Codigos, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult CARGARARTICULOSdet()
+        {
+            var Articulos = db.UDP_CARGARARTICULOSDet().ToList();
+
+            return Json(Articulos, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult Cargar(string det_ID)
+        {
+
+            var tbArticulos = db.UDP_CARGARDETALLE(int.Parse(det_ID)).ToList();
+            return Json(tbArticulos, JsonRequestBehavior.AllowGet);
+
+        }
+
+        [HttpPost]
         public ActionResult Create(string txtPedi, string txtArticulo, string txtCant)
         {
-            if (txtPedi == "0")
+
+            try
             {
-                
-                ModelState.AddModelError("Vacio", "El campo es obligatorio.");
-            }
-            else
-            {
-                int Usuario = 1;
-                int Pedi = Int32.Parse(txtPedi);
-                int Articulo = Int32.Parse(txtArticulo);
-                int Cantidad = Int32.Parse(txtCant);
                 if (ModelState.IsValid)
                 {
-                    try
-                    {
-                        db.UDP_PEDIDO_DETALLE(Pedi, Articulo, Cantidad, Usuario);
-                        return RedirectToAction("Index");
-                    }
-                    catch (Exception)
-                    {
-                        return RedirectToAction("Index");
-                    }
                     
+                    int Pedi = Int32.Parse(txtPedi);
+                    int Articulo = Int32.Parse(txtArticulo);
+                    int Cantidad = Int32.Parse(txtCant);
+                    db.UDP_PEDIDO_DETALLE(Pedi, Articulo, Cantidad, Int32.Parse(Session["UsuarioID"].ToString()));
+                    return RedirectToAction("Index");
                 }
-                return View();
             }
-            return View();
+            catch (Exception)
+            {
+                return RedirectToAction("Index");
+
+            }
+
+            return RedirectToAction("Index");
+
+
+        }
+
+        [HttpPost, ActionName("Editores")]
+     
+        public ActionResult Edito(string det_ID, string txtCantid, string txtArticuloID, string txtPedidoCode)
+
+        {
+            try
+            {
+                
+                if (ModelState.IsValid)
+                {
+                    if (txtCantid != "")
+                    {
+                        string UsuarioModi = Session["UsuarioID"].ToString();
+                        var Edit = db.UDP_Editar_PedidosDetalles(int.Parse(det_ID), int.Parse(txtPedidoCode), int.Parse(txtArticuloID), int.Parse(txtCantid), UsuarioModi);
+
+                    }
+
+                }
+                else
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Index");
+
+            }
+
+            return RedirectToAction("Index");
         }
 
 
         // GET: PedidoDetalles/Delete/5
         public ActionResult Delete(int id)
         {
-            db.UDP_Eliminar_PedidosDetalles(id, Usu);
-            return RedirectToAction("Index");
+            try
+            {
+                db.UDP_Eliminar_PedidosDetalles(id, Session["UsuarioID"].ToString());
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+
+                return RedirectToAction("Index"); // página 404
+            }
+            
         }
 
         public JsonResult CargarPedidos()

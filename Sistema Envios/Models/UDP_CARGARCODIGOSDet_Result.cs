@@ -11,9 +11,9 @@ namespace Sistema_Envios.Models
 {
     using System;
     
-    public partial class CARGAR_DESCRIPCION_CARGO_Result
+    public partial class UDP_CARGARCODIGOSDet_Result
     {
-        public int carg_Id { get; set; }
-        public string carg_Description { get; set; }
+        public int pedi_ID { get; set; }
+        public string pedi_Code { get; set; }
     }
 }
